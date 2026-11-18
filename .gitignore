@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+# Généré avant chaque build par tools/fonts-copy.mjs
+public/fonts/
+
+# Secrets des formulaires : ne jamais versionner (le fichier vit sur le serveur, hors de public_html)
+tilamed-forms-config.php
+public/api/config.php
+.env
+.env.*
+
+# Fichiers de travail
+content-map-raw.md
+*.log
+.DS_Store
+Thumbs.db

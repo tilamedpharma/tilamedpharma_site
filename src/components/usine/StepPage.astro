@@ -1,0 +1,72 @@
+---
+// Modèle commun des 7 pages d'étapes du procédé (Usine).
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import TopicBody from '../page/TopicBody.astro';
+import { useDict } from '../../i18n';
+import { useUsine } from '../../i18n/pages/usine';
+import { useEtapes } from '../../i18n/pages/etapes';
+import { localizePath, type Locale } from '../../i18n/config';
+import { processSteps } from '../../data/site';
+
+interface Props { lang: Locale; slug: string }
+const { lang, slug } = Astro.props;
+const t = useDict(lang);
+const u = useUsine(lang);
+const e = useEtapes(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const idx = processSteps.findIndex((s) => s.slug === slug);
+const cur = processSteps[idx];
+const s = e.steps[slug];
+const total = processSteps.length;
+const prev = idx > 0 ? processSteps[idx - 1] : null;
+const next = idx < total - 1 ? processSteps[idx + 1] : null;
+const stepLabel = `${e.ui.step} ${pad(idx + 1)} ${e.ui.of} ${pad(total)}`;
+const cardIcons = ['flask', 'eye', 'clock', 'shield'];
+---
+<PageHero lang={lang} section="usine" slug={slug} title={pages[slug]} lead={s.lead} video={cur.video}>
+  <span class="phero__step"><Icon name="route" size={16} />{stepLabel}</span>
+</PageHero>
+
+<!-- Progression dans le procédé -->
+<nav class="srail" aria-label={e.ui.rail}>
+  <div class="wrap">
+    <ol class="srail__list" style={`--p:${(idx + 1) / total}`}>
+      {processSteps.map((p, i) => (
+        <li class:list={{ 'is-done': i < idx, 'is-current': i === idx }}>
+          <a href={L(p.slug)} aria-current={i === idx ? 'step' : undefined}>
+            <span class="srail__n">{pad(i + 1)}</span>
+            <span class="srail__t">{u.process.steps[i].title}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+
+<!-- Contenu de l'étape -->
+<TopicBody lang={lang} eyebrowN={pad(idx + 1)} eyebrow={pages[slug]} intro={s.intro} blocks={[s.block]} facts={s.facts} note={s.note} figures={e.ui.figures} icons={cardIcons} />
+
+<!-- Étape précédente / suivante -->
+<nav class="spn" aria-label={e.ui.rail}>
+  <div class="wrap spn__grid">
+    <a class="spn__card spn__card--prev" href={L(prev ? prev.slug : 'usine')} rel={prev ? 'prev' : undefined}>
+      <span class="spn__img" style={`background-image:url(/media/video/${prev ? prev.video : 'couloir-zone-propre'}.jpg)`} aria-hidden="true"></span>
+      <span class="spn__body">
+        <span class="spn__k"><Icon name="arrow" size={16} class="spn__back" />{prev ? e.ui.prev : e.ui.overview}</span>
+        <span class="spn__t">{prev ? `${pad(idx)} · ${u.process.steps[idx - 1].title}` : e.ui.backTo}</span>
+      </span>
+    </a>
+    <a class="spn__card spn__card--next" href={L(next ? next.slug : 'usine')} rel={next ? 'next' : undefined}>
+      <span class="spn__body">
+        <span class="spn__k">{next ? e.ui.next : e.ui.overview}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        <span class="spn__t">{next ? `${pad(idx + 2)} · ${u.process.steps[idx + 1].title}` : e.ui.backTo}</span>
+      </span>
+      <span class="spn__img" style={`background-image:url(/media/video/${next ? next.video : 'couloir-zone-propre'}.jpg)`} aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+

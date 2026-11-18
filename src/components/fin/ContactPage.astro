@@ -1,0 +1,76 @@
+---
+// Page « Nous contacter » : formulaire (envoi via /api/form.php) + coordonnées directes et bureaux.
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict, countryName } from '../../i18n';
+import { useFin } from '../../i18n/pages/fin';
+import { type Locale } from '../../i18n/config';
+import { company, offices, coverage, socials } from '../../data/site';
+import imgContact from '../../assets/images/stock/medecins-tablette.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const c = useFin(lang).contact;
+const f = c.fields;
+const pages = t.nav.pages as Record<string, string>;
+const countries = [...coverage.map((x) => x.iso), 'FR'].map((iso) => ({ iso, name: countryName(lang, iso) })).sort((a, b) => a.name.localeCompare(b.name, lang));
+const wa = socials.find((s) => s.id === 'whatsapp');
+---
+<PageHero lang={lang} section="contact" slug="contact" title={pages['contact']} lead={c.lead} image={imgContact} />
+
+<section class="section pdoc" aria-labelledby="contact-title">
+  <div class="wrap stepc__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="mail" size={16} class="eyebrow__ic" /><span>{pages['contact']}</span></p>
+      <h2 class="h2" id="contact-title" data-reveal>{c.formTitle}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead stepc__intro" data-reveal>{c.intro}</p>
+      <form class="form" name="contact" method="POST" action="/api/form.php" data-form data-msg-sending={t.formMsg.sending} data-msg-ok={t.formMsg.ok} data-msg-error={t.formMsg.error} data-msg-big={t.formMsg.big}>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="langue" value={lang} />
+        <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
+        <label class="field"><span>{f.subject} <b aria-hidden="true">*</b></span>
+          <select name="objet" required><option value="">{f.select}</option>{c.subjects.map((x) => <option>{x}</option>)}</select>
+        </label>
+        <div class="form__row">
+          <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="nom" required autocomplete="name" /></label>
+          <label class="field"><span>{f.org}</span><input name="organisation" autocomplete="organization" /></label>
+        </div>
+        <div class="form__row form__row--3">
+          <label class="field"><span>{f.email} <b aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" /></label>
+          <label class="field"><span>{f.phone}</span><input type="tel" name="telephone" autocomplete="tel" dir="ltr" /></label>
+          <label class="field"><span>{f.country}</span>
+            <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}</select>
+          </label>
+        </div>
+        <label class="field"><span>{f.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="6" required></textarea></label>
+        <label class="check check--consent"><input type="checkbox" name="consentement" required /><span>{f.consent}</span></label>
+        <button class="btn" type="submit">{f.submit}<Icon name="arrow" size={18} class="flip-rtl" /></button>
+        <p class="form__status" role="status" aria-live="polite" hidden></p>
+        <p class="form__req"><b aria-hidden="true">*</b> {f.required}</p>
+      </form>
+    </div>
+    <aside class="stepc__aside">
+      <div class="sdoc" data-reveal>
+        <span class="sdoc__t">{c.directTitle}</span>
+        <a class="pdoc__contact" href={`mailto:${company.email}`}><Icon name="mail" size={18} />{company.email}</a>
+        <a class="pdoc__contact" href={`tel:${offices[0].tel}`} dir="ltr"><Icon name="phone" size={18} />{offices[0].phone}</a>
+        {wa && <a class="pdoc__contact" href={wa.url} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} />{c.whatsapp}</a>}
+      </div>
+      <div class="sfacts" data-reveal>
+        <p class="sfacts__h">{c.officesTitle}</p>
+        <ul class="coff">
+          {offices.map((o) => (
+            <li>
+              <strong>{t.footer.officeNames[o.id as keyof typeof t.footer.officeNames]}</strong>
+              <span dir="auto">{o.address.join(', ')}</span>
+              <a href={`tel:${o.tel}`} dir="ltr">{o.phone}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+

@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import HomePage from '../components/home/HomePage.astro';
+import { useDict } from '../i18n';
+
+const t = useDict('fr');
+---
+<Base lang="fr" title={t.meta.title} description={t.meta.description}>
+  <HomePage lang="fr" />
+</Base>

@@ -1,0 +1,136 @@
+---
+// Page « Qui sommes-nous ? » (rubrique À propos).
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict, countryName } from '../../i18n';
+import { useAPropos } from '../../i18n/pages/a-propos';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/affaires-equipe-femmes.jpg';
+import imgStory from '../../assets/images/stock/labo-scientifique-flacon.jpg';
+import imgPart from '../../assets/images/stock/affaires-dakar.jpg';
+import imgAct1 from '../../assets/images/stock/production-ampoules-ligne.jpg';
+import imgAct2 from '../../assets/images/stock/dispositifs-tensiometre-ecg.jpg';
+import imgAct3 from '../../assets/images/stock/labo-titration.jpg';
+import imgAct4 from '../../assets/images/stock/veterinaire-chien-noir.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const a = useAPropos(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const countries = ['BJ', 'BF', 'CI', 'ML', 'NE', 'NG', 'IN', 'FR', 'IT'];
+const actImgs = [imgAct1, imgAct2, imgAct3, imgAct4];
+const actIcons = ['factory', 'stetho', 'flask', 'paw'];
+const actLinks = ['usine', 'dispositifs-medicaux', 'laboratoire', 'sante-animale'];
+---
+<PageHero lang={lang} section="entreprise" slug="a-propos" title={pages['a-propos']} lead={a.hero.lead} image={imgHero} imageAlt={a.hero.imageAlt}>
+  <a class="btn" href="#histoire">{a.story.eyebrow}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('usine')}>{pages['usine']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts" aria-label={pages['a-propos']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {a.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- HISTOIRE -->
+<section class="section astory" id="histoire" aria-labelledby="astory-title">
+  <div class="wrap astory__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="clock" size={16} class="eyebrow__ic" /><span>{a.story.eyebrow}</span></p>
+      <h2 class="h2" id="astory-title" data-reveal>{a.story.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      {a.story.text.map((p, i) => <p class:list={[i === 0 ? 'lead astory__lead' : 'astory__p']} data-reveal>{p}</p>)}
+      <p class="astory__ct" data-reveal>{a.story.countriesTitle}</p>
+      <ul class="astory__countries" data-reveal>
+        {countries.map((c) => <li>{countryName(lang, c)}</li>)}
+      </ul>
+      <div class="astory__links" data-reveal>
+        <a class="link-arrow" href={L('parcours')}>{a.story.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+        <a class="link-arrow" href={L('vision-valeurs')}>{a.pillarsCta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+      </div>
+    </div>
+    <figure class="usite__visual" data-reveal="scale">
+      <Picture src={imgStory} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={a.story.imageAlt} loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<!-- ACTIVITÉS -->
+<section class="section acts" aria-labelledby="acts-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="factory" size={16} class="eyebrow__ic" /><span>{t.activities.eyebrow}</span></p>
+        <h2 class="h2" id="acts-title" data-reveal>{t.activities.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{t.activities.intro}</p>
+    </div>
+    <div class="acts__grid">
+      {t.activities.items.map((it, i) => (
+        <a class="act" href={L(actLinks[i])} data-reveal style={`--d:${i}`}>
+          <div class="act__img">
+            <Picture src={actImgs[i]} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 24vw" alt={it.alt} loading="lazy" />
+          </div>
+          <span class="act__n">{pad(i + 1)}</span>
+          <span class="act__icon"><Icon name={actIcons[i]} size={24} /></span>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIFS -->
+<section class="section aobj" aria-labelledby="aobj-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{a.objectives.eyebrow}</span></p>
+      <h2 class="h2" id="aobj-title" data-reveal>{a.objectives.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <a class="link-arrow" href={L('pourquoi-le-benin')} data-reveal>{a.objectives.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+    </div>
+    <ol class="aobj__list">
+      {a.objectives.items.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}><span class="aobj__n">{pad(i + 1)}</span><p>{x}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- PARTENARIATS -->
+<section class="apart" aria-labelledby="apart-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgPart} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="globe" size={16} /><span>{a.partnership.eyebrow}</span></p>
+        <h2 class="apart__title" id="apart-title">{a.partnership.title}</h2>
+        <p>{a.partnership.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('organisations-sante')}>{a.partnership.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('contact')}>{a.partnership.cta2}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

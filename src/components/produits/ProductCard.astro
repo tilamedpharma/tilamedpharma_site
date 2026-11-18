@@ -1,0 +1,32 @@
+---
+// Fiche courte d'un produit du catalogue.
+import { useCatalog, itemText, formatLabel, routeLabel } from '../../i18n/catalog';
+import type { Locale } from '../../i18n/config';
+import type { CatalogItem } from '../../data/catalog';
+
+interface Props { lang: Locale; item: CatalogItem; search?: string }
+const { lang, item, search } = Astro.props;
+const c = useCatalog(lang);
+const { name, use } = itemText(lang, item);
+const st = c.status[item.family];
+---
+<li class:list={['pcard', `pcard--${item.family}`]} data-g={item.group} data-s={search}>
+  <div class="pcard__top">
+    <span class="pcard__badge" title={st.note}>{st.badge}</span>
+    {item.phase && <span class="pcard__phase">P{item.phase}</span>}
+  </div>
+  <h3 class="pcard__name">{name}</h3>
+  <p class="pcard__use">{use}</p>
+  {item.formats?.length ? (
+    <ul class="pcard__formats" aria-label={c.ui.formats}>
+      {item.formats.map((f) => <li dir="ltr">{formatLabel(lang, f)}</li>)}
+    </ul>
+  ) : null}
+  {(item.route || item.line || item.pack) && (
+    <dl class="pcard__meta">
+      {item.route && <><dt>{c.ui.route}</dt><dd dir="auto">{routeLabel(lang, item.route)}</dd></>}
+      {item.line && <><dt>{c.ui.line}</dt><dd>{c.lines[item.line]}</dd></>}
+      {item.pack && <><dt>{c.ui.pack}</dt><dd>{c.packs[item.pack]}</dd></>}
+    </dl>
+  )}
+</li>

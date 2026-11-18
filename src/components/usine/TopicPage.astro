@@ -1,0 +1,42 @@
+---
+// Pages de détail (rubriques Usine, À propos…) : en-tête, corps commun, pages de la rubrique.
+import PageHero from '../page/PageHero.astro';
+import TopicBody from '../page/TopicBody.astro';
+import { useDict } from '../../i18n';
+import { useUsine } from '../../i18n/pages/usine';
+import { useEtapes } from '../../i18n/pages/etapes';
+import { getTopic } from '../../i18n/pages/topics';
+import { type Locale } from '../../i18n/config';
+import { topicPages } from '../../data/topics';
+
+interface Props { lang: Locale; slug: string }
+const { lang, slug } = Astro.props;
+const t = useDict(lang);
+const pages = t.nav.pages as Record<string, string>;
+const conf = topicPages.find((x) => x.slug === slug)!;
+const base = getTopic(lang, slug);
+// Agréments : la liste officielle (références, autorités) vient de l'accueil, déjà traduite.
+// Clients : la liste des clients cibles (avec exemples) vient aussi de l'accueil.
+const p = slug === 'agrements'
+  ? { ...base, blocks: [{ kind: 'refs' as const, title: t.compliance.title, text: t.compliance.intro, items: t.compliance.items }, ...base.blocks] }
+  : slug === 'clients'
+  ? { ...base, blocks: [{ kind: 'cards' as const, title: t.clients.eyebrow, items: t.clients.items.map((c) => ({ title: c.title, text: c.examples })) }, ...base.blocks] }
+  : base;
+const e = useEtapes(lang);
+const u = useUsine(lang);
+---
+<PageHero lang={lang} section={conf.section} slug={slug} title={pages[slug]} lead={p.lead} video={conf.video} image={conf.image} imageAlt="" />
+
+<TopicBody
+  lang={lang}
+  eyebrow={pages[slug]}
+  intro={p.intro}
+  blocks={p.blocks}
+  facts={p.facts}
+  note={p.note}
+  figures={e.ui.figures}
+  icons={conf.icons}
+  map={conf.map ? { directions: u.location.directions } : undefined}
+  doc={conf.section === 'usine'}
+/>
+

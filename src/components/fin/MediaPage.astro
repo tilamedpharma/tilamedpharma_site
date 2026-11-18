@@ -1,0 +1,60 @@
+---
+// Page « Médiathèque » : photos TILAMED (visionneuse plein écran).
+// La section « Le procédé en vidéo » a été retirée (vidéos visibles sur les pages de l'usine).
+import { Picture, getImage } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useFin } from '../../i18n/pages/fin';
+import { type Locale } from '../../i18n/config';
+import p1 from '../../assets/images/tilamed/02-poches-perfusion.jpg';
+import p2 from '../../assets/images/tilamed/03-pharmacien-poche.jpg';
+import p3 from '../../assets/images/tilamed/06-equipe-salle-propre.jpg';
+import p4 from '../../assets/images/tilamed/07-equipe-conditionnement.jpg';
+import p5 from '../../assets/images/tilamed/09-visite-usine-1.jpg';
+import p6 from '../../assets/images/tilamed/10-visite-usine-2.jpg';
+import p7 from '../../assets/images/tilamed/11-salon-emballage.jpg';
+import p8 from '../../assets/images/tilamed/12-salons-internationaux.jpg';
+import p9 from '../../assets/images/tilamed/13-arab-health-dubai.jpg';
+import p10 from '../../assets/images/tilamed/15-medica-dubai.jpg';
+import imgHero from '../../assets/images/tilamed/09-visite-usine-1.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const m = useFin(lang).media;
+const pages = t.nav.pages as Record<string, string>;
+const photos = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+const full = await Promise.all(photos.map((p) => getImage({ src: p, width: 1400, format: 'webp' })));
+---
+<PageHero lang={lang} section="medias" slug="mediatheque" title={pages['mediatheque']} lead={m.lead} image={imgHero} />
+
+<section class="section mgal" aria-labelledby="mgal-title" data-gallery>
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="eye" size={16} class="eyebrow__ic" /><span>{pages['mediatheque']}</span></p>
+        <h2 class="h2" id="mgal-title" data-reveal>{m.photosTitle}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{m.photosIntro}</p>
+    </div>
+    <ul class="mgal__grid">
+      {photos.map((p, i) => (
+        <li data-reveal style={`--d:${i % 3}`}>
+          <a class="mgal__item" href={full[i].src} data-gal-item data-caption={m.captions[i]}>
+            <Picture src={p} formats={['avif', 'webp']} widths={[400, 640]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 31vw" alt={m.captions[i]} loading="lazy" />
+            <span class="mgal__cap">{m.captions[i]}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <dialog class="lightbox" data-gal-dialog aria-label={m.photosTitle}>
+    <button class="lightbox__close" type="button" data-gal-close aria-label={m.close}><Icon name="close" size={22} /></button>
+    <button class="lightbox__nav lightbox__nav--prev" type="button" data-gal-prev aria-label={m.prev}><Icon name="arrow" size={22} class="lightbox__back" /></button>
+    <figure><img data-gal-img alt="" /><figcaption data-gal-cap></figcaption></figure>
+    <button class="lightbox__nav lightbox__nav--next" type="button" data-gal-next aria-label={m.next}><Icon name="arrow" size={22} class="flip-rtl" /></button>
+  </dialog>
+</section>
+

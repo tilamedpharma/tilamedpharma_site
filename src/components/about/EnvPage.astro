@@ -1,0 +1,115 @@
+---
+// Page « Environnement » (rubrique À propos).
+// Les six leviers sont ceux de l'accueil (t.impact.items, déjà traduits) ; le certificat environnemental vient de la liste officielle.
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useEnvironnement } from '../../i18n/pages/environnement';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/green-entrepot-solaire-campagne.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const v = useEnvironnement(lang);
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+
+const cces = t.compliance.items[2];
+const certs = [
+  { title: cces.title, text: `${cces.ref} · ${cces.by}`, status: 'done' as const, icon: 'check-circle' },
+  { title: v.certs.edge.title, text: v.certs.edge.text, status: 'progress' as const, icon: 'building' },
+  { title: v.certs.iso.title, text: v.certs.iso.text, status: 'target' as const, icon: 'award' },
+];
+---
+<PageHero lang={lang} section="entreprise" slug="environnement" title={pages['environnement']} lead={v.hero.lead} image={imgHero}>
+  <a class="btn" href="#leviers">{v.hero.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('certifications')}>{pages['certifications']}</a>
+</PageHero>
+
+<!-- EDGE -->
+<section class="section" aria-labelledby="eedge-title">
+  <div class="wrap">
+    <div class="rtr" data-reveal>
+      <div class="rtr__fig">
+        <p class="rtr__num efirst__num">EDGE</p>
+        <p class="rtr__label">{v.edge.figLabel}</p>
+      </div>
+      <div class="rtr__body">
+        <p class="eyebrow eyebrow--light"><Icon name="leaf" size={16} /><span>{v.edge.eyebrow}</span></p>
+        <h2 class="rtr__title" id="eedge-title">{t.impact.greenTitle}</h2>
+        <p>{v.edge.text}</p>
+      </div>
+    </div>
+    <ul class="ecrit">
+      {v.edge.criteria.map((c, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ecrit__num" dir="ltr">−{c.value}<small>%</small></p>
+          <p class="ecrit__l">{c.label}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="ecrit__note" data-reveal>{v.edge.criteriaNote}</p>
+  </div>
+</section>
+
+<!-- LEVIERS -->
+<section class="section elev" id="leviers" aria-labelledby="elev-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="recycle" size={16} class="eyebrow__ic" /><span>{v.levers.eyebrow}</span></p>
+        <h2 class="h2" id="elev-title" data-reveal>{v.levers.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{v.levers.intro}</p>
+    </div>
+    <ul class="elev__grid">
+      {t.impact.items.map((it, i) => (
+        <li data-reveal style={`--d:${i % 3}`}>
+          <span class="elev__ic"><Icon name={it.icon} size={24} /></span>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" aria-labelledby="ecert-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="award" size={16} class="eyebrow__ic" /><span>{v.certs.eyebrow}</span></p>
+      <h2 class="h2" id="ecert-title" data-reveal>{v.certs.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="ecert">
+      {certs.map((c, i) => (
+        <li class:list={['ecert__item', `is-${c.status}`]} data-reveal style={`--d:${i}`}>
+          <div class="ecert__top">
+            <span class="ecert__ic"><Icon name={c.icon} size={22} /></span>
+            <span class="ecert__status">{v.certs.status[c.status]}</span>
+          </div>
+          <h3>{c.title}</h3>
+          <p>{c.text}</p>
+        </li>
+      ))}
+    </ul>
+    <a class="link-arrow ecert__more" href={L('certifications')} data-reveal>{pages['certifications']}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+  </div>
+</section>
+
+<!-- TRAJECTOIRE RENOUVELABLE -->
+<section class="section bcovid" aria-labelledby="eband-title">
+  <div class="wrap bcovid__inner">
+    <p class="eyebrow eyebrow--light" data-reveal><Icon name="sun" size={16} /><span>{v.band.eyebrow}</span></p>
+    <p class="bcovid__text" id="eband-title" data-reveal>{v.band.text}</p>
+    <div class="bcovid__ctas" data-reveal>
+      <a class="btn btn--light" href={L('rse')}>{pages['rse']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+      <a class="btn btn--outline-light" href={L('utilites')}>{pages['utilites']}</a>
+    </div>
+  </div>
+</section>
+

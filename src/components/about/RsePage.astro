@@ -1,0 +1,155 @@
+---
+// Page « Responsabilité sociétale » (rubrique À propos) : impact, trois piliers (utile, inclusive, verte),
+// transfert de compétences, engagements. Texte du transfert repris de la page Usine › Transfert de technologie.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useRse } from '../../i18n/pages/rse';
+import { getTopic } from '../../i18n/pages/topics';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/benin-cotonou-rue.jpg';
+import imgUseful from '../../assets/images/stock/perfusion-poche-pied.jpg';
+import imgIncl from '../../assets/images/stock/inclusion-fauteuil-tableau.jpg';
+import imgGreen from '../../assets/images/stock/green-installation-solaire.jpg';
+import imgCta from '../../assets/images/stock/inclusion-equipe-discussion.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const r = useRse(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+const transferText = getTopic(lang, 'transfert-technologie').intro;
+
+const impactIcons = ['stetho', 'users', 'shield', 'book'];
+const pillarImgs = [imgUseful, imgIncl, imgGreen];
+const pillarIcons = ['vial', 'accessible', 'leaf'];
+const pillarLinks = ['produits', 'egalite', 'environnement'];
+---
+<PageHero lang={lang} section="entreprise" slug="rse" title={pages['rse']} lead={r.hero.lead} image={imgHero}>
+  <a class="btn" href="#impact">{r.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href="#engagements">{r.hero.cta2}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts dfacts" aria-label={pages['rse']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {r.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section" id="impact" aria-labelledby="rimp-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{r.impact.eyebrow}</span></p>
+      <h2 class="h2" id="rimp-title" data-reveal>{r.impact.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vval__list">
+      {r.impact.items.map((it, i) => (
+        <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={impactIcons[i]} size={24} /></span>
+          </div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- TROIS PILIERS : utile, inclusive, verte -->
+<section class="section vcom" aria-labelledby="rpil-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="layers" size={16} class="eyebrow__ic" /><span>{r.pillars.eyebrow}</span></p>
+      <h2 class="h2" id="rpil-title" data-reveal>{t.impact.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vcom__grid">
+      {r.pillars.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="vcom__card" href={L(pillarLinks[i])}>
+            <div class="vcom__img">
+              <Picture src={pillarImgs[i]} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 900px) 92vw, 30vw" alt="" loading="lazy" />
+            </div>
+            <div class="vcom__body">
+              <span class:list={['vcom__ic', { 'is-green': i === 2 }]}><Icon name={pillarIcons[i]} size={22} /></span>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+              <span class="link-arrow">{pages[pillarLinks[i]]}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- TRANSFERT DE COMPÉTENCES -->
+<section class="section" aria-labelledby="rtr-title">
+  <div class="wrap">
+    <div class="rtr" data-reveal>
+      <div class="rtr__fig">
+        <p class="rtr__num" dir="ltr">{r.transfer.value}<small>{r.transfer.unit}</small></p>
+        <p class="rtr__label">{r.transfer.label}</p>
+      </div>
+      <div class="rtr__body">
+        <p class="eyebrow eyebrow--light"><Icon name="wrench" size={16} /><span>{r.transfer.eyebrow}</span></p>
+        <h2 class="rtr__title" id="rtr-title">{r.transfer.title}</h2>
+        <p>{transferText}</p>
+        <a class="btn btn--light" href={L('transfert-technologie')}>{pages['transfert-technologie']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="section aobj benv" id="engagements" aria-labelledby="reng-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="check-circle" size={16} class="eyebrow__ic" /><span>{r.commitments.eyebrow}</span></p>
+      <h2 class="h2" id="reng-title" data-reveal>{r.commitments.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ol class="aobj__list">
+      {r.commitments.items.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}><span class="aobj__n">{pad(i + 1)}</span><p>{x}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- PARTENARIATS -->
+<section class="apart vcta" aria-labelledby="rcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="globe" size={16} /><span>{r.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="rcta-title">{r.cta.title}</h2>
+        <p>{r.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('organisations-sante')}>{pages['organisations-sante']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('contact')}>{r.cta.cta2}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

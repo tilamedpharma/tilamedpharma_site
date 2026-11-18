@@ -1,0 +1,4 @@
+# Fichiers générés par Astro : nom avec empreinte, donc cache d'un an.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>

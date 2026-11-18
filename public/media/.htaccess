@@ -1,0 +1,4 @@
+# Médias (vidéos, photos) : cache d'une semaine.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=604800"
+</IfModule>

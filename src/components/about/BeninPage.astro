@@ -1,0 +1,165 @@
+---
+// Page « Pourquoi le Bénin ? » (rubrique À propos).
+// Réutilise les gabarits valeurs / objectifs ; position stratégique illustrée par un schéma du corridor côtier.
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict, countryName } from '../../i18n';
+import { useBenin } from '../../i18n/pages/benin';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/benin-cotonou-moto.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const b = useBenin(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const benefitIcons = ['box', 'eye', 'tag', 'users'];
+const posIcons = ['users', 'truck', 'globe'];
+// Corridor côtier Abidjan – Lagos, d'ouest en est (schéma, pas à l'échelle). La carte des 15 pays vit sur « presence ».
+type Stop = { city?: string; iso?: string; port?: boolean; plant?: boolean; border?: boolean };
+const corridor: Stop[] = [
+  { city: 'Abidjan', iso: 'CI' }, { city: 'Accra', iso: 'GH' }, { city: 'Lomé', iso: 'TG' },
+  { city: 'Cotonou', iso: 'BJ', port: true }, { city: 'Sèmè-Podji', iso: 'BJ', plant: true },
+  { border: true }, { city: 'Lagos', iso: 'NG' },
+];
+// Ligne de vagues (côte) : demi-arcs de 12 px sur 600 px, décalée de `dy`.
+const wave = (dy: number) => 'M0 ' + (3 + dy / 2) + Array.from({ length: 50 }, (_, i) => ` q6 ${i % 2 ? 4 : -4} 12 0`).join('');
+---
+<PageHero lang={lang} section="entreprise" slug="pourquoi-le-benin" title={pages['pourquoi-le-benin']} lead={b.hero.lead} image={imgHero}>
+  <a class="btn" href="#constat">{b.hero.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('site-seme-podji')}>{pages['site-seme-podji']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts pfacts" aria-label={pages['pourquoi-le-benin']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {b.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- LE CONSTAT : importée vs fabriquée au Bénin -->
+<section class="section bprob" id="constat" aria-labelledby="bprob-title">
+  <div class="wrap bprob__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="search" size={16} class="eyebrow__ic" /><span>{b.problem.eyebrow}</span></p>
+      <h2 class="h2" id="bprob-title" data-reveal>{b.problem.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead bprob__text" data-reveal>{b.problem.text}</p>
+    </div>
+    <div class="bcmp" data-reveal="scale">
+      <div class="bcmp__lane is-today">
+        <p class="bcmp__label"><Icon name="globe" size={16} />{b.problem.todayLabel}</p>
+        <ol>{b.problem.today.map((s, i) => <li><span class="bcmp__n">{pad(i + 1)}</span>{s}</li>)}</ol>
+      </div>
+      <div class="bcmp__lane is-local">
+        <p class="bcmp__label"><Icon name="pin" size={16} />{b.problem.tomorrowLabel}</p>
+        <ol>{b.problem.tomorrow.map((s, i) => <li><span class="bcmp__n">{pad(i + 1)}</span>{s}</li>)}</ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÉNÉFICES -->
+<section class="section bben" aria-labelledby="bben-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{b.benefits.eyebrow}</span></p>
+      <h2 class="h2" id="bben-title" data-reveal>{b.benefits.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vval__list">
+      {b.benefits.items.map((it, i) => (
+        <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={benefitIcons[i]} size={24} /></span>
+          </div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- POSITION STRATÉGIQUE -->
+<section class="section bpos" aria-labelledby="bpos-title">
+  <div class="wrap bpos__grid">
+    <div class="bcor__wrap" data-reveal="scale"><figure class="bcor">
+      <figcaption class="bcor__cap"><Icon name="route" size={16} />{b.position.corridor}</figcaption>
+      <ol class="bcor__line" dir="ltr">
+        {corridor.map((s) => s.border ? (
+          <li class="bcor__border"><span>{b.position.border}</span></li>
+        ) : (
+          <li class:list={['bcor__stop', { 'is-plant': s.plant, 'is-port': s.port }]}>
+            <span class="bcor__dot">{s.plant && <Icon name="factory" size={22} />}</span>
+            <span class="bcor__txt">
+              <b>{s.city}</b>
+              <small>{s.plant ? t.presence.plant : countryName(lang, s.iso!)}</small>
+              {s.port && <em>{b.position.port}</em>}
+            </span>
+          </li>
+        ))}
+      </ol>
+      <div class="bcor__sea">
+        <svg viewBox="0 0 600 14" preserveAspectRatio="none" aria-hidden="true"><path d={wave(0)} /><path d={wave(7)} /></svg>
+        <span>{t.presence.ocean}</span>
+      </div>
+    </figure></div>
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="pin" size={16} class="eyebrow__ic" /><span>{b.position.eyebrow}</span></p>
+      <h2 class="h2" id="bpos-title" data-reveal>{b.position.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead bpos__text" data-reveal>{b.position.text}</p>
+      <ul class="bpos__list">
+        {b.position.items.map((it, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <span class:list={['bpos__ic', { 'is-green': i === 2 }]}><Icon name={posIcons[i]} size={22} /></span>
+            <div><h3>{it.title}</h3><p>{it.text}</p></div>
+          </li>
+        ))}
+      </ul>
+      <a class="link-arrow" href={L('presence')} data-reveal>{pages['presence']}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- ENVIRONNEMENT FAVORABLE -->
+<section class="section aobj benv" aria-labelledby="benv-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="shield" size={16} class="eyebrow__ic" /><span>{b.env.eyebrow}</span></p>
+      <h2 class="h2" id="benv-title" data-reveal>{b.env.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ol class="aobj__list">
+      {b.env.items.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}><span class="aobj__n">{pad(i + 1)}</span><p>{x}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- SOUVERAINETÉ SANITAIRE -->
+<section class="section bcovid" aria-labelledby="bcovid-title">
+  <div class="wrap bcovid__inner">
+    <p class="eyebrow eyebrow--light" data-reveal><Icon name="shield" size={16} /><span>{b.covid.eyebrow}</span></p>
+    <p class="bcovid__text" id="bcovid-title" data-reveal>{b.covid.text}</p>
+    <div class="bcovid__ctas" data-reveal>
+      <a class="btn btn--light" href={L('site-seme-podji')}>{pages['site-seme-podji']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+      <a class="btn btn--outline-light" href={L('usine')}>{pages['usine']}</a>
+    </div>
+  </div>
+</section>
+

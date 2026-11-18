@@ -1,0 +1,158 @@
+---
+// Page « Vision, mission et valeurs » (rubrique À propos).
+// Vision et mission : textes du profil 2026, déjà traduits pour l'accueil (t.about.pillars).
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useVision } from '../../i18n/pages/vision';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/infirmiere-portrait.jpg';
+import imgEgal from '../../assets/images/stock/inclusion-femmes-metiers.jpg';
+import imgLocal from '../../assets/images/stock/production-salle-sterile-equipe.jpg';
+import imgGreen from '../../assets/images/stock/green-toiture-solaire-industrielle.jpg';
+import imgCta from '../../assets/images/stock/medecin-patiente-couloir.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const v = useVision(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+const [pVision, pMission] = t.about.pillars;
+
+const valueIcons = ['book', 'award', 'shield', 'check-circle'];
+const valueLinks = ['bpf-oms', 'controle-qualite', 'agrements', 'tracabilite'];
+const commitImgs = [imgEgal, imgLocal, imgGreen];
+const commitIcons = ['accessible', 'users', 'leaf'];
+const commitLinks = ['egalite', 'rse', 'environnement'];
+---
+<PageHero lang={lang} section="entreprise" slug="vision-valeurs" title={pages['vision-valeurs']} lead={v.hero.lead} image={imgHero}>
+  <a class="btn" href="#valeurs">{v.hero.ctaValues}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href="#engagements">{v.hero.ctaCommit}</a>
+</PageHero>
+
+<!-- DEVISE (marque : toujours en français, traduction en dessous) -->
+<section class="section vmotto" aria-labelledby="vmotto-title">
+  <div class="wrap">
+    <p class="eyebrow vmotto__eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{v.motto.eyebrow}</span></p>
+    <h2 class="vmotto__quote" id="vmotto-title" lang="fr" dir="ltr" data-reveal>
+      <span class="vmotto__q" aria-hidden="true">«&#8239;</span><span class="vmotto__near">Plus près,</span> <span class="vmotto__safe">plus sûr</span> pour votre santé<span class="vmotto__q" aria-hidden="true">&#8239;»</span>
+    </h2>
+    {v.motto.translation && <p class="vmotto__tr" data-reveal>{v.motto.translation}</p>}
+    <div class="vmotto__duo">
+      {[v.motto.near, v.motto.safe].map((m, i) => (
+        <div class:list={['vmotto__half', { 'is-green': i === 1 }]} data-reveal style={`--d:${i}`}>
+          <span class="vmotto__mark"><Icon name={i === 0 ? 'pin' : 'shield'} size={22} /></span>
+          <h3>{m.title}</h3>
+          <p>{m.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- VISION · MISSION -->
+<section class="section vvm" aria-label={pages['vision-valeurs']}>
+  <div class="wrap vvm__grid">
+    <article class="vvm__vision" data-reveal>
+      <p class="eyebrow eyebrow--light"><Icon name="eye" size={16} /><span>{v.vision.eyebrow}</span></p>
+      <h2 class="vvm__statement">{pVision.text}</h2>
+      <p class="vvm__text">{v.vision.text}</p>
+      <div class="vvm__horizon">
+        <p class="vvm__num" dir="ltr">{v.vision.horizon}<small>{v.vision.horizonUnit}</small></p>
+        <p class="vvm__hl">{v.vision.horizonLabel}</p>
+      </div>
+    </article>
+    <article class="vvm__mission" data-reveal style="--d:1">
+      <p class="eyebrow"><Icon name="route" size={16} class="eyebrow__ic" /><span>{v.mission.eyebrow}</span></p>
+      <h2 class="vvm__statement vvm__statement--dark">{pMission.text}</h2>
+      <ol class="vvm__keys">
+        {v.mission.keys.map((k, i) => (
+          <li>
+            <span class="vvm__kn">{pad(i + 1)}</span>
+            <div><h3>{k.title}</h3><p>{k.text}</p></div>
+          </li>
+        ))}
+      </ol>
+    </article>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="section vval" id="valeurs" aria-labelledby="vval-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split vval__head">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="award" size={16} class="eyebrow__ic" /><span>{v.values.eyebrow}</span></p>
+        <h2 class="h2" id="vval-title" data-reveal>{v.values.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{v.values.intro}</p>
+    </div>
+    <ul class="vval__list">
+      {v.values.items.map((it, i) => (
+        <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={valueIcons[i]} size={24} /></span>
+          </div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+          <a class="link-arrow" href={L(valueLinks[i])}>{pages[valueLinks[i]]}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="section vcom" id="engagements" aria-labelledby="vcom-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="check-circle" size={16} class="eyebrow__ic" /><span>{v.commitments.eyebrow}</span></p>
+      <h2 class="h2" id="vcom-title" data-reveal>{v.commitments.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vcom__grid">
+      {v.commitments.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="vcom__card" href={L(commitLinks[i])}>
+            <div class="vcom__img">
+              <Picture src={commitImgs[i]} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 900px) 92vw, 30vw" alt="" loading="lazy" />
+            </div>
+            <div class="vcom__body">
+              <span class:list={['vcom__ic', { 'is-green': i === 2 }]}><Icon name={commitIcons[i]} size={22} /></span>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+              <span class="link-arrow">{pages[commitLinks[i]]}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- APPEL À L'ACTION -->
+<section class="apart vcta" aria-labelledby="vcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="users" size={16} /><span>{v.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="vcta-title">{v.cta.title}</h2>
+        <p>{v.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('contact')}>{v.cta.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('usine')}>{pages['usine']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

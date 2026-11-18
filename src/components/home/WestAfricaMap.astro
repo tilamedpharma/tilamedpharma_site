@@ -1,0 +1,73 @@
+---
+// Carte SVG générée au build (d3-geo + world-atlas) : aucun JavaScript côté client.
+import { geoMercator, geoPath, geoBounds } from 'd3-geo';
+import { feature } from 'topojson-client';
+import world from 'world-atlas/countries-50m.json';
+import { coverage, routes, company } from '../../data/site';
+import { countryName, type Dict } from '../../i18n';
+import type { Locale } from '../../i18n/config';
+
+interface Props { lang: Locale; t: Dict }
+const { lang, t } = Astro.props;
+
+const W = 760, H = 520;
+const all = (feature(world as any, (world as any).objects.countries) as any).features as any[];
+// Cadre : Afrique de l'Ouest (Cap-Vert inclus)
+const frame = { type: 'MultiPoint', coordinates: [[-25.6, 3.2], [16.5, 3.2], [16.5, 22.5], [-25.6, 22.5]] } as any;
+const proj = geoMercator().fitExtent([[0, 0], [W, H]], frame);
+const path = geoPath(proj);
+const covNums = new Set(coverage.map((c) => c.num));
+const visible = all.filter((f) => {
+  const [[x0, y0], [x1, y1]] = geoBounds(f);
+  return x0 <= x1 && x1 > -27 && x0 < 18 && y1 > 2 && y0 < 24;
+});
+const plant = proj([company.plant.lng, company.plant.lat])!;
+const arcs = routes.map((r) => {
+  const p = proj([r.lng, r.lat])!;
+  const mx = (plant[0] + p[0]) / 2, my = (plant[1] + p[1]) / 2;
+  const dx = p[0] - plant[0], dy = p[1] - plant[1];
+  const len = Math.hypot(dx, dy);
+  const bend = Math.min(80, len * 0.22);
+  const cx = mx + (-dy / len) * bend, cy = my + (dx / len) * bend;
+  return { ...r, p, d: `M${plant[0].toFixed(1)},${plant[1].toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${p[0].toFixed(1)},${p[1].toFixed(1)}`, len: Math.round(len * 1.15) };
+});
+const ocean = proj([-17, 6])!;
+---
+<div class="map" data-map dir="ltr">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={t.presence.title}>
+    <g>
+      {visible.map((f) => {
+        const id = String(f.id).padStart(3, '0');
+        const cls = id === '204' ? 'map__bj' : covNums.has(id) ? 'map__cov' : 'map__land';
+        return <path class={cls} d={path(f)}><title>{f.properties?.name}</title></path>;
+      })}
+    </g>
+    <text class="map__ocean" x={ocean[0]} y={ocean[1]}>{t.presence.ocean.toUpperCase()}</text>
+    <g>
+      {arcs.map((a) => <path class="map__route" d={a.d} />)}
+    </g>
+    <g>
+      {arcs.map((a) => (
+        <g class="map__city">
+          <circle cx={a.p[0]} cy={a.p[1]} r="4.5" />
+          <text x={a.p[0] + 8} y={a.p[1] - 7}>{a.city}</text>
+        </g>
+      ))}
+    </g>
+    <g class="map__plant">
+      <circle class="ring" cx={plant[0]} cy={plant[1]} r="9" />
+      <circle class="core" cx={plant[0]} cy={plant[1]} r="7" />
+    </g>
+  </svg>
+  <div class="map__label">
+    <div>
+      <strong>{t.presence.plant}</strong>
+      <span>{t.presence.plantPlace}</span>
+    </div>
+  </div>
+  <div class="map__legend">
+    <span><i class="g"></i>{countryName(lang, 'BJ')}</span>
+    <span><i></i>{t.presence.legendCovered}</span>
+    <span><i class="r"></i>{t.presence.legendRoute}</span>
+  </div>
+</div>

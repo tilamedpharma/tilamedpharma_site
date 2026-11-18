@@ -1,0 +1,160 @@
+---
+// Page « Notre usine » (page de rubrique Usine) : vue d'ensemble + portail vers les pages détaillées.
+// Dé-dupliquée le 18/11/2026 (voir CONTENT-MAP.md) : les blocs soufflage-remplissage-scellage, salles propres,
+// laboratoire, utilités, transfert et emplacement, recopiés des pages détaillées, sont remplacés par des renvois.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useUsine } from '../../i18n/pages/usine';
+import { getTopic } from '../../i18n/pages/topics';
+import { localizePath, type Locale } from '../../i18n/config';
+import { processSteps } from '../../data/site';
+import { topicPages } from '../../data/topics';
+
+import imgSite from '../../assets/images/stock/equipement-inox-usine.jpg';
+import imgGreen from '../../assets/images/stock/green-usine-solaire-champs.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const u = useUsine(lang);
+const L = (slug: string) => localizePath(lang, slug);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const stepSlugs = processSteps.map((s) => s.slug);
+const stepVideos = processSteps.map((s) => s.video);
+// Renvois : titre = nom de la page, texte = chapô de la page cible, visuel = image de son en-tête.
+const explore = [
+  { slug: 'salles-propres', icon: 'filter' },
+  { slug: 'utilites', icon: 'gauge' },
+  { slug: 'transfert-technologie', icon: 'users' },
+  { slug: 'site-seme-podji', icon: 'pin' },
+].map((x) => ({ ...x, poster: topicPages.find((p) => p.slug === x.slug)?.video ?? 'hero-wide', lead: getTopic(lang, x.slug).lead }));
+---
+<PageHero lang={lang} section="usine" slug="usine" title={u.hero.title} lead={u.hero.lead} video="ligne-remplissage">
+  <a class="btn" href="#procede">{u.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('site-seme-podji')}>{u.hero.cta2}</a>
+</PageHero>
+
+<!-- CHIFFRES (maison de la capacité de production) -->
+<section class="ufacts" aria-label={u.hero.title}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {u.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          {f.code ? <span class:list={['ufacts__code', { 'is-green': f.code === 'SVP' }]}>{f.code}</span> : <span class="ufacts__code ufacts__code--blank" aria-hidden="true"></span>}
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- UN SITE INTÉGRÉ -->
+<section class="section usite" aria-labelledby="usite-title">
+  <div class="wrap usite__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="factory" size={16} class="eyebrow__ic" /><span>{u.site.eyebrow}</span></p>
+      <h2 class="h2" id="usite-title" data-reveal>{u.site.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead usite__text" data-reveal>{u.site.text}</p>
+    </div>
+    <figure class="usite__visual" data-reveal="scale">
+      <Picture src={imgSite} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={u.site.imageAlt} loading="lazy" />
+      <figcaption><Icon name="sparkle" size={20} />{u.site.badge}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- LE PROCÉDÉ EN 7 ÉTAPES -->
+<section class="section usteps" id="procede" aria-labelledby="usteps-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{u.process.eyebrow}</span></p>
+        <h2 class="h2" id="usteps-title" data-reveal>{u.process.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{u.process.intro}</p>
+    </div>
+    <ol class="usteps__grid">
+      {u.process.steps.map((s, i) => (
+        <li class="ustep" data-reveal style={`--d:${i % 2}`}>
+          <a class="ustep__link" href={L(stepSlugs[i])}>
+            <span class="ustep__media" data-hover-play>
+              <video muted loop playsinline preload="none" poster={`/media/video/${stepVideos[i]}.jpg`} aria-hidden="true">
+                <source src={`/media/video/${stepVideos[i]}.mp4`} type="video/mp4" />
+              </video>
+              <span class="ustep__n"><small>{t.page.step}</small>{pad(i + 1)}</span>
+            </span>
+            <span class="ustep__body">
+              <span class="ustep__t">{s.title}</span>
+              <span class="ustep__d">{s.text}</span>
+              <span class="ustep__pts">
+                {s.points.map((p) => <span><Icon name="check" size={16} />{p}</span>)}
+              </span>
+              <span class="link-arrow">{u.process.more}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+            </span>
+          </a>
+        </li>
+      ))}
+      <li class="ustep ustep--cta" data-reveal style="--d:1">
+        <a class="ustep__link" href={L('documentation')}>
+          <span class="ustep__doc"><Icon name="download" size={28} /></span>
+          <span class="ustep__t">{u.process.docTitle}</span>
+          <span class="ustep__d">{u.process.docText}</span>
+          <span class="link-arrow">{u.process.docCta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        </a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- AUTOUR DE LA PRODUCTION : renvois vers les pages détaillées -->
+<section class="section vcom" aria-labelledby="uexp-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="layers" size={16} class="eyebrow__ic" /><span>{u.explore.eyebrow}</span></p>
+        <h2 class="h2" id="uexp-title" data-reveal>{u.explore.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{u.explore.intro}</p>
+    </div>
+    <ul class="vcom__grid uexp__grid">
+      {explore.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="vcom__card" href={L(x.slug)}>
+            <div class="vcom__img"><img src={`/media/video/${x.poster}.jpg`} alt="" loading="lazy" decoding="async" /></div>
+            <div class="vcom__body">
+              <span class:list={['vcom__ic', { 'is-green': i === 3 }]}><Icon name={x.icon} size={22} /></span>
+              <h3>{pages[x.slug]}</h3>
+              <p>{x.lead}</p>
+              <span class="link-arrow">{u.explore.more}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- USINE VERTE (renvoi vers Environnement) -->
+<section class="ugreen" aria-labelledby="ugreen-title">
+  <div class="wrap">
+    <div class="ugreen__card" data-reveal>
+      <div class="ugreen__body">
+        <span class="ugreen__badge"><Icon name="leaf" size={16} />{u.green.badge}</span>
+        <h2 class="ugreen__title" id="ugreen-title">{u.green.title}</h2>
+        <p>{u.green.text}</p>
+        <a class="btn btn--light" href={L('environnement')}>{u.green.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+      </div>
+      <div class="ugreen__img">
+        <Picture src={imgGreen} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt={u.green.imageAlt} loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

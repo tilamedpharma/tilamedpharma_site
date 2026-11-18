@@ -1,0 +1,135 @@
+---
+// Routeur des pages intérieures générées à partir des données (toutes langues).
+// Français à la racine (/traitement-eau/), autres langues sous /{lang}/.
+import Base from '../layouts/Base.astro';
+import StepPage from '../components/usine/StepPage.astro';
+import TopicPage from '../components/usine/TopicPage.astro';
+import AboutPage from '../components/about/AboutPage.astro';
+import VisionPage from '../components/about/VisionPage.astro';
+import DirectionPage from '../components/about/DirectionPage.astro';
+import ParcoursPage from '../components/about/ParcoursPage.astro';
+import BeninPage from '../components/about/BeninPage.astro';
+import RsePage from '../components/about/RsePage.astro';
+import EgalitePage from '../components/about/EgalitePage.astro';
+import EnvPage from '../components/about/EnvPage.astro';
+import CatalogPage from '../components/produits/CatalogPage.astro';
+import FamilyPage from '../components/produits/FamilyPage.astro';
+import DocPage from '../components/produits/DocPage.astro';
+import PvPage from '../components/qualite/PvPage.astro';
+import DistribPage from '../components/marches/DistribPage.astro';
+import PresencePage from '../components/marches/PresencePage.astro';
+import CandPage from '../components/carrieres/CandPage.astro';
+import NewsPage from '../components/fin/NewsPage.astro';
+import MediaPage from '../components/fin/MediaPage.astro';
+import PressPage from '../components/fin/PressPage.astro';
+import ContactPage from '../components/fin/ContactPage.astro';
+import OfficesPage from '../components/fin/OfficesPage.astro';
+import FaqPage from '../components/fin/FaqPage.astro';
+import LegalPage from '../components/fin/LegalPage.astro';
+import { useFin } from '../i18n/pages/fin';
+import { useAchatsCarrieres } from '../i18n/pages/achats-carrieres';
+import { useMarches } from '../i18n/pages/marches';
+import { useQualite } from '../i18n/pages/qualite';
+import { useProduits } from '../i18n/pages/produits';
+import { productFamilies, catalogueImage } from '../data/products';
+import { useEtapes } from '../i18n/pages/etapes';
+import { getTopic } from '../i18n/pages/topics';
+import { useAPropos } from '../i18n/pages/a-propos';
+import { useVision } from '../i18n/pages/vision';
+import { useDirection } from '../i18n/pages/direction';
+import { useParcours } from '../i18n/pages/parcours';
+import { useBenin } from '../i18n/pages/benin';
+import { useRse } from '../i18n/pages/rse';
+import { useEgalite } from '../i18n/pages/egalite';
+import { useEnvironnement } from '../i18n/pages/environnement';
+import { locales, defaultLocale, type Locale } from '../i18n/config';
+import { processSteps } from '../data/site';
+import { topicPages } from '../data/topics';
+
+type Kind = 'step' | 'topic' | 'about' | 'vision' | 'direction' | 'parcours' | 'benin' | 'rse' | 'egalite' | 'env' | 'catalog' | 'family' | 'doc' | 'pv' | 'distrib' | 'presence' | 'cand' | 'news' | 'media' | 'press' | 'contact' | 'offices' | 'faq' | 'legal';
+export function getStaticPaths() {
+  const out: { params: { route: string }; props: { lang: Locale; slug: string; kind: Kind; image: string } }[] = [];
+  const add = (lang: Locale, slug: string, kind: Kind, image: string) =>
+    out.push({ params: { route: lang === defaultLocale ? slug : `${lang}/${slug}` }, props: { lang, slug, kind, image } });
+  for (const lang of locales) {
+    for (const s of processSteps) add(lang, s.slug, 'step', `/media/video/${s.video}.jpg`);
+    for (const s of topicPages) add(lang, s.slug, 'topic', s.video ? `/media/video/${s.video}.jpg` : s.image!.src);
+    add(lang, 'a-propos', 'about', '/media/video/hero-wide.jpg');
+    add(lang, 'vision-valeurs', 'vision', '/media/video/hero-wide.jpg');
+    add(lang, 'direction', 'direction', '/media/video/hero-wide.jpg');
+    add(lang, 'parcours', 'parcours', '/media/video/hero-wide.jpg');
+    add(lang, 'pourquoi-le-benin', 'benin', '/media/video/hero-wide.jpg');
+    add(lang, 'rse', 'rse', '/media/video/hero-wide.jpg');
+    add(lang, 'egalite', 'egalite', '/media/video/hero-wide.jpg');
+    add(lang, 'environnement', 'env', '/media/video/hero-wide.jpg');
+    add(lang, 'produits', 'catalog', catalogueImage.src);
+    for (const f of productFamilies) add(lang, f.slug, 'family', f.image.src);
+    add(lang, 'documentation', 'doc', catalogueImage.src);
+    add(lang, 'pharmacovigilance', 'pv', catalogueImage.src);
+    add(lang, 'distributeurs', 'distrib', '/media/video/chargement-camion.jpg');
+    add(lang, 'presence', 'presence', '/media/video/chargement-camion.jpg');
+    add(lang, 'candidature', 'cand', '/media/video/hero-wide.jpg');
+    add(lang, 'actualites', 'news', '/media/video/hero-wide.jpg');
+    add(lang, 'mediatheque', 'media', '/media/video/hero-wide.jpg');
+    add(lang, 'presse', 'press', '/media/video/hero-wide.jpg');
+    add(lang, 'contact', 'contact', '/media/video/hero-wide.jpg');
+    add(lang, 'bureaux', 'offices', '/media/video/hero-wide.jpg');
+    add(lang, 'faq', 'faq', '/media/video/hero-wide.jpg');
+    for (const p of ['mentions-legales', 'confidentialite', 'cookies', 'plan-du-site']) add(lang, p, 'legal', '/media/video/hero-wide.jpg');
+  }
+  return out;
+}
+
+const { lang, slug, kind, image } = Astro.props;
+const meta =
+  kind === 'step' ? useEtapes(lang).steps[slug].meta
+  : kind === 'topic' ? getTopic(lang, slug).meta
+  : kind === 'about' ? useAPropos(lang).meta
+  : kind === 'vision' ? useVision(lang).meta
+  : kind === 'direction' ? useDirection(lang).meta
+  : kind === 'parcours' ? useParcours(lang).meta
+  : kind === 'benin' ? useBenin(lang).meta
+  : kind === 'rse' ? useRse(lang).meta
+  : kind === 'egalite' ? useEgalite(lang).meta
+  : kind === 'env' ? useEnvironnement(lang).meta
+  : kind === 'catalog' ? useProduits(lang).catalogue.meta
+  : kind === 'family' ? useProduits(lang).families[slug as keyof ReturnType<typeof useProduits>['families']].meta
+  : kind === 'pv' ? useQualite(lang).pv.meta
+  : kind === 'distrib' ? useMarches(lang).distrib.meta
+  : kind === 'presence' ? useMarches(lang).presence.meta
+  : kind === 'cand' ? useAchatsCarrieres(lang).cand.meta
+  : kind === 'news' ? useFin(lang).news.meta
+  : kind === 'media' ? useFin(lang).media.meta
+  : kind === 'press' ? useFin(lang).press.meta
+  : kind === 'contact' ? useFin(lang).contact.meta
+  : kind === 'offices' ? useFin(lang).offices.meta
+  : kind === 'faq' ? useFin(lang).faq.meta
+  : kind === 'legal' ? ({ 'mentions-legales': useFin(lang).legal.mentions, confidentialite: useFin(lang).legal.privacy, cookies: useFin(lang).legal.cookies, 'plan-du-site': useFin(lang).legal.sitemap } as Record<string, { meta: { title: string; description: string } }>)[slug].meta
+  : useProduits(lang).doc.meta;
+---
+<Base lang={lang} slug={slug} title={meta.title} description={meta.description} image={image}>
+  {kind === 'step' && <StepPage lang={lang} slug={slug} />}
+  {kind === 'topic' && <TopicPage lang={lang} slug={slug} />}
+  {kind === 'about' && <AboutPage lang={lang} />}
+  {kind === 'vision' && <VisionPage lang={lang} />}
+  {kind === 'direction' && <DirectionPage lang={lang} />}
+  {kind === 'parcours' && <ParcoursPage lang={lang} />}
+  {kind === 'benin' && <BeninPage lang={lang} />}
+  {kind === 'rse' && <RsePage lang={lang} />}
+  {kind === 'egalite' && <EgalitePage lang={lang} />}
+  {kind === 'env' && <EnvPage lang={lang} />}
+  {kind === 'catalog' && <CatalogPage lang={lang} />}
+  {kind === 'family' && <FamilyPage lang={lang} slug={slug} />}
+  {kind === 'doc' && <DocPage lang={lang} />}
+  {kind === 'pv' && <PvPage lang={lang} />}
+  {kind === 'distrib' && <DistribPage lang={lang} />}
+  {kind === 'presence' && <PresencePage lang={lang} />}
+  {kind === 'cand' && <CandPage lang={lang} />}
+  {kind === 'news' && <NewsPage lang={lang} />}
+  {kind === 'media' && <MediaPage lang={lang} />}
+  {kind === 'press' && <PressPage lang={lang} />}
+  {kind === 'contact' && <ContactPage lang={lang} />}
+  {kind === 'offices' && <OfficesPage lang={lang} />}
+  {kind === 'faq' && <FaqPage lang={lang} />}
+  {kind === 'legal' && <LegalPage lang={lang} slug={slug as 'mentions-legales'} />}
+</Base>

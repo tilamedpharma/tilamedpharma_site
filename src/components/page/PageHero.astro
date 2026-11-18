@@ -1,0 +1,70 @@
+---
+// En-tête des pages intérieures : vidéo ou image plein cadre, fil d'Ariane, rubrique, titre, chapô, actions.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import { useDict } from '../../i18n';
+import { localizePath, type Locale } from '../../i18n/config';
+import { navTree, type SectionKey } from '../../data/site';
+
+interface Props { lang: Locale; section?: SectionKey; eyebrow?: string; slug: string; title: string; lead: string; video?: string; image?: ImageMetadata; imageAlt?: string }
+const { lang, section, eyebrow, slug, title, lead, video, image, imageAlt = '' } = Astro.props;
+const t = useDict(lang);
+const pages = t.nav.pages as Record<string, string>;
+const site = Astro.site ?? new URL('https://www.tilamedpharma.com');
+const first = section ? navTree[section][0] : undefined;
+const sectionLabel = section ? t.nav.sections[section].label : undefined;
+const crumbs = [
+  { label: t.page.home, href: localizePath(lang) },
+  ...(section ? [{ label: sectionLabel!, href: first === slug ? undefined : localizePath(lang, first) }] : []),
+  { label: pages[slug] ?? title, href: undefined, current: true },
+];
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { name: t.page.home, item: new URL(localizePath(lang), site).href },
+    ...(section ? [{ name: sectionLabel, item: new URL(localizePath(lang, first), site).href }] : []),
+    { name: pages[slug] ?? title, item: new URL(localizePath(lang, slug), site).href },
+  ].map((x, i) => ({ '@type': 'ListItem', position: i + 1, ...x })),
+};
+---
+<section class="phero" aria-labelledby="phero-title">
+  {image && !video && (
+    <div class="phero__media">
+      <Picture src={image} formats={['avif', 'webp']} widths={[800, 1280, 1920]} sizes="100vw" alt={imageAlt} loading="eager" fetchpriority="high" />
+    </div>
+  )}
+  {video && (
+    <div class="phero__media" aria-hidden="true">
+      <video data-hero-video autoplay muted loop playsinline preload="metadata" poster={`/media/video/${video}.jpg`}>
+        <source src={`/media/video/${video}.mp4`} type="video/mp4" />
+      </video>
+    </div>
+  )}
+  <div class="wrap phero__body">
+    <nav class="crumbs" aria-label={t.page.breadcrumb}>
+      <ol>
+        {crumbs.map((c) => (
+          <li>
+            {c.href ? <a href={c.href}>{c.label}</a> : <span aria-current={c.current ? 'page' : undefined}>{c.label}</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+    <p class="phero__eyebrow"><span class="hero__dot" aria-hidden="true"></span>{eyebrow ?? sectionLabel}</p>
+    <h1 class="phero__title" id="phero-title">{title}</h1>
+    <p class="phero__lead">{lead}</p>
+    <div class="phero__ctas"><slot /></div>
+  </div>
+  {video && (
+    <div class="phero__aside">
+      <span>{t.page.illustration}</span>
+      <button class="hero__toggle" type="button" data-hero-toggle aria-label={t.a11y.pause} data-label-play={t.a11y.play} data-label-pause={t.a11y.pause}>
+        <Icon name="pause" size={16} class="icon-pause" />
+        <Icon name="play" size={16} class="icon-play" />
+      </button>
+    </div>
+  )}
+  <div class="duo-rule duo-rule--thick" aria-hidden="true"><span></span><span></span></div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</section>

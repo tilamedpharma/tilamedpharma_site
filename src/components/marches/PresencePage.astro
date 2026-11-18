@@ -1,0 +1,68 @@
+---
+// Page « Présence régionale » : carte de l'Afrique de l'Ouest, pays couverts, bureaux.
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import WestAfricaMap from '../home/WestAfricaMap.astro';
+import { useDict, countryName } from '../../i18n';
+import { useMarches } from '../../i18n/pages/marches';
+import { useEtapes } from '../../i18n/pages/etapes';
+import { type Locale } from '../../i18n/config';
+import { company, offices, coverage } from '../../data/site';
+import imgPres from '../../assets/images/stock/logistique-camion-route.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const m = useMarches(lang).presence;
+const e = useEtapes(lang);
+const pages = t.nav.pages as Record<string, string>;
+const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ' ? 1 : countryName(lang, a.iso).localeCompare(countryName(lang, b.iso), lang)));
+---
+<PageHero lang={lang} section="marches" slug="presence" title={pages['presence']} lead={m.lead} image={imgPres} />
+
+<section class="section pres" aria-labelledby="pres-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="globe" size={16} class="eyebrow__ic" /><span>{t.presence.eyebrow}</span></p>
+        <h2 class="h2" id="pres-title" data-reveal>{t.presence.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{t.presence.intro}</p>
+    </div>
+    <ul class="ufacts__list ufacts__list--3 ppres__facts">
+      {m.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="pres__grid">
+      <div data-reveal="scale"><WestAfricaMap lang={lang} t={t} /></div>
+      <div class="pres__side">
+        <div data-reveal>
+          <p class="pres__h">{t.presence.countriesTitle}</p>
+          <ul class="pres__countries">
+            {sorted.map((c) => <li class:list={{ 'is-bj': c.iso === 'BJ' }}>{countryName(lang, c.iso)}</li>)}
+          </ul>
+        </div>
+        <div data-reveal>
+          <p class="pres__h">{t.presence.officesTitle}</p>
+          <ul class="pres__offices">
+            {offices.map((o) => (
+              <li class="pres__office">
+                <strong>{countryName(lang, o.country)}{'hq' in o && o.hq && <em>{t.presence.hq}</em>}</strong>
+                <span dir="auto">{o.address.join(', ')}</span>
+                <a href={`tel:${o.tel}`} dir="ltr">{o.phone}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div data-reveal><a class="link-arrow" href={company.plant.maps} target="_blank" rel="noopener">{t.presence.directions}<Icon name="arrow-up-right" size={16} /></a></div>
+      </div>
+    </div>
+    <p class="note ppres__note" data-reveal><Icon name="check-circle" size={20} />{m.note}</p>
+  </div>
+</section>
+

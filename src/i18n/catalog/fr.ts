@@ -1,0 +1,54 @@
+// Libellés du catalogue · français. Noms et usages des produits : src/data/catalog.ts (fr/en).
+const cat = {
+  ui: {
+    search: 'Rechercher un médicament, une solution ou un dispositif…',
+    searchLabel: 'Rechercher dans le catalogue',
+    all: 'Tout',
+    results: (n: number) => (n === 1 ? '1 produit' : `${n} produits`),
+    none: 'Aucun produit ne correspond à votre recherche.',
+    noneHint: 'Essayez un autre mot : nom du produit, usage (fièvre, paludisme…) ou catégorie.',
+    reset: 'Effacer la recherche',
+    formats: 'Présentations',
+    route: 'Voie',
+    line: 'Ligne de production',
+    pack: 'Conditionnement',
+    refs: 'références',
+    request: 'Demander des informations',
+    legal: ['Produits TILAMED en préparation · pas encore en vente.', 'Visuels non contractuels.', 'Information destinée aux professionnels de santé.'],
+  },
+  groups: {
+    serum: { label: 'Sérums', blurb: 'Solutés de perfusion de base et solutés spécifiques.' },
+    medicines: { label: 'Médicaments', blurb: 'Injectables en ampoules, antibiotiques, vaccins et sérums, formes buvables.' },
+    nutrition: { label: 'Solutions nutritionnelles', blurb: 'Glucose concentré, vitamines injectables et buvables.' },
+    devices: { label: 'Dispositifs médicaux', blurb: 'Diagnostic, chirurgie, stérilisation et équipement.' },
+    vet: { label: 'Santé animale', blurb: 'Alimentation, antiparasitaires et soins pour chiens et chats.' },
+  },
+  status: {
+    iv: { badge: 'Gamme prévue', note: 'Fabrication TILAMED · gamme prévue, non disponible à la vente' },
+    liquids: { badge: 'À venir', note: 'Fabrication TILAMED · gamme à venir, sous réserve des autorisations' },
+    devices: { badge: 'Distribué', note: 'Distribution · nous consulter' },
+    vet: { badge: 'Bientôt disponible', note: 'Gamme vétérinaire TILAMED · bientôt disponible' },
+  },
+  cats: {
+    standard: 'Solutés de base', 'serum-special': 'Solutés spécifiques', specific: 'Solutions médicamenteuses', svp: 'Injectables en ampoules',
+    antibiotic: 'Antibiotiques injectables', vaccines: 'Vaccins et sérums', oral: 'Solutions buvables', vitamins: 'Vitamines et réhydratation',
+    nutrition: 'Nutrition parentérale', diagnostic: 'Diagnostic et examen', surgery: 'Boîtes de chirurgie', 'surg-cut': 'Instruments de coupe',
+    'surg-grasp': 'Pinces et clamps', 'surg-suture': 'Suture et fermeture', 'surg-expose': 'Écarteurs et exploration', sterilisation: 'Stérilisation',
+    furniture: 'Mobilier et équipement', consumables: 'Consommables', 'vet-food-dog': 'Alimentation chien', 'vet-food-cat': 'Alimentation chat',
+    'vet-parasite': 'Antiparasitaires', 'vet-care': 'Soins et médicaments',
+  } as Record<string, string>,
+  lines: {
+    svp: 'Injectables en ampoules (petits volumes)', lvp: 'Solutés de perfusion (grands volumes)', atb: 'Antibiotiques injectables',
+    cold: 'Vaccins et sérums · chaîne du froid', oral: 'Solutions et suspensions buvables',
+  } as Record<string, string>,
+  packs: {
+    a10: 'Boîte de 10 ampoules', a10x5: 'Boîte de 10 ampoules × 5', a10x10: 'Boîte de 10 × 10 ampoules', b20: 'Boîte de 20 flacons',
+    c12: 'Carton de 12 flacons', c24: 'Carton de 24 flacons', b50: 'Boîte de 50 flacons', b10: 'Boîte de 10 flacons',
+    s10: 'Boîte de 10 seringues préremplies', uni: 'Unidose',
+  } as Record<string, string>,
+  phases: { 1: 'Phase 1 · démarrage de l\'usine', 2: 'Phase 2 · antibiotiques injectables', 3: 'Phase 3 · nouvelles gammes' } as Record<number, string>,
+  /** Traductions des noms et usages (vide en fr/en : repris de src/data/catalog.ts). */
+  items: {} as Record<string, [string, string]>,
+};
+export default cat;
+export type CatalogDict = typeof cat;

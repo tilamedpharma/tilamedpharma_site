@@ -1,0 +1,150 @@
+---
+// Page d'une gamme de produits (sérums, médicaments, nutrition, dispositifs, santé animale).
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import ProductCard from './ProductCard.astro';
+import { useDict } from '../../i18n';
+import { useCatalog } from '../../i18n/catalog';
+import { useProduits } from '../../i18n/pages/produits';
+import { localizePath, type Locale } from '../../i18n/config';
+import { catalog } from '../../data/catalog';
+import { productFamilies } from '../../data/products';
+
+interface Props { lang: Locale; slug: string }
+const { lang, slug } = Astro.props;
+const t = useDict(lang);
+const c = useCatalog(lang);
+const p = useProduits(lang);
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+const fam = productFamilies.find((f) => f.slug === slug)!;
+const fp = p.families[slug as keyof typeof p.families];
+const items = catalog.filter((i) => i.group === fam.group);
+const cats = [...new Set(items.map((i) => i.cat))];
+const statuses = [...new Set(items.map((i) => i.family))];
+const isDevices = fam.group === 'devices';
+const isVet = fam.group === 'vet';
+const phases = [1, 2, 3].map((n) => ({ n, lines: [...new Set(items.filter((i) => i.phase === n && i.line).map((i) => i.line!))], count: items.filter((i) => i.phase === n).length })).filter((x) => x.count);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<PageHero lang={lang} section="produits" slug={slug} title={pages[slug]} lead={fp.lead} image={fam.image}>
+  <a class="btn" href="#gamme">{p.ui.inThisRange}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L(isDevices ? 'contact' : 'documentation')}>{isDevices ? p.ui.contactCta : p.ui.docCta}</a>
+</PageHero>
+
+<section class="section pintro" aria-labelledby="pintro-title">
+  <div class="wrap stepc__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name={fam.icon} size={16} class="eyebrow__ic" /><span>{pages['produits']}</span></p>
+      <h2 class="h2" id="pintro-title" data-reveal>{c.groups[fam.group].label}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead stepc__intro" data-reveal>{c.groups[fam.group].blurb}</p>
+      {isDevices && <p class="tprose" data-reveal>{p.devices.text}</p>}
+      {isVet && <p class="tprose" data-reveal>{p.vet.text}</p>}
+      <ul class="pintro__status" data-reveal>
+        {statuses.map((s) => <li class={`pst pst--${s}`}><Icon name={s === 'devices' ? 'truck' : s === 'vet' ? 'clock' : 'factory'} size={16} />{c.status[s].note}</li>)}
+      </ul>
+      <nav class="pintro__cats" aria-label={p.ui.inThisRange} data-reveal>
+        {cats.map((k) => <a href={`#cat-${k}`}>{c.cats[k]} <span>{items.filter((i) => i.cat === k).length}</span></a>)}
+      </nav>
+    </div>
+    <aside class="stepc__aside">
+      <div class="sfacts" data-reveal>
+        <p class="sfacts__h">{p.ui.inThisRange}</p>
+        <ul class="sfacts__list">
+          <li><p class="sfacts__num">{items.length}</p><p class="sfacts__l">{c.ui.refs}</p></li>
+          <li><p class="sfacts__num">{cats.length}</p><p class="sfacts__l">{p.ui.categories}</p></li>
+        </ul>
+      </div>
+      {isDevices ? (
+        <a class="sdoc" href={L('contact')} data-reveal>
+          <Icon name="mail" size={24} />
+          <span class="sdoc__d">{p.devices.cta}</span>
+          <span class="link-arrow">{p.ui.contactCta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        </a>
+      ) : isVet ? (
+        <a class="sdoc" href={L('contact')} data-reveal>
+          <Icon name="mail" size={24} />
+          <span class="sdoc__t">{p.vet.cta}</span>
+          <span class="link-arrow">{t.header.cta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        </a>
+      ) : (
+        <a class="sdoc" href={L('documentation')} data-reveal>
+          <Icon name="download" size={24} />
+          <span class="sdoc__t">{p.ui.docCta}</span>
+          <span class="sdoc__d">{p.doc.lead}</span>
+          <span class="link-arrow">{c.ui.request}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        </a>
+      )}
+    </aside>
+  </div>
+</section>
+
+{fam.group === 'serum' && (
+  <section class="section pformats" aria-labelledby="pformats-title">
+    <div class="wrap">
+      <div class="sec-head sec-head--split">
+        <div>
+          <p class="eyebrow eyebrow--light" data-reveal><Icon name="vial" size={16} /><span>{c.groups.serum.label}</span></p>
+          <h2 class="h2" id="pformats-title" data-reveal>{p.formats.title}</h2>
+          <span class="title-rule" aria-hidden="true"></span>
+        </div>
+        <p class="lead" data-reveal>{p.formats.intro}</p>
+      </div>
+      <ul class="pformats__list">
+        {p.formats.items.map((f, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <p class="pformats__v" dir="ltr">{f.value}<small>ml</small></p>
+            <p>{f.label}</p>
+          </li>
+        ))}
+      </ul>
+      <ul class="pformats__cards">
+        {p.formats.cards.map((x, i) => (
+          <li data-reveal style={`--d:${i}`}><Icon name={['shield', 'truck', 'drop'][i]} size={24} /><h3>{x.title}</h3><p>{x.text}</p></li>
+        ))}
+      </ul>
+      <p class="pformats__note" data-reveal><Icon name="check-circle" size={18} />{p.formats.note}</p>
+    </div>
+  </section>
+)}
+
+{fam.group === 'medicines' && (
+  <section class="section pphases" aria-labelledby="pphases-title">
+    <div class="wrap">
+      <div class="sec-head sec-head--split">
+        <div>
+          <p class="eyebrow eyebrow--light" data-reveal><Icon name="route" size={16} /><span>{c.groups.medicines.label}</span></p>
+          <h2 class="h2" id="pphases-title" data-reveal>{p.phases.title}</h2>
+          <span class="title-rule" aria-hidden="true"></span>
+        </div>
+        <p class="lead" data-reveal>{p.phases.intro}</p>
+      </div>
+      <ol class="pphases__list">
+        {phases.map((ph, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <span class="pphases__n">P{ph.n}</span>
+            <h3>{c.phases[ph.n]}</h3>
+            <ul>{ph.lines.map((l) => <li><Icon name="check" size={16} />{c.lines[l]}</li>)}</ul>
+            <p class="pphases__c">{ph.count} {c.ui.refs}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+)}
+
+<section class="section prange" id="gamme" aria-label={p.ui.inThisRange}>
+  <div class="wrap">
+    {cats.map((k, ci) => (
+      <div class="prange__cat" id={`cat-${k}`}>
+        <h2 class="prange__h" data-reveal><span>{pad(ci + 1)}</span>{c.cats[k]}<small>{items.filter((i) => i.cat === k).length}</small></h2>
+        <ul class="pcards">
+          {items.filter((i) => i.cat === k).map((i) => <ProductCard lang={lang} item={i} />)}
+        </ul>
+      </div>
+    ))}
+    <ul class="pcat__legal">{c.ui.legal.map((x) => <li>{x}</li>)}</ul>
+  </div>
+</section>
+

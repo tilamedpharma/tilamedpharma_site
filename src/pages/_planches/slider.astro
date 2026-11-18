@@ -1,0 +1,251 @@
+---
+// PLANCHE DE TRAVAIL (non destinée à la mise en ligne) : slider du héros de l'accueil.
+// 1. Démo du slider complet (vidéo + carte A). 2. Les trois animations proposées pour le 2e slide.
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '@fontsource/carlito/latin-400.css';
+import '@fontsource/carlito/latin-700.css';
+import '../../styles/global.css';
+import Icon from '../../components/Icon.astro';
+import NetworkMap from '../../components/home/NetworkMap.astro';
+import { useDict } from '../../i18n';
+
+const t = useDict('fr');
+const s2 = {
+  eyebrow: 'Notre réseau',
+  title: 'Fabriqué au Bénin, distribué dans 15 pays d\'Afrique de l\'Ouest.',
+  lead: 'Depuis Sèmè-Podji, à la frontière du Nigeria, nos solutions injectables rejoignent les centrales d\'achat, les distributeurs et les hôpitaux de toute la région.',
+  cta1: 'Présence régionale',
+  cta2: 'Devenir distributeur',
+  count: 'pays couverts',
+};
+const variants = [
+  { v: 'a' as const, name: 'A · Le réseau qui s\'allume', tag: 'Recommandée', text: 'Le Bénin s\'allume, puis les routes partent une à une de Sèmè-Podji vers chaque capitale ; une lumière parcourt le trajet et le pays s\'éclaire à l\'arrivée. Le compteur monte jusqu\'à 15. Une fois le réseau en place, de petites lumières continuent de circuler.' },
+  { v: 'b' as const, name: 'B · Du site à la région', tag: '', text: 'Ouverture en gros plan sur Sèmè-Podji (Bénin, Nigeria, port de Cotonou), puis la vue recule jusqu\'à l\'Afrique de l\'Ouest et les routes se déploient. Raconte « local → régional », mais demande quelques secondes de plus.' },
+  { v: 'c' as const, name: 'C · Le flux de flacons', tag: '', text: 'Le réseau est déjà en place ; de petits flacons circulent en continu de l\'usine vers les 14 capitales. Plus vivant et ludique, moins sobre.' },
+];
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Planche · Slider de l'accueil · TILAMED</title>
+</head>
+<body class="pl">
+  <header class="pl__head wrap">
+    <p class="eyebrow">Planche de travail · non publiée</p>
+    <h1 class="h2">Slider de l'accueil</h1>
+    <p class="lead">Deux slides en fondu enchaîné : la vidéo de l'usine, puis la carte animée du réseau. Défilement automatique toutes les 9 secondes, pause au survol, onglets nommés avec barre de progression dans la bande bleue. Si l'utilisateur a désactivé les animations, pas de défilement automatique et la carte s'affiche dans son état final.</p>
+  </header>
+
+  <!-- 1. DÉMO DU SLIDER COMPLET -->
+  <section class="pl__block wrap">
+    <h2 class="pl__h">1 · Démo du slider complet <small>(avec la variante A)</small></h2>
+    <div class="hsl" data-hsl>
+      <div class="hsl__slide hs is-active" data-slide="0">
+        <video autoplay muted loop playsinline poster="/media/video/hero-wide.jpg"><source src="/media/video/hero-wide.mp4" type="video/mp4" /></video>
+        <div class="hs__shade"></div>
+        <div class="hs__content">
+          <p class="hs__eyebrow"><span class="hero__dot"></span>{t.hero.eyebrow}</p>
+          <p class="hs__title">{t.hero.title}</p>
+          <p class="hs__lead">{t.hero.lead}</p>
+          <div class="hs__ctas"><span class="btn">{t.hero.cta1}<Icon name="arrow" size={18} /></span><span class="btn btn--outline-light">{t.hero.cta2}</span></div>
+        </div>
+      </div>
+      <div class="hsl__slide hs" data-slide="1">
+        <NetworkMap variant="a" id="demo" />
+        <div class="hs__shade"></div>
+        <div class="hs__content">
+          <p class="hs__eyebrow"><span class="hero__dot"></span>{s2.eyebrow}</p>
+          <p class="hs__title">{s2.title}</p>
+          <p class="hs__lead">{s2.lead}</p>
+          <p class="hs__count"><b data-nm-count>15</b><span>{s2.count}</span></p>
+          <div class="hs__ctas"><span class="btn">{s2.cta1}<Icon name="arrow" size={18} /></span><span class="btn btn--outline-light">{s2.cta2}</span></div>
+        </div>
+      </div>
+      <div class="hsl__band">
+        <div class="hsl__tabs" role="tablist">
+          <button type="button" class="hsl__tab is-active" data-tab="0"><span>01</span>Notre usine<i class="hsl__prog"><i></i></i></button>
+          <button type="button" class="hsl__tab" data-tab="1"><span>02</span>Notre réseau<i class="hsl__prog"><i></i></i></button>
+        </div>
+        <p class="hsl__slogan">{t.slogan}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. LES TROIS ANIMATIONS -->
+  {variants.map((x, n) => (
+    <section class="pl__block wrap">
+      <div class="pl__vhead">
+        <h2 class="pl__h">{n + 2} · Variante {x.name} {x.tag && <em>{x.tag}</em>}</h2>
+        <button type="button" class="btn btn--sm btn--ghost" data-replay>Rejouer<Icon name="arrow" size={16} /></button>
+      </div>
+      <p class="pl__desc">{x.text}</p>
+      <div class="hs hs--frame">
+        <NetworkMap variant={x.v} id={`v${x.v}`} />
+        <div class="hs__shade"></div>
+        <div class="hs__content">
+          <p class="hs__eyebrow"><span class="hero__dot"></span>{s2.eyebrow}</p>
+          <p class="hs__title">{s2.title}</p>
+          <p class="hs__lead">{s2.lead}</p>
+          <p class="hs__count"><b data-nm-count>15</b><span>{s2.count}</span></p>
+          <div class="hs__ctas"><span class="btn">{s2.cta1}<Icon name="arrow" size={18} /></span><span class="btn btn--outline-light">{s2.cta2}</span></div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <footer class="pl__foot wrap"><p>Carte vectorielle générée au moment de la construction du site (aucune vidéo ni bibliothèque à charger) · couleurs de la charte · 15 pays de la CEDEAO.</p></footer>
+
+  <style is:global>
+    .pl { background: #eef3f9; }
+    .pl__head { padding-block: 56px 24px; }
+    .pl__head .lead { margin-top: 16px; max-width: 900px; }
+    .pl__block { padding-block: 28px 40px; }
+    .pl__h { font-family: var(--font-head); font-weight: 800; font-size: 1.35rem; color: var(--navy); }
+    .pl__h small { font-weight: 600; font-size: .9rem; color: var(--muted); }
+    .pl__h em { margin-inline-start: 10px; padding: 4px 10px; border-radius: 99px; background: var(--green); color: #fff; font-style: normal; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; vertical-align: 3px; }
+    .pl__vhead { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .pl__desc { margin-block: 8px 18px; max-width: 900px; color: var(--text); }
+    .pl__foot { padding-block: 24px 64px; color: var(--muted); font-size: .875rem; }
+
+    /* Slide */
+    .hs { position: relative; overflow: hidden; color: #fff; background: #0a1c36; }
+    .hs--frame { height: clamp(540px, 44vw, 620px); border-radius: 14px; box-shadow: var(--shadow-lg); }
+    .hs__shade { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(10, 28, 54, .92) 0%, rgba(10, 28, 54, .7) 30%, rgba(10, 28, 54, 0) 52%); }
+    [dir='rtl'] .hs__shade { transform: scaleX(-1); }
+    .hs__content { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; width: min(50%, 640px); padding-inline: clamp(24px, 5vw, 64px) 24px; }
+    .hs__eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 99px; background: rgba(255, 255, 255, .06); font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+    .hs__title { margin-top: 16px; font-family: var(--font-head); font-weight: 800; font-size: clamp(1.5rem, .9rem + 1.5vw, 2.4rem); line-height: 1.08; letter-spacing: -.02em; text-wrap: balance; }
+    .hs__lead { margin-top: 14px; font-size: 1rem; line-height: 1.55; color: rgba(255, 255, 255, .84); }
+    .hs__count { display: flex; align-items: baseline; gap: 10px; margin-top: 16px; }
+    .hs__count b { font-family: var(--font-head); font-weight: 800; font-size: 2.2rem; line-height: 1; color: #fff; min-width: 1.4em; }
+    .hs__count span { font-family: var(--font-head); font-weight: 700; font-size: .8125rem; letter-spacing: .14em; text-transform: uppercase; color: #9fd8a6; }
+    .hs__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+
+    /* Slider */
+    .hsl { position: relative; height: clamp(600px, 50vw, 700px); border-radius: 14px; overflow: hidden; background: #0a1c36; box-shadow: var(--shadow-lg); }
+    .hsl__slide { position: absolute; inset: 0 0 64px; opacity: 0; visibility: hidden; transition: opacity 1s ease, visibility 1s; }
+    .hsl__slide.is-active { opacity: 1; visibility: visible; }
+    .hsl__slide video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hsl__band { position: absolute; inset: auto 0 0; height: 64px; display: grid; grid-template-columns: 70fr 30fr; }
+    .hsl__tabs { display: flex; align-items: stretch; gap: 4px; padding-inline: clamp(16px, 4vw, 48px); background: var(--blue); }
+    .hsl__tab { position: relative; display: flex; align-items: center; gap: 10px; padding: 0 22px; color: rgba(255, 255, 255, .7); font-family: var(--font-head); font-weight: 700; font-size: .875rem; }
+    .hsl__tab span { font-size: .75rem; color: rgba(255, 255, 255, .5); }
+    .hsl__tab.is-active { color: #fff; }
+    .hsl__tab.is-active span { color: #bfe6c4; }
+    .hsl__prog { position: absolute; inset: auto 22px 14px; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, .25); overflow: hidden; }
+    .hsl__prog i { display: block; width: 0; height: 100%; background: #fff; }
+    .hsl__slogan { display: flex; align-items: center; padding-inline: 24px; background: var(--green); color: #fff; font-family: var(--font-head); font-weight: 700; font-style: italic; font-size: .9rem; }
+    @media (max-width: 900px) {
+      .hs__content { width: 100%; }
+      .hs__shade { background: rgba(10, 28, 54, .7); }
+      .hsl__band { grid-template-columns: 1fr; }
+      .hsl__slogan { display: none; }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function sec(el, name) { return parseFloat(getComputedStyle(el).getPropertyValue(name)) || 0; }
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+      function play(nm) {
+        if (reduced) return;
+        (nm._timers || []).forEach(clearTimeout); nm._timers = [];
+        if (nm._raf) cancelAnimationFrame(nm._raf);
+        var v = nm.dataset.nm, t0 = sec(nm, '--t0'), st = sec(nm, '--st'), d = sec(nm, '--d');
+        var svg = nm.querySelector('[data-nm-svg]');
+        var full = nm.dataset.full.split(' ').map(Number), zoom = nm.dataset.zoom.split(' ').map(Number);
+        var scaleG = nm.querySelector('[data-nm-plant-scale]');
+        nm.querySelectorAll('animateMotion, animate').forEach(function (a) { try { a.endElement(); } catch (e) {} });
+        nm.classList.remove('is-play'); void nm.offsetWidth; nm.classList.add('is-play');
+        var slide = nm.closest('.hs') || nm.parentElement;
+        var count = slide && slide.querySelector('[data-nm-count]');
+        var routes = nm.querySelectorAll('.route').length;
+
+        if (v === 'b') {
+          svg.setAttribute('viewBox', zoom.join(' ')); scaleG.setAttribute('transform', 'scale(' + (zoom[2] / full[2]) + ')');
+          var startAt = performance.now() + 1200, dur = 2800;
+          var step = function (now) {
+            var p = Math.min(1, Math.max(0, (now - startAt) / dur)), e = ease(p);
+            var box = zoom.map(function (z, i) { return lerp(z, full[i], e); });
+            svg.setAttribute('viewBox', box.join(' '));
+            scaleG.setAttribute('transform', 'scale(' + (box[2] / full[2]) + ')');
+            if (p < 1) nm._raf = requestAnimationFrame(step);
+          };
+          nm._raf = requestAnimationFrame(step);
+        } else { svg.setAttribute('viewBox', full.join(' ')); scaleG.removeAttribute('transform'); }
+
+        if (v === 'c') {
+          nm.querySelectorAll('.bottle').forEach(function (b) {
+            var i = +b.dataset.i, k = +b.dataset.k, du = +b.dataset.dur;
+            b.querySelectorAll('animateMotion, animate').forEach(function (a) { a.beginElementAt(i * .22 + k * du / 2); });
+          });
+          if (count) count.textContent = '15';
+          return;
+        }
+        nm.querySelectorAll('.dot:not(.dot--loop)').forEach(function (c) {
+          var i = +c.dataset.i;
+          c.querySelectorAll('animateMotion, animate').forEach(function (a) { a.beginElementAt(t0 + i * st); });
+        });
+        nm.querySelectorAll('.dot--loop').forEach(function (c) {
+          var i = +c.dataset.i;
+          c.querySelectorAll('animateMotion, animate').forEach(function (a) { a.beginElementAt(t0 + (routes - 1) * st + d + .6 + i * .37); });
+        });
+        if (count) {
+          count.textContent = '0';
+          nm._timers.push(setTimeout(function () { count.textContent = '1'; }, (v === 'a' ? .5 : t0 - .3) * 1000));
+          for (var i = 0; i < routes; i++) (function (i) {
+            nm._timers.push(setTimeout(function () { count.textContent = String(i + 2); }, (t0 + i * st + d * .85) * 1000));
+          })(i);
+        }
+      }
+
+      // Variantes : lecture à l'apparition + bouton « Rejouer »
+      document.querySelectorAll('.pl__block').forEach(function (block) {
+        var nm = block.querySelector('.hs--frame .nm');
+        if (!nm) return;
+        var btn = block.querySelector('[data-replay]');
+        if (btn) btn.addEventListener('click', function () { play(nm); });
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { play(nm); io.disconnect(); } }); }, { threshold: .4 });
+        io.observe(nm);
+      });
+
+      // Slider : fondu, onglets, progression, pause au survol
+      var hsl = document.querySelector('[data-hsl]');
+      if (hsl) {
+        var slides = hsl.querySelectorAll('[data-slide]'), tabs = hsl.querySelectorAll('[data-tab]');
+        var cur = 0, elapsed = 0, last = performance.now(), paused = false, DUR = 9000;
+        var show = function (n) {
+          cur = n; elapsed = 0;
+          slides.forEach(function (s, k) { s.classList.toggle('is-active', k === n); });
+          tabs.forEach(function (b, k) { b.classList.toggle('is-active', k === n); b.querySelector('.hsl__prog i').style.width = '0'; });
+          if (n === 1) play(slides[1].querySelector('.nm'));
+        };
+        tabs.forEach(function (b, k) { b.addEventListener('click', function () { show(k); }); });
+        hsl.addEventListener('mouseenter', function () { paused = true; });
+        hsl.addEventListener('mouseleave', function () { paused = false; });
+        if (!reduced) {
+          var tick = function (now) {
+            var dt = now - last; last = now;
+            if (!paused) {
+              elapsed += dt;
+              tabs[cur].querySelector('.hsl__prog i').style.width = Math.min(100, elapsed / DUR * 100) + '%';
+              if (elapsed >= DUR) show((cur + 1) % slides.length);
+            }
+            requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

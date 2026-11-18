@@ -1,0 +1,41 @@
+37650270|production-ampoules-ligne|Remplissage et scellage d'ampoules sur ligne pharmaceutique
+38688812|production-salle-sterile-equipe|Opérateurs en tenue dans une usine pharmaceutique stérile
+9574352|salle-propre-couloir-chariot|Technicien en tenue avec chariot dans un couloir stérile
+9574339|salle-propre-couloir-equipe|Personnel en tenue dans un couloir de laboratoire stérile
+33514501|equipement-inox-usine|Équipement industriel en acier inoxydable
+9893834|flacons-mains-gants|Mains gantées manipulant des flacons
+9893842|flacons-boite|Flacons et conditionnement
+7581586|flacons-inox|Flacons et seringues sur surface inox
+3825435|labo-scientifique-flacon|Scientifique africain examinant un flacon au laboratoire
+3825434|labo-titration|Technicien de laboratoire réalisant une titration
+18712504|labo-scientifique-kinshasa|Scientifique versant un liquide, laboratoire de Kinshasa
+8515138|labo-microscope-femme|Femme scientifique au microscope
+5721681|labo-microscope|Scientifique au microscope
+3825541|labo-medecin-microscope|Médecin examinant des échantillons au microscope
+6129233|perfusion-poches-infirmiere|Poches de perfusion, infirmière en arrière-plan
+6191530|perfusion-poche-pied|Poche de perfusion sur pied
+4421486|perfusion-glucose-pied|Soluté de glucose sur pied de perfusion
+14829646|perfusion-infirmiere|Infirmière branchant une perfusion
+5430213|infirmiere-portrait|Infirmière africaine souriante
+6303643|medecin-patiente-couloir|Médecin parlant à une patiente dans un couloir d'hôpital
+4989148|medecin-portrait|Médecin africain souriant avec stéthoscope
+5452224|medecins-tablette|Médecins collaborant avec une tablette
+6753405|dispositif-stethoscope-main|Main tenant un stéthoscope
+32237047|dispositifs-tensiometre-ecg|Tensiomètre, seringues et tracé ECG
+5721672|infirmiere-tensiometre|Infirmière mesurant la tension
+7468980|veterinaire-chien-calin|Vétérinaire et chien
+6235114|veterinaire-berger-allemand|Vétérinaire examinant un berger allemand
+6234618|veterinaire-chien-noir|Vétérinaire examinant un chien noir
+37912780|logistique-entrepot-pharma|Entrepôt pharmaceutique avec chariot élévateur
+5156696|logistique-entrepot-rayonnages|Rayonnages d'entrepôt
+4487361|logistique-entrepot-equipe|Manutentionnaires dans un entrepôt
+31448422|logistique-camion-route|Camion logistique sur une route bordée de palmiers
+36482482|logistique-camion-accra|Camion dans la circulation, Accra
+38166000|benin-cotonou-rue|Scène de rue à Cotonou
+38166003|benin-cotonou-moto|Moto dans les rues de Cotonou
+8655016|benin-ganvie-drone|Ganvié vu du ciel, lac Nokoué
+30677714|affaires-reunion-lagos|Réunion d'affaires à Lagos
+12179672|affaires-dakar|Hommes d'affaires à Dakar
+3869649|affaires-equipe-femmes|Équipe de femmes africaines en réunion
+8657301|pharmacie-pharmacien|Pharmacien dans une officine
+13119976|pharmacie-rayons|Pharmacien rangeant des médicaments

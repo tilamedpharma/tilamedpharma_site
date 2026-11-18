@@ -1,0 +1,114 @@
+---
+import Logo from '../Logo.astro';
+import Icon from '../Icon.astro';
+import { useDict } from '../../i18n';
+import { locales, localeMeta, localizePath, type Locale } from '../../i18n/config';
+import { navTree, sectionKeys, offices, company } from '../../data/site';
+
+interface Props { lang: Locale; slug?: string }
+const { lang, slug = '' } = Astro.props;
+const t = useDict(lang);
+const pages = t.nav.pages as Record<string, string>;
+const secIcon: Record<string, string> = { entreprise: 'building', achats: 'truck', usine: 'factory', produits: 'vial', qualite: 'shield', marches: 'globe', carrieres: 'users', medias: 'sparkle', contact: 'mail' };
+const navSections = sectionKeys.filter((s) => s !== 'contact');
+---
+<header class="hdr" id="top" data-header>
+  <div class="hdr__bar wrap">
+    <a class="hdr__logo" href={localizePath(lang)} aria-label={t.a11y.home}>
+      <Logo width={118} />
+    </a>
+
+    <nav class="hdr__nav" aria-label="Navigation">
+      <ul class="hdr__menu">
+        {navSections.map((s) => (
+          <li class="hdr__item">
+            <button class="hdr__link" type="button" aria-expanded="false" aria-controls={`mega-${s}`} data-mega-trigger={s}>
+              {t.nav.sections[s].label}
+              <Icon name="chevron" size={14} class="hdr__chev" />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="hdr__tools">
+      <div class="lang" data-lang>
+        <button class="lang__btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label={t.a11y.language} data-lang-btn>
+          <Icon name="globe" size={18} />
+          <span>{localeMeta[lang].short}</span>
+          <Icon name="chevron" size={12} />
+        </button>
+        <ul class="lang__list" role="menu" data-lang-list>
+          {locales.map((l) => (
+            <li role="none">
+              <a role="menuitem" href={localizePath(l, slug)} hreflang={localeMeta[l].htmlLang} lang={localeMeta[l].htmlLang} aria-current={l === lang ? 'true' : undefined}>
+                <span class="lang__code">{localeMeta[l].short}</span>{localeMeta[l].name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <a class="btn btn--primary btn--sm hdr__cta" href={localizePath(lang, 'contact')}>{t.header.cta}</a>
+      <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="drawer" data-drawer-btn>
+        <span class="sr-only">{t.a11y.menu}</span>
+        <span class="hdr__burger-lines" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+  <div class="duo-rule" aria-hidden="true"><span></span><span></span></div>
+
+  {navSections.map((s) => (
+    <div class="mega" id={`mega-${s}`} data-mega={s} hidden>
+      <div class="mega__inner wrap">
+        <div class="mega__intro">
+          <span class="mega__icon"><Icon name={secIcon[s]} size={26} /></span>
+          <p class="mega__name">{t.nav.sections[s].label}</p>
+          <p class="mega__blurb">{t.nav.sections[s].blurb}</p>
+          <a class="link-arrow" href={localizePath(lang, navTree[s][0])}>{t.header.explore}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+        </div>
+        <ul class:list={['mega__list', { 'mega__list--3': navTree[s].length > 6 }]}>
+          {navTree[s].map((p, i) => (
+            <li style={`--i:${i}`}>
+              <a class="mega__link" href={localizePath(lang, p)}>
+                <span>{pages[p]}</span>
+                <Icon name="arrow" size={15} class="flip-rtl" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</header>
+
+<div class="drawer" id="drawer" data-drawer hidden>
+  <div class="drawer__panel">
+    <nav aria-label="Navigation mobile">
+      <ul class="drawer__sections">
+        {sectionKeys.map((s) => (
+          <li>
+            <details class="drawer__group">
+              <summary>
+                <span class="drawer__icon"><Icon name={secIcon[s]} size={20} /></span>
+                {t.nav.sections[s].label}
+                <Icon name="plus" size={18} class="drawer__plus" />
+              </summary>
+              <ul>
+                {navTree[s].map((p) => <li><a href={localizePath(lang, p)}>{pages[p]}</a></li>)}
+              </ul>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="drawer__langs">
+      {locales.map((l) => (
+        <a href={localizePath(l, slug)} lang={localeMeta[l].htmlLang} aria-current={l === lang ? 'true' : undefined}>{localeMeta[l].short}</a>
+      ))}
+    </div>
+    <div class="drawer__contact">
+      <a href={`mailto:${company.email}`}><Icon name="mail" size={18} />{company.email}</a>
+      <a href={`tel:${offices[0].tel}`} dir="ltr"><Icon name="phone" size={18} />{offices[0].phone}</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+---
+// Page « Devenir distributeur » : critères + formulaire de candidature (envoi via /api/form.php).
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict, countryName } from '../../i18n';
+import { useCatalog } from '../../i18n/catalog';
+import { useMarches } from '../../i18n/pages/marches';
+import { type Locale } from '../../i18n/config';
+import { company, offices, coverage } from '../../data/site';
+import { productFamilies } from '../../data/products';
+import imgDist from '../../assets/images/stock/logistique-camion-accra.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const c = useCatalog(lang);
+const d = useMarches(lang).distrib;
+const f = d.fields;
+const pages = t.nav.pages as Record<string, string>;
+const countries = coverage.map((x) => ({ iso: x.iso, name: countryName(lang, x.iso) })).sort((a, b) => a.name.localeCompare(b.name, lang));
+---
+<PageHero lang={lang} section="marches" slug="distributeurs" title={pages['distributeurs']} lead={d.lead} image={imgDist} />
+
+<section class="section pdoc" aria-labelledby="dist-title">
+  <div class="wrap stepc__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="globe" size={16} class="eyebrow__ic" /><span>{pages['distributeurs']}</span></p>
+      <h2 class="h2" id="dist-title" data-reveal>{d.reqTitle}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead stepc__intro" data-reveal>{d.intro}</p>
+      <ul class="pts">
+        {d.reqs.map((x, i) => <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{x}</li>)}
+      </ul>
+
+      <div class="tblock tblock--next">
+        <h2 class="h2" data-reveal>{d.formTitle}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+        <form class="form" name="distributeur" method="POST" action="/api/form.php" data-form data-msg-sending={t.formMsg.sending} data-msg-ok={t.formMsg.ok} data-msg-error={t.formMsg.error} data-msg-big={t.formMsg.big}>
+          <input type="hidden" name="form-name" value="distributeur" />
+          <input type="hidden" name="langue" value={lang} />
+          <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
+          <div class="form__row">
+            <label class="field"><span>{f.company} <b aria-hidden="true">*</b></span><input name="societe" required autocomplete="organization" /></label>
+            <label class="field"><span>{f.country} <b aria-hidden="true">*</b></span>
+              <select name="pays" required><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}</select>
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="contact" required autocomplete="name" /></label>
+            <label class="field"><span>{f.role}</span><input name="fonction" autocomplete="organization-title" /></label>
+          </div>
+          <div class="form__row">
+            <label class="field"><span>{f.email} <b aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" /></label>
+            <label class="field"><span>{f.phone} <b aria-hidden="true">*</b></span><input type="tel" name="telephone" required autocomplete="tel" dir="ltr" /></label>
+          </div>
+          <div class="form__row">
+            <label class="field"><span>{f.licence} <b aria-hidden="true">*</b></span>
+              <select name="autorisation" required><option value="">{f.select}</option><option>{f.yes}</option><option>{f.pending}</option><option>{f.no}</option></select>
+            </label>
+            <label class="field"><span>{f.warehouse} <b aria-hidden="true">*</b></span>
+              <select name="entrepot_bpd" required><option value="">{f.select}</option><option>{f.yes}</option><option>{f.pending}</option><option>{f.no}</option></select>
+            </label>
+          </div>
+          <fieldset class="field field--set">
+            <legend>{f.channels}</legend>
+            <div class="checks">{d.channels.map((x) => <label class="check"><input type="checkbox" name="circuits[]" value={x} /><span>{x}</span></label>)}</div>
+          </fieldset>
+          <fieldset class="field field--set">
+            <legend>{f.ranges}</legend>
+            <div class="checks">{productFamilies.map((x) => <label class="check"><input type="checkbox" name="gammes[]" value={x.group} /><span><Icon name={x.icon} size={18} />{c.groups[x.group].label}</span></label>)}</div>
+          </fieldset>
+          <label class="field"><span>{f.message}</span><textarea name="presentation" rows="5" placeholder={f.messageHint}></textarea></label>
+          <label class="check check--consent"><input type="checkbox" name="consentement" required /><span>{f.consent}</span></label>
+          <button class="btn" type="submit">{f.submit}<Icon name="arrow" size={18} class="flip-rtl" /></button>
+          <p class="form__status" role="status" aria-live="polite" hidden></p>
+          <p class="form__req"><b aria-hidden="true">*</b> {f.required}</p>
+        </form>
+      </div>
+    </div>
+
+    <aside class="stepc__aside">
+      <div class="sfacts" data-reveal>
+        <p class="sfacts__h">{t.presence.countriesTitle}</p>
+        <ul class="sfacts__list"><li><p class="sfacts__num">15</p><p class="sfacts__l">{countries.map((x) => x.name).join(' · ')}</p></li></ul>
+      </div>
+      <div class="sdoc" data-reveal>
+        <span class="sdoc__t">{t.header.cta}</span>
+        <a class="pdoc__contact" href={`mailto:${company.email}`}><Icon name="mail" size={18} />{company.email}</a>
+        <a class="pdoc__contact" href={`tel:${offices[0].tel}`} dir="ltr"><Icon name="phone" size={18} />{offices[0].phone}</a>
+      </div>
+    </aside>
+  </div>
+</section>
+

@@ -1,0 +1,404 @@
+---
+// PLANCHE DE TRAVAIL (non destinée à la mise en ligne) : 3 propositions de bas de page.
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '@fontsource/carlito/latin-400.css';
+import '@fontsource/carlito/latin-700.css';
+import '@fontsource/carlito/latin-400-italic.css';
+import '../../styles/global.css';
+import { Picture } from 'astro:assets';
+import Logo from '../../components/Logo.astro';
+import Icon from '../../components/Icon.astro';
+import PlantMiniMap from '../../components/PlantMiniMap.astro';
+import { offices, socials, company } from '../../data/site';
+import imgPlant from '../../assets/images/stock/green-toiture-solaire-industrielle.jpg';
+
+const year = 2026;
+const groups = [
+  { t: 'Entreprise', l: ['Qui sommes-nous ?', 'Vision et valeurs', 'Notre parcours', 'Centrale d\'achat', 'Carrières'] },
+  { t: 'Usine et qualité', l: ['Notre usine', 'Le site de Sèmè-Podji', 'Qualité et conformité', 'Agréments', 'Pharmacovigilance'] },
+  { t: 'Produits et marchés', l: ['Catalogue', 'Sérums', 'Médicaments', 'Dispositifs médicaux', 'Devenir distributeur'] },
+  { t: 'Médias et contact', l: ['Actualités', 'Espace presse', 'Nous contacter', 'Nos bureaux', 'Questions fréquentes'] },
+];
+const officeName: Record<string, string> = { bj: 'Bénin · Siège', bf: 'Burkina Faso', fr: 'France' };
+const legal = ['Mentions légales', 'Confidentialité', 'Cookies', 'Plan du site'];
+const sitemap = [
+  { t: 'À propos', l: ['Qui sommes-nous ?', 'Vision et valeurs', 'Direction', 'Notre parcours'] },
+  { t: 'Centrale d\'achat', l: ['Présentation', 'Fournisseurs', 'Distribution'] },
+  { t: 'Usine', l: ['Notre usine', 'Site de Sèmè-Podji', 'Procédé', 'Salles propres'] },
+  { t: 'Produits', l: ['Catalogue', 'Sérums', 'Médicaments', 'Santé animale'] },
+  { t: 'Qualité', l: ['BPF de l\'OMS', 'Agréments', 'Traçabilité', 'Pharmacovigilance'] },
+  { t: 'Marchés', l: ['Nos clients', 'Centrales d\'achat', 'Devenir distributeur'] },
+  { t: 'Carrières', l: ['Travailler chez TILAMED', 'Nos métiers', 'Candidature'] },
+  { t: 'Médias', l: ['Actualités', 'Médiathèque', 'Espace presse'] },
+];
+const audiences = [
+  { icon: 'truck', t: 'Centrales d\'achat', d: 'Appels d\'offres, cotations et documentation technique.', a: 'Demander une cotation' },
+  { icon: 'globe', t: 'Distributeurs', d: 'Rejoignez notre réseau dans 15 pays d\'Afrique de l\'Ouest.', a: 'Devenir distributeur' },
+  { icon: 'users', t: 'Candidats', d: '150 emplois au démarrage, ouverts à toutes et à tous.', a: 'Postuler' },
+  { icon: 'sparkle', t: 'Presse', d: 'Informations clés, visuels et contact presse.', a: 'Espace presse' },
+];
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Planche · Bas de page — TILAMED Pharma</title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="board">
+    <header class="board__head wrap">
+      <Logo width={120} />
+      <div>
+        <p class="eyebrow"><span class="eyebrow__n">Planche</span>·<span>Bas de page</span></p>
+        <h1 class="h2">Trois propositions pour le bas de page</h1>
+        <p class="lead">Chaque proposition comprend le bandeau de contact, le pied de page, l'accès à l'usine avec sa carte, l'inscription à la newsletter et le bouton de retour en haut. Le bandeau des pays est supprimé.</p>
+      </div>
+    </header>
+
+    <!-- ======================= A · SIGNATURE ======================= -->
+    <section class="board__item">
+      <div class="wrap board__label">
+        <span class="board__tag">A</span>
+        <div><h2>Signature</h2><p>Marine compact et premium · 4 colonnes regroupées · duo bleu/vert en signature · newsletter dans le bloc vert.</p></div>
+      </div>
+      <div class="board__frame">
+        <div class="a-cta">
+          <div class="a-cta__blue">
+            <h3>Parlons de vos besoins en produits de santé.</h3>
+            <p>Centrales d'achat, distributeurs, hôpitaux, organisations de santé : notre équipe vous répond.</p>
+            <div class="a-cta__btns">
+              <a class="btn btn--light" href="#">Écrire à notre équipe<Icon name="arrow" size={18} /></a>
+              <a class="btn btn--outline-light" href="#"><Icon name="phone" size={18} />+229 01 97 37 44 26</a>
+              <a class="btn btn--outline-light" href="#"><Icon name="whatsapp" size={18} />WhatsApp</a>
+            </div>
+          </div>
+          <div class="a-cta__green">
+            <p class="a-cta__h"><Icon name="mail" size={20} />Lettre d'information</p>
+            <p class="a-cta__p">Suivez l'avancement de l'usine, nos agréments et nos lancements de produits.</p>
+            <form class="nl nl--green" onsubmit="return false">
+              <input type="email" placeholder="Votre adresse e-mail" aria-label="Adresse e-mail" />
+              <button type="submit">S'inscrire</button>
+            </form>
+            <p class="a-cta__fine">Désinscription en un clic. Aucune publicité.</p>
+          </div>
+        </div>
+        <footer class="a-ftr">
+          <div class="wrap">
+            <div class="a-ftr__top">
+              <div class="a-ftr__brand">
+                <Logo variant="negatif" width={150} />
+                <p class="a-ftr__slogan"><span class="plus">+</span>Plus près, plus sûr pour votre santé</p>
+                <p class="a-ftr__about">Laboratoire pharmaceutique · Fabricant de médicaments. Filiale Afrique de l'Ouest, Cotonou (Bénin).</p>
+                <ul class="a-ftr__social">{socials.map((s) => <li><a href="#" aria-label={s.label}><Icon name={s.id} size={18} /></a></li>)}</ul>
+              </div>
+              <div class="a-ftr__nav">
+                {groups.map((g) => (
+                  <div><p class="a-ftr__h">{g.t}</p><ul>{g.l.map((x) => <li><a href="#">{x}</a></li>)}</ul></div>
+                ))}
+              </div>
+            </div>
+            <div class="a-ftr__mid">
+              <div class="a-plant">
+                <PlantMiniMap theme="dark" />
+                <div class="a-plant__info">
+                  <p class="a-ftr__h"><Icon name="factory" size={16} />Usine TILAMED Pharma</p>
+                  <p>Zone industrielle de Sèmè-Podji<br />Frontière du Nigeria (Kraké), Bénin</p>
+                  <p class="a-plant__gps">6.3667° N · 2.6167° E</p>
+                  <a class="btn btn--sm btn--green" href={company.plant.maps}>Itinéraire<Icon name="arrow-up-right" size={16} /></a>
+                </div>
+              </div>
+              <div class="a-offices">
+                {offices.map((o) => (
+                  <div class="a-office">
+                    <p class="a-ftr__h"><Icon name="pin" size={16} />{officeName[o.id]}</p>
+                    <p>{o.address.join(', ')}</p>
+                    <a href="#">{o.phone}</a>
+                  </div>
+                ))}
+                <div class="a-office">
+                  <p class="a-ftr__h"><Icon name="mail" size={16} />E-mail</p>
+                  <a href="#">{company.email}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="duo-rule"><span></span><span></span></div>
+          <div class="wrap a-ftr__bottom">
+            <p>© {year} {company.legal} · RCCM {company.rccm} · IFU {company.ifu}</p>
+            <ul>{legal.map((x) => <li><a href="#">{x}</a></li>)}</ul>
+            <a class="totop totop--dark" href="#"><Icon name="arrow" size={18} class="totop__ic" />Haut de page</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ======================= B · USINE VERTE ======================= -->
+    <section class="board__item">
+      <div class="wrap board__label">
+        <span class="board__tag board__tag--green">B</span>
+        <div><h2>Usine verte</h2><p>Pied de page clair (le marine ne domine plus) · grande signature de marque · bande usine avec carte, EDGE et usine inclusive · logo principal en couleurs.</p></div>
+      </div>
+      <div class="board__frame">
+        <footer class="b-ftr">
+          <div class="wrap">
+            <div class="b-statement">
+              <p class="b-statement__txt">Plus près, plus sûr <br />pour votre santé<span>+</span></p>
+              <div class="b-statement__side">
+                <p>Centrales d'achat, distributeurs, hôpitaux, organisations de santé : notre équipe vous répond.</p>
+                <div class="b-statement__btns">
+                  <a class="btn" href="#">Nous contacter<Icon name="arrow" size={18} /></a>
+                  <a class="btn btn--ghost" href="#"><Icon name="whatsapp" size={18} />WhatsApp</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="b-plant">
+              <div class="b-plant__img">
+                <Picture src={imgPlant} formats={['avif', 'webp']} widths={[700, 1200]} sizes="60vw" alt="Toiture solaire (illustration)" />
+                <span class="b-plant__cap">Image d'illustration</span>
+                <div class="b-plant__chips">
+                  <span><Icon name="leaf" size={15} />EDGE en cours</span>
+                  <span class="is-blue"><Icon name="users" size={15} />Usine inclusive</span>
+                </div>
+              </div>
+              <div class="b-plant__card">
+                <p class="eyebrow"><Icon name="factory" size={16} />Venir à l'usine</p>
+                <p class="b-plant__title">Zone industrielle de Sèmè-Podji</p>
+                <p class="b-plant__sub">À la frontière du Nigeria (Kraké), Bénin.</p>
+                <PlantMiniMap />
+                <div class="b-plant__row">
+                  <span class="b-plant__gps">6.3667° N · 2.6167° E</span>
+                  <a class="link-arrow" href={company.plant.maps}>Itinéraire<Icon name="arrow-up-right" size={16} /></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="b-cards">
+              {offices.map((o) => (
+                <div class="b-card">
+                  <p class="b-card__h">{officeName[o.id]}</p>
+                  <p>{o.address.join(', ')}</p>
+                  <a href="#">{o.phone}</a>
+                </div>
+              ))}
+              <div class="b-card b-card--nl">
+                <p class="b-card__h"><Icon name="mail" size={16} />Newsletter</p>
+                <form class="nl" onsubmit="return false">
+                  <input type="email" placeholder="Votre e-mail" aria-label="Adresse e-mail" />
+                  <button type="submit" aria-label="S'inscrire"><Icon name="arrow" size={18} /></button>
+                </form>
+              </div>
+            </div>
+
+            <div class="b-bar">
+              <Logo width={110} />
+              <ul class="b-bar__nav">{['À propos', 'Usine', 'Produits', 'Qualité', 'Marchés', 'Carrières', 'Médias', 'Contact'].map((x) => <li><a href="#">{x}</a></li>)}</ul>
+              <ul class="b-bar__social">{socials.map((s) => <li><a href="#" aria-label={s.label}><Icon name={s.id} size={18} /></a></li>)}</ul>
+            </div>
+          </div>
+          <div class="duo-rule duo-rule--thick"><span></span><span></span></div>
+          <div class="wrap b-legal">
+            <p>© {year} {company.legal} · RCCM {company.rccm} · IFU {company.ifu}</p>
+            <ul>{legal.map((x) => <li><a href="#">{x}</a></li>)}</ul>
+            <a class="totop" href="#" aria-label="Haut de page"><Icon name="arrow" size={20} class="totop__ic" /></a>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ======================= C · PORTAIL B2B ======================= -->
+    <section class="board__item">
+      <div class="wrap board__label">
+        <span class="board__tag board__tag--navy">C</span>
+        <div><h2>Portail B2B</h2><p>Quatre portes d'entrée par public avec une action directe · pied de page marine avec plan du site complet · newsletter en barre.</p></div>
+      </div>
+      <div class="board__frame">
+        <div class="c-aud">
+          <div class="wrap">
+            <p class="eyebrow"><span class="eyebrow__n">+</span>·<span>Comment pouvons-nous vous aider ?</span></p>
+            <div class="c-aud__grid">
+              {audiences.map((a, i) => (
+                <a class="c-aud__card" href="#">
+                  <span class="c-aud__icon"><Icon name={a.icon} size={24} /></span>
+                  <p class="c-aud__t">{a.t}</p>
+                  <p class="c-aud__d">{a.d}</p>
+                  <span class="link-arrow">{a.a}<Icon name="arrow" size={16} /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        <footer class="c-ftr">
+          <div class="wrap">
+            <div class="c-ftr__top">
+              <div class="c-ftr__brand">
+                <Logo variant="negatif" width={140} />
+                <p class="a-ftr__slogan"><span class="plus">+</span>Plus près, plus sûr pour votre santé</p>
+                <a class="c-ftr__big" href="#"><Icon name="phone" size={22} />+229 01 97 37 44 26</a>
+                <a class="c-ftr__big" href="#"><Icon name="mail" size={22} />{company.email}</a>
+                <ul class="a-ftr__social">{socials.map((s) => <li><a href="#" aria-label={s.label}><Icon name={s.id} size={18} /></a></li>)}</ul>
+              </div>
+              <div class="c-ftr__map">
+                {sitemap.map((g) => (
+                  <div><p class="a-ftr__h">{g.t}</p><ul>{g.l.map((x) => <li><a href="#">{x}</a></li>)}</ul></div>
+                ))}
+              </div>
+            </div>
+            <div class="c-ftr__nl">
+              <div><p class="c-ftr__nl-t">Recevez les actualités du projet</p><p>Agréments, avancement de l'usine, lancements de produits.</p></div>
+              <form class="nl nl--dark" onsubmit="return false">
+                <input type="email" placeholder="Votre adresse e-mail" aria-label="Adresse e-mail" />
+                <button type="submit">S'inscrire</button>
+              </form>
+            </div>
+            <div class="c-ftr__places">
+              <div class="c-ftr__plant">
+                <PlantMiniMap theme="dark" />
+                <div>
+                  <p class="a-ftr__h"><Icon name="factory" size={16} />Usine · Sèmè-Podji</p>
+                  <p>Frontière du Nigeria (Kraké)</p>
+                  <a class="link-arrow link-arrow--light" href={company.plant.maps}>Itinéraire<Icon name="arrow-up-right" size={16} /></a>
+                </div>
+              </div>
+              {offices.map((o) => (
+                <div class="a-office">
+                  <p class="a-ftr__h"><Icon name="pin" size={16} />{officeName[o.id]}</p>
+                  <p>{o.address.join(', ')}</p>
+                  <a href="#">{o.phone}</a>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="wrap a-ftr__bottom c-ftr__bottom">
+            <p>© {year} {company.legal} · RCCM {company.rccm} · IFU {company.ifu}</p>
+            <ul>{legal.map((x) => <li><a href="#">{x}</a></li>)}</ul>
+            <a class="totop totop--dark" href="#"><Icon name="arrow" size={18} class="totop__ic" />Haut de page</a>
+          </div>
+          <div class="duo-rule duo-rule--thick"><span></span><span></span></div>
+        </footer>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style is:global>
+  .board { background: #e9eef4; padding-bottom: 80px; }
+  .board__head { display: flex; gap: 40px; align-items: flex-start; padding-block: 56px 32px; }
+  .board__head .lead { margin-top: 14px; max-width: 760px; }
+  .board__item { margin-top: 48px; }
+  .board__label { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
+  .board__label h2 { font-size: 1.5rem; font-weight: 800; }
+  .board__label p { color: var(--muted); font-size: 1rem; margin-top: 4px; }
+  .board__tag { display: grid; place-items: center; width: 52px; height: 52px; border-radius: var(--radius); background: var(--blue); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; flex: none; }
+  .board__tag--green { background: var(--green); }
+  .board__tag--navy { background: var(--navy); }
+  .board__frame { max-width: 1440px; margin-inline: auto; background: #fff; box-shadow: 0 30px 80px -40px rgba(18, 48, 90, .5); overflow: hidden; }
+
+  /* commun */
+  .nl { display: flex; background: #fff; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .nl input { flex: 1; min-width: 0; border: 0; padding: 0 16px; height: 50px; font: inherit; font-size: 1rem; color: var(--navy); background: transparent; outline: none; }
+  .nl button { padding: 0 20px; background: var(--blue); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: .875rem; }
+  .nl--green { border-color: #fff; }
+  .nl--green button { background: var(--navy); }
+  .nl--dark { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .2); }
+  .nl--dark input { color: #fff; }
+  .nl--dark input::placeholder { color: rgba(255, 255, 255, .55); }
+  .totop { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 48px; height: 48px; padding: 0 16px; border-radius: 99px; border: 1px solid var(--line); background: #fff; color: var(--navy); font-family: var(--font-head); font-weight: 700; font-size: .8125rem; transition: background .3s, color .3s; }
+  .totop:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .totop__ic { transform: rotate(-90deg); }
+  .totop--dark { background: transparent; border-color: rgba(255, 255, 255, .25); color: #fff; }
+  .duo-rule--thick { height: 8px; }
+  .link-arrow--light { color: #8fc2f3; }
+
+  /* A · Signature */
+  .a-cta { display: grid; grid-template-columns: 65fr 35fr; }
+  .a-cta__blue { background: var(--blue); color: #fff; padding: 72px 56px 72px max(56px, calc((1440px - 1280px) / 2 + 48px)); }
+  .a-cta__blue h3 { color: #fff; font-size: 2.5rem; font-weight: 800; max-width: 20ch; }
+  .a-cta__blue p { margin-top: 14px; color: rgba(255, 255, 255, .88); font-size: 1.125rem; max-width: 52ch; }
+  .a-cta__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .a-cta__green { background: var(--green); color: #fff; padding: 72px 56px; display: flex; flex-direction: column; justify-content: center; }
+  .a-cta__h { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; }
+  .a-cta__p { margin: 8px 0 18px; color: rgba(255, 255, 255, .92); }
+  .a-cta__fine { margin-top: 10px; font-size: .8125rem; opacity: .85; }
+  .a-ftr { background: var(--navy-900); color: rgba(255, 255, 255, .72); font-size: .9375rem; }
+  .a-ftr a:hover { color: #fff; }
+  .a-ftr__top { display: grid; grid-template-columns: 300px 1fr; gap: 72px; padding-block: 72px 48px; }
+  .a-ftr__slogan { margin-top: 20px; font-family: var(--font-head); font-weight: 600; font-style: italic; color: #fff; }
+  .a-ftr__about { margin-top: 12px; line-height: 1.55; }
+  .a-ftr__social { display: flex; gap: 8px; margin-top: 22px; }
+  .a-ftr__social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, .18); color: #fff; }
+  .a-ftr__nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .a-ftr__h { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+  .a-ftr__h .icon { color: var(--green); }
+  .a-ftr__nav li + li { margin-top: 9px; }
+  .a-ftr__mid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; padding-block: 40px 48px; border-top: 1px solid rgba(255, 255, 255, .1); }
+  .a-plant { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; }
+  .a-plant__info p { line-height: 1.55; }
+  .a-plant__gps { margin: 8px 0 16px; font-size: .8125rem; color: #8fc2f3; letter-spacing: .04em; }
+  .a-offices { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; align-content: center; }
+  .a-office p { line-height: 1.5; }
+  .a-office a { display: inline-block; margin-top: 6px; color: #fff; font-weight: 700; }
+  .a-ftr__bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; padding-block: 22px; font-size: .875rem; }
+  .a-ftr__bottom ul { display: flex; gap: 22px; margin-inline-start: auto; }
+
+  /* B · Usine verte */
+  .b-ftr { background: var(--mist); color: var(--text); }
+  .b-statement { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: end; padding-block: 88px 56px; }
+  .b-statement__txt { font-family: var(--font-head); font-weight: 800; font-size: 4.2rem; line-height: 1.02; letter-spacing: -.03em; color: var(--navy); }
+  .b-statement__txt span { color: var(--green); margin-inline-start: 8px; }
+  .b-statement__side p { font-size: 1.125rem; }
+  .b-statement__btns { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+  .b-plant { display: grid; grid-template-columns: 1.3fr 1fr; gap: 0; border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow); }
+  .b-plant__img { position: relative; min-height: 420px; }
+  .b-plant__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .b-plant__cap { position: absolute; top: 14px; inset-inline-end: 14px; padding: 4px 10px; border-radius: 4px; background: rgba(10, 28, 54, .6); color: #fff; font-size: .75rem; }
+  .b-plant__chips { position: absolute; inset-inline-start: 20px; bottom: 20px; display: flex; gap: 8px; }
+  .b-plant__chips span { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: var(--radius); background: var(--green); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: .8125rem; }
+  .b-plant__chips span.is-blue { background: var(--blue); }
+  .b-plant__card { padding: 36px; }
+  .b-plant__title { margin-top: 12px; font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; color: var(--navy); }
+  .b-plant__sub { margin: 6px 0 18px; color: var(--muted); }
+  .b-plant__row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+  .b-plant__gps { font-size: .875rem; color: var(--muted); }
+  .b-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; }
+  .b-card { padding: 24px; background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--line); }
+  .b-card__h { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-family: var(--font-head); font-weight: 800; color: var(--navy); }
+  .b-card a { display: inline-block; margin-top: 6px; color: var(--blue); font-weight: 700; }
+  .b-card--nl { background: var(--blue-50); border-color: var(--blue-50); }
+  .b-card--nl .nl input { height: 46px; }
+  .b-bar { display: flex; align-items: center; gap: 32px; padding-block: 40px 32px; margin-top: 40px; border-top: 1px solid var(--line); }
+  .b-bar__nav { display: flex; flex-wrap: wrap; gap: 8px 26px; font-family: var(--font-head); font-weight: 600; font-size: .9375rem; color: var(--navy); }
+  .b-bar__social { display: flex; gap: 8px; margin-inline-start: auto; }
+  .b-bar__social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius); border: 1px solid var(--line); color: var(--navy); }
+  .b-legal { display: flex; align-items: center; gap: 16px 32px; padding-block: 20px; font-size: .875rem; color: var(--muted); }
+  .b-legal ul { display: flex; gap: 22px; margin-inline-start: auto; }
+
+  /* C · Portail B2B */
+  .c-aud { background: var(--mist); padding-block: 64px; }
+  .c-aud__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 22px; }
+  .c-aud__card { display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); transition: box-shadow .35s, transform .35s var(--ease); }
+  .c-aud__card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .c-aud__icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: var(--radius); background: var(--blue); color: #fff; }
+  .c-aud__card:nth-child(2) .c-aud__icon, .c-aud__card:nth-child(3) .c-aud__icon { background: var(--green); }
+  .c-aud__t { margin-top: 8px; font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; color: var(--navy); }
+  .c-aud__d { color: var(--muted); font-size: 1rem; flex: 1; }
+  .c-ftr { background: var(--navy-900); color: rgba(255, 255, 255, .72); font-size: .9375rem; }
+  .c-ftr a:hover { color: #fff; }
+  .c-ftr__top { display: grid; grid-template-columns: 340px 1fr; gap: 64px; padding-block: 64px 40px; }
+  .c-ftr__big { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: #fff; }
+  .c-ftr__big .icon { color: var(--green); }
+  .c-ftr__map { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 32px; }
+  .c-ftr__map li + li { margin-top: 8px; }
+  .c-ftr__nl { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 28px 32px; border-radius: var(--radius-lg); background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); }
+  .c-ftr__nl-t { font-family: var(--font-head); font-weight: 800; color: #fff; font-size: 1.15rem; }
+  .c-ftr__nl .nl { width: 440px; }
+  .c-ftr__places { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 32px; padding-block: 40px; }
+  .c-ftr__plant { display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px; align-items: center; }
+  .c-ftr__plant p { line-height: 1.5; margin-bottom: 8px; }
+  .c-ftr__bottom { border-top: 1px solid rgba(255, 255, 255, .1); }
+</style>

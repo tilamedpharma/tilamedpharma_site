@@ -1,0 +1,59 @@
+---
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '@fontsource/montserrat/latin-ext-600.css';
+import '@fontsource/montserrat/latin-ext-800.css';
+import '@fontsource/carlito/latin-400.css';
+import '@fontsource/carlito/latin-700.css';
+import '@fontsource/carlito/latin-400-italic.css';
+import '../styles/global.css';
+import '../styles/pages.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { locales, localeMeta, localizePath, type Locale } from '../i18n/config';
+
+interface Props { lang: Locale; title: string; description: string; slug?: string; image?: string }
+const { lang, title, description, slug = '', image = '/media/video/hero-wide.jpg' } = Astro.props;
+const meta = localeMeta[lang];
+const site = Astro.site ?? new URL('https://www.tilamedpharma.com');
+const canonical = new URL(localizePath(lang, slug), site).href;
+---
+<!doctype html>
+<html lang={meta.htmlLang} dir={meta.dir} data-lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {locales.map((l) => <link rel="alternate" hreflang={localeMeta[l].htmlLang} href={new URL(localizePath(l, slug), site).href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(localizePath('fr', slug), site).href} />
+    <meta name="theme-color" content="#1C64BA" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TILAMED Pharma" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={meta.og} />
+    <meta property="og:image" content={new URL(image, site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {lang === 'ar' && <link rel="preload" as="style" href="/fonts/ar.css" />}
+    {lang === 'ar' && <link rel="stylesheet" href="/fonts/ar.css" />}
+    {lang === 'zh' && <link rel="stylesheet" href="/fonts/zh.css" />}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip</a>
+    <Header lang={lang} slug={slug} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} portal={slug === ''} />
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

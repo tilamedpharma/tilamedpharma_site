@@ -1,0 +1,37 @@
+      <ul class="stats">
+        <li class="stat stat--cap" data-reveal>
+          <span class="stat__tag"><Icon name="vial" size={16} />{t.impact.capacity.title}</span>
+          <div class="stat__pair">
+            {t.impact.capacity.items.map((c, i) => (
+              <>
+                {i > 0 && <span class="stat__plus" aria-hidden="true">+</span>}
+                <div class:list={['stat__sub', { 'stat__sub--svp': i > 0 }]}>
+                  <span class="stat__code">{c.code}</span>
+                  <p class="stat__num"><span data-count={c.value}>{c.value}</span><small>{c.unit}</small></p>
+                  <p class="stat__label">{c.label}</p>
+                </div>
+              </>
+            ))}
+          </div>
+        </li>
+        <li class="stat stat--jobs" data-reveal style="--d:1">
+          <span class="stat__tag"><Icon name="users" size={16} />{t.impact.jobs.badge}</span>
+          <p class="stat__num"><span data-count={t.figures.items[1].value}>{t.figures.items[1].value}</span></p>
+          <p class="stat__label">{t.figures.items[1].label}</p>
+          <ul class="stat__facts">
+            {t.impact.jobs.facts.map((x) => <li><Icon name="check" size={15} />{x}</li>)}
+          </ul>
+          <a class="link-arrow stat__cta" href={L('carrieres')}>{t.impact.jobs.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+        </li>
+        {[
+          { f: t.figures.items[0], icon: 'factory', tag: t.impact.tags.site },
+          { f: t.figures.items[2], icon: 'clock', tag: t.impact.tags.experience },
+          { f: t.figures.items[3], icon: 'globe', tag: t.impact.tags.coverage },
+        ].map((s, i) => (
+          <li class="stat" data-reveal style={`--d:${i}`}>
+            <span class="stat__tag"><Icon name={s.icon} size={16} />{s.tag}</span>
+            <p class="stat__num"><span data-count={s.f.value}>{s.f.value}</span>{s.f.unit && <small>{s.f.unit}</small>}</p>
+            <p class="stat__label">{s.f.label}</p>
+          </li>
+        ))}
+      </ul>

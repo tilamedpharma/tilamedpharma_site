@@ -1,0 +1,40 @@
+---
+// Page « introuvable » (servie par Apache via ErrorDocument 404 /404.html) : français + accès aux 7 langues.
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { locales, localeMeta, localizePath } from '../i18n/config';
+
+const notFound: Record<string, string> = {
+  fr: 'Page introuvable', en: 'Page not found', es: 'Página no encontrada', pt: 'Página não encontrada',
+  it: 'Pagina non trovata', zh: '页面未找到', ar: 'الصفحة غير موجودة',
+};
+---
+<Base lang="fr" title="Page introuvable · TILAMED Pharma" description="Cette page n'existe pas ou a été déplacée." slug="404">
+  <section class="section nf">
+    <div class="wrap nf__inner">
+      <p class="eyebrow"><Icon name="search" size={16} class="eyebrow__ic" /><span>Erreur 404</span></p>
+      <h1 class="h2">Cette page est introuvable</h1>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead nf__lead">L'adresse a peut-être changé avec le nouveau site, ou la page a été déplacée.</p>
+      <div class="nf__ctas">
+        <a class="btn" href="/">Retour à l'accueil<Icon name="arrow" size={18} /></a>
+        <a class="btn btn--ghost" href="/produits/">Nos produits</a>
+        <a class="btn btn--ghost" href="/contact/">Nous contacter</a>
+      </div>
+      <ul class="nf__langs">
+        {locales.filter((l) => l !== 'fr').map((l) => (
+          <li><a href={localizePath(l, '')} lang={localeMeta[l].htmlLang} dir={localeMeta[l].dir}>{notFound[l]} →</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf { min-height: 62vh; display: grid; align-items: center; }
+  .nf__lead { margin-top: 22px; max-width: 620px; }
+  .nf__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .nf__langs { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); font-size: .9375rem; }
+  .nf__langs a { color: var(--blue); text-decoration: none; font-weight: 700; }
+  .nf__langs a:hover { text-decoration: underline; }
+</style>

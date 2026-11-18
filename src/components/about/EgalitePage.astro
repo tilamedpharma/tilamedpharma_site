@@ -1,0 +1,117 @@
+---
+// Page « Égalité femmes-hommes et inclusion » (rubrique À propos).
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useEgalite } from '../../i18n/pages/egalite';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/inclusion-ingenieures.jpg';
+import imgEq from '../../assets/images/stock/inclusion-ingenieure-portrait.jpg';
+import imgIncl from '../../assets/images/stock/inclusion-fauteuil-tableau.jpg';
+import imgCta from '../../assets/images/stock/inclusion-femmes-metiers.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const e = useEgalite(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const pillarImgs = [imgEq, imgIncl];
+const pillarIcons = ['users', 'accessible'];
+const journeyIcons = ['search', 'accessible', 'book', 'shield'];
+---
+<PageHero lang={lang} section="entreprise" slug="egalite" title={pages['egalite']} lead={e.hero.lead} image={imgHero}>
+  <a class="btn" href="#engagements">{e.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('carrieres')}>{pages['carrieres']}</a>
+</PageHero>
+
+<!-- UNE PREMIÈRE AU BÉNIN -->
+<section class="section" aria-labelledby="efirst-title">
+  <div class="wrap">
+    <div class="rtr" data-reveal>
+      <div class="rtr__fig">
+        <p class="rtr__num efirst__num">{e.first.value}</p>
+        <p class="rtr__label">{e.first.label}</p>
+      </div>
+      <div class="rtr__body">
+        <p class="eyebrow eyebrow--light"><Icon name="award" size={16} /><span>{e.first.eyebrow}</span></p>
+        <h2 class="rtr__title" id="efirst-title">{t.impact.inclusion.title}</h2>
+        <p>{e.first.text}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEUX ENGAGEMENTS -->
+<section class="section vcom" id="engagements" aria-labelledby="epil-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="check-circle" size={16} class="eyebrow__ic" /><span>{e.pillars.eyebrow}</span></p>
+      <h2 class="h2" id="epil-title" data-reveal>{e.pillars.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <div class="epil">
+      {e.pillars.items.map((it, i) => (
+        <article class="epil__card" data-reveal style={`--d:${i}`}>
+          <div class="epil__img">
+            <Picture src={pillarImgs[i]} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 46vw" alt="" loading="lazy" />
+          </div>
+          <div class="epil__body">
+            <span class:list={['vcom__ic', { 'is-green': i === 1 }]}><Icon name={pillarIcons[i]} size={22} /></span>
+            <h3>{it.title}</h3>
+            <p>{it.text}</p>
+            <ul>
+              {it.points.map((x) => <li><Icon name="check" size={16} />{x}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- DE L'EMBAUCHE AUX RESPONSABILITÉS -->
+<section class="section" aria-labelledby="ejr-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{e.journey.eyebrow}</span></p>
+      <h2 class="h2" id="ejr-title" data-reveal>{e.journey.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ol class="ejr">
+      {e.journey.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <span class:list={['ejr__dot', { 'is-green': i === e.journey.items.length - 1 }]}><Icon name={journeyIcons[i]} size={24} /></span>
+          <span class="ejr__n">{pad(i + 1)}</span>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- CARRIÈRES -->
+<section class="apart vcta" aria-labelledby="ecta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="users" size={16} /><span>{e.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="ecta-title">{e.cta.title}</h2>
+        <p>{e.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('metiers')}>{pages['metiers']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('candidature')}>{pages['candidature']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

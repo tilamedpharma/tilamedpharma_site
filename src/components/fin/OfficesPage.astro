@@ -1,0 +1,48 @@
+---
+// Page « Nos bureaux » : 3 bureaux + accès à l'usine (carte).
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import PlantMiniMap from '../PlantMiniMap.astro';
+import { useDict, countryName } from '../../i18n';
+import { useFin } from '../../i18n/pages/fin';
+import { type Locale } from '../../i18n/config';
+import { company, offices } from '../../data/site';
+import imgOff from '../../assets/images/stock/benin-cotonou-moto.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const o = useFin(lang).offices;
+const pages = t.nav.pages as Record<string, string>;
+---
+<PageHero lang={lang} section="contact" slug="bureaux" title={pages['bureaux']} lead={o.lead} image={imgOff} />
+
+<section class="section moff" aria-labelledby="moff-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="pin" size={16} class="eyebrow__ic" /><span>{pages['bureaux']}</span></p>
+      <h2 class="h2" id="moff-title" data-reveal>{o.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="moff__grid">
+      {offices.map((x, i) => (
+        <li class="moff__card" data-reveal style={`--d:${i}`}>
+          <span class="moff__flag">{countryName(lang, x.country)}{'hq' in x && x.hq && <em>{t.presence.hq}</em>}</span>
+          <h3>{t.footer.officeNames[x.id as keyof typeof t.footer.officeNames]}</h3>
+          <p dir="auto">{x.address.join(', ')}</p>
+          <a class="btn btn--ghost btn--sm" href={`tel:${x.tel}`}><Icon name="phone" size={16} /><span dir="ltr">{x.phone}</span></a>
+        </li>
+      ))}
+    </ul>
+    <div class="moff__plant" data-reveal>
+      <div class="moff__map"><PlantMiniMap theme="light" plantLabel={t.presence.plant} ocean={t.presence.ocean} benin={countryName(lang, 'BJ')} nigeria={countryName(lang, 'NG')} /></div>
+      <div class="moff__pbody">
+        <span class="ugreen__badge moff__badge"><Icon name="factory" size={16} />{t.presence.plantPlace}</span>
+        <h3>{o.plantTitle}</h3>
+        <p>{o.plantText}</p>
+        <a class="btn" href={company.plant.maps} target="_blank" rel="noopener">{t.presence.directions}<Icon name="arrow-up-right" size={18} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,57 @@
+---
+// Page « Espace presse » : l'essentiel sur TILAMED Pharma, contact presse, dernières actualités.
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict, formatDate } from '../../i18n';
+import { useFin } from '../../i18n/pages/fin';
+import { localizePath, type Locale } from '../../i18n/config';
+import { company, offices } from '../../data/site';
+import imgPress from '../../assets/images/tilamed/13-arab-health-dubai.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const f = useFin(lang);
+const p = f.press;
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+---
+<PageHero lang={lang} section="medias" slug="presse" title={pages['presse']} lead={p.lead} image={imgPress} />
+
+<section class="section pdoc" aria-labelledby="press-title">
+  <div class="wrap stepc__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{pages['presse']}</span></p>
+      <h2 class="h2" id="press-title" data-reveal>{p.briefTitle}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <ul class="pts">{p.brief.map((x, i) => <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{x}</li>)}</ul>
+
+      <div class="tblock tblock--next">
+        <h2 class="h2" data-reveal>{t.news.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+        <ul class="mpress__news">
+          {t.news.items.map((n, i) => (
+            <li data-reveal style={`--d:${i}`}>
+              <a href={`${L('actualites')}#a${i + 1}`}>
+                <time datetime={n.date}>{formatDate(lang, n.date)}</time>
+                <span>{n.title}</span>
+                <Icon name="arrow" size={18} class="flip-rtl" />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="link-arrow" href={L('actualites')} data-reveal>{p.newsCta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+      </div>
+    </div>
+    <aside class="stepc__aside">
+      <div class="sdoc" data-reveal>
+        <span class="sdoc__t">{p.contactTitle}</span>
+        <span class="sdoc__d">{p.contactText}</span>
+        <a class="pdoc__contact" href={`mailto:${company.email}?subject=Presse`}><Icon name="mail" size={18} />{company.email}</a>
+        <a class="pdoc__contact" href={`tel:${offices[0].tel}`} dir="ltr"><Icon name="phone" size={18} />{offices[0].phone}</a>
+      </div>
+      <p class="note note--aside" data-reveal><Icon name="download" size={20} />{p.note}</p>
+    </aside>
+  </div>
+</section>
+

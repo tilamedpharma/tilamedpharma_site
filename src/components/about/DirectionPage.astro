@@ -1,0 +1,134 @@
+---
+// Page « Direction » (rubrique À propos).
+// Photo du directeur général : non fournie. En attendant, monogramme aux couleurs de la marque.
+// Pour l'ajouter : importer l'image et la passer à `dgPhoto` ci-dessous.
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useDirection } from '../../i18n/pages/direction';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/affaires-reunion-lagos.jpg';
+import imgCta from '../../assets/images/stock/inclusion-equipe-bureau.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const d = useDirection(lang);
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+
+const dgPhoto: ImageMetadata | undefined = undefined;
+const monogram = 'CL';
+const orgIcons = ['shield', 'tag', 'globe', 'truck', 'factory'];
+---
+<PageHero lang={lang} section="entreprise" slug="direction" title={pages['direction']} lead={d.hero.lead} image={imgHero}>
+  <a class="btn" href="#dg">{d.hero.ctaDg}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href="#organisation">{d.hero.ctaOrg}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts dfacts" aria-label={pages['direction']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {d.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- DIRECTEUR GÉNÉRAL -->
+<section class="section dgp" id="dg" aria-labelledby="dgp-title">
+  <div class="wrap dgp__grid">
+    <figure class="dgp__visual" data-reveal="scale">
+      <div class="dgp__portrait">
+        {dgPhoto
+          ? <Picture src={dgPhoto} formats={['avif', 'webp']} widths={[480, 760]} sizes="(max-width: 900px) 80vw, 36vw" alt={d.dg.name} loading="lazy" />
+          : <span class="dgp__mono" aria-hidden="true" dir="ltr">{monogram}</span>}
+      </div>
+      <figcaption class="dgp__card">
+        <span class="dgp__card-mark"><Icon name="users" size={20} /></span>
+        <span><strong>{d.dg.name}</strong><small>{d.dg.role}</small></span>
+      </figcaption>
+    </figure>
+
+    <div class="dgp__body">
+      <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{d.dg.eyebrow}</span></p>
+      <h2 class="h2" id="dgp-title" data-reveal>{d.dg.name}</h2>
+      <p class="dgp__role" data-reveal>{d.dg.role}</p>
+      <span class="title-rule" aria-hidden="true"></span>
+      {d.dg.bio.map((p, i) => <p class:list={[i === 0 ? 'lead dgp__lead' : 'dgp__p']} data-reveal>{p}</p>)}
+      <div class="dgp__conv" data-reveal>
+        <p class="dgp__conv-l">{d.dg.convictionLabel}</p>
+        <p class="dgp__conv-t">{d.dg.conviction}</p>
+      </div>
+      <h3 class="h3 dgp__path" data-reveal>{d.dg.pathTitle}</h3>
+      <ul class="pts">
+        {d.dg.path.map((it, i) => (
+          <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{it}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANISATION -->
+<section class="section dorg" id="organisation" aria-labelledby="dorg-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="building" size={16} class="eyebrow__ic" /><span>{d.org.eyebrow}</span></p>
+      <h2 class="h2" id="dorg-title" data-reveal>{d.org.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead" data-reveal>{d.org.intro}</p>
+    </div>
+
+    <div class="dorg__chart">
+      <div class="dorg__head" data-reveal>
+        <span class="dorg__head-ic"><Icon name="users" size={22} /></span>
+        <span><small>{d.dg.role}</small><strong>{d.dg.name}</strong></span>
+      </div>
+      <ul class="dorg__row">
+        {d.org.items.map((it, i) => (
+          <li class:list={['dorg__node', { 'is-pharma': i === 0 }]} data-reveal style={`--d:${i}`}>
+            {i === 0 && <span class="dorg__badge">{d.org.badge}</span>}
+            <span class="dorg__ic"><Icon name={orgIcons[i]} size={22} /></span>
+            <h3>{it.title}</h3>
+            <p>{it.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="note dorg__note" data-reveal>
+      <Icon name="check-circle" size={20} />
+      <span>{d.org.note} <a class="link-arrow" href={L('bpf-oms')}>{pages['bpf-oms']}<Icon name="arrow" size={14} class="flip-rtl" /></a></span>
+    </p>
+  </div>
+</section>
+
+<!-- CARRIÈRES -->
+<section class="apart vcta" aria-labelledby="dcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="users" size={16} /><span>{d.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="dcta-title">{d.cta.title}</h2>
+        <p>{d.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('metiers')}>{pages['metiers']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('candidature')}>{pages['candidature']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

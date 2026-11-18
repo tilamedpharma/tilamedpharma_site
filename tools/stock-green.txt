@@ -1,0 +1,7 @@
+33626641|green-usine-solaire-champs|Complexe industriel avec panneaux solaires et champs verts
+29923348|green-toiture-solaire-industrielle|Panneaux solaires sur un bâtiment industriel (vue aérienne)
+17641131|green-entrepot-solaire-campagne|Entrepôt avec panneaux solaires en zone rurale
+11645008|green-installation-solaire|Installation de panneaux solaires sur un toit
+30285845|green-technicien-solaire|Technicien installant des panneaux solaires
+13963757|green-panneaux-ciel-bleu|Panneaux solaires sur fond de ciel bleu
+4320449|green-centrale-solaire|Centrale photovoltaïque sur terrain vert

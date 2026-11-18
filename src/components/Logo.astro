@@ -1,0 +1,14 @@
+---
+// Logo officiel (charte 2026) : « principal » sur fond clair, « negatif » sur fond marine. Jamais d'effet.
+interface Props { variant?: 'principal' | 'negatif'; class?: string; width?: number }
+const { variant = 'principal', class: cls = '', width = 132 } = Astro.props;
+const h = Math.round((width * 258.82) / 468);
+---
+<img
+  class={`logo ${cls}`}
+  src={`/brand/Tilamed_logo_${variant}.svg`}
+  width={width}
+  height={h}
+  alt="TILAMED Pharma+"
+  decoding="async"
+/>

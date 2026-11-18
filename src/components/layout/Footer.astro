@@ -1,0 +1,77 @@
+---
+// Bas de page · proposition C « Portail B2B » : 4 portes d'entrée par public + pied de page marine.
+import Logo from '../Logo.astro';
+import Icon from '../Icon.astro';
+import { useDict } from '../../i18n';
+import { localizePath, type Locale } from '../../i18n/config';
+import { navTree, sectionKeys, offices, socials, company, legalPages } from '../../data/site';
+
+// `portal` : bloc « Comment pouvons-nous vous aider ? », affiché uniquement sur l'accueil (évite la répétition sur chaque page).
+interface Props { lang: Locale; portal?: boolean }
+const { lang, portal = false } = Astro.props;
+const t = useDict(lang);
+const p = t.footer.portal;
+const pages = t.nav.pages as Record<string, string>;
+const L = (slug: string) => localizePath(lang, slug);
+const year = new Date().getFullYear();
+const audIcons = ['truck', 'globe', 'users', 'sparkle'];
+const audLinks = ['centrales-achat', 'distributeurs', 'candidature', 'presse'];
+const mapSections = sectionKeys.filter((s) => s !== 'contact');
+---
+{portal && <section class="portal" aria-labelledby="portal-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="mail" size={16} class="eyebrow__ic" /><span>{p.eyebrow}</span></p>
+        <h2 class="h2" id="portal-title" data-reveal>{p.help.split(/(\S+-\S+)/).map((w) => (/\S-\S/.test(w) ? <span class="nowrap">{w}</span> : w))}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{p.lead}</p>
+    </div>
+    <div class="portal__grid">
+      {p.audiences.map((a, i) => (
+        <a class="portal__card" href={L(audLinks[i])} data-reveal style={`--d:${i}`}>
+          <span class="portal__icon"><Icon name={audIcons[i]} size={24} /></span>
+          <span class="portal__t">{a.title}</span>
+          <span class="portal__d">{a.text}</span>
+          <span class="link-arrow">{a.action}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>}
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <Logo variant="negatif" width={144} />
+        <p class="ftr__slogan"><span class="plus" aria-hidden="true">+</span>{t.slogan}</p>
+        <a class="ftr__big" href={`tel:${offices[0].tel}`} dir="ltr"><Icon name="phone" size={22} />{offices[0].phone}</a>
+        <a class="ftr__big ftr__big--mail" href={`mailto:${company.email}`}><Icon name="mail" size={22} />{company.email}</a>
+        <ul class="ftr__social">
+          {socials.map((s) => (
+            <li><a href={s.url} target="_blank" rel="noopener" aria-label={s.label}><Icon name={s.id} size={18} /></a></li>
+          ))}
+        </ul>
+      </div>
+      <nav class="ftr__map" aria-label={t.nav.pages['plan-du-site']}>
+        {mapSections.map((s) => (
+          <div>
+            <p class="ftr__h">{t.nav.sections[s].label}</p>
+            <ul>{navTree[s].slice(0, 4).map((pg) => <li><a href={L(pg)}>{pages[pg]}</a></li>)}</ul>
+          </div>
+        ))}
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap ftr__bottom">
+    <p>© {year} {company.legal} · {t.footer.legalIds.replace('{rccm}', company.rccm).replace('{ifu}', company.ifu)}</p>
+    <ul class="ftr__legal">
+      {legalPages.map((pg) => <li><a href={L(pg)}>{pages[pg]}</a></li>)}
+    </ul>
+    <a class="totop" href="#top" data-totop><Icon name="arrow" size={18} class="totop__ic" />{p.backToTop}</a>
+  </div>
+  <div class="duo-rule duo-rule--thick" aria-hidden="true"><span></span><span></span></div>
+</footer>

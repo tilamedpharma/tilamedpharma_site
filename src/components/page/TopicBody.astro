@@ -1,0 +1,116 @@
+---
+// Corps commun des pages de détail : blocs de contenu à gauche, chiffres / remarque / documentation à droite.
+import Icon from '../Icon.astro';
+import PlantMiniMap from '../PlantMiniMap.astro';
+import { useDict, countryName } from '../../i18n';
+import { useUsine } from '../../i18n/pages/usine';
+import { localizePath, type Locale } from '../../i18n/config';
+import { company } from '../../data/site';
+import type { Block, Fact } from '../../i18n/pages/etapes/fr';
+
+interface Props {
+  lang: Locale; eyebrow: string; eyebrowN?: string; intro?: string; blocks: Block[]; facts: Fact[]; note?: string;
+  figures: string; icons?: string[]; map?: { directions: string }; doc?: boolean;
+}
+const { lang, eyebrow, eyebrowN, intro, blocks, facts, note, figures, icons = ['flask', 'eye', 'clock', 'shield', 'wrench'], map, doc = true } = Astro.props;
+const t = useDict(lang);
+const u = useUsine(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+<section class="section stepc" aria-labelledby="stepc-title">
+  <div class="wrap stepc__grid">
+    <div class="stepc__main">
+      <p class="eyebrow" data-reveal>{eyebrowN && <><span class="eyebrow__n">{eyebrowN}</span>·</>}<span>{eyebrow}</span></p>
+      {blocks.map((b, bi) => (
+        <div class:list={['tblock', { 'tblock--next': bi > 0 }]}>
+          <h2 class="h2" id={bi === 0 ? 'stepc-title' : undefined} data-reveal>{b.title}</h2>
+          <span class="title-rule" aria-hidden="true"></span>
+          {bi === 0 && intro && <p class="lead stepc__intro" data-reveal>{intro}</p>}
+          {b.text && <p class="lead stepc__intro" data-reveal>{b.text}</p>}
+
+          {b.kind === 'sequence' && (
+            <ol class="seq">
+              {(b.items as { title: string; text: string }[]).map((it, i) => (
+                <li data-reveal style={`--d:${i}`}>
+                  <span class="seq__n">{pad(i + 1)}</span>
+                  <div><h3>{it.title}</h3><p>{it.text}</p></div>
+                </li>
+              ))}
+            </ol>
+          )}
+          {b.kind === 'prose' && b.items.map((x) => <p class="tprose" data-reveal>{x}</p>)}
+          {b.kind === 'table' && (
+            <div class="ttable" data-reveal>
+              <table>
+                <thead><tr>{b.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+                <tbody>{b.rows.map((r) => <tr>{r.map((c, ci) => (ci === 0 ? <th scope="row">{c}</th> : <td>{c}</td>))}</tr>)}</tbody>
+              </table>
+            </div>
+          )}
+          {b.kind === 'refs' && (
+            <ul class="trefs">
+              {b.items.map((it, i) => (
+                <li data-reveal style={`--d:${i % 2}`}>
+                  <Icon name="check-circle" size={26} />
+                  <h3>{it.title}</h3>
+                  <p class="trefs__ref">{it.ref}</p>
+                  <p class="trefs__by">{it.by}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+          {b.kind === 'points' && (
+            <ul class="pts">
+              {(b.items as string[]).map((it, i) => (
+                <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{it}</li>
+              ))}
+            </ul>
+          )}
+          {b.kind === 'cards' && (
+            <ul class="feat feat--cards">
+              {(b.items as { title: string; text: string }[]).map((it, i) => (
+                <li data-reveal style={`--d:${i % 2}`}>
+                  <span class="feat__ic"><Icon name={icons[i] ?? 'check'} size={22} /></span>
+                  <h3>{it.title}</h3>
+                  <p>{it.text}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <aside class="stepc__aside">
+      {map && (
+        <div class="smap" data-reveal>
+          <PlantMiniMap theme="light" plantLabel={t.presence.plant} ocean={t.presence.ocean} benin={countryName(lang, 'BJ')} nigeria={countryName(lang, 'NG')} />
+          <a class="link-arrow" href={company.plant.maps} target="_blank" rel="noopener">{map.directions}<Icon name="arrow-up-right" size={16} /></a>
+        </div>
+      )}
+      {facts.length > 0 && (
+        <div class="sfacts" data-reveal>
+          <p class="sfacts__h">{figures}</p>
+          <ul class:list={['sfacts__list', { 'sfacts__list--4': facts.length === 4 }]}>
+            {facts.map((f) => (
+              <li>
+                <p class="sfacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+                <p class="sfacts__l">{f.label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {note && <p class="note note--aside" data-reveal><Icon name="check-circle" size={20} />{note}</p>}
+      {doc && (
+        <a class="sdoc" href={L('documentation')} data-reveal>
+          <Icon name="download" size={24} />
+          <span class="sdoc__t">{u.process.docTitle}</span>
+          <span class="sdoc__d">{u.process.docText}</span>
+          <span class="link-arrow">{u.process.docCta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+        </a>
+      )}
+    </aside>
+  </div>
+</section>

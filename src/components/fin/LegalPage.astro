@@ -1,0 +1,63 @@
+---
+// Pages légales : mentions légales, confidentialité, cookies, plan du site.
+import PageHero from '../page/PageHero.astro';
+import Icon from '../Icon.astro';
+import { useDict, countryName } from '../../i18n';
+import { useFin } from '../../i18n/pages/fin';
+import { localizePath, type Locale } from '../../i18n/config';
+import { company, offices, navTree, sectionKeys, legalPages } from '../../data/site';
+
+interface Props { lang: Locale; slug: 'mentions-legales' | 'confidentialite' | 'cookies' | 'plan-du-site' }
+const { lang, slug } = Astro.props;
+const t = useDict(lang);
+const g = useFin(lang).legal;
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+const page = slug === 'mentions-legales' ? g.mentions : slug === 'confidentialite' ? g.privacy : slug === 'cookies' ? g.cookies : g.sitemap;
+const sections = 'sections' in page ? page.sections : [];
+const r = g.mentions.rows;
+const rows = [
+  [r.editor, r.capital],
+  [r.hq, `${offices[0].address.join(', ')}, ${countryName(lang, 'BJ')}`],
+  [r.rccm, company.rccm],
+  [r.ifu, company.ifu],
+  [r.phone, offices[0].phone],
+  [r.email, company.email],
+  [r.director, r.directorValue],
+  [r.host, 'Hostinger International Ltd · 61 Lordou Vironos Street, 6023 Larnaca, Cyprus · www.hostinger.com'],
+];
+---
+<PageHero lang={lang} eyebrow={g.sitemap.legalTitle} slug={slug} title={pages[slug]} lead={page.lead} />
+
+<section class="section mlegal">
+  <div class="wrap mlegal__wrap">
+    {slug === 'mentions-legales' && (
+      <div class="ttable mlegal__table">
+        <table><tbody>{rows.map(([k, v]) => <tr><th scope="row">{k}</th><td dir="auto">{v}</td></tr>)}</tbody></table>
+      </div>
+    )}
+    {sections.map((s) => (
+      <div class="mlegal__sec">
+        <h2>{s.title}</h2>
+        {s.text.map((p) => <p>{p}</p>)}
+      </div>
+    ))}
+    {slug === 'plan-du-site' && (
+      <div class="msitemap">
+        <div class="msitemap__col">
+          <h2><a href={L('')}>{t.page.home}</a></h2>
+        </div>
+        {sectionKeys.map((s) => (
+          <div class="msitemap__col">
+            <h2>{t.nav.sections[s].label}</h2>
+            <ul>{navTree[s].map((p) => <li><a href={L(p)}><Icon name="arrow" size={14} class="flip-rtl" />{pages[p]}</a></li>)}</ul>
+          </div>
+        ))}
+        <div class="msitemap__col">
+          <h2>{g.sitemap.legalTitle}</h2>
+          <ul>{legalPages.map((p) => <li><a href={L(p)}><Icon name="arrow" size={14} class="flip-rtl" />{pages[p]}</a></li>)}</ul>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

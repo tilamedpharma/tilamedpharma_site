@@ -1,0 +1,210 @@
+---
+// Carte animée « Notre réseau » pour le 2e slide du héros (PROTOTYPE, planche /planches/slider/).
+// SVG généré au build (d3-geo + world-atlas). Trois variantes :
+//   a · le réseau qui s'allume   b · du site à la région (zoom arrière)   c · flux de flacons
+// État par défaut = état final (sans JS ou « réduire les animations ») ; la classe .is-play (posée par le script
+// de la planche) lance l'animation. Les mouvements le long des routes utilisent <animateMotion> (déclenché en JS).
+import { geoMercator, geoPath, geoBounds } from 'd3-geo';
+import { feature } from 'topojson-client';
+import world from 'world-atlas/countries-50m.json';
+import { coverage, company } from '../../data/site';
+
+// side : côté où se place la carte (« right » = texte à gauche ; « left » pour l'arabe, texte à droite).
+interface Props { variant: 'a' | 'b' | 'c'; id: string; side?: 'right' | 'left' }
+const { variant, id, side = 'right' } = Astro.props;
+
+const W = 1600, H = 700;
+const all = (feature(world as any, (world as any).objects.countries) as any).features as any[];
+// Cadre élargi vers l'ouest : la région occupe la droite du slide, le texte la gauche.
+// Région (lon -26 à 16,5) cantonnée à ~48 % du cadre, du côté de la carte.
+const [lonW, lonE] = side === 'right' ? [-80, 17.5] : [-27, 70.5];
+const frame = { type: 'MultiPoint', coordinates: [[lonW, 1.5], [lonE, 1.5], [lonE, 23.5], [lonW, 23.5]] } as any;
+const proj = geoMercator().fitExtent([[0, 0], [W, H]], frame);
+const path = geoPath(proj);
+const covNums = new Set<string>(coverage.map((c) => c.num));
+const visible = all.filter((f) => {
+  const [[x0, y0], [x1, y1]] = geoBounds(f);
+  return x0 <= x1 && x1 > -27 && x0 < 22 && y1 > 0 && y0 < 26;
+});
+const plant = proj([company.plant.lng, company.plant.lat])!;
+
+// 14 capitales desservies (+ le Bénin, origine). Décalage des étiquettes : [dx, dy, ancrage].
+const capitals = [
+  { iso: 'TG', num: '768', city: 'Lomé', lng: 1.2123, lat: 6.1375, lab: [0, 24, 'middle'] },
+  { iso: 'NG', num: '566', city: 'Abuja', lng: 7.3986, lat: 9.0765, lab: [12, 5, 'start'] },
+  { iso: 'GH', num: '288', city: 'Accra', lng: -0.187, lat: 5.6037, lab: [-4, -12, 'end'] },
+  { iso: 'NE', num: '562', city: 'Niamey', lng: 2.1098, lat: 13.5116, lab: [10, -10, 'start'] },
+  { iso: 'BF', num: '854', city: 'Ouagadougou', lng: -1.5197, lat: 12.3714, lab: [0, -14, 'middle'] },
+  { iso: 'CI', num: '384', city: 'Abidjan', lng: -4.0083, lat: 5.36, lab: [0, 24, 'middle'] },
+  { iso: 'ML', num: '466', city: 'Bamako', lng: -8.0029, lat: 12.6392, lab: [0, -14, 'middle'] },
+  { iso: 'LR', num: '430', city: 'Monrovia', lng: -10.8074, lat: 6.3156, lab: [-10, 18, 'end'] },
+  { iso: 'SL', num: '694', city: 'Freetown', lng: -13.2317, lat: 8.4657, lab: [-12, 14, 'end'] },
+  { iso: 'GN', num: '324', city: 'Conakry', lng: -13.5784, lat: 9.6412, lab: [-12, 2, 'end'] },
+  { iso: 'GW', num: '624', city: 'Bissau', lng: -15.5977, lat: 11.8636, lab: [-12, 6, 'end'] },
+  { iso: 'GM', num: '270', city: 'Banjul', lng: -16.579, lat: 13.4549, lab: [-12, 6, 'end'] },
+  { iso: 'SN', num: '686', city: 'Dakar', lng: -17.4467, lat: 14.6928, lab: [-10, -10, 'end'] },
+  { iso: 'CV', num: '132', city: 'Praia', lng: -23.5133, lat: 14.933, lab: [0, -14, 'middle'] },
+];
+// Ordre de tracé : du plus proche au plus lointain.
+const routes = capitals
+  .map((c) => {
+    const p = proj([c.lng, c.lat])!;
+    const dx = p[0] - plant[0], dy = p[1] - plant[1];
+    const len0 = Math.hypot(dx, dy);
+    const bend = Math.min(110, len0 * 0.2);
+    const cx = (plant[0] + p[0]) / 2 + (-dy / len0) * bend;
+    const cy = (plant[1] + p[1]) / 2 + (dx / len0) * bend;
+    // Longueur de la courbe (échantillonnage) pour le tracé progressif.
+    let len = 0, px = plant[0], py = plant[1];
+    for (let k = 1; k <= 40; k++) {
+      const t = k / 40, u = 1 - t;
+      const x = u * u * plant[0] + 2 * u * t * cx + t * t * p[0];
+      const y = u * u * plant[1] + 2 * u * t * cy + t * t * p[1];
+      len += Math.hypot(x - px, y - py); px = x; py = y;
+    }
+    return { ...c, p, len: Math.ceil(len), d: `M${plant[0].toFixed(1)},${plant[1].toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${p[0].toFixed(1)},${p[1].toFixed(1)}` };
+  })
+  .sort((a, b) => a.len - b.len);
+const order = new Map(routes.map((r, i) => [r.num, i]));
+
+// Variante B : cadrage serré sur Sèmè-Podji (usine décalée à droite, le texte occupe la gauche).
+const zw = 430, zh = zw * H / W;
+const zoomBox = [plant[0] - zw * 0.62, plant[1] - zh * 0.55, zw, zh].map((v) => +v.toFixed(2));
+const fullBox = [0, 0, W, H];
+const zp = (lng: number, lat: number) => proj([lng, lat])!.map((v) => +v.toFixed(1));
+const zfs = +(zw / 62).toFixed(2);
+const zLabels = [
+  { t: 'BÉNIN', at: zp(2.25, 7.05), cls: 'zl zl--country' },
+  { t: 'NIGERIA', at: zp(3.55, 7.05), cls: 'zl zl--country' },
+  { t: 'Port de Cotonou', at: zp(2.42, 6.2), cls: 'zl' },
+  { t: 'Golfe de Guinée', at: zp(2.2, 5.85), cls: 'zl zl--sea' },
+];
+const timing = {
+  a: { t0: 0.8, st: 0.3, d: 1.2 },
+  b: { t0: 4.3, st: 0.1, d: 1.0 },
+  c: { t0: 0, st: 0, d: 0 },
+}[variant];
+---
+<div class:list={['nm', `nm--${variant}`, `nm--${side}`]} dir="ltr" data-nm={variant} data-full={fullBox.join(' ')} data-zoom={zoomBox.join(' ')}
+  style={`--t0:${timing.t0}s;--st:${timing.st}s;--d:${timing.d}s`}>
+  <svg viewBox={fullBox.join(' ')} preserveAspectRatio={side === 'right' ? 'xMaxYMid meet' : 'xMinYMid meet'} data-nm-fit={side === 'right' ? 'xMaxYMid' : 'xMinYMid'} aria-hidden="true" data-nm-svg>
+    <defs>
+      <filter id={`glow-${id}`} x="-200%" y="-200%" width="500%" height="500%">
+        <feGaussianBlur stdDeviation="4" result="b" />
+        <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+    </defs>
+
+    <g class="countries">
+      {visible.map((f) => {
+        const num = String(f.id).padStart(3, '0');
+        const cls = num === '204' ? 'bj' : covNums.has(num) ? 'cov' : 'land';
+        const i = order.get(num);
+        return <path class={cls} d={path(f) ?? ''} style={i !== undefined ? `--i:${i}` : undefined} />;
+      })}
+    </g>
+
+    <g class="routes">
+      {routes.map((r, i) => <path class="route" d={r.d} pathLength={variant === 'c' ? undefined : 1} style={`--i:${i}`} />)}
+    </g>
+
+    {variant !== 'c' && (
+      <g class="dots">
+        {routes.map((r, i) => (
+          <circle class="dot" r="4.5" filter={`url(#glow-${id})`} data-i={i}>
+            <animateMotion dur={`${timing.d}s`} begin="indefinite" fill="freeze" path={r.d} />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur={`${timing.d}s`} begin="indefinite" fill="freeze" />
+          </circle>
+        ))}
+        {routes.map((r, i) => (
+          <circle class="dot dot--loop" r="3" data-i={i}>
+            <animateMotion dur={`${(2.4 + r.len / 400).toFixed(2)}s`} begin="indefinite" repeatCount="indefinite" path={r.d} />
+            <animate attributeName="opacity" values="0;.9;.9;0" keyTimes="0;.15;.8;1" dur={`${(2.4 + r.len / 400).toFixed(2)}s`} begin="indefinite" repeatCount="indefinite" />
+          </circle>
+        ))}
+      </g>
+    )}
+
+    {variant === 'c' && (
+      <g class="bottles">
+        {routes.flatMap((r, i) => [0, 1].map((k) => (
+          <g class="bottle" data-i={i} data-k={k} data-dur={(3 + r.len / 260).toFixed(2)}>
+            <path d="M-1.6,-7h3.2v2.4l1.8,1.6v8.4a1.4,1.4 0 0 1 -1.4,1.4h-4a1.4,1.4 0 0 1 -1.4,-1.4v-8.4l1.8,-1.6z" />
+            <animateMotion dur={`${(3 + r.len / 260).toFixed(2)}s`} begin="indefinite" repeatCount="indefinite" path={r.d} />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.85;1" dur={`${(3 + r.len / 260).toFixed(2)}s`} begin="indefinite" repeatCount="indefinite" />
+          </g>
+        )))}
+      </g>
+    )}
+
+    <g class="cities">
+      {routes.map((r, i) => (
+        <g class="city" style={`--i:${i}`}>
+          <circle cx={r.p[0].toFixed(1)} cy={r.p[1].toFixed(1)} r="4.5" />
+          <text x={(r.p[0] + Number(r.lab[0])).toFixed(1)} y={(r.p[1] + Number(r.lab[1])).toFixed(1)} text-anchor={r.lab[2] as string}>{r.city}</text>
+        </g>
+      ))}
+    </g>
+
+    {variant === 'b' && (
+      <g class="zoom-labels" style={`--zfs:${zfs}px`}>
+        {zLabels.map((l) => <text class={l.cls} x={l.at[0]} y={l.at[1]} text-anchor="middle">{l.t}</text>)}
+      </g>
+    )}
+
+    <g class="plant" data-nm-plant transform={`translate(${plant[0].toFixed(1)},${plant[1].toFixed(1)})`}>
+      <g data-nm-plant-scale>
+        <circle class="plant__ring" r="10" />
+        <circle class="plant__ring plant__ring--2" r="10" />
+        <circle class="plant__core" r="8" />
+        <circle class="plant__dot" r="3.2" />
+        <text class="plant__label" x="14" y="26">Sèmè-Podji</text>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .nm { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 68% 50%, #15386a 0%, #0a1c36 72%); }
+  .nm--left { background: radial-gradient(ellipse 70% 90% at 32% 50%, #15386a 0%, #0a1c36 72%); }
+  .nm svg { display: block; width: 100%; height: 100%; }
+  .land { fill: rgba(255, 255, 255, .04); stroke: rgba(255, 255, 255, .12); stroke-width: .8; vector-effect: non-scaling-stroke; }
+  .cov { fill: #4f9be0; fill-opacity: .3; stroke: rgba(143, 194, 243, .45); stroke-width: .9; vector-effect: non-scaling-stroke; }
+  .bj { fill: #39a845; stroke: #fff; stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .route { fill: none; stroke: #4f9be0; stroke-width: 2.4; stroke-linecap: round; }
+  .dot { fill: #fff; opacity: 0; }
+  .dot--loop { fill: #bfe0ff; }
+  .city circle { fill: #0a1c36; stroke: #8fc2f3; stroke-width: 1.6; vector-effect: non-scaling-stroke; }
+  .city text { fill: rgba(255, 255, 255, .8); font-family: Montserrat, sans-serif; font-weight: 600; font-size: 13px; paint-order: stroke; stroke: rgba(10, 28, 54, .85); stroke-width: 3px; }
+  .plant__core { fill: #39a845; stroke: #fff; stroke-width: 2; }
+  .plant__dot { fill: #fff; }
+  .plant__ring { fill: none; stroke: #39a845; stroke-width: 2; opacity: 0; }
+  .plant__label { fill: #fff; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 14px; paint-order: stroke; stroke: rgba(10, 28, 54, .9); stroke-width: 3px; }
+  .plant__ring { animation: nm-ring 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  .plant__ring--2 { animation-delay: 1.3s; }
+  @keyframes nm-ring { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(4); } }
+
+  /* Variante C : routes discrètes, flacons en mouvement */
+  .nm--c .route { stroke-opacity: .45; stroke-width: 2; stroke-dasharray: 3 9; }
+  .bottle { fill: #fff; opacity: 0; filter: drop-shadow(0 0 3px rgba(191, 224, 255, .9)); }
+
+  /* Variante B : étiquettes du cadrage serré */
+  .zl { opacity: 0; fill: rgba(255, 255, 255, .85); font-family: Montserrat, sans-serif; font-weight: 700; font-size: var(--zfs); letter-spacing: .08em; }
+  .zl--country { fill: rgba(255, 255, 255, .55); font-weight: 800; letter-spacing: .3em; }
+  .zl--sea { font-style: italic; font-weight: 500; fill: rgba(143, 194, 243, .8); }
+
+  /* ---------- Animations (.is-play) ---------- */
+  .is-play .route { stroke-dasharray: 1; animation: nm-draw var(--d) cubic-bezier(.45, 0, .2, 1) both; animation-delay: calc(var(--t0) + var(--i) * var(--st)); }
+  .is-play .cov { animation: nm-lit .7s ease both; animation-delay: calc(var(--t0) + var(--i) * var(--st) + var(--d) * .85); }
+  .is-play .city { animation: nm-in .5s ease both; animation-delay: calc(var(--t0) + var(--i) * var(--st) + var(--d) * .8); }
+  .nm--a.is-play .bj { animation: nm-bj .9s ease both; }
+  .nm--b.is-play .zl { animation: nm-zl 4s ease both; }
+  .nm--c.is-play .route, .nm--c.is-play .cov, .nm--c.is-play .city { animation: none; }
+  .nm--c.is-play .route { stroke-dasharray: 3 9; }
+  @keyframes nm-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  @keyframes nm-lit { from { fill-opacity: .05; } to { fill-opacity: .3; } }
+  @keyframes nm-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes nm-bj { from { fill-opacity: 0; } to { fill-opacity: 1; } }
+  @keyframes nm-zl { 0% { opacity: 0; } 12% { opacity: 1; } 45% { opacity: 1; } 75%, 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .plant__ring { animation: none; } }
+</style>

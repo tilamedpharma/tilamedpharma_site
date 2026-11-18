@@ -1,0 +1,190 @@
+---
+// PLANCHE DE TRAVAIL (non destinée à la mise en ligne) : bandeau des référentiels de la section Conformité.
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '@fontsource/carlito/latin-400.css';
+import '@fontsource/carlito/latin-700.css';
+import '@fontsource/carlito/latin-400-italic.css';
+import '../../styles/global.css';
+import Logo from '../../components/Logo.astro';
+import Icon from '../../components/Icon.astro';
+import { useDict } from '../../i18n';
+
+const t = useDict('fr');
+const c = t.compliance;
+// Statut de chaque référentiel, déduit des libellés existants (pas de nouvelle affirmation)
+const status = [
+  { s: 'Référence', icon: 'check-circle', tone: 'blue' },
+  { s: 'Référence', icon: 'check-circle', tone: 'blue' },
+  { s: 'Visée', icon: 'clock', tone: 'blue' },
+  { s: 'En cours', icon: 'clock', tone: 'green' },
+];
+const short = ['Normes de l\'OMS', 'Bonnes pratiques de fabrication', 'ISO 9001 · ISO 14001', 'Green building · IFC'];
+
+const variants = [
+  { id: '0', tag: 'Actuel', title: 'Version actuelle', note: 'Aplat bleu + bloc vert : même forme que le bandeau « 1re usine / EDGE » de Notre impact, d\'où l\'effet de doublon.' },
+  { id: 'A', tag: 'A', title: 'Version claire', note: 'Un seul cadre blanc découpé en 4 colonnes, un filet de couleur en haut de chacune, le sigle en grand et son statut. Plus aucun aplat de couleur.' },
+  { id: 'B', tag: 'B', title: 'Badges en tête de section', note: 'Les 4 référentiels deviennent une ligne de badges discrets juste sous l\'introduction, avant les cartes d\'agréments. Le bas de section se termine sur le lien.' },
+  { id: 'C', tag: 'C', title: 'Sans bandeau', note: 'On garde seulement les 6 cartes d\'agréments. EDGE reste visible dans le hero, dans Notre impact et dans le panneau bâtiment vert.' },
+];
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Planche · Conformité — TILAMED Pharma</title>
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="board">
+    <header class="board__head wrap">
+      <Logo width={120} />
+      <div>
+        <p class="eyebrow"><span class="eyebrow__n">Planche</span>·<span>Section Conformité</span></p>
+        <h1 class="h2">Le bandeau OMS · BPF · ISO · EDGE</h1>
+        <p class="lead">Rappel du bandeau de Notre impact ci-dessous, puis la section Conformité dans sa version actuelle et en trois propositions.</p>
+      </div>
+    </header>
+
+    <section class="board__item">
+      <div class="wrap board__label">
+        <span class="board__tag board__tag--navy">=</span>
+        <div><h2>Pour mémoire : le bandeau de Notre impact</h2><p>C'est lui que le bandeau de Conformité répète visuellement.</p></div>
+      </div>
+      <div class="board__frame"><div class="wrap" style="padding-block:40px">
+        <div class="kpi__duo">
+          {[{ f: t.figures.items[5], tone: 'blue', icon: 'users' }, { f: t.figures.items[4], tone: 'green', icon: 'leaf' }].map((x) => (
+            <a class={`kpi__card kpi__card--${x.tone}`} href="#">
+              <span class="kpi__icon"><Icon name={x.icon} size={24} /></span>
+              <span class="kpi__text">
+                <span class="kpi__big">{x.f.value}{x.f.unit && <small>{x.f.unit}</small>}</span>
+                <span class="kpi__label">{x.f.label}</span>
+              </span>
+              <Icon name="arrow" size={20} class="kpi__arrow" />
+            </a>
+          ))}
+        </div>
+      </div></div>
+    </section>
+
+    {variants.map((v) => (
+      <section class="board__item">
+        <div class="wrap board__label">
+          <span class:list={['board__tag', { 'board__tag--grey': v.id === '0', 'board__tag--green': v.id === 'B', 'board__tag--navy': v.id === 'C' }]}>{v.id === '0' ? '0' : v.tag}</span>
+          <div><h2>{v.title}</h2><p>{v.note}</p></div>
+        </div>
+        <div class="board__frame">
+          <section class="section comp">
+            <div class="wrap">
+              <div class="sec-head sec-head--split">
+                <div>
+                  <p class="eyebrow"><span class="eyebrow__n">05</span>·<span>{c.eyebrow}</span></p>
+                  <h2 class="h2">{c.title}</h2>
+                  <span class="title-rule" aria-hidden="true"></span>
+                </div>
+                <p class="lead">{c.intro}</p>
+              </div>
+
+              {v.id === 'B' && (
+                <ul class="std-b">
+                  {c.standards.map((s, i) => (
+                    <li class:list={[`std-b__i--${status[i].tone}`]}>
+                      <Icon name={status[i].icon} size={18} />
+                      <strong>{s.code}</strong>
+                      <span>{short[i]}</span>
+                      <em>{status[i].s}</em>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <ul class="comp__grid">
+                {c.items.map((it) => (
+                  <li class="comp__card">
+                    <Icon name="check-circle" size={30} />
+                    <h3>{it.title}</h3>
+                    <p class="comp__ref">{it.ref}</p>
+                    <p class="comp__by">{it.by}</p>
+                  </li>
+                ))}
+              </ul>
+
+              {v.id === '0' && (
+                <ul class="comp__std">
+                  {c.standards.map((s) => <li><span class="comp__code">{s.code}</span><p>{s.label}</p></li>)}
+                </ul>
+              )}
+
+              {v.id === 'A' && (
+                <div class="std-a">
+                  <p class="std-a__h">Nos référentiels</p>
+                  <ul>
+                    {c.standards.map((s, i) => (
+                      <li class:list={[`std-a__i--${status[i].tone}`]}>
+                        <span class="std-a__top">
+                          <span class="std-a__code">{s.code}</span>
+                          <span class="std-a__st"><Icon name={status[i].icon} size={14} />{status[i].s}</span>
+                        </span>
+                        <p>{s.label}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div class="comp__cta"><a class="link-arrow" href="#">{c.cta}<Icon name="arrow" size={16} /></a></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    ))}
+  </body>
+</html>
+
+<style is:global>
+  .board { background: #e9eef4; padding-bottom: 80px; }
+  .board__head { display: flex; gap: 40px; align-items: flex-start; padding-block: 56px 32px; }
+  .board__head .lead { margin-top: 14px; max-width: 760px; }
+  .board__item { margin-top: 48px; }
+  .board__label { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; }
+  .board__label h2 { font-size: 1.5rem; font-weight: 800; }
+  .board__label p { color: var(--muted); font-size: 1rem; margin-top: 4px; max-width: 900px; }
+  .board__tag { display: grid; place-items: center; width: 52px; height: 52px; border-radius: var(--radius); background: var(--blue); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; flex: none; }
+  .board__tag--green { background: var(--green); }
+  .board__tag--navy { background: var(--navy); }
+  .board__tag--grey { background: #8a97a8; }
+  .board__frame { max-width: 1440px; margin-inline: auto; background: #fff; overflow: hidden; }
+
+  /* A · cadre clair, 4 colonnes */
+  .std-a { margin-top: 40px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  .std-a__h { padding: 14px 28px; border-bottom: 1px solid var(--line); background: var(--mist); font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); }
+  .std-a ul { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .std-a li { padding: 26px 28px 28px; border-top: 4px solid var(--blue); }
+  .std-a li + li { border-inline-start: 1px solid var(--line); }
+  .std-a__i--green { border-top-color: var(--green) !important; }
+  .std-a__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .std-a__code { font-family: var(--font-head); font-weight: 800; font-size: 2rem; color: var(--navy); letter-spacing: .01em; }
+  .std-a__st { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; background: var(--blue-50); color: var(--blue); font-family: var(--font-head); font-weight: 700; font-size: .75rem; }
+  .std-a__i--green .std-a__st { background: var(--green-50); color: var(--green-deep); }
+  .std-a li p { margin-top: 12px; font-size: .9375rem; line-height: 1.45; color: var(--muted); }
+
+  /* B · badges sous l'introduction */
+  .std-b { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; }
+  .std-b li { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; font-size: .9375rem; color: var(--muted); }
+  .std-b span { flex: 1; min-width: 0; font-size: .875rem; line-height: 1.3; }
+  .std-b em, .std-b .icon, .std-b strong { flex: none; }
+  .std-b li .icon { color: var(--blue); }
+  .std-b strong { font-family: var(--font-head); font-weight: 800; color: var(--navy); }
+  .std-b em { font-style: normal; padding: 2px 9px; border-radius: 99px; background: var(--blue-50); color: var(--blue); font-family: var(--font-head); font-weight: 700; font-size: .75rem; }
+  .std-b__i--green .icon { color: var(--green); }
+  .std-b__i--green em { background: var(--green-50); color: var(--green-deep); }
+  .std-b + .comp__grid { margin-top: 40px; }
+
+  @media (max-width: 900px) {
+    .std-a ul { grid-template-columns: 1fr 1fr; }
+    .std-a li:nth-child(3) { border-inline-start: 0; }
+  }
+</style>

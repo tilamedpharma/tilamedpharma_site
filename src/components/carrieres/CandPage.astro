@@ -1,0 +1,78 @@
+---
+// Page « Candidature spontanée » : formulaire avec CV (envoi via /api/form.php).
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict, countryName } from '../../i18n';
+import { useAchatsCarrieres } from '../../i18n/pages/achats-carrieres';
+import { type Locale } from '../../i18n/config';
+import { company, coverage } from '../../data/site';
+import imgCand from '../../assets/images/stock/affaires-equipe-femmes.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const c = useAchatsCarrieres(lang).cand;
+const f = c.fields;
+const pages = t.nav.pages as Record<string, string>;
+const countries = [...coverage.map((x) => x.iso), 'FR'].map((iso) => ({ iso, name: countryName(lang, iso) })).sort((a, b) => a.name.localeCompare(b.name, lang));
+---
+<PageHero lang={lang} section="carrieres" slug="candidature" title={pages['candidature']} lead={c.lead} image={imgCand} />
+
+<section class="section pdoc" aria-labelledby="cand-title">
+  <div class="wrap stepc__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{pages['candidature']}</span></p>
+      <h2 class="h2" id="cand-title" data-reveal>{c.formTitle}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead stepc__intro" data-reveal>{c.intro}</p>
+
+      <form class="form" name="candidature" method="POST" enctype="multipart/form-data" action="/api/form.php" data-form data-msg-sending={t.formMsg.sending} data-msg-ok={t.formMsg.ok} data-msg-error={t.formMsg.error} data-msg-big={t.formMsg.big}>
+        <input type="hidden" name="form-name" value="candidature" />
+        <input type="hidden" name="langue" value={lang} />
+        <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
+        <div class="form__row">
+          <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="nom" required autocomplete="name" /></label>
+          <label class="field"><span>{f.country}</span>
+            <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}</select>
+          </label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span>{f.email} <b aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" /></label>
+          <label class="field"><span>{f.phone}</span><input type="tel" name="telephone" autocomplete="tel" dir="ltr" /></label>
+        </div>
+        <div class="form__row form__row--3">
+          <label class="field"><span>{f.family} <b aria-hidden="true">*</b></span>
+            <select name="metier" required><option value="">{f.select}</option>{c.families.map((x) => <option>{x}</option>)}</select>
+          </label>
+          <label class="field"><span>{f.level}</span>
+            <select name="niveau"><option value="">{f.select}</option>{c.levels.map((x) => <option>{x}</option>)}</select>
+          </label>
+          <label class="field"><span>{f.experience}</span>
+            <select name="experience"><option value="">{f.select}</option>{c.experience.map((x) => <option>{x}</option>)}</select>
+          </label>
+        </div>
+        <label class="field"><span>{f.cv} <b aria-hidden="true">*</b></span>
+          <input type="file" name="cv" required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" data-max-mb="5" />
+          <small class="field__hint">{f.cvHint}</small>
+        </label>
+        <label class="field"><span>{f.message}</span><textarea name="motivation" rows="5"></textarea></label>
+        <label class="check check--consent"><input type="checkbox" name="consentement" required /><span>{f.consent}</span></label>
+        <button class="btn" type="submit">{f.submit}<Icon name="arrow" size={18} class="flip-rtl" /></button>
+        <p class="form__status" role="status" aria-live="polite" hidden></p>
+        <p class="form__req"><b aria-hidden="true">*</b> {f.required}</p>
+      </form>
+    </div>
+
+    <aside class="stepc__aside">
+      <div class="sfacts" data-reveal>
+        <p class="sfacts__h">{c.asideTitle}</p>
+        <ul class="pdoc__list">{c.asideItems.map((x) => <li><Icon name="check" size={18} />{x}</li>)}</ul>
+      </div>
+      <div class="sdoc" data-reveal>
+        <span class="sdoc__t">{t.header.cta}</span>
+        <a class="pdoc__contact" href={`mailto:${company.email}`}><Icon name="mail" size={18} />{company.email}</a>
+      </div>
+    </aside>
+  </div>
+</section>
+

@@ -1,0 +1,83 @@
+---
+// Mini-carte d'accès à l'usine (côte béninoise), générée au build — aucun JS client.
+import { geoMercator, geoPath, geoBounds } from 'd3-geo';
+import { feature } from 'topojson-client';
+import world from 'world-atlas/countries-50m.json';
+import { company } from '../data/site';
+
+interface Props { theme?: 'light' | 'dark'; plantLabel?: string; class?: string; ocean?: string; benin?: string; nigeria?: string }
+const { theme = 'light', plantLabel = 'Usine TILAMED Pharma', class: cls = '', ocean: oceanLabel = 'Océan Atlantique', benin = 'Bénin', nigeria = 'Nigeria' } = Astro.props;
+
+const W = 520, H = 300;
+const all = (feature(world as any, (world as any).objects.countries) as any).features as any[];
+const frame = { type: 'MultiPoint', coordinates: [[2.28, 6.24], [2.86, 6.24], [2.86, 6.58], [2.28, 6.58]] } as any;
+const proj = geoMercator().fitExtent([[0, 0], [W, H]], frame);
+const path = geoPath(proj);
+const shapes = all.filter((f) => {
+  const [[x0, y0], [x1, y1]] = geoBounds(f);
+  return x0 <= x1 && x1 > 1 && x0 < 4 && y1 > 5.5 && y0 < 8;
+});
+const P = (lng: number, lat: number) => proj([lng, lat])!;
+const plant = P(company.plant.lng, company.plant.lat);
+const cities = [
+  { name: 'Cotonou', p: P(2.4183, 6.3654), dx: -10, dy: -12, anchor: 'end' },
+  { name: 'Porto-Novo', p: P(2.6036, 6.4969), dx: -8, dy: -8, anchor: 'end' },
+];
+const krake = P(2.705, 6.39);
+const road = [P(2.30, 6.355), P(2.4183, 6.3654), P(2.52, 6.36), P(company.plant.lng, company.plant.lat), P(2.705, 6.375)];
+const roadD = 'M' + road.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' L');
+const ocean = P(2.33, 6.29);
+---
+<div class={`pmap pmap--${theme} ${cls}`} dir="ltr">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${plantLabel} · Sèmè-Podji, Bénin`}>
+    <rect width={W} height={H} class="pmap__sea" />
+    {shapes.map((f) => {
+      const id = String(f.id).padStart(3, '0');
+      return <path d={path(f)} class={id === '204' ? 'pmap__bj' : 'pmap__land'} />;
+    })}
+    <path d={roadD} class="pmap__road" />
+    <line x1={krake[0]} y1={krake[1] - 150} x2={krake[0]} y2={krake[1] + 8} class="pmap__border" />
+    <text x={krake[0] + 8} y={krake[1] - 14} class="pmap__label pmap__label--muted">Kraké</text>
+    <text x={krake[0] + 8} y={krake[1] - 110} class="pmap__label pmap__label--muted">{nigeria.toUpperCase()}</text>
+    <text x={krake[0] - 10} y={krake[1] - 110} text-anchor="end" class="pmap__label pmap__label--muted">{benin.toUpperCase()}</text>
+    {cities.map((c) => (
+      <g>
+        <circle cx={c.p[0]} cy={c.p[1]} r="4" class="pmap__city" />
+        <text x={c.p[0] + c.dx} y={c.p[1] + c.dy} text-anchor={c.anchor} class="pmap__label">{c.name}</text>
+      </g>
+    ))}
+    <text x={ocean[0]} y={ocean[1]} class="pmap__ocean">{oceanLabel.toUpperCase()}</text>
+    <g class="pmap__plant">
+      <circle cx={plant[0]} cy={plant[1]} r="16" class="pmap__halo" />
+      <path d={`M${plant[0]},${plant[1] + 2} c-9,-11 -13,-17 -13,-23 a13,13 0 0 1 26,0 c0,6 -4,12 -13,23z`} class="pmap__pin" />
+      <path d={`M${plant[0] - 1.6},${plant[1] - 27} h3.2 v4 h4 v3.2 h-4 v4 h-3.2 v-4 h-4 v-3.2 h4z`} fill="#fff" />
+      <text x={plant[0] - 18} y={plant[1] + 26} text-anchor="end" class="pmap__label pmap__label--plant">Sèmè-Podji</text>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .pmap { border-radius: var(--radius); overflow: hidden; line-height: 0; }
+  .pmap svg { width: 100%; height: auto; }
+  .pmap__sea { fill: #dbe9f7; }
+  .pmap__land { fill: #eef2f6; stroke: #c9d5e2; stroke-width: .8; }
+  .pmap__bj { fill: #fff; stroke: #9fc3e8; stroke-width: 1; }
+  .pmap__road { fill: none; stroke: #1c64ba; stroke-width: 2.5; stroke-dasharray: 6 5; stroke-linecap: round; }
+  .pmap__border { stroke: #8b9bb0; stroke-width: 1.2; stroke-dasharray: 3 4; }
+  .pmap__city { fill: #fff; stroke: #12305a; stroke-width: 2; }
+  .pmap__label { font-family: var(--font-head); font-weight: 700; font-size: 12px; fill: #12305a; }
+  .pmap__label--muted { fill: #6b7a8c; font-size: 10.5px; letter-spacing: .08em; }
+  .pmap__label--plant { fill: #1e7a2e; font-size: 13px; }
+  .pmap__ocean { font-family: var(--font-head); font-style: italic; font-weight: 600; font-size: 11px; letter-spacing: .3em; fill: #7ea3cf; }
+  .pmap__pin { fill: #39a845; stroke: #fff; stroke-width: 2; }
+  .pmap__halo { fill: rgba(57, 168, 69, .2); }
+  .pmap--dark .pmap__sea { fill: #0e2647; }
+  .pmap--dark .pmap__land { fill: #17345e; stroke: #24497c; }
+  .pmap--dark .pmap__bj { fill: #1d3f6d; stroke: #4f9be0; }
+  .pmap--dark .pmap__road { stroke: #4f9be0; }
+  .pmap--dark .pmap__city { fill: #0a1c36; stroke: #fff; }
+  .pmap--dark .pmap__label { fill: #fff; }
+  .pmap--dark .pmap__label--muted { fill: #9fb3cc; }
+  .pmap--dark .pmap__label--plant { fill: #8fdc99; }
+  .pmap--dark .pmap__ocean { fill: #4f7fb8; }
+</style>

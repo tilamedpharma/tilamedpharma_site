@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import UsinePage from '../components/usine/UsinePage.astro';
+import { useUsine } from '../i18n/pages/usine';
+
+const u = useUsine('fr');
+---
+<Base lang="fr" slug="usine" title={u.meta.title} description={u.meta.description} image="/media/video/ligne-remplissage.jpg">
+  <UsinePage lang="fr" />
+</Base>

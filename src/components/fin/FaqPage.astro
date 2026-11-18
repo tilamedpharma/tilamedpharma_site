@@ -1,0 +1,48 @@
+---
+// Page « Questions fréquentes » : accordéon accessible + données structurées FAQPage.
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useFin } from '../../i18n/pages/fin';
+import { localizePath, type Locale } from '../../i18n/config';
+import imgFaq from '../../assets/images/stock/pharmacie-pharmacien.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const q = useFin(lang).faq;
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: q.items.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) };
+---
+<PageHero lang={lang} section="contact" slug="faq" title={pages['faq']} lead={q.lead} image={imgFaq} />
+
+<section class="section mfaq" aria-labelledby="mfaq-title">
+  <div class="wrap stepc__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="search" size={16} class="eyebrow__ic" /><span>{pages['faq']}</span></p>
+      <h2 class="h2" id="mfaq-title" data-reveal>{q.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <div class="mfaq__list">
+        {q.items.map((x, i) => (
+          <details class="mfaq__item" data-reveal style={`--d:${i % 3}`} open={i === 0}>
+            <summary><span>{x.q}</span><Icon name="plus" size={20} class="mfaq__plus" /></summary>
+            <div class="mfaq__a">
+              <p>{x.a}</p>
+              <a class="link-arrow" href={L(x.link)}>{q.more}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+    <aside class="stepc__aside">
+      <a class="sdoc" href={L('contact')} data-reveal>
+        <Icon name="mail" size={24} />
+        <span class="sdoc__t">{q.still}</span>
+        <span class="link-arrow">{t.header.cta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+      </a>
+    </aside>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</section>
+

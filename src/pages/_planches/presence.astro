@@ -1,0 +1,160 @@
+---
+// PLANCHE DE TRAVAIL (non destinée à la mise en ligne) : section « Où nous opérons » de l'accueil,
+// à repenser maintenant que la carte animée est dans le slider du héros. Trois options.
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '@fontsource/carlito/latin-400.css';
+import '@fontsource/carlito/latin-700.css';
+import '../../styles/global.css';
+import Icon from '../../components/Icon.astro';
+import PlantMiniMap from '../../components/PlantMiniMap.astro';
+import { useDict, countryName } from '../../i18n';
+import { coverage, offices } from '../../data/site';
+
+const lang = 'fr' as const;
+const t = useDict(lang);
+const pages = t.nav.pages as Record<string, string>;
+const pad = (n: number) => String(n).padStart(2, '0');
+const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ' ? 1 : countryName(lang, a.iso).localeCompare(countryName(lang, b.iso), lang)));
+const sites = [
+  { icon: 'factory', name: t.footer.portal.plant.title, place: 'Sèmè-Podji · Bénin', role: 'Production · 2 hectares à la frontière du Nigeria', green: true },
+  { icon: 'building', name: t.footer.officeNames.bj, place: 'Cotonou', role: 'Siège administratif' },
+  { icon: 'pin', name: t.footer.officeNames.bf, place: 'Ouagadougou', role: 'Bureau régional · Sahel' },
+  { icon: 'globe', name: t.footer.officeNames.fr, place: 'Orgeval', role: 'Relations avec l\'Europe' },
+];
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Planche · Où nous opérons · TILAMED</title>
+</head>
+<body class="pl">
+  <header class="pl__head wrap">
+    <p class="eyebrow">Planche de travail · non publiée</p>
+    <h1 class="h2">Accueil · section « Où nous opérons »</h1>
+    <p class="lead">La carte animée est désormais dans le slider du héros : la section ne doit plus la répéter. Trois façons de lui donner un rôle propre.</p>
+  </header>
+
+  <!-- OPTION 1 : fusion avec « Nos clients » -->
+  <div class="pl__label wrap"><h2>1 · « Nos marchés » : fusion avec la section Nos clients <em>Recommandée</em></h2><p>Une seule section répond à « où » et « pour qui » : les 15 pays à gauche, les 5 types de clients à droite. L'accueil perd une section (9 au lieu de 10) et l'appel « Devenir distributeur » est mieux placé.</p></div>
+  <section class="section cli opt1">
+    <div class="wrap cli__grid">
+      <div class="cli__side">
+        <p class="eyebrow eyebrow--light"><span class="eyebrow__n">06</span>·<span>{t.presence.eyebrow}</span></p>
+        <h2 class="h2">{t.presence.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+        <p class="lead">Depuis notre usine de Sèmè-Podji, à la frontière du Nigeria, nous approvisionnons les quinze pays de la CEDEAO.</p>
+        <ul class="pres__countries opt1__countries">
+          {sorted.map((c) => <li class:list={{ 'is-bj': c.iso === 'BJ' }}>{countryName(lang, c.iso)}</li>)}
+        </ul>
+        <div class="opt1__ctas">
+          <a class="btn btn--green" href="#">{t.clients.cta}<Icon name="arrow" size={18} /></a>
+          <a class="link-arrow link-arrow--light" href="#">{pages['presence']}<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+      <div>
+        <p class="opt1__h">{t.clients.eyebrow}</p>
+        <ol class="cli__rows">
+          {t.clients.items.map((c, i) => (
+            <li><span class="cli__n">{pad(i + 1)}</span><h3>{c.title}</h3></li>
+          ))}
+          <li class="cli__more"><a class="link-arrow link-arrow--light" href="#">{pages['clients']}<Icon name="arrow" size={16} /></a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTION 2 : nos implantations -->
+  <div class="pl__label wrap"><h2>2 · « Nos implantations » : l'usine et les bureaux</h2><p>Montre l'ancrage physique : l'usine (mini-carte du site) et les trois bureaux, sans adresses (elles restent sur la page Nos bureaux), puis la liste des 15 pays.</p></div>
+  <section class="section opt2">
+    <div class="wrap">
+      <div class="sec-head sec-head--split">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__n">06</span>·<span>{t.presence.eyebrow}</span></p>
+          <h2 class="h2">Une usine, trois bureaux, quinze pays</h2>
+          <span class="title-rule" aria-hidden="true"></span>
+        </div>
+        <p class="lead">Produire au Bénin, être présents là où sont nos clients.</p>
+      </div>
+      <div class="opt2__grid">
+        <div class="opt2__plant">
+          <PlantMiniMap theme="light" plantLabel={t.presence.plant} ocean={t.presence.ocean} benin={countryName(lang, 'BJ')} nigeria={countryName(lang, 'NG')} />
+        </div>
+        <ul class="opt2__sites">
+          {sites.map((s) => (
+            <li class:list={{ 'is-green': s.green }}>
+              <span class="opt2__ic"><Icon name={s.icon} size={22} /></span>
+              <div><p class="opt2__place">{s.place}</p><h3>{s.name}</h3><p>{s.role}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="opt2__cov">
+        <p class="pres__h">{t.presence.countriesTitle}</p>
+        <ul class="pres__countries">{sorted.map((c) => <li class:list={{ 'is-bj': c.iso === 'BJ' }}>{countryName(lang, c.iso)}</li>)}</ul>
+        <a class="link-arrow" href="#">{pages['bureaux']}<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTION 3 : bandeau compact -->
+  <div class="pl__label wrap"><h2>3 · Bandeau compact</h2><p>Une simple bande : le chiffre, les 15 pays et deux liens. Le slider porte déjà le message ; la section se contente de le rappeler.</p></div>
+  <section class="opt3">
+    <div class="wrap opt3__inner">
+      <p class="opt3__num"><b>15</b><span>pays d'Afrique de l'Ouest<br />couverts depuis le Bénin</span></p>
+      <ul class="pres__countries opt3__countries">{sorted.map((c) => <li class:list={{ 'is-bj': c.iso === 'BJ' }}>{countryName(lang, c.iso)}</li>)}</ul>
+      <div class="opt3__links">
+        <a class="btn btn--sm" href="#">{pages['presence']}<Icon name="arrow" size={16} /></a>
+        <a class="btn btn--sm btn--ghost" href="#">{t.clients.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pl__foot wrap"><p>Contenus repris du site (15 pays CEDEAO, types de clients, bureaux). Rôles des bureaux (« Bureau régional · Sahel », « Relations avec l'Europe ») à valider si l'option 2 est retenue.</p></footer>
+
+  <style is:global>
+    .pl { background: #fff; }
+    .pl__head { padding-block: 56px 16px; }
+    .pl__head .lead { margin-top: 14px; max-width: 900px; }
+    .pl__label { padding-block: 48px 20px; border-top: 1px dashed var(--line); margin-top: 24px; }
+    .pl__label h2 { font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; color: var(--navy); }
+    .pl__label em { margin-inline-start: 10px; padding: 4px 10px; border-radius: 99px; background: var(--green); color: #fff; font-style: normal; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; vertical-align: 3px; }
+    .pl__label p { margin-top: 8px; max-width: 900px; color: var(--text); }
+    .pl__foot { padding-block: 40px 64px; color: var(--muted); font-size: .875rem; }
+    /* Option 1 */
+    .opt1__countries li { background: rgba(255, 255, 255, .08); color: #fff; }
+    .opt1__countries { margin-top: 26px; }
+    .opt1__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 30px; }
+    .opt1__h { margin-bottom: 14px; font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: #9fd8a6; }
+    /* Option 2 */
+    .opt2 { background: var(--mist); }
+    .opt2__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; align-items: stretch; }
+    .opt2__plant { border-radius: var(--radius-lg); overflow: hidden; background: #fff; border: 1px solid var(--line); }
+    .opt2__sites { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .opt2__sites li { display: flex; gap: 14px; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); }
+    .opt2__sites li.is-green { background: var(--green-50); border-color: #cfe8d3; }
+    .opt2__ic { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius); background: var(--blue); color: #fff; }
+    .opt2__sites li.is-green .opt2__ic { background: var(--green); }
+    .opt2__place { font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--green-deep); }
+    .opt2__sites h3 { margin-top: 4px; font-size: 1.0625rem; }
+    .opt2__sites p:last-child { margin-top: 4px; font-size: .9375rem; color: var(--muted); }
+    .opt2__cov { margin-top: 40px; }
+    .opt2__cov .pres__countries { margin-block: 14px 24px; }
+    /* Option 3 */
+    .opt3 { padding-block: 44px; background: var(--blue-50); }
+    .opt3__inner { display: grid; grid-template-columns: auto 1fr auto; gap: 32px 48px; align-items: center; }
+    .opt3__num { display: flex; align-items: center; gap: 16px; }
+    .opt3__num b { font-family: var(--font-head); font-weight: 800; font-size: 3.6rem; line-height: 1; color: var(--blue); }
+    .opt3__num span { font-family: var(--font-head); font-weight: 700; font-size: .875rem; line-height: 1.35; color: var(--navy); }
+    .opt3__countries { margin-top: 0; }
+    .opt3__countries li { background: #fff; }
+    .opt3__links { display: flex; flex-direction: column; gap: 10px; }
+    @media (max-width: 1100px) { .opt2__grid, .opt3__inner { grid-template-columns: 1fr; } }
+  </style>
+</body>
+</html>

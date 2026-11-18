@@ -1,0 +1,142 @@
+---
+// Page « Notre parcours » (rubrique À propos) : frise en trois phases.
+// Les étapes « agrément » reprennent titre, référence et autorité de la liste officielle (t.compliance.items).
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useParcours } from '../../i18n/pages/parcours';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/benin-ganvie-drone.jpg';
+import imgCta from '../../assets/images/stock/equipement-inox-usine.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const p = useParcours(lang);
+const L = (s: string) => localizePath(lang, s);
+const pages = t.nav.pages as Record<string, string>;
+
+const icons = ['stetho', 'route', 'building', 'check-circle', 'shield', 'leaf', 'factory', 'wrench', 'book', 'pin', 'gauge', 'users'];
+// Numérotation continue des étapes (alternance gauche/droite et icônes sur toute la frise)
+let k = 0;
+const phases = p.timeline.phases.map((ph) => ({
+  ...ph,
+  items: ph.items.map((it) => {
+    const comp = it.comp !== undefined ? t.compliance.items[it.comp] : undefined;
+    const n = k++;
+    return {
+      ...it,
+      n,
+      title: comp ? comp.title : it.title,
+      ref: comp ? `${comp.ref} · ${comp.by}` : it.ref,
+    };
+  }),
+}));
+const siteIcons = ['factory', 'building', 'globe'];
+const siteLinks = ['site-seme-podji', 'bureaux', 'bureaux'];
+---
+<PageHero lang={lang} section="entreprise" slug="parcours" title={pages['parcours']} lead={p.hero.lead} image={imgHero}>
+  <a class="btn" href="#etapes">{p.hero.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts pfacts" aria-label={pages['parcours']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {p.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- FRISE -->
+<section class="section ptl" id="etapes" aria-labelledby="ptl-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="clock" size={16} class="eyebrow__ic" /><span>{p.timeline.eyebrow}</span></p>
+      <h2 class="h2" id="ptl-title" data-reveal>{p.timeline.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="ptl__track">
+      {phases.map((ph) => (
+        <div class="ptl__phase">
+          <div class="ptl__ph-head" data-reveal>
+            <span class="ptl__range" dir="ltr">{ph.range}</span>
+            <h3 class="ptl__ph-title">{ph.title}</h3>
+          </div>
+          <ol class="ptl__list">
+            {ph.items.map((it) => (
+              <li class:list={['ptl__item', it.n % 2 ? 'is-b' : 'is-a', { 'is-now': it.state === 'now', 'is-next': it.state === 'next' }]}>
+                <span class="ptl__dot" aria-hidden="true"><Icon name={icons[it.n] ?? 'check'} size={20} /></span>
+                <article class="ptl__card" data-reveal>
+                  <p class="ptl__date">
+                    <span>{it.date}</span>
+                    {it.state === 'now' && <span class="ptl__tag">{p.timeline.nowLabel}</span>}
+                    {it.state === 'next' && <span class="ptl__tag ptl__tag--next">{p.timeline.nextLabel}</span>}
+                  </p>
+                  <h4 class="ptl__title">{it.title}</h4>
+                  <p class="ptl__text">{it.text}</p>
+                  {it.ref && (
+                    <p class="ptl__ref"><Icon name="book" size={14} /><span><b>{p.timeline.refLabel}</b> {it.ref}</span></p>
+                  )}
+                </article>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- IMPLANTATIONS -->
+<section class="section psites" aria-labelledby="psites-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="pin" size={16} class="eyebrow__ic" /><span>{p.sites.eyebrow}</span></p>
+      <h2 class="h2" id="psites-title" data-reveal>{p.sites.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="psites__grid">
+      {p.sites.items.map((s, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="psites__card" href={L(siteLinks[i])}>
+            <span class:list={['psites__ic', { 'is-green': i === 0 }]}><Icon name={siteIcons[i]} size={24} /></span>
+            <p class="psites__place">{s.place}</p>
+            <h3>{s.title}</h3>
+            <p class="psites__text">{s.text}</p>
+            <span class="link-arrow">{pages[siteLinks[i]]}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- LA SUITE -->
+<section class="apart vcta" aria-labelledby="pcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="route" size={16} /><span>{p.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="pcta-title">{p.cta.title}</h2>
+        <p>{p.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('actualites')}>{pages['actualites']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('usine')}>{pages['usine']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

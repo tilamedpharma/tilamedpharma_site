@@ -53,7 +53,7 @@ const fr = {
   heroNet: {
     eyebrow: 'Notre réseau',
     title: 'Fabriqué au Bénin, distribué dans 15 pays d\'Afrique de l\'Ouest.',
-    lead: 'Depuis Sèmè-Podji, à la frontière du Nigeria, nos solutions injectables rejoignent les centrales d\'achat, les distributeurs et les hôpitaux de toute la région.',
+    lead: 'Depuis Sèmè-Podji, à la frontière avec le Nigéria, nos solutions injectables rejoignent les centrales d\'achat, les distributeurs et les hôpitaux de toute la région.',
     count: 'pays couverts',
     tabs: ['Notre usine', 'Notre réseau'],
     label: 'Diaporama de présentation',
@@ -70,6 +70,18 @@ const fr = {
       { value: 'EDGE', unit: '', label: 'certification green building en cours d\'obtention' },
       { value: '1re', unit: 'usine', label: 'pharmaceutique du Bénin engagée pour l\'égalité femmes-hommes et l\'inclusion du handicap' },
     ],
+  },
+  chain: {
+    eyebrow: 'Notre chaîne de distribution', title: 'De Sèmè-Podji jusqu\'au patient',
+    intro: 'Un circuit court, rapide et traçable : fabriquées au Bénin, nos solutions arrivent aux patients en moins d\'un mois.',
+    label: 'Chaîne de distribution en trois étapes',
+    steps: [
+      { title: 'Usine de Sèmè-Podji', text: 'Fabriqué et contrôlé au Bénin' },
+      { title: 'Centrales d\'achat, grossistes et distributeurs', text: 'Coopératives publiques régionales, grossistes privés et autres distributeurs' },
+      { title: 'Patients', text: 'Soignés en moins d\'un mois' },
+    ],
+    badge: { strong: 'Moins d\'un mois', text: 'de notre usine jusqu\'au patient' },
+    cta: 'Découvrir notre distribution',
   },
   impact: {
     eyebrow: 'Notre impact',
@@ -235,7 +247,7 @@ const fr = {
   presence: {
     eyebrow: 'Où nous opérons',
     title: 'Fabriqué au Bénin, distribué en Afrique de l\'Ouest',
-    intro: 'Depuis notre usine de Sèmè-Podji, à la frontière du Nigeria, nous approvisionnons quinze pays de la région, avec des bureaux au Bénin, au Burkina Faso et en France.',
+    intro: 'Depuis notre usine de Sèmè-Podji, à la frontière avec le Nigéria, nous approvisionnons quinze pays de la région, avec des bureaux au Bénin, au Burkina Faso et en France.',
     plant: 'Usine TILAMED Pharma',
     plantPlace: 'Sèmè-Podji · Bénin',
     legendCovered: 'Pays couverts',
@@ -249,7 +261,7 @@ const fr = {
   presenceSites: {
     title: 'Une usine, trois bureaux, quinze pays',
     lead: 'Produire au Bénin, être présents là où sont nos clients.',
-    roles: { plant: 'Production · 2 hectares à la frontière du Nigeria', bj: 'Siège administratif', bf: 'Bureau régional · Sahel', fr: 'Relations avec l\'Europe' },
+    roles: { plant: 'Production · 2 hectares à la frontière avec le Nigéria', bj: 'Siège administratif', bf: 'Bureau régional · Sahel', fr: 'Relations avec l\'Europe' },
   },
   formMsg: { sending: 'Envoi en cours…', ok: 'Merci, votre message a bien été envoyé. Nous vous répondrons rapidement.', error: 'L\'envoi a échoué. Réessayez ou écrivez-nous à contact@tilamedpharma.com.', big: 'Fichier trop lourd (5 Mo maximum).' },
   clients: {
@@ -277,7 +289,7 @@ const fr = {
     all: 'Toutes les actualités',
     read: 'Lire l\'article',
     items: [
-      { date: '2025-09-09', tag: 'Site industriel', title: 'Un bail emphytéotique pour le site de Sèmè-Podji', text: 'L\'État béninois confie à TILAMED PHARMA SA un site industriel de 2 hectares à la frontière du Nigeria.' },
+      { date: '2025-09-09', tag: 'Site industriel', title: 'Un bail emphytéotique pour le site de Sèmè-Podji', text: 'L\'État béninois confie à TILAMED PHARMA SA un site industriel de 2 hectares à la frontière avec le Nigéria.' },
       { date: '2024-11-28', tag: 'Réglementation', title: 'L\'arrêté ministériel vient compléter nos agréments', text: 'Autorisation industrielle, certificats environnemental et technique : une année 2024 décisive.' },
       { date: '2023-06-30', tag: 'Autorisation', title: 'Autorisation d\'installation et d\'exploitation de l\'usine', text: 'L\'agence béninoise de régulation pharmaceutique autorise l\'installation et l\'exploitation de notre usine.' },
     ],
@@ -307,7 +319,7 @@ const fr = {
         { title: 'Presse', text: 'Informations clés, visuels et contact presse.', action: 'Espace presse' },
       ],
       newsletter: { title: 'Recevez les actualités du projet', text: 'Agréments, avancement de l\'usine, lancements de produits.', placeholder: 'Votre adresse e-mail', button: 'S\'inscrire' },
-      plant: { title: 'Usine · Sèmè-Podji', place: 'Frontière du Nigeria (Kraké)', directions: 'Itinéraire' },
+      plant: { title: 'Usine · Sèmè-Podji', place: 'Frontière avec le Nigéria (Kraké)', directions: 'Itinéraire' },
       backToTop: 'Haut de page',
     },
     officeNames: { bj: 'Bénin · Siège', bf: 'Burkina Faso', fr: 'France' },

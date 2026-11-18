@@ -3,20 +3,16 @@ import { Picture } from 'astro:assets';
 import Icon from '../Icon.astro';
 import NetworkMap from './NetworkMap.astro';
 import PlantMiniMap from '../PlantMiniMap.astro';
-import { useDict, countryName, formatDate } from '../../i18n';
+import { useDict, countryName } from '../../i18n';
 import { localizePath, localeMeta, type Locale } from '../../i18n/config';
 import { coverage, suppliers, offices } from '../../data/site';
 
-import imgAbout from '../../assets/images/stock/labo-scientifique-kinshasa.jpg';
 import imgWhy from '../../assets/images/stock/perfusion-infirmiere-reglage.jpg';
 import imgP1 from '../../assets/images/stock/perfusion-poche-pied.jpg';
 import imgP2 from '../../assets/images/stock/medicaments-medecin-ampoule.jpg';
 import imgP3 from '../../assets/images/stock/perfusion-glucose-pied.jpg';
 import imgP4 from '../../assets/images/stock/dispositif-medecin-stethoscope.jpg';
 import imgP5 from '../../assets/images/stock/veterinaire-afrique-chien.jpg';
-import imgN1 from '../../assets/images/stock/benin-cotonou-rue.jpg';
-import imgN2 from '../../assets/images/stock/affaires-reunion-lagos.jpg';
-import imgN3 from '../../assets/images/stock/salle-propre-couloir-equipe.jpg';
 import imgGreen from '../../assets/images/stock/green-toiture-solaire-industrielle.jpg';
 import imgGreenTech from '../../assets/images/stock/green-technicien-solaire.jpg';
 import imgIncl from '../../assets/images/stock/inclusion-femmes-metiers.jpg';
@@ -31,11 +27,9 @@ const pad = (n: number) => String(n).padStart(2, '0');
 const words = t.hero.title.split(' ');
 const rtl = localeMeta[lang].dir === 'rtl';
 const whyIcons = ['truck', 'route', 'tag', 'users'];
-const procVideos = ['traitement-eau', 'cuve-tourbillon', 'tetes-remplissage', 'autoclave', 'inspection-lumiere', 'labo-paire', 'palette-filmee'];
 const famImgs = [imgP1, imgP2, imgP3, imgP4, imgP5];
 const famIcons = ['drop', 'vial', 'leaf', 'stetho', 'paw'];
 const famLinks = ['serums', 'medicaments', 'solutions-nutritionnelles', 'dispositifs-medicaux', 'sante-animale'];
-const newsImgs = [imgN1, imgN2, imgN3];
 // Où nous opérons : l'usine puis les trois bureaux (villes, sans adresses).
 const sites = [
   { icon: 'factory', place: `Sèmè-Podji · ${countryName(lang, 'BJ')}`, name: t.presence.plant, role: t.presenceSites.roles.plant },
@@ -70,7 +64,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
     </div>
     <!-- Slide 2 : carte animée du réseau (variante A) -->
     <div class="hero__slide hero__slide--net" id="hslide-1" role="tabpanel" aria-labelledby="htab-1" data-slide="1" aria-hidden="true">
-      <div class="hero__media" aria-hidden="true"><NetworkMap variant="a" id="hero" side={rtl ? 'left' : 'right'} /></div>
+      <div class="hero__media" aria-hidden="true"><NetworkMap variant="a" id="hero" side={rtl ? 'left' : 'right'} lang={lang} /></div>
       <div class="hero__body wrap">
         <div class="hero__content hero__content--net">
           <p class="hero__eyebrow"><span class="hero__dot" aria-hidden="true"></span>{t.heroNet.eyebrow}</p>
@@ -207,37 +201,11 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   </div>
 </section>
 
-<!-- QUI SOMMES-NOUS -->
-<section class="section about" aria-labelledby="about-title">
-  <div class="wrap about__grid">
-    <div class="about__visual" data-reveal="left">
-      <div class="about__img">
-        <Picture src={imgAbout} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={t.about.imageAlt} loading="lazy" />
-      </div>
-    </div>
-    <div class="about__text">
-      <p class="eyebrow" data-reveal><span class="eyebrow__n">01</span>·<span>{t.about.eyebrow}</span></p>
-      <h2 class="h2" id="about-title" data-reveal>{t.about.title}</h2>
-      <span class="title-rule" aria-hidden="true"></span>
-      {t.about.text.map((p, i) => <p class:list={["about__p", { about__lead: i === 0 }]} data-reveal>{p}</p>)}
-      <div class="pillars">
-        {t.about.pillars.map((p, i) => (
-          <div class="pillar" data-reveal style={`--d:${i}`}>
-            <h3>{p.title}</h3>
-            <p>{p.text}</p>
-          </div>
-        ))}
-      </div>
-      <div class="about__cta" data-reveal><a class="link-arrow" href={L('a-propos')}>{t.about.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a></div>
-    </div>
-  </div>
-</section>
-
 <!-- POURQUOI LE BÉNIN -->
 <section class="section why" aria-labelledby="why-title">
   <div class="wrap why__grid">
     <div>
-      <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__n">02</span>·<span>{t.why.eyebrow}</span></p>
+      <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__n">01</span>·<span>{t.why.eyebrow}</span></p>
       <h2 class="h2" id="why-title" data-reveal>{t.why.title}</h2>
       <span class="title-rule" aria-hidden="true"></span>
       <div class="why__stat" data-reveal>
@@ -262,43 +230,32 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   </div>
 </section>
 
-<!-- USINE -->
-<section class="section proc" aria-labelledby="proc-title" id="usine">
+<!-- CHAÎNE DE DISTRIBUTION (animée) : usine → centrales / distributeurs → patients. Placée juste après « Pourquoi produire au Bénin ? » (demande client). -->
+<section class="section dch" aria-labelledby="dch-title">
   <div class="wrap">
-    <div class="sec-head sec-head--split">
-      <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">03</span>·<span>{t.process.eyebrow}</span></p>
-        <h2 class="h2" id="proc-title" data-reveal>{t.process.title}</h2>
-        <span class="title-rule" aria-hidden="true"></span>
-      </div>
-      <p class="lead" data-reveal>{t.process.intro}</p>
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><span class="eyebrow__n">02</span>·<span>{t.chain.eyebrow}</span></p>
+      <h2 class="h2" id="dch-title" data-reveal>{t.chain.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead" data-reveal>{t.chain.intro}</p>
     </div>
-    <div class="proc__grid" data-proc>
-      <div class="proc__media" aria-hidden="true">
-        <span class="proc__badge">{t.process.step} <b data-proc-n>01</b> / 07</span>
-        {procVideos.map((v, i) => (
-          <video class:list={{ 'is-active': i === 0 }} data-proc-video={i} muted loop playsinline preload="none" poster={`/media/video/${v}.jpg`}>
-            <source src={`/media/video/${v}.mp4`} type="video/mp4" />
-          </video>
-        ))}
-        <span class="proc__cap">{t.hero.caption}</span>
-        <span class="proc__bar"><i></i></span>
-      </div>
-      <div>
-        <ol class="proc__steps">
-          {t.process.steps.map((s, i) => (
-            <li class:list={['proc__step', { 'is-active': i === 0 }]} data-proc-step={i}>
-              <span class="proc__num">{pad(i + 1)}</span>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
-              <video muted loop playsinline preload="none" poster={`/media/video/${procVideos[i]}.jpg`} aria-hidden="true">
-                <source src={`/media/video/${procVideos[i]}.mp4`} type="video/mp4" />
-              </video>
-            </li>
-          ))}
-        </ol>
-        <div class="proc__cta"><a class="btn" href={L('usine')}>{t.process.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a></div>
-      </div>
+    <ol class="dch__chain" aria-label={t.chain.label} data-reveal="fade">
+      {t.chain.steps.map((s, i) => (
+        <>
+          {i > 0 && (
+            <li class="dch__link" style={`--k:${i}`} aria-hidden="true"><i></i><i></i><i></i></li>
+          )}
+          <li class={`dch__step dch__step--${i + 1}`} style={`--k:${i}`}>
+            <span class="dch__node"><Icon name={['factory', 'truck', 'users'][i]} size={30} /><b class="dch__n">{i + 1}</b></span>
+            <h3 class="dch__title">{s.title}</h3>
+            <p class="dch__text">{s.text}</p>
+          </li>
+        </>
+      ))}
+    </ol>
+    <div class="dch__foot" data-reveal>
+      <p class="dch__badge"><span class="dch__badge-ic"><Icon name="clock" size={18} /></span><strong>{t.chain.badge.strong}</strong> {t.chain.badge.text}</p>
+      <a class="btn btn--primary" href={L('chaine-distribution')}>{t.chain.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
     </div>
   </div>
 </section>
@@ -308,7 +265,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   <div class="wrap">
     <div class="sec-head sec-head--split">
       <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">04</span>·<span>{t.products.eyebrow}</span></p>
+        <p class="eyebrow" data-reveal><span class="eyebrow__n">03</span>·<span>{t.products.eyebrow}</span></p>
         <h2 class="h2" id="prod-title" data-reveal>{t.products.title}</h2>
         <span class="title-rule" aria-hidden="true"></span>
       </div>
@@ -354,7 +311,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   <div class="wrap">
     <div class="sec-head sec-head--split">
       <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">05</span>·<span>{t.compliance.eyebrow}</span></p>
+        <p class="eyebrow" data-reveal><span class="eyebrow__n">04</span>·<span>{t.compliance.eyebrow}</span></p>
         <h2 class="h2" id="comp-title" data-reveal>{t.compliance.title}</h2>
         <span class="title-rule" aria-hidden="true"></span>
       </div>
@@ -393,7 +350,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   <div class="wrap">
     <div class="sec-head sec-head--split">
       <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">06</span>·<span>{t.presence.eyebrow}</span></p>
+        <p class="eyebrow" data-reveal><span class="eyebrow__n">05</span>·<span>{t.presence.eyebrow}</span></p>
         <h2 class="h2" id="pres-title" data-reveal>{t.presenceSites.title}</h2>
         <span class="title-rule" aria-hidden="true"></span>
       </div>
@@ -429,7 +386,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
 <section class="section cli" aria-labelledby="cli-title">
   <div class="wrap cli__grid">
     <div class="cli__side">
-      <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__n">07</span>·<span>{t.clients.eyebrow}</span></p>
+      <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__n">06</span>·<span>{t.clients.eyebrow}</span></p>
       <h2 class="h2" id="cli-title" data-reveal>{t.clients.title}</h2>
       <span class="title-rule" aria-hidden="true"></span>
       <p class="lead" data-reveal>{t.cta.text}</p>
@@ -452,7 +409,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
 <section class="section ptn" aria-labelledby="ptn-title">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow" data-reveal><span class="eyebrow__n">08</span>·<span>{t.partners.eyebrow}</span></p>
+      <p class="eyebrow" data-reveal><span class="eyebrow__n">07</span>·<span>{t.partners.eyebrow}</span></p>
       <h2 class="h2" id="ptn-title" data-reveal>{t.partners.suppliersTitle}</h2>
       <span class="title-rule" aria-hidden="true"></span>
     </div>
@@ -469,35 +426,6 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
     <div class="ptn__block" data-reveal>
       <div class="ptn__head"><h3>{t.partners.trustTitle}</h3></div>
       <ul class="ptn__trust">{t.partners.trust.map((n) => <li>{n}</li>)}</ul>
-    </div>
-  </div>
-</section>
-
-<!-- ACTUALITÉS -->
-<section class="section news" aria-labelledby="news-title">
-  <div class="wrap">
-    <div class="sec-head sec-head--action">
-      <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">09</span>·<span>{t.news.eyebrow}</span></p>
-        <h2 class="h2" id="news-title" data-reveal>{t.news.title}</h2>
-        <span class="title-rule" aria-hidden="true"></span>
-      </div>
-      <div data-reveal><a class="btn btn--ghost" href={L('actualites')}>{t.news.all}<Icon name="arrow" size={18} class="flip-rtl" /></a></div>
-    </div>
-    <div class="news__grid">
-      {t.news.items.map((n, i) => (
-        <article class="news__card" data-reveal style={`--d:${i}`}>
-          <div class="news__img">
-            <Picture src={newsImgs[i]} formats={['avif', 'webp']} widths={[420, 720]} sizes="(max-width: 640px) 92vw, 30vw" alt="" loading="lazy" />
-          </div>
-          <div class="news__body">
-            <p class="news__meta"><span class="news__tag">{n.tag}</span><time datetime={n.date}>{formatDate(lang, n.date)}</time></p>
-            <h3>{n.title}</h3>
-            <p>{n.text}</p>
-            <a class="link-arrow" href={`${L('actualites')}#a${i + 1}`}>{t.news.read}<Icon name="arrow" size={16} class="flip-rtl" /></a>
-          </div>
-        </article>
-      ))}
     </div>
   </div>
 </section>

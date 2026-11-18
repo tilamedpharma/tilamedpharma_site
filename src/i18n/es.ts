@@ -73,6 +73,18 @@ const es: Dict = {
       { value: '1.ª', unit: 'planta', label: 'farmacéutica de Benín comprometida con la igualdad de género y la inclusión de la discapacidad' },
     ],
   },
+  chain: {
+    eyebrow: 'Nuestra cadena de distribución', title: 'De Sèmè-Podji al paciente',
+    intro: 'Un circuito corto, rápido y trazable: fabricadas en Benín, nuestras soluciones llegan a los pacientes en menos de un mes.',
+    label: 'Cadena de distribución en tres etapas',
+    steps: [
+      { title: 'Planta de Sèmè-Podji', text: 'Fabricado y controlado en Benín' },
+      { title: 'Centrales de compras, mayoristas y distribuidores', text: 'Cooperativas públicas regionales, mayoristas privados y otros distribuidores' },
+      { title: 'Pacientes', text: 'Atendidos en menos de un mes' },
+    ],
+    badge: { strong: 'Menos de un mes', text: 'de nuestra planta al paciente' },
+    cta: 'Descubrir nuestra distribución',
+  },
   impact: {
     eyebrow: 'Nuestro impacto',
     title: 'Una planta útil, verde e inclusiva',

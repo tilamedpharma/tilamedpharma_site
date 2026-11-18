@@ -2,7 +2,7 @@
 // Page « Présence régionale » : carte de l'Afrique de l'Ouest, pays couverts, bureaux.
 import Icon from '../Icon.astro';
 import PageHero from '../page/PageHero.astro';
-import WestAfricaMap from '../home/WestAfricaMap.astro';
+import NetworkMap from '../home/NetworkMap.astro';
 import { useDict, countryName } from '../../i18n';
 import { useMarches } from '../../i18n/pages/marches';
 import { useEtapes } from '../../i18n/pages/etapes';
@@ -39,7 +39,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
       ))}
     </ul>
     <div class="pres__grid">
-      <div data-reveal="scale"><WestAfricaMap lang={lang} t={t} /></div>
+      <div data-reveal="scale"><div class="pres__nm" role="img" aria-label={t.presence.title}><NetworkMap variant="a" id="presence" side="center" lang={lang} /></div></div>
       <div class="pres__side">
         <div data-reveal>
           <p class="pres__h">{t.presence.countriesTitle}</p>

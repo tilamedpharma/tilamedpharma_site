@@ -17,6 +17,9 @@ const frame = { type: 'MultiPoint', coordinates: [[-25.6, 3.2], [16.5, 3.2], [16
 const proj = geoMercator().fitExtent([[0, 0], [W, H]], frame);
 const path = geoPath(proj);
 const covNums = new Set(coverage.map((c) => c.num));
+// Infobulles : nom du pays dans la langue de la page (pays couverts + voisins visibles ; sinon nom anglais de world-atlas)
+const neighbours: [string, string][] = [['012', 'DZ'], ['120', 'CM'], ['140', 'CF'], ['148', 'TD'], ['178', 'CG'], ['180', 'CD'], ['226', 'GQ'], ['250', 'FR'], ['266', 'GA'], ['434', 'LY'], ['478', 'MR'], ['504', 'MA'], ['528', 'NL'], ['620', 'PT'], ['678', 'ST'], ['724', 'ES'], ['729', 'SD'], ['732', 'EH'], ['788', 'TN'], ['818', 'EG']];
+const isoByNum = new Map<string, string>([...coverage.map((c) => [c.num, c.iso] as [string, string]), ...neighbours]);
 const visible = all.filter((f) => {
   const [[x0, y0], [x1, y1]] = geoBounds(f);
   return x0 <= x1 && x1 > -27 && x0 < 18 && y1 > 2 && y0 < 24;
@@ -39,7 +42,7 @@ const ocean = proj([-17, 6])!;
       {visible.map((f) => {
         const id = String(f.id).padStart(3, '0');
         const cls = id === '204' ? 'map__bj' : covNums.has(id) ? 'map__cov' : 'map__land';
-        return <path class={cls} d={path(f)}><title>{f.properties?.name}</title></path>;
+        return <path class={cls} d={path(f)}><title>{isoByNum.has(id) ? countryName(lang, isoByNum.get(id)!) : f.properties?.name}</title></path>;
       })}
     </g>
     <text class="map__ocean" x={ocean[0]} y={ocean[1]}>{t.presence.ocean.toUpperCase()}</text>

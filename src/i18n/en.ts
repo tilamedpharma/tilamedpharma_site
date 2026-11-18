@@ -73,6 +73,18 @@ const en: Dict = {
       { value: '1st', unit: 'plant', label: 'in Benin’s pharmaceutical sector committed to gender equality and disability inclusion' },
     ],
   },
+  chain: {
+    eyebrow: 'Our distribution chain', title: 'From Sèmè-Podji to the patient',
+    intro: 'A short, fast and traceable supply chain: made in Benin, our solutions reach patients in less than a month.',
+    label: 'Three-step distribution chain',
+    steps: [
+      { title: 'Sèmè-Podji plant', text: 'Made and tested in Benin' },
+      { title: 'Purchasing centres, wholesalers and distributors', text: 'Regional public cooperatives, private wholesalers and other distributors' },
+      { title: 'Patients', text: 'Treated in less than a month' },
+    ],
+    badge: { strong: 'Less than a month', text: 'from our plant to the patient' },
+    cta: 'Discover our distribution',
+  },
   impact: {
     eyebrow: 'Our impact',
     title: 'A useful, green and inclusive plant',

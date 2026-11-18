@@ -58,10 +58,10 @@ const usine = {
   },
   location: {
     eyebrow: 'Le site de Sèmè-Podji',
-    title: 'Un emplacement stratégique, entre Cotonou et le Nigeria',
+    title: 'Un emplacement stratégique, entre Cotonou et le Nigéria',
     items: [
       'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du Bénin',
-      'À proximité immédiate de la frontière de Kraké, principal passage vers le Nigeria',
+      'À proximité immédiate de la frontière de Kraké, principal passage vers le Nigéria',
       'Près de Cotonou et de son port autonome',
       'Au sein d\'une zone économique spéciale aux avantages douaniers et fiscaux',
     ],

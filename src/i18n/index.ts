@@ -14,7 +14,12 @@ export function useDict(lang: Locale): Dict {
 }
 
 /** Nom de pays localisé à partir du code ISO (Intl, aucune traduction manuelle). */
+/** Noms de pays imposés par le client quand ils diffèrent de la forme standard (Intl). */
+const countryOverrides: Partial<Record<Locale, Record<string, string>>> = { fr: { NG: 'Nigéria' } };
+
 export function countryName(lang: Locale, iso: string): string {
+  const forced = countryOverrides[lang]?.[iso];
+  if (forced) return forced;
   try {
     return new Intl.DisplayNames([lang === 'zh' ? 'zh-Hans' : lang], { type: 'region' }).of(iso) ?? iso;
   } catch {

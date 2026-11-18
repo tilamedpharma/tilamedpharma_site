@@ -304,6 +304,67 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero__slogan { padding-inline: 28px; font-family: var(--font-head); font-weight: 600; font-style: italic; font-size: .9375rem; }
 
 /* =========================================================================
+   CHAÎNE DE DISTRIBUTION (accueil, après « Pourquoi produire au Bénin ? ») — schéma animé en 3 étapes
+   Au premier affichage : les nœuds apparaissent un à un, les liaisons se tracent,
+   puis des points circulent en continu de l'usine vers le patient.
+   ========================================================================= */
+.dch { background: #fff; }
+.dch__chain {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(56px, .5fr) minmax(0, 1fr) minmax(56px, .5fr) minmax(0, 1fr);
+  align-items: start; max-width: 1060px; margin: 56px auto 0;
+}
+.dch__step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.dch__node {
+  position: relative; display: grid; place-items: center; width: 92px; height: 92px; border-radius: 50%;
+  background: #fff; color: var(--blue); border: 2px solid var(--blue); box-shadow: 0 16px 32px -16px rgba(18, 48, 90, .5);
+}
+.dch__step--1 .dch__node { background: var(--blue); color: #fff; }
+.dch__step--3 .dch__node { background: var(--green); border-color: var(--green); color: #fff; }
+.dch__n {
+  position: absolute; top: -4px; inset-inline-end: -4px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--green); color: #fff; border: 3px solid #fff; font-family: var(--font-head); font-weight: 800; font-size: .8125rem; line-height: 1;
+}
+.dch__step--3 .dch__n { background: var(--blue); }
+.dch__title { margin-top: 22px; max-width: 290px; font-size: 1.125rem; line-height: 1.3; color: var(--navy); text-wrap: balance; }
+.dch__text { margin-top: 8px; max-width: 270px; font-size: 1rem; line-height: 1.5; color: var(--muted); text-wrap: balance; }
+.dch__step--3 .dch__text { color: var(--green-deep); font-weight: 700; }
+/* Liaison : conteneur de 14 px centré sur les nœuds ; le trait pointillé est le ::before, les points circulants sont les <i> */
+.dch__link { position: relative; height: 14px; margin-top: 39px; }
+.dch__link::before { content: ''; position: absolute; inset: 6px 0; background: repeating-linear-gradient(90deg, var(--blue) 0 8px, transparent 8px 14px); }
+.dch__link i { position: absolute; top: 2px; inset-inline-start: 0; width: 10px; height: 10px; margin-inline-start: -5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(57, 168, 69, .2); opacity: 0; }
+.dch__foot { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-top: 52px; }
+.dch__badge { display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 6px 12px; padding: 8px 24px 8px 8px; border: 2px solid var(--green); border-radius: 999px; background: #fff; font-size: 1rem; color: var(--text); }
+[dir='rtl'] .dch__badge { padding: 8px 8px 8px 24px; }
+.dch__badge strong { font-family: var(--font-head); font-weight: 800; font-size: 1.125rem; color: var(--green-deep); }
+.dch__badge-ic { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--green); color: #fff; }
+
+/* Animation (seulement avec JS : sans JS, tout est visible tout de suite) */
+.js .dch__node { opacity: 0; transform: scale(.55); transition: opacity .5s var(--ease), transform .7s cubic-bezier(.34, 1.56, .64, 1); transition-delay: calc(var(--k) * .6s + .15s); }
+.js .dch__title, .js .dch__text { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease), transform .6s var(--ease); transition-delay: calc(var(--k) * .6s + .35s); }
+.js .dch__link::before { clip-path: inset(0 100% 0 0); transition: clip-path .5s linear; transition-delay: calc(var(--k) * .6s - .2s); }
+[dir='rtl'].js .dch__link::before { clip-path: inset(0 0 0 100%); }
+.dch__chain.is-in .dch__node, .dch__chain.is-in .dch__title, .dch__chain.is-in .dch__text { opacity: 1; transform: none; }
+.dch__chain.is-in .dch__link::before { clip-path: inset(0 0 0 0); }
+.dch__chain.is-in .dch__link i { animation: dchFlow 2.4s linear infinite; animation-delay: calc(1.7s + var(--k) * .3s); }
+.dch__chain.is-in .dch__link i:nth-child(2) { animation-delay: calc(2.5s + var(--k) * .3s); }
+.dch__chain.is-in .dch__link i:nth-child(3) { animation-delay: calc(3.3s + var(--k) * .3s); }
+.dch__chain.is-in .dch__step--3 .dch__node { animation: dchPulse 2.4s ease-out 2s infinite; }
+@keyframes dchFlow { 0% { inset-inline-start: 0; opacity: 0; } 15%, 85% { opacity: 1; } 100% { inset-inline-start: 100%; opacity: 0; } }
+@keyframes dchPulse { 0% { box-shadow: 0 0 0 0 rgba(57, 168, 69, .45), 0 16px 32px -16px rgba(18, 48, 90, .5); } 70%, 100% { box-shadow: 0 0 0 18px rgba(57, 168, 69, 0), 0 16px 32px -16px rgba(18, 48, 90, .5); } }
+/* Téléphone : chaîne verticale */
+@media (max-width: 760px) {
+  .dch__chain { grid-template-columns: 1fr; justify-items: center; margin-top: 40px; }
+  .dch__link { width: 14px; height: 52px; margin: 16px 0; }
+  .dch__link::before { inset: 0 6px; background: repeating-linear-gradient(180deg, var(--blue) 0 8px, transparent 8px 14px); }
+  .js .dch__link::before, [dir='rtl'].js .dch__link::before { clip-path: inset(0 0 100% 0); }
+  .dch__chain.is-in .dch__link::before { clip-path: inset(0); }
+  .dch__badge, [dir='rtl'] .dch__badge { border-radius: 24px; padding: 10px 18px; }
+  .dch__link i { top: 0; inset-inline-start: 2px; margin: -5px 0 0; }
+  .dch__chain.is-in .dch__link i { animation-name: dchFlowV; }
+  @keyframes dchFlowV { 0% { top: 0; opacity: 0; } 15%, 85% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+}
+
+/* =========================================================================
    NOTRE IMPACT — chiffres + green building
    ========================================================================= */
 .impact { padding-bottom: clamp(56px, 6vw, 96px); }
@@ -388,29 +449,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .green--incl .green__cta { color: var(--blue); }
 
 /* =========================================================================
-   QUI SOMMES-NOUS
-   ========================================================================= */
-.about__grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
-.about__visual { position: relative; padding: 0 0 40px 40px; }
-[dir='rtl'] .about__visual { padding: 0 40px 40px 0; }
-.about__visual::before { content: ''; position: absolute; inset: 40px 40px 0 0; background: linear-gradient(90deg, var(--blue) 70%, var(--green) 70%); z-index: -1; border-radius: var(--radius); }
-[dir='rtl'] .about__visual::before { inset: 40px 0 0 40px; background: linear-gradient(270deg, var(--blue) 70%, var(--green) 70%); }
-.about__visual { isolation: isolate; }
-.about__img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--shadow-lg); }
-.about__img img { width: 100%; height: 100%; object-fit: cover; }
-.about__ceo { position: absolute; inset-inline-end: -24px; bottom: 76px; display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
-.about__ceo-mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius); background: var(--green); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
-.about__ceo small { display: block; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-family: var(--font-head); font-weight: 600; }
-.about__ceo strong { font-family: var(--font-head); color: var(--navy); font-size: 1rem; }
-.about__p { margin-top: 18px; }
-.about__lead { margin-top: 28px; font-size: var(--fs-lg); color: var(--navy); }
-.pillars { display: grid; gap: 0; margin-top: 36px; border-top: 1px solid var(--line); }
-.pillar { display: grid; grid-template-columns: 170px 1fr; gap: 6px 24px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.pillar h3 { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green-deep); }
-.pillar p { font-size: 1.0625rem; line-height: 1.5; color: var(--navy); }
-.about__cta { margin-top: 36px; }
-
-/* =========================================================================
    ACTIVITÉS
    ========================================================================= */
 .acts { background: var(--mist); }
@@ -449,32 +487,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .why__visual img { width: 100%; height: 100%; object-fit: cover; }
 .why__visual figcaption { position: absolute; inset-inline: 20px; bottom: 20px; display: flex; gap: 12px; align-items: center; padding: 16px 18px; background: rgba(255, 255, 255, .96); color: var(--navy); border-radius: var(--radius); font-family: var(--font-head); font-weight: 700; font-size: .9375rem; }
 .why__visual figcaption .icon { color: var(--green); flex: none; }
-
-/* =========================================================================
-   USINE / PROCÉDÉ
-   ========================================================================= */
-.proc__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); margin-top: 64px; }
-.proc__media { position: sticky; top: calc(var(--hdr) + 32px); align-self: start; aspect-ratio: 4 / 3.4; border-radius: var(--radius-lg); overflow: hidden; background: var(--navy); box-shadow: var(--shadow-lg); }
-.proc__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .8s var(--ease), transform 1.4s var(--ease); }
-.proc__media video.is-active { opacity: 1; transform: none; }
-.proc__badge { position: absolute; inset-inline-start: 20px; top: 20px; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255, 255, 255, .95); border-radius: var(--radius); font-family: var(--font-head); font-weight: 800; font-size: .8125rem; color: var(--navy); letter-spacing: .08em; }
-.proc__badge b { color: var(--blue); }
-.proc__cap { position: absolute; inset-inline-end: 16px; bottom: 14px; z-index: 2; font-size: .75rem; color: rgba(255, 255, 255, .75); }
-.proc__bar { position: absolute; inset-inline: 0; bottom: 0; z-index: 2; height: 4px; background: rgba(255, 255, 255, .2); }
-.proc__bar i { display: block; height: 100%; width: calc(var(--p, 1) / 7 * 100%); background: var(--blue); transition: width .6s var(--ease); }
-.proc__steps { counter-reset: s; }
-.proc__step { position: relative; padding: 30px 0 30px 72px; border-bottom: 1px solid var(--line); opacity: .45; transition: opacity .5s var(--ease); }
-[dir='rtl'] .proc__step { padding: 30px 72px 30px 0; }
-.proc__step:first-child { padding-top: 0; }
-.proc__step.is-active { opacity: 1; }
-.proc__num { position: absolute; inset-inline-start: 0; top: 30px; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--line); font-family: var(--font-head); font-weight: 800; font-size: .875rem; color: var(--navy); transition: background .4s, border-color .4s, color .4s; }
-.proc__step:first-child .proc__num { top: 0; }
-.proc__step.is-active .proc__num { background: var(--blue); border-color: var(--blue); color: #fff; }
-.proc__step:last-child.is-active .proc__num { background: var(--green); border-color: var(--green); }
-.proc__step h3 { font-size: 1.35rem; }
-.proc__step p { margin-top: 10px; max-width: 46ch; }
-.proc__step video { display: none; }
-.proc__cta { margin-top: 40px; }
 
 /* =========================================================================
    PRODUITS
@@ -550,6 +562,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    PRÉSENCE
    ========================================================================= */
 .pres__grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(40px, 5vw, 80px); align-items: center; margin-top: 48px; }
+/* Carte animée du réseau en mode cadre (page Présence) */
+.pres__nm { position: relative; aspect-ratio: 1200 / 760; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
 .map { position: relative; border-radius: var(--radius-lg); background: var(--blue-50); overflow: hidden; }
 .map svg { width: 100%; height: auto; }
 .map__land { fill: #fff; stroke: #c9d7e8; stroke-width: .6; }
@@ -759,15 +773,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 @media (max-width: 900px) {
   .ftr__map { grid-template-columns: repeat(3, 1fr); }
-  .about__grid, .why__grid, .pres__grid, .cli__grid { grid-template-columns: 1fr; }
-  .about__visual { max-width: 520px; }
+  .why__grid, .pres__grid, .cli__grid { grid-template-columns: 1fr; }
   .why__visual { aspect-ratio: 16 / 10; }
-  .proc__grid { grid-template-columns: 1fr; }
-  .proc__media { display: none; }
-  .proc__step { opacity: 1; padding-inline-start: 0; padding-top: 28px; }
-  [dir='rtl'] .proc__step { padding-inline-end: 0; }
-  .proc__num { position: static; margin-bottom: 14px; background: var(--blue); border-color: var(--blue); color: #fff; }
-  .proc__step video { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); margin-top: 18px; }
   .prod__panel { grid-template-columns: 1fr; }
   .prod__img { aspect-ratio: 16 / 10; }
   .tl__list { grid-template-columns: 1fr; gap: 0; }
@@ -798,15 +805,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .green__media { min-height: 340px; }
   .acts__grid { grid-template-columns: 1fr; }
   .act { min-height: 360px; }
-  .pillar { grid-template-columns: 1fr; }
   .why__items { grid-template-columns: 1fr; }
   .comp__grid, .comp__list, .comp__std ul { grid-template-columns: 1fr; }
   .comp__std li + li { border-inline-start: 0; }
   .news__grid { grid-template-columns: 1fr; }
   .ptn__logos { grid-template-columns: repeat(2, 1fr); }
-  .about__ceo { inset-inline-end: 8px; bottom: 56px; }
-  .about__visual { padding: 0 0 24px 24px; }
-  .about__visual::before { inset: 24px 24px 0 0; }
   .hero__proofs { gap: 8px 20px; font-size: .6875rem; padding-block: 14px; }
   .hero__caption { display: none; }
   .hero__aside { bottom: 92px; }

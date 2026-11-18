@@ -73,6 +73,18 @@ const pt: Dict = {
       { value: '1.ª', unit: 'fábrica', label: 'farmacêutica do Benim empenhada na igualdade de género e na inclusão da deficiência' },
     ],
   },
+  chain: {
+    eyebrow: 'A nossa cadeia de distribuição', title: 'De Sèmè-Podji até ao doente',
+    intro: 'Um circuito curto, rápido e rastreável: fabricadas no Benim, as nossas soluções chegam aos doentes em menos de um mês.',
+    label: 'Cadeia de distribuição em três etapas',
+    steps: [
+      { title: 'Fábrica de Sèmè-Podji', text: 'Fabricado e controlado no Benim' },
+      { title: 'Centrais de compras, grossistas e distribuidores', text: 'Cooperativas públicas regionais, grossistas privados e outros distribuidores' },
+      { title: 'Doentes', text: 'Tratados em menos de um mês' },
+    ],
+    badge: { strong: 'Menos de um mês', text: 'da nossa fábrica até ao doente' },
+    cta: 'Descobrir a nossa distribuição',
+  },
   impact: {
     eyebrow: 'O nosso impacto',
     title: 'Uma fábrica útil, verde e inclusiva',

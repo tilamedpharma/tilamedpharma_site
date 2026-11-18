@@ -73,6 +73,18 @@ const it: Dict = {
       { value: '1º', unit: 'stabilimento', label: 'farmaceutico del Benin impegnato per la parità di genere e l\'inclusione della disabilità' },
     ],
   },
+  chain: {
+    eyebrow: 'La nostra catena distributiva', title: 'Da Sèmè-Podji al paziente',
+    intro: 'Un circuito corto, rapido e tracciabile: prodotte in Benin, le nostre soluzioni arrivano ai pazienti in meno di un mese.',
+    label: 'Catena distributiva in tre fasi',
+    steps: [
+      { title: 'Stabilimento di Sèmè-Podji', text: 'Prodotto e controllato in Benin' },
+      { title: 'Centrali d\'acquisto, grossisti e distributori', text: 'Cooperative pubbliche regionali, grossisti privati e altri distributori' },
+      { title: 'Pazienti', text: 'Curati in meno di un mese' },
+    ],
+    badge: { strong: 'Meno di un mese', text: 'dal nostro stabilimento al paziente' },
+    cta: 'Scopri la nostra distribuzione',
+  },
   impact: {
     eyebrow: 'Il nostro impatto',
     title: 'Uno stabilimento utile, verde e inclusivo',

@@ -14,7 +14,7 @@ export type Topic = {
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
     meta: { title: 'Le site de Sèmè-Podji · Notre usine · TILAMED Pharma', description: 'Un site industriel de 2 hectares à Sèmè-Podji, près de la frontière de Kraké, de Cotonou et de son port, dans une zone économique spéciale.' },
-    lead: 'Un site de 2 hectares, juste après la frontière de Kraké, entre Cotonou et le Nigeria.',
+    lead: 'Un site de 2 hectares, juste après la frontière de Kraké, entre Cotonou et le Nigéria.',
     intro: '',
     facts: [
       { value: '2', unit: 'ha', label: 'de site industriel, soit 20 000 m²' },
@@ -22,7 +22,7 @@ const pages: Record<string, Topic> = {
     blocks: [
       { kind: 'points', title: 'Un emplacement stratégique', items: [
         'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du Bénin.',
-        'À proximité immédiate de la frontière de Kraké, principal point de passage vers le Nigeria.',
+        'À proximité immédiate de la frontière de Kraké, principal point de passage vers le Nigéria.',
         'Près de Cotonou et de son port autonome, qui assure l\'essentiel des échanges commerciaux du pays.',
         'Au sein d\'une zone économique spéciale offrant des avantages douaniers et fiscaux.',
       ] },

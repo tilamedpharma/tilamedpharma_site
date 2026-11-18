@@ -6,7 +6,7 @@ import world from 'world-atlas/countries-50m.json';
 import { company } from '../data/site';
 
 interface Props { theme?: 'light' | 'dark'; plantLabel?: string; class?: string; ocean?: string; benin?: string; nigeria?: string }
-const { theme = 'light', plantLabel = 'Usine TILAMED Pharma', class: cls = '', ocean: oceanLabel = 'Océan Atlantique', benin = 'Bénin', nigeria = 'Nigeria' } = Astro.props;
+const { theme = 'light', plantLabel = 'Usine TILAMED Pharma', class: cls = '', ocean: oceanLabel = 'Océan Atlantique', benin = 'Bénin', nigeria = 'Nigéria' } = Astro.props;
 
 const W = 520, H = 300;
 const all = (feature(world as any, (world as any).objects.countries) as any).features as any[];

@@ -127,6 +127,16 @@ function playNetwork(nm: HTMLElement) {
   }
 }
 
+// Carte en mode cadre (page Présence) : l'animation se lance quand la carte apparaît à l'écran.
+const nmAutoIO = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    playNetwork(e.target as HTMLElement);
+    nmAutoIO.unobserve(e.target);
+  });
+}, { threshold: 0.35 });
+$$<HTMLElement>('[data-nm-auto]').forEach((nm) => nmAutoIO.observe(nm));
+
 /* ---------- Slider du hero (vidéo de l'usine · carte du réseau) ---------- */
 // Carte : entière (meet) sur grand écran, recadrée sur la région (slice) sur mobile.
 const nmFit = window.matchMedia('(max-width: 900px)');
@@ -232,43 +242,6 @@ const countIO = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.6 });
 $$('[data-count]').forEach((el) => countIO.observe(el));
-
-/* ---------- Procédé : étape active synchronisée avec la vidéo ---------- */
-const proc = $('[data-proc]');
-if (proc) {
-  const steps = $$('[data-proc-step]', proc);
-  const vids = $$<HTMLVideoElement>('[data-proc-video]', proc);
-  const num = $('[data-proc-n]', proc);
-  const media = $('.proc__media', proc);
-  const desktop = window.matchMedia('(min-width: 901px)');
-  let active = -1;
-  const setActive = (i: number) => {
-    if (i === active) return;
-    active = i;
-    steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
-    vids.forEach((v, k) => {
-      const on = k === i;
-      v.classList.toggle('is-active', on);
-      if (on && desktop.matches && !reduced) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause();
-    });
-    if (num) num.textContent = String(i + 1).padStart(2, '0');
-    media?.style.setProperty('--p', String(i + 1));
-  };
-  const stepIO = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.procStep)); });
-  }, { rootMargin: '-45% 0px -45% 0px' });
-  steps.forEach((s) => stepIO.observe(s));
-  setActive(0);
-  // Mobile : chaque vidéo d'étape se lance quand elle est visible
-  const mobIO = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      const v = e.target as HTMLVideoElement;
-      if (desktop.matches || reduced) return;
-      if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause();
-    });
-  }, { threshold: 0.4 });
-  $$<HTMLVideoElement>('.proc__step video', proc).forEach((v) => mobIO.observe(v));
-}
 
 /* ---------- Onglets produits ---------- */
 $$('[data-tabs]').forEach((root) => {

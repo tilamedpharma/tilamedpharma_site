@@ -8,17 +8,24 @@ import { geoMercator, geoPath, geoBounds } from 'd3-geo';
 import { feature } from 'topojson-client';
 import world from 'world-atlas/countries-50m.json';
 import { coverage, company } from '../../data/site';
+import { countryName } from '../../i18n';
+import type { Locale } from '../../i18n/config';
 
-// side : côté où se place la carte (« right » = texte à gauche ; « left » pour l'arabe, texte à droite).
-interface Props { variant: 'a' | 'b' | 'c'; id: string; side?: 'right' | 'left' }
-const { variant, id, side = 'right' } = Astro.props;
+// side : côté où se place la carte (« right » = texte à gauche ; « left » pour l'arabe, texte à droite ;
+// « center » = carte seule dans un cadre, ex. page Présence, animation lancée à l'apparition).
+// Étiquettes = noms des pays dans la langue de la page (demande client), placées près de la capitale desservie.
+interface Props { variant: 'a' | 'b' | 'c'; id: string; side?: 'right' | 'left' | 'center'; lang: Locale }
+const { variant, id, side = 'right', lang } = Astro.props;
+const center = side === 'center';
 
-const W = 1600, H = 700;
+const W = center ? 1200 : 1600, H = center ? 760 : 700;
 const all = (feature(world as any, (world as any).objects.countries) as any).features as any[];
 // Cadre élargi vers l'ouest : la région occupe la droite du slide, le texte la gauche.
 // Région (lon -26 à 16,5) cantonnée à ~48 % du cadre, du côté de la carte.
-const [lonW, lonE] = side === 'right' ? [-80, 17.5] : [-27, 70.5];
-const frame = { type: 'MultiPoint', coordinates: [[lonW, 1.5], [lonE, 1.5], [lonE, 23.5], [lonW, 23.5]] } as any;
+const [lonW, lonE] = side === 'right' ? [-80, 17.5] : side === 'left' ? [-27, 70.5] : [-26.5, 17.5];
+const [latS, latN] = center ? [2.5, 22.5] : [1.5, 23.5];
+const frame = { type: 'MultiPoint', coordinates: [[lonW, latS], [lonE, latS], [lonE, latN], [lonW, latN]] } as any;
+const k = center ? 1.45 : 1; // agrandissement des textes et repères en mode cadre
 const proj = geoMercator().fitExtent([[0, 0], [W, H]], frame);
 const path = geoPath(proj);
 const covNums = new Set<string>(coverage.map((c) => c.num));
@@ -85,9 +92,9 @@ const timing = {
   c: { t0: 0, st: 0, d: 0 },
 }[variant];
 ---
-<div class:list={['nm', `nm--${variant}`, `nm--${side}`]} dir="ltr" data-nm={variant} data-full={fullBox.join(' ')} data-zoom={zoomBox.join(' ')}
+<div class:list={['nm', `nm--${variant}`, `nm--${side}`]} dir="ltr" data-nm={variant} data-nm-auto={center ? '' : undefined} data-full={fullBox.join(' ')} data-zoom={zoomBox.join(' ')}
   style={`--t0:${timing.t0}s;--st:${timing.st}s;--d:${timing.d}s`}>
-  <svg viewBox={fullBox.join(' ')} preserveAspectRatio={side === 'right' ? 'xMaxYMid meet' : 'xMinYMid meet'} data-nm-fit={side === 'right' ? 'xMaxYMid' : 'xMinYMid'} aria-hidden="true" data-nm-svg>
+  <svg viewBox={fullBox.join(' ')} preserveAspectRatio={center ? 'xMidYMid meet' : side === 'right' ? 'xMaxYMid meet' : 'xMinYMid meet'} data-nm-fit={center ? undefined : side === 'right' ? 'xMaxYMid' : 'xMinYMid'} aria-hidden="true" data-nm-svg>
     <defs>
       <filter id={`glow-${id}`} x="-200%" y="-200%" width="500%" height="500%">
         <feGaussianBlur stdDeviation="4" result="b" />
@@ -141,7 +148,7 @@ const timing = {
       {routes.map((r, i) => (
         <g class="city" style={`--i:${i}`}>
           <circle cx={r.p[0].toFixed(1)} cy={r.p[1].toFixed(1)} r="4.5" />
-          <text x={(r.p[0] + Number(r.lab[0])).toFixed(1)} y={(r.p[1] + Number(r.lab[1])).toFixed(1)} text-anchor={r.lab[2] as string}>{r.city}</text>
+          <text x={(r.p[0] + Number(r.lab[0]) * k).toFixed(1)} y={(r.p[1] + Number(r.lab[1]) * k).toFixed(1)} text-anchor={r.lab[2] as string}>{countryName(lang, r.iso)}</text>
         </g>
       ))}
     </g>
@@ -167,6 +174,12 @@ const timing = {
 <style>
   .nm { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 68% 50%, #15386a 0%, #0a1c36 72%); }
   .nm--left { background: radial-gradient(ellipse 70% 90% at 32% 50%, #15386a 0%, #0a1c36 72%); }
+  .nm--center { background: radial-gradient(ellipse 75% 80% at 62% 55%, #15386a 0%, #0a1c36 75%); }
+  /* Mode cadre : textes et repères agrandis (le SVG y est affiché plus petit que dans le héros) */
+  .nm--center .city text { font-size: 19px; stroke-width: 4px; }
+  .nm--center .city circle { r: 6px; }
+  .nm--center .route { stroke-width: 3; }
+  .nm--center .plant__label { font-size: 20px; stroke-width: 4px; }
   .nm svg { display: block; width: 100%; height: 100%; }
   .land { fill: rgba(255, 255, 255, .04); stroke: rgba(255, 255, 255, .12); stroke-width: .8; vector-effect: non-scaling-stroke; }
   .cov { fill: #4f9be0; fill-opacity: .3; stroke: rgba(143, 194, 243, .45); stroke-width: .9; vector-effect: non-scaling-stroke; }

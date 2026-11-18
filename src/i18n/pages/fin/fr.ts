@@ -8,7 +8,7 @@ const fin = {
     // Corps des 3 actualités de l'accueil (même ordre que t.news.items), puis une 4e actualité.
     bodies: [
       [
-        'L\'État béninois confie à TILAMED PHARMA SA, par bail emphytéotique, un site industriel de 2 hectares à Sèmè-Podji, juste après la frontière de Kraké avec le Nigeria.',
+        'L\'État béninois confie à TILAMED PHARMA SA, par bail emphytéotique, un site industriel de 2 hectares à Sèmè-Podji, juste après la frontière de Kraké avec le Nigéria.',
         'Situé dans une zone économique spéciale, à proximité de Cotonou et de son port autonome, ce site accueillera l\'usine de solutions injectables de TILAMED Pharma.',
       ],
       [
@@ -93,7 +93,7 @@ const fin = {
     title: 'Trois bureaux, une usine',
     call: 'Appeler',
     plantTitle: 'L\'usine de Sèmè-Podji',
-    plantText: 'Juste après la frontière de Kraké en venant du Nigeria, à quelques kilomètres de Cotonou.',
+    plantText: 'Juste après la frontière de Kraké en venant du Nigéria, à quelques kilomètres de Cotonou.',
   },
   faq: {
     meta: { title: 'Questions fréquentes · TILAMED Pharma', description: 'Disponibilité des produits, usine, normes, livraisons, distribution, recrutement, pharmacovigilance : les réponses à vos questions.' },
@@ -101,7 +101,7 @@ const fin = {
     title: 'Vos questions, nos réponses',
     items: [
       { q: 'Vos produits sont-ils déjà disponibles ?', a: 'Pas encore. Notre gamme est en préparation. Vous pouvez demander à être informé dès sa disponibilité depuis la page Demande de documentation.', link: 'documentation' },
-      { q: 'Où se trouve votre usine ?', a: 'À Sèmè-Podji, dans le sud du Bénin, juste après la frontière de Kraké en venant du Nigeria, sur un site de 2 hectares.', link: 'site-seme-podji' },
+      { q: 'Où se trouve votre usine ?', a: 'À Sèmè-Podji, dans le sud du Bénin, juste après la frontière de Kraké en venant du Nigéria, sur un site de 2 hectares.', link: 'site-seme-podji' },
       { q: 'Quels produits fabriquerez-vous ?', a: 'Des solutés de perfusion (chlorure de sodium, glucose, Ringer lactate…), des solutions médicamenteuses (paracétamol, métronidazole, lévofloxacine, ciprofloxacine) et des injectables en ampoules, puis d\'autres gammes au fil des autorisations.', link: 'produits' },
       { q: 'Vos produits respectent-ils les normes internationales ?', a: 'Notre usine est construite selon les bonnes pratiques de fabrication de l\'OMS. Nous visons les certifications ISO 9001 et ISO 14001, et la certification green building EDGE est en cours d\'obtention.', link: 'certifications' },
       { q: 'Livrez-vous hors du Bénin ?', a: 'Oui. Nous couvrons 15 pays d\'Afrique de l\'Ouest. Le marché béninois reste prioritaire.', link: 'presence' },

@@ -38,12 +38,12 @@ const benin = {
   position: {
     eyebrow: 'Une position stratégique',
     title: 'Au cœur de l\'Afrique de l\'Ouest',
-    text: 'Notre usine s\'installe à Sèmè-Podji, entre Cotonou et la frontière du Nigeria : un emplacement pensé pour approvisionner toute la région.',
+    text: 'Notre usine s\'installe à Sèmè-Podji, entre Cotonou et la frontière avec le Nigéria : un emplacement pensé pour approvisionner toute la région.',
     corridor: 'Sur le corridor côtier Abidjan – Lagos',
     port: 'Port',
     border: 'Frontière',
     items: [
-      { title: 'Le Nigeria à la porte', text: 'Le site jouxte la frontière du pays le plus peuplé d\'Afrique.' },
+      { title: 'Le Nigéria à la porte', text: 'Le site jouxte la frontière du pays le plus peuplé d\'Afrique.' },
       { title: 'Le port de Cotonou à proximité', text: 'La porte d\'entrée commerciale du pays, pour les matières premières comme pour les équipements.' },
       { title: 'Toute la région à desservir', text: 'Quinze pays et plus de 400 millions d\'habitants à approvisionner depuis une seule usine.' },
     ],

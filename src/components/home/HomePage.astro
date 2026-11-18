@@ -2,17 +2,11 @@
 import { Picture } from 'astro:assets';
 import Icon from '../Icon.astro';
 import NetworkMap from './NetworkMap.astro';
-import PlantMiniMap from '../PlantMiniMap.astro';
-import { useDict, countryName } from '../../i18n';
+import { useDict } from '../../i18n';
 import { localizePath, localeMeta, type Locale } from '../../i18n/config';
-import { coverage, suppliers, offices } from '../../data/site';
+import { suppliers, trustLogos } from '../../data/site';
 
 import imgWhy from '../../assets/images/stock/perfusion-infirmiere-reglage.jpg';
-import imgP1 from '../../assets/images/stock/perfusion-poche-pied.jpg';
-import imgP2 from '../../assets/images/stock/medicaments-medecin-ampoule.jpg';
-import imgP3 from '../../assets/images/stock/perfusion-glucose-pied.jpg';
-import imgP4 from '../../assets/images/stock/dispositif-medecin-stethoscope.jpg';
-import imgP5 from '../../assets/images/stock/veterinaire-afrique-chien.jpg';
 import imgGreen from '../../assets/images/stock/green-toiture-solaire-industrielle.jpg';
 import imgGreenTech from '../../assets/images/stock/green-technicien-solaire.jpg';
 import imgIncl from '../../assets/images/stock/inclusion-femmes-metiers.jpg';
@@ -27,15 +21,6 @@ const pad = (n: number) => String(n).padStart(2, '0');
 const words = t.hero.title.split(' ');
 const rtl = localeMeta[lang].dir === 'rtl';
 const whyIcons = ['truck', 'route', 'tag', 'users'];
-const famImgs = [imgP1, imgP2, imgP3, imgP4, imgP5];
-const famIcons = ['drop', 'vial', 'leaf', 'stetho', 'paw'];
-const famLinks = ['serums', 'medicaments', 'solutions-nutritionnelles', 'dispositifs-medicaux', 'sante-animale'];
-// Où nous opérons : l'usine puis les trois bureaux (villes, sans adresses).
-const sites = [
-  { icon: 'factory', place: `Sèmè-Podji · ${countryName(lang, 'BJ')}`, name: t.presence.plant, role: t.presenceSites.roles.plant },
-  ...offices.map((o) => ({ icon: o.id === 'bj' ? 'building' : o.id === 'bf' ? 'pin' : 'globe', place: o.city, name: t.footer.officeNames[o.id], role: t.presenceSites.roles[o.id] })),
-];
-const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ' ? 1 : countryName(lang, a.iso).localeCompare(countryName(lang, b.iso), lang)));
 ---
 
 <!-- HERO : slider à deux slides (vidéo de l'usine · carte animée du réseau). Logique dans scripts/site.ts. -->
@@ -260,58 +245,12 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   </div>
 </section>
 
-<!-- PRODUITS -->
-<section class="section prod" aria-labelledby="prod-title">
-  <div class="wrap">
-    <div class="sec-head sec-head--split">
-      <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">03</span>·<span>{t.products.eyebrow}</span></p>
-        <h2 class="h2" id="prod-title" data-reveal>{t.products.title}</h2>
-        <span class="title-rule" aria-hidden="true"></span>
-      </div>
-      <p class="lead" data-reveal>{t.products.intro}</p>
-    </div>
-    <div class="prod__tabs" data-tabs>
-      <div class="prod__list" role="tablist" aria-label={t.products.title}>
-        {t.products.families.map((f, i) => (
-          <button class="prod__tab" role="tab" id={`ptab-${i}`} aria-controls={`ppanel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-tab={i}>
-            <span class="prod__tab-icon"><Icon name={famIcons[i]} size={22} /></span>
-            {f.title}
-            <Icon name="arrow" size={18} class="icon-arrow flip-rtl" />
-          </button>
-        ))}
-      </div>
-      <div>
-        {t.products.families.map((f, i) => (
-          <div class="prod__panel" role="tabpanel" id={`ppanel-${i}`} aria-labelledby={`ptab-${i}`} hidden={i !== 0} data-panel={i}>
-            <div class="prod__img">
-              <Picture src={famImgs[i]} formats={['avif', 'webp']} widths={[480, 760, 1000]} sizes="(max-width: 900px) 92vw, 34vw" alt={f.alt} loading="lazy" />
-            </div>
-            <div class="prod__body">
-              <h3>{f.title}</h3>
-              <p>{f.text}</p>
-              <ul class="prod__items">
-                {f.items.map((it) => <li><Icon name="plus" size={16} />{it}</li>)}
-              </ul>
-              <div class="prod__actions">
-                <a class="btn btn--sm" href={L(famLinks[i])}>{t.products.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
-                <a class="btn btn--sm btn--ghost" href={L('documentation')}>{t.products.request}</a>
-              </div>
-            </div>
-          </div>
-        ))}
-        <p class="prod__note"><Icon name="shield" size={18} />{t.products.note}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONFORMITÉ -->
 <section class="section comp" aria-labelledby="comp-title">
   <div class="wrap">
     <div class="sec-head sec-head--split">
       <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">04</span>·<span>{t.compliance.eyebrow}</span></p>
+        <p class="eyebrow" data-reveal><span class="eyebrow__n">03</span>·<span>{t.compliance.eyebrow}</span></p>
         <h2 class="h2" id="comp-title" data-reveal>{t.compliance.title}</h2>
         <span class="title-rule" aria-hidden="true"></span>
       </div>
@@ -344,49 +283,11 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
   </div>
 </section>
 
-<!-- PRÉSENCE -->
-<!-- La carte du réseau est dans le slider du héros : ici, l'ancrage physique (usine + bureaux, sans adresses → page Nos bureaux). -->
-<section class="section pres pres--sites" aria-labelledby="pres-title">
-  <div class="wrap">
-    <div class="sec-head sec-head--split">
-      <div>
-        <p class="eyebrow" data-reveal><span class="eyebrow__n">05</span>·<span>{t.presence.eyebrow}</span></p>
-        <h2 class="h2" id="pres-title" data-reveal>{t.presenceSites.title}</h2>
-        <span class="title-rule" aria-hidden="true"></span>
-      </div>
-      <p class="lead" data-reveal>{t.presenceSites.lead}</p>
-    </div>
-    <div class="psites2">
-      <div class="psites2__plant" data-reveal="scale">
-        <PlantMiniMap theme="light" plantLabel={t.presence.plant} ocean={t.presence.ocean} benin={countryName(lang, 'BJ')} nigeria={countryName(lang, 'NG')} />
-      </div>
-      <ul class="psites2__list">
-        {sites.map((s, i) => (
-          <li class:list={{ 'is-green': i === 0 }} data-reveal style={`--d:${i % 2}`}>
-            <span class="psites2__ic"><Icon name={s.icon} size={22} /></span>
-            <div><p class="psites2__place">{s.place}</p><h3>{s.name}</h3><p class="psites2__role">{s.role}</p></div>
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div class="psites2__cov" data-reveal>
-      <p class="pres__h">{t.presence.countriesTitle}</p>
-      <ul class="pres__countries">
-        {sorted.map((c) => <li class:list={{ 'is-bj': c.iso === 'BJ' }}>{countryName(lang, c.iso)}</li>)}
-      </ul>
-      <div class="psites2__links">
-        <a class="link-arrow" href={L('bureaux')}>{(t.nav.pages as Record<string, string>)['bureaux']}<Icon name="arrow" size={16} class="flip-rtl" /></a>
-        <a class="link-arrow" href={L('presence')}>{(t.nav.pages as Record<string, string>)['presence']}<Icon name="arrow" size={16} class="flip-rtl" /></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CLIENTS -->
 <section class="section cli" aria-labelledby="cli-title">
   <div class="wrap cli__grid">
     <div class="cli__side">
-      <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__n">06</span>·<span>{t.clients.eyebrow}</span></p>
+      <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__n">04</span>·<span>{t.clients.eyebrow}</span></p>
       <h2 class="h2" id="cli-title" data-reveal>{t.clients.title}</h2>
       <span class="title-rule" aria-hidden="true"></span>
       <p class="lead" data-reveal>{t.cta.text}</p>
@@ -409,7 +310,7 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
 <section class="section ptn" aria-labelledby="ptn-title">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow" data-reveal><span class="eyebrow__n">07</span>·<span>{t.partners.eyebrow}</span></p>
+      <p class="eyebrow" data-reveal><span class="eyebrow__n">05</span>·<span>{t.partners.eyebrow}</span></p>
       <h2 class="h2" id="ptn-title" data-reveal>{t.partners.suppliersTitle}</h2>
       <span class="title-rule" aria-hidden="true"></span>
     </div>
@@ -425,7 +326,13 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
     </div>
     <div class="ptn__block" data-reveal>
       <div class="ptn__head"><h3>{t.partners.trustTitle}</h3></div>
-      <ul class="ptn__trust">{t.partners.trust.map((n) => <li>{n}</li>)}</ul>
+      <ul class="ptn__logos ptn__logos--trust">
+        {t.partners.trust.map((n, i) => (
+          <li class="ptn__logo" title={n}>
+            {trustLogos[i] ? <img src={trustLogos[i]} alt={n} loading="lazy" decoding="async" /> : <span class="ptn__word ptn__word--sm">{n}</span>}
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 </section>

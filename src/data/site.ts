@@ -58,6 +58,18 @@ export const navTree = {
 } as const;
 export type SectionKey = keyof typeof navTree;
 
+/**
+ * Logos « Ils nous font déjà confiance » (accueil), dans le MÊME ORDRE que `partners.trust` des dictionnaires :
+ * OMS, CEDEAO, GIZ, AFD, Banque mondiale, BAD, BID, Enabel, CRS, PSI, Institut Pasteur, Centre MURAZ, Ministère de la Santé (Bénin).
+ * Fichiers dans /public/media/trust (18/11/2026) : Wikimedia (GIZ, AFD, Banque mondiale, BAD, CRS), sites officiels pour les autres.
+ * Sans logo (undefined) → le nom s'affiche dans la tuile.
+ */
+export const trustLogos: (string | undefined)[] = [
+  '/media/trust/oms.svg', '/media/trust/cedeao.png', '/media/trust/giz.svg', '/media/trust/afd.svg', '/media/trust/banque-mondiale.svg', '/media/trust/bad.png',
+  '/media/trust/bid.svg', '/media/trust/enabel.svg', '/media/trust/crs.png', '/media/trust/psi.png', '/media/trust/pasteur.svg', '/media/trust/muraz.jpg',
+  '/media/trust/ministere-sante.png',
+];
+
 /** Principaux fournisseurs (logos dans /public/media/partners). */
 export const suppliers: { name: string; logo?: string }[] = [
   { name: 'Spengler Holtex Group', logo: '/media/partners/spengler-holtex.png' },

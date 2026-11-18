@@ -31,9 +31,10 @@ const canonical = new URL(localizePath(lang, slug), site).href;
     {locales.map((l) => <link rel="alternate" hreflang={localeMeta[l].htmlLang} href={new URL(localizePath(l, slug), site).href} />)}
     <link rel="alternate" hreflang="x-default" href={new URL(localizePath('fr', slug), site).href} />
     <meta name="theme-color" content="#1C64BA" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- ?v=2 : force les navigateurs à recharger le favicon (ils le gardent 7 jours en cache) ; incrémenter à chaque changement d'icône -->
+    <link rel="icon" href="/favicon.ico?v=2" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TILAMED Pharma" />
     <meta property="og:title" content={title} />

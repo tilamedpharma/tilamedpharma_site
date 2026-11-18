@@ -77,6 +77,14 @@ const zh: Dict = {
     eyebrow: '我们的影响',
     title: '有益、绿色、包容的工厂',
     intro: '贴近患者生产、减少环境足迹、向所有人开放岗位：我们从这三个层面衡量自身影响。',
+    band: [
+      { value: '1500', plus: '', unit: '万', text: '大容量注射剂' },
+      { value: '3500', plus: '', unit: '万', text: '小容量注射剂' },
+      { value: '150', plus: '', unit: '个直接就业岗位', text: '70% 技术岗位，30% 行政岗位' },
+      { value: '2', plus: '', unit: '公顷', text: '塞梅-波吉工业用地' },
+      { value: '15', plus: '', unit: '个国家', text: '西非国家' },
+      { value: '13', plus: '+', unit: '年', text: '医疗健康行业经验' },
+    ],
     tags: { site: '工业用地', experience: '行业经验', coverage: '覆盖范围' },
     jobs: {
       badge: '直接就业岗位',

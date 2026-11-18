@@ -77,6 +77,14 @@ const it: Dict = {
     eyebrow: 'Il nostro impatto',
     title: 'Uno stabilimento utile, verde e inclusivo',
     intro: 'Produrre vicino ai pazienti, ridurre la nostra impronta ambientale e aprire i nostri mestieri a tutte e a tutti: il nostro impatto si misura su questi tre piani.',
+    band: [
+      { value: '15', plus: '', unit: 'milioni', text: 'di soluzioni di grande volume' },
+      { value: '35', plus: '', unit: 'milioni', text: 'di iniettabili di piccolo volume' },
+      { value: '150', plus: '', unit: 'impieghi diretti', text: '70 % tecnici, 30 % amministrativi' },
+      { value: '2', plus: '', unit: 'ettari', text: 'di sito industriale a Sèmè-Podji' },
+      { value: '15', plus: '', unit: 'paesi', text: 'dell\'Africa occidentale' },
+      { value: '13', plus: '+', unit: 'anni', text: 'di esperienza nella sanità' },
+    ],
     tags: { site: 'Sito industriale', experience: 'Esperienza', coverage: 'Copertura' },
     jobs: {
       badge: 'Posti di lavoro diretti',

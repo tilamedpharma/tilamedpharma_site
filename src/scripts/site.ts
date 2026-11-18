@@ -94,7 +94,7 @@ drawerBtn?.addEventListener('click', () => {
   document.body.style.overflow = open ? 'hidden' : '';
 });
 drawer?.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
-window.matchMedia('(min-width: 1101px)').addEventListener('change', (m) => m.matches && closeDrawer());
+window.matchMedia('(min-width: 1240px)').addEventListener('change', (m) => m.matches && closeDrawer());
 
 /* ---------- Carte animée du réseau (NetworkMap, variante A) ---------- */
 // État par défaut = état final ; .is-play relance les animations CSS, les points lumineux suivent les routes (SMIL).
@@ -221,7 +221,8 @@ const countIO = new IntersectionObserver((entries) => {
     const start = performance.now();
     const dur = 1600;
     const step = (now: number) => {
-      const p = Math.min(1, (now - start) / dur);
+      // L'horodatage d'une image peut précéder `start` : sans le plancher à 0, le compteur affichait des nombres négatifs.
+      const p = Math.min(1, Math.max(0, (now - start) / dur));
       const eased = 1 - Math.pow(1 - p, 4);
       el.textContent = String(Math.round(end * eased));
       if (p < 1) requestAnimationFrame(step);

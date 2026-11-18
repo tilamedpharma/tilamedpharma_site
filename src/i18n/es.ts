@@ -77,6 +77,14 @@ const es: Dict = {
     eyebrow: 'Nuestro impacto',
     title: 'Una planta útil, verde e inclusiva',
     intro: 'Producir cerca de los pacientes, reducir nuestra huella ambiental y abrir nuestros oficios a todas y todos: nuestro impacto se mide en estos tres planos.',
+    band: [
+      { value: '15', plus: '', unit: 'millones', text: 'de soluciones de gran volumen' },
+      { value: '35', plus: '', unit: 'millones', text: 'de inyectables de pequeño volumen' },
+      { value: '150', plus: '', unit: 'empleos directos', text: '70 % técnicos, 30 % administrativos' },
+      { value: '2', plus: '', unit: 'hectáreas', text: 'de planta industrial en Sèmè-Podji' },
+      { value: '15', plus: '', unit: 'países', text: 'de África Occidental' },
+      { value: '13', plus: '+', unit: 'años', text: 'de experiencia en salud' },
+    ],
     tags: { site: 'Sitio industrial', experience: 'Experiencia', coverage: 'Cobertura' },
     jobs: {
       badge: 'Empleos directos',

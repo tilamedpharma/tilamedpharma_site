@@ -77,6 +77,14 @@ const pt: Dict = {
     eyebrow: 'O nosso impacto',
     title: 'Uma fábrica útil, verde e inclusiva',
     intro: 'Produzir perto dos doentes, reduzir a nossa pegada ambiental e abrir as nossas profissões a todas e a todos: o nosso impacto mede-se nestes três planos.',
+    band: [
+      { value: '15', plus: '', unit: 'milhões', text: 'de soluções de grande volume' },
+      { value: '35', plus: '', unit: 'milhões', text: 'de injetáveis de pequeno volume' },
+      { value: '150', plus: '', unit: 'empregos diretos', text: '70 % técnicos, 30 % administrativos' },
+      { value: '2', plus: '', unit: 'hectares', text: 'de unidade industrial em Sèmè-Podji' },
+      { value: '15', plus: '', unit: 'países', text: 'da África Ocidental' },
+      { value: '13', plus: '+', unit: 'anos', text: 'de experiência na saúde' },
+    ],
     tags: { site: 'Local industrial', experience: 'Experiência', coverage: 'Cobertura' },
     jobs: {
       badge: 'Empregos diretos',

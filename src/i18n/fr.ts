@@ -75,6 +75,14 @@ const fr = {
     eyebrow: 'Notre impact',
     title: 'Une usine utile, verte et inclusive',
     intro: 'Produire au plus près des patients, réduire notre empreinte environnementale et ouvrir nos métiers à toutes et à tous : notre impact se mesure sur ces trois plans.',
+    band: [
+      { value: '15', plus: '', unit: 'millions', text: 'de solutés de grand volume' },
+      { value: '35', plus: '', unit: 'millions', text: 'd\'injectables de petit volume' },
+      { value: '150', plus: '', unit: 'emplois directs', text: '70 % techniques, 30 % administratifs' },
+      { value: '2', plus: '', unit: 'hectares', text: 'de site industriel à Sèmè-Podji' },
+      { value: '15', plus: '', unit: 'pays', text: 'd\'Afrique de l\'Ouest' },
+      { value: '13', plus: '+', unit: 'ans', text: 'd\'expérience dans la santé' },
+    ],
     tags: { site: 'Site industriel', experience: 'Expérience', coverage: 'Couverture' },
     jobs: {
       badge: 'Emplois directs',

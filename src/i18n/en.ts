@@ -77,6 +77,14 @@ const en: Dict = {
     eyebrow: 'Our impact',
     title: 'A useful, green and inclusive plant',
     intro: 'Producing close to patients, reducing our environmental footprint and opening our jobs to everyone: our impact is measured on all three fronts.',
+    band: [
+      { value: '15', plus: '', unit: 'million', text: 'large-volume parenterals' },
+      { value: '35', plus: '', unit: 'million', text: 'small-volume parenterals' },
+      { value: '150', plus: '', unit: 'direct jobs', text: '70% technical, 30% administrative' },
+      { value: '2', plus: '', unit: 'hectares', text: 'industrial site in Sèmè-Podji' },
+      { value: '15', plus: '', unit: 'countries', text: 'in West Africa' },
+      { value: '13', plus: '+', unit: 'years', text: 'of experience in healthcare' },
+    ],
     tags: { site: 'Industrial site', experience: 'Experience', coverage: 'Coverage' },
     jobs: {
       badge: 'Direct jobs',

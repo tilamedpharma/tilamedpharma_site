@@ -6,11 +6,12 @@
 #               FTP_USERNAME, FTP_PASSWORD (compte FTP créé dans hPanel → Fichiers → Comptes FTP)
 #   Variables : FTP_DIR (dossier cible vu par ce compte FTP, ex. « public_html/ » ou « / »)
 #               FTP_PROTOCOL (facultatif : « ftps » par défaut, « ftp » si Hostinger refuse le chiffrement)
-name: Mise en ligne Hostinger
+#
+# ⚠ DÉSACTIVÉ en automatique (18/11/2026) : Hostinger déploie lui-même depuis GitHub (hPanel → déploiement Git,
+# Astro, branche main). Ce workflow FTP reste disponible en secours, à lancer à la main depuis l'onglet Actions.
+name: Mise en ligne Hostinger (FTP, secours)
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:

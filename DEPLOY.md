@@ -1,7 +1,11 @@
 # Mise en ligne · Hostinger via GitHub
 
-Le site est construit par GitHub puis envoyé par FTP sur Hostinger, automatiquement à chaque envoi sur la branche `main`
-(fichier `.github/workflows/deploy.yml`). Les e-mails du domaine restent chez OVH.
+**Méthode retenue (18/11/2026)** : Hostinger est relié directement au dépôt GitHub (hPanel → déploiement Git, préréglage Astro,
+branche `main`, Node 22) et reconstruit le site à chaque envoi sur `main`. Serveur : 147.93.54.232.
+Les e-mails du domaine restent chez OVH : à la bascule, on ne change que les enregistrements A dans la **Zone DNS** OVH,
+jamais les serveurs DNS.
+
+Méthode de secours ci-dessous : GitHub construit et envoie par FTP (`.github/workflows/deploy.yml`, lancement manuel).
 
 ## Une seule fois
 

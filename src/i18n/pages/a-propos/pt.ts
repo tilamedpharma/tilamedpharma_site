@@ -3,10 +3,10 @@ import type { AProposDict } from './fr';
 const aPropos: AProposDict = {
   meta: {
     title: 'Quem somos · TILAMED Pharma',
-    description: 'A TILAMED PHARMA SA constrói no Benim uma unidade de produção de soluções farmacêuticas líquidas segundo as normas da OMS. História, atividades, objetivos e parceiros.',
+    description: 'A TILAMED PHARMA SA constrói no BENIM uma unidade de produção de soluções farmacêuticas líquidas segundo as normas da OMS. História, atividades, objetivos e parceiros.',
   },
   hero: {
-    lead: 'A TILAMED Pharma é uma empresa farmacêutica que constrói no Benim uma unidade de produção de soluções farmacêuticas líquidas, segundo as normas da Organização Mundial da Saúde.',
+    lead: 'A TILAMED Pharma é uma empresa farmacêutica que constrói no BENIM uma unidade de produção de soluções farmacêuticas líquidas, segundo as normas da Organização Mundial da Saúde.',
     imageAlt: 'Equipa de profissionais numa reunião de trabalho',
   },
   facts: [
@@ -39,12 +39,12 @@ const aPropos: AProposDict = {
       'Reduzir a dependência das importações e os riscos que a acompanham.',
       'Incentivar o consumo de produtos fabricados localmente.',
     ],
-    cta: 'Porquê produzir no Benim?',
+    cta: 'Porquê produzir no BENIM?',
   },
   partnership: {
     eyebrow: 'Parcerias',
     title: 'Abertos a parcerias internacionais',
-    text: 'A TILAMED Pharma pretende trabalhar com as organizações internacionais de saúde, as agências de desenvolvimento e as instituições financeiras empenhadas no acesso aos medicamentos em África. A nossa ambição: tornar-nos um parceiro industrial de confiança para os seus programas no Benim e na sub-região.',
+    text: 'A TILAMED Pharma pretende trabalhar com as organizações internacionais de saúde, as agências de desenvolvimento e as instituições financeiras empenhadas no acesso aos medicamentos em África. A nossa ambição: tornar-nos um parceiro industrial de confiança para os seus programas no BENIM e na sub-região.',
     cta1: 'Organizações de saúde',
     cta2: 'Contacte-nos',
   },

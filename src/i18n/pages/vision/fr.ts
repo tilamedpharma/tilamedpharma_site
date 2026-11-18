@@ -27,7 +27,7 @@ const vision = {
   mission: {
     eyebrow: 'Notre mission',
     keys: [
-      { title: 'En quantité', text: 'Une capacité industrielle pensée pour les besoins des hôpitaux du Bénin et de la sous-région.' },
+      { title: 'En quantité', text: 'Une capacité industrielle pensée pour les besoins des hôpitaux du BÉNIN et de la sous-région.' },
       { title: 'De qualité', text: 'Des produits fabriqués selon les normes de l\'OMS et contrôlés lot par lot par notre laboratoire.' },
       { title: 'À un prix accessible', text: 'Une production locale qui réduit le fret, le stockage et les pertes de change.' },
     ],
@@ -47,8 +47,8 @@ const vision = {
     eyebrow: 'Nos engagements',
     title: 'Des valeurs qui se traduisent en actes',
     items: [
-      { title: 'Égalité et inclusion', text: 'Première industrie pharmaceutique du Bénin à inscrire, dès sa conception, l\'égalité femmes-hommes et l\'inclusion des personnes en situation de handicap.' },
-      { title: 'Développement local', text: 'Des emplois qualifiés au Bénin et un transfert de compétences vers les techniciens locaux.' },
+      { title: 'Égalité et inclusion', text: 'Première industrie pharmaceutique du BÉNIN à inscrire, dès sa conception, l\'égalité femmes-hommes et l\'inclusion des personnes en situation de handicap.' },
+      { title: 'Développement local', text: 'Des emplois qualifiés au BÉNIN et un transfert de compétences vers les techniciens locaux.' },
       { title: 'Une usine verte', text: 'Certification EDGE de l\'IFC (bâtiment écologique) en cours d\'obtention et certification ISO 14001 visée.' },
     ],
   },

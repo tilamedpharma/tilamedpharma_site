@@ -26,7 +26,7 @@ const vision: VisionDict = {
   mission: {
     eyebrow: 'Our mission',
     keys: [
-      { title: 'In quantity', text: 'Industrial capacity designed for the needs of hospitals in Benin and the sub-region.' },
+      { title: 'In quantity', text: 'Industrial capacity designed for the needs of hospitals in BENIN and the sub-region.' },
       { title: 'Of quality', text: 'Products made to WHO standards and tested batch by batch in our laboratory.' },
       { title: 'At an affordable price', text: 'Local production that cuts freight, storage and currency-exchange losses.' },
     ],
@@ -38,7 +38,7 @@ const vision: VisionDict = {
     items: [
       { title: 'Rigour', text: 'Written procedures, followed and checked at every step, from the choice of raw materials to the patient.' },
       { title: 'Excellence', text: 'Demanding quality standards, constantly checked by our laboratory.' },
-      { title: 'Compliance with the most demanding standards', text: 'A plant designed to WHO good manufacturing practice and authorised by the Benin Pharmaceutical Regulatory Agency.' },
+      { title: 'Compliance with the most demanding standards', text: 'A plant designed to WHO good manufacturing practice and authorised by the BENIN Pharmaceutical Regulatory Agency.' },
       { title: 'Reliability', text: 'Products available when caregivers need them, deliveries on schedule and batches traced from end to end.' },
     ],
   },
@@ -46,8 +46,8 @@ const vision: VisionDict = {
     eyebrow: 'Our commitments',
     title: 'Values put into action',
     items: [
-      { title: 'Equality and inclusion', text: 'The first pharmaceutical manufacturer in Benin to build gender equality and the inclusion of people with disabilities into its organisation from the outset.' },
-      { title: 'Local development', text: 'Skilled jobs in Benin and a skills-transfer programme for local technicians.' },
+      { title: 'Equality and inclusion', text: 'The first pharmaceutical manufacturer in BENIN to build gender equality and the inclusion of people with disabilities into its organisation from the outset.' },
+      { title: 'Local development', text: 'Skilled jobs in BENIN and a skills-transfer programme for local technicians.' },
       { title: 'A green plant', text: 'IFC EDGE green-building certification in progress, with ISO 14001 certification targeted.' },
     ],
   },

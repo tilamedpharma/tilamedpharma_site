@@ -3,7 +3,7 @@ import type { EgaliteDict } from './fr';
 const egalite: EgaliteDict = {
   meta: {
     title: 'Igualdad de género e inclusión · TILAMED Pharma',
-    description: 'Primera industria farmacéutica de Benín en inscribir desde su concepción la igualdad entre mujeres y hombres y la inclusión de las personas con discapacidad.',
+    description: 'Primera industria farmacéutica de BENÍN en inscribir desde su concepción la igualdad entre mujeres y hombres y la inclusión de las personas con discapacidad.',
   },
   hero: {
     lead: 'TILAMED Pharma promueve, desde su concepción, una igualdad real entre mujeres y hombres y la inclusión de las personas con discapacidad.',
@@ -11,9 +11,9 @@ const egalite: EgaliteDict = {
   },
   first: {
     value: '1.ª',
-    label: 'industria farmacéutica de Benín comprometida con la igualdad y la inclusión desde su concepción',
-    eyebrow: 'Una primicia en Benín',
-    text: 'TILAMED Pharma es la primera industria farmacéutica de Benín en inscribir en su organización, desde su concepción, la igualdad formal y real de derechos entre mujeres y hombres, y en abrir sus oficios a las personas con discapacidad.',
+    label: 'industria farmacéutica de BENÍN comprometida con la igualdad y la inclusión desde su concepción',
+    eyebrow: 'Una primicia en BENÍN',
+    text: 'TILAMED Pharma es la primera industria farmacéutica de BENÍN en inscribir en su organización, desde su concepción, la igualdad formal y real de derechos entre mujeres y hombres, y en abrir sus oficios a las personas con discapacidad.',
   },
   pillars: {
     eyebrow: 'Dos compromisos',

@@ -107,9 +107,9 @@ const etapes: EtapesDict = {
       note: 'No batch is released to the market without the decision of the responsible pharmacist, based on laboratory results and review of the batch record.',
     },
     'conditionnement-logistique': {
-      meta: { title: 'Packaging and delivery · Our plant · TILAMED Pharma', description: 'Storage to good distribution practice and delivery by our own logistics team, in Benin and for export.' },
+      meta: { title: 'Packaging and delivery · Our plant · TILAMED Pharma', description: 'Storage to good distribution practice and delivery by our own logistics team, in BENIN and for export.' },
       lead: 'Products delivered to the right place, at the right time, in the right condition.',
-      intro: 'Finished products are stored in our warehouse to good distribution practice and delivered to our customers in Benin by our own logistics team.',
+      intro: 'Finished products are stored in our warehouse to good distribution practice and delivered to our customers in BENIN by our own logistics team.',
       facts: [],
       block: { kind: 'points', title: 'Our logistics service', items: [
         'Deliveries matched to real customer needs, without having to stock several months of product.',

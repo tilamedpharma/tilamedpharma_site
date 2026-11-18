@@ -26,7 +26,7 @@ const vision: VisionDict = {
   mission: {
     eyebrow: 'A nossa missão',
     keys: [
-      { title: 'Em quantidade', text: 'Uma capacidade industrial pensada para as necessidades dos hospitais do Benim e da sub-região.' },
+      { title: 'Em quantidade', text: 'Uma capacidade industrial pensada para as necessidades dos hospitais do BENIM e da sub-região.' },
       { title: 'De qualidade', text: 'Produtos fabricados segundo as normas da OMS e controlados lote a lote pelo nosso laboratório.' },
       { title: 'A um preço acessível', text: 'Uma produção local que reduz o frete, o armazenamento e as perdas cambiais.' },
     ],
@@ -46,8 +46,8 @@ const vision: VisionDict = {
     eyebrow: 'Os nossos compromissos',
     title: 'Valores que se traduzem em atos',
     items: [
-      { title: 'Igualdade e inclusão', text: 'Primeira indústria farmacêutica do Benim a integrar, desde a sua conceção, a igualdade entre mulheres e homens e a inclusão das pessoas com deficiência.' },
-      { title: 'Desenvolvimento local', text: 'Empregos qualificados no Benim e uma transferência de competências para os técnicos locais.' },
+      { title: 'Igualdade e inclusão', text: 'Primeira indústria farmacêutica do BENIM a integrar, desde a sua conceção, a igualdade entre mulheres e homens e a inclusão das pessoas com deficiência.' },
+      { title: 'Desenvolvimento local', text: 'Empregos qualificados no BENIM e uma transferência de competências para os técnicos locais.' },
       { title: 'Uma fábrica verde', text: 'Certificação EDGE da IFC (edifício ecológico) em curso e certificação ISO 14001 como objetivo.' },
     ],
   },

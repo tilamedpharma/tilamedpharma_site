@@ -27,7 +27,7 @@ const parcours: ParcoursDict = {
         title: 'Os alicerces',
         items: [
           { date: '2013', title: 'Criação da SEDIS SARL', text: 'A empresa nasce para fornecer, instalar e manter dispositivos médicos na África Ocidental, em contacto com hospitais, laboratórios e centrais de compras.' },
-          { date: '2013 – 2022', title: 'Dez anos de terreno, uma constatação', text: 'No Benim, nenhuma solução injetável é fabricada localmente. Estudos de mercado e encontros com autoridades de saúde, centrais de compras e fabricantes europeus de equipamentos: o projeto industrial ganha forma.' },
+          { date: '2013 – 2022', title: 'Dez anos de terreno, uma constatação', text: 'No BENIM, nenhuma solução injetável é fabricada localmente. Estudos de mercado e encontros com autoridades de saúde, centrais de compras e fabricantes europeus de equipamentos: o projeto industrial ganha forma.' },
         ],
       },
       {
@@ -47,7 +47,7 @@ const parcours: ParcoursDict = {
         range: '2025 →',
         title: 'O terreno e a fábrica',
         items: [
-          { date: '9 de setembro de 2025', title: 'O terreno de Sèmè-Podji', text: 'O Estado beninense confia à TILAMED PHARMA SA um terreno industrial de 2 hectares, por arrendamento enfitêutico, na zona industrial de Sèmè-Podji, na fronteira com a Nigéria.', ref: 'Arrendamento enfitêutico N.º 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
+          { date: '9 de setembro de 2025', title: 'O terreno de Sèmè-Podji', text: 'O Estado beninense confia à TILAMED PHARMA SA um terreno industrial de 2 hectares, por arrendamento enfitêutico, na zona industrial de Sèmè-Podji, na fronteira com a NIGÉRIA.', ref: 'Arrendamento enfitêutico N.º 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
           { date: 'Hoje', title: 'A construção da fábrica', text: 'A TILAMED Pharma prepara a sua unidade de produção de soluções injetáveis na zona económica especial de Sèmè-Podji.', state: 'now' },
           { date: 'Amanhã', title: 'A entrada em funcionamento', text: 'Início da produção e recrutamento das primeiras equipas.', state: 'next' },
         ],
@@ -56,11 +56,11 @@ const parcours: ParcoursDict = {
   },
   sites: {
     eyebrow: 'As nossas instalações',
-    title: 'Enraizados no Benim e na região',
+    title: 'Enraizados no BENIM e na região',
     items: [
-      { title: 'Unidade de produção', place: 'Sèmè-Podji · Benim', text: '2 hectares (20 000 m²) na zona industrial de Sèmè-Podji, na fronteira com a Nigéria.' },
-      { title: 'Sede administrativa', place: 'Cotonou · Benim', text: 'Um edifício administrativo em Les Cocotiers, no centro da cidade, propriedade da TILAMED PHARMA SA.' },
-      { title: 'Escritório regional', place: 'Uagadugu · Burkina Faso', text: 'Um edifício administrativo de 1000 m² em Dassasgho.' },
+      { title: 'Unidade de produção', place: 'Sèmè-Podji · BENIM', text: '2 hectares (20 000 m²) na zona industrial de Sèmè-Podji, na fronteira com a NIGÉRIA.' },
+      { title: 'Sede administrativa', place: 'Cotonou · BENIM', text: 'Um edifício administrativo em Les Cocotiers, no centro da cidade, propriedade da TILAMED PHARMA SA.' },
+      { title: 'Escritório regional', place: 'Uagadugu · BURKINA FASO', text: 'Um edifício administrativo de 1000 m² em Dassasgho.' },
     ],
   },
   cta: {

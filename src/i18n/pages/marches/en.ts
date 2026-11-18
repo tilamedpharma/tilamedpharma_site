@@ -3,8 +3,8 @@ import type { MarchesDict } from './fr';
 const marches: MarchesDict = {
   pages: {
     clients: {
-      meta: { title: 'Our customers · Markets · TILAMED Pharma', description: 'Procurement agencies, wholesalers, health organisations, hospitals and pharmacies: TILAMED Pharma\'s customers in Benin and West Africa.' },
-      lead: 'We supply public and private healthcare players in Benin and West Africa.',
+      meta: { title: 'Our customers · Markets · TILAMED Pharma', description: 'Procurement agencies, wholesalers, health organisations, hospitals and pharmacies: TILAMED Pharma\'s customers in BENIN and West Africa.' },
+      lead: 'We supply public and private healthcare players in BENIN and West Africa.',
       intro: '',
       facts: [{ value: '15', unit: 'countries', label: 'in West Africa covered' }],
       blocks: [
@@ -82,11 +82,11 @@ const marches: MarchesDict = {
     channels: ['Public procurement agencies', 'Hospitals and clinics', 'Retail pharmacies', 'Health organisations', 'Sub-regional export'],
   },
   presence: {
-    meta: { title: 'Regional presence · Markets · TILAMED Pharma', description: 'A plant in Benin, 15 West African countries covered and offices in Benin, Burkina Faso and France.' },
-    lead: 'A plant in Benin, 15 West African countries covered and an international presence.',
+    meta: { title: 'Regional presence · Markets · TILAMED Pharma', description: 'A plant in BENIN, 15 West African countries covered and offices in BENIN, BURKINA FASO and FRANCE.' },
+    lead: 'A plant in BENIN, 15 West African countries covered and an international presence.',
     facts: [
       { value: '15', unit: 'countries', label: 'in West Africa covered' },
-      { value: '3', unit: '', label: 'offices: Benin, Burkina Faso, France' },
+      { value: '3', unit: '', label: 'offices: BENIN, BURKINA FASO, FRANCE' },
       { value: '400', unit: 'M +', label: 'people in West Africa' },
     ],
     note: 'The sub-region shares similar health challenges: comparable diseases, young and fast-growing populations, and the same dependence on imported medicines.',

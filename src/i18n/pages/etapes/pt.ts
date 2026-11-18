@@ -107,9 +107,9 @@ const etapes: EtapesDict = {
       note: 'Nenhum lote é colocado no mercado sem a decisão do farmacêutico responsável, com base nos resultados do laboratório e na revisão do dossier de lote.',
     },
     'conditionnement-logistique': {
-      meta: { title: 'Acondicionamento e entrega · A nossa fábrica · TILAMED Pharma', description: 'Armazenamento segundo as boas práticas de distribuição e entrega pelo nosso próprio serviço logístico, no Benim e para exportação.' },
+      meta: { title: 'Acondicionamento e entrega · A nossa fábrica · TILAMED Pharma', description: 'Armazenamento segundo as boas práticas de distribuição e entrega pelo nosso próprio serviço logístico, no BENIM e para exportação.' },
       lead: 'Produtos entregues no sítio certo, no momento certo, em boas condições.',
-      intro: 'Os produtos acabados são armazenados no nosso armazém segundo as boas práticas de distribuição e entregues aos nossos clientes no Benim pelo nosso próprio serviço logístico.',
+      intro: 'Os produtos acabados são armazenados no nosso armazém segundo as boas práticas de distribuição e entregues aos nossos clientes no BENIM pelo nosso próprio serviço logístico.',
       facts: [],
       block: { kind: 'points', title: 'O nosso serviço logístico', items: [
         'Entrega segundo as necessidades reais dos clientes, sem obrigação de armazenar vários meses de produtos.',

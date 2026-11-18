@@ -4,8 +4,8 @@ import type { Topic } from '../usine-plus/fr';
 
 const pages: Record<string, Topic> = {
   clients: {
-    meta: { title: 'Nos clients · Marchés · TILAMED Pharma', description: 'Centrales d\'achat, grossistes, organisations de santé, hôpitaux et pharmacies : les clients de TILAMED Pharma au Bénin et en Afrique de l\'Ouest.' },
-    lead: 'Nous fournissons les acteurs publics et privés de la santé au Bénin et en Afrique de l\'Ouest.',
+    meta: { title: 'Nos clients · Marchés · TILAMED Pharma', description: 'Centrales d\'achat, grossistes, organisations de santé, hôpitaux et pharmacies : les clients de TILAMED Pharma au BÉNIN et en Afrique de l\'Ouest.' },
+    lead: 'Nous fournissons les acteurs publics et privés de la santé au BÉNIN et en Afrique de l\'Ouest.',
     intro: '',
     facts: [
       { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest couverts' },
@@ -89,11 +89,11 @@ const distrib = {
 };
 
 const presence = {
-  meta: { title: 'Présence régionale · Marchés · TILAMED Pharma', description: 'Une usine au Bénin, 15 pays d\'Afrique de l\'Ouest couverts et des bureaux au Bénin, au Burkina Faso et en France.' },
-  lead: 'Une usine au Bénin, 15 pays d\'Afrique de l\'Ouest couverts et une présence internationale.',
+  meta: { title: 'Présence régionale · Marchés · TILAMED Pharma', description: 'Une usine au BÉNIN, 15 pays d\'Afrique de l\'Ouest couverts et des bureaux au BÉNIN, au BURKINA FASO et en FRANCE.' },
+  lead: 'Une usine au BÉNIN, 15 pays d\'Afrique de l\'Ouest couverts et une présence internationale.',
   facts: [
     { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest couverts' },
-    { value: '3', unit: '', label: 'bureaux : Bénin, Burkina Faso, France' },
+    { value: '3', unit: '', label: 'bureaux : BÉNIN, BURKINA FASO, FRANCE' },
     { value: '400', unit: 'M +', label: 'd\'habitants en Afrique de l\'Ouest' },
   ],
   note: 'La sous-région partage des défis de santé proches : des maladies semblables, des populations jeunes et en forte croissance, et une même dépendance aux médicaments importés.',

@@ -14,15 +14,15 @@ export type Topic = {
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
     meta: { title: 'Le site de Sèmè-Podji · Notre usine · TILAMED Pharma', description: 'Un site industriel de 2 hectares à Sèmè-Podji, près de la frontière de Kraké, de Cotonou et de son port, dans une zone économique spéciale.' },
-    lead: 'Un site de 2 hectares, juste après la frontière de Kraké, entre Cotonou et le Nigéria.',
+    lead: 'Un site de 2 hectares, juste après la frontière de Kraké, entre Cotonou et le NIGÉRIA.',
     intro: '',
     facts: [
       { value: '2', unit: 'ha', label: 'de site industriel, soit 20 000 m²' },
     ],
     blocks: [
       { kind: 'points', title: 'Un emplacement stratégique', items: [
-        'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du Bénin.',
-        'À proximité immédiate de la frontière de Kraké, principal point de passage vers le Nigéria.',
+        'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du BÉNIN.',
+        'À proximité immédiate de la frontière de Kraké, principal point de passage vers le NIGÉRIA.',
         'Près de Cotonou et de son port autonome, qui assure l\'essentiel des échanges commerciaux du pays.',
         'Au sein d\'une zone économique spéciale offrant des avantages douaniers et fiscaux.',
       ] },
@@ -72,9 +72,9 @@ const pages: Record<string, Topic> = {
     note: 'La maintenance préventive et curative est assurée par nos techniciens, formés par les fabricants des équipements.',
   },
   'transfert-technologie': {
-    meta: { title: 'Transfert de technologie · Notre usine · TILAMED Pharma', description: 'Cinq ans d\'assistance technique permanente sur site et des formations pour les opérateurs, le laboratoire et la maintenance : le savoir-faire reste au Bénin.' },
-    lead: 'Cinq ans d\'assistance permanente pour que le savoir-faire reste au Bénin.',
-    intro: 'Dès l\'installation et la mise en service de l\'usine, les fabricants des équipements forment nos équipes au Bénin. Leurs ingénieurs restent ensuite détachés sur site pendant cinq ans pour accompagner la production.',
+    meta: { title: 'Transfert de technologie · Notre usine · TILAMED Pharma', description: 'Cinq ans d\'assistance technique permanente sur site et des formations pour les opérateurs, le laboratoire et la maintenance : le savoir-faire reste au BÉNIN.' },
+    lead: 'Cinq ans d\'assistance permanente pour que le savoir-faire reste au BÉNIN.',
+    intro: 'Dès l\'installation et la mise en service de l\'usine, les fabricants des équipements forment nos équipes au BÉNIN. Leurs ingénieurs restent ensuite détachés sur site pendant cinq ans pour accompagner la production.',
     facts: [
       { value: '5', unit: 'ans', label: 'd\'assistance technique permanente, prolongeable' },
       { value: '70', unit: '%', label: 'de postes techniques' },

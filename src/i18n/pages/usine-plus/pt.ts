@@ -3,15 +3,15 @@ import type { Topic } from './fr';
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
     meta: { title: 'O local de Sèmè-Podji · A nossa fábrica · TILAMED Pharma', description: 'Um local industrial de 2 hectares em Sèmè-Podji, perto da fronteira de Kraké, de Cotonou e do seu porto, numa zona económica especial.' },
-    lead: 'Um local de 2 hectares, logo após a fronteira de Kraké, entre Cotonou e a Nigéria.',
+    lead: 'Um local de 2 hectares, logo após a fronteira de Kraké, entre Cotonou e a NIGÉRIA.',
     intro: '',
     facts: [
       { value: '2', unit: 'ha', label: 'de local industrial, ou seja, 20 000 m²' },
     ],
     blocks: [
       { kind: 'points', title: 'Uma localização estratégica', items: [
-        'No município de Sèmè-Podji, departamento de Ouémé, no sul do Benim.',
-        'Junto à fronteira de Kraké, principal ponto de passagem para a Nigéria.',
+        'No município de Sèmè-Podji, departamento de Ouémé, no sul do BENIM.',
+        'Junto à fronteira de Kraké, principal ponto de passagem para a NIGÉRIA.',
         'Perto de Cotonou e do seu porto autónomo, que assegura a maior parte do comércio do país.',
         'Numa zona económica especial com vantagens aduaneiras e fiscais.',
       ] },
@@ -61,9 +61,9 @@ const pages: Record<string, Topic> = {
     note: 'A manutenção preventiva e corretiva é assegurada pelos nossos técnicos, formados pelos fabricantes dos equipamentos.',
   },
   'transfert-technologie': {
-    meta: { title: 'Transferência de tecnologia · A nossa fábrica · TILAMED Pharma', description: 'Cinco anos de assistência técnica permanente no local e formações para operadores, laboratório e manutenção: o saber-fazer fica no Benim.' },
-    lead: 'Cinco anos de assistência permanente para que o saber-fazer fique no Benim.',
-    intro: 'Desde a instalação e o arranque da fábrica, os fabricantes dos equipamentos formam as nossas equipas no Benim. Os seus engenheiros ficam depois destacados no local durante cinco anos para acompanhar a produção.',
+    meta: { title: 'Transferência de tecnologia · A nossa fábrica · TILAMED Pharma', description: 'Cinco anos de assistência técnica permanente no local e formações para operadores, laboratório e manutenção: o saber-fazer fica no BENIM.' },
+    lead: 'Cinco anos de assistência permanente para que o saber-fazer fique no BENIM.',
+    intro: 'Desde a instalação e o arranque da fábrica, os fabricantes dos equipamentos formam as nossas equipas no BENIM. Os seus engenheiros ficam depois destacados no local durante cinco anos para acompanhar a produção.',
     facts: [
       { value: '5', unit: 'anos', label: 'de assistência técnica permanente, prorrogável' },
       { value: '70', unit: '%', label: 'de postos técnicos' },

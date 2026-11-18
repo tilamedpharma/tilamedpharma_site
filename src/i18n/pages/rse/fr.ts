@@ -36,7 +36,7 @@ const rse = {
   },
   transfer: {
     eyebrow: 'Transfert de compétences',
-    title: 'Un savoir-faire qui reste au Bénin',
+    title: 'Un savoir-faire qui reste au BÉNIN',
     value: '5',
     unit: 'ans',
     label: 'd\'accompagnement sur site par les ingénieurs des fabricants',

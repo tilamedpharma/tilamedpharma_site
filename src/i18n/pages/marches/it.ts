@@ -3,8 +3,8 @@ import type { MarchesDict } from './fr';
 const marches: MarchesDict = {
   pages: {
     clients: {
-      meta: { title: 'I nostri clienti · Mercati · TILAMED Pharma', description: 'Centrali d\'acquisto, grossisti, organizzazioni sanitarie, ospedali e farmacie: i clienti di TILAMED Pharma in Benin e in Africa occidentale.' },
-      lead: 'Riforniamo gli attori pubblici e privati della sanità in Benin e in Africa occidentale.',
+      meta: { title: 'I nostri clienti · Mercati · TILAMED Pharma', description: 'Centrali d\'acquisto, grossisti, organizzazioni sanitarie, ospedali e farmacie: i clienti di TILAMED Pharma in BENIN e in Africa occidentale.' },
+      lead: 'Riforniamo gli attori pubblici e privati della sanità in BENIN e in Africa occidentale.',
       intro: '',
       facts: [{ value: '15', unit: 'paesi', label: 'dell\'Africa occidentale coperti' }],
       blocks: [
@@ -82,11 +82,11 @@ const marches: MarchesDict = {
     channels: ['Centrali d\'acquisto pubbliche', 'Ospedali e cliniche', 'Farmacie', 'Organizzazioni sanitarie', 'Export sottoregionale'],
   },
   presence: {
-    meta: { title: 'Presenza regionale · Mercati · TILAMED Pharma', description: 'Uno stabilimento in Benin, 15 paesi dell\'Africa occidentale coperti e uffici in Benin, Burkina Faso e Francia.' },
-    lead: 'Uno stabilimento in Benin, 15 paesi dell\'Africa occidentale coperti e una presenza internazionale.',
+    meta: { title: 'Presenza regionale · Mercati · TILAMED Pharma', description: 'Uno stabilimento in BENIN, 15 paesi dell\'Africa occidentale coperti e uffici in BENIN, BURKINA FASO e FRANCIA.' },
+    lead: 'Uno stabilimento in BENIN, 15 paesi dell\'Africa occidentale coperti e una presenza internazionale.',
     facts: [
       { value: '15', unit: 'paesi', label: 'dell\'Africa occidentale coperti' },
-      { value: '3', unit: '', label: 'uffici: Benin, Burkina Faso, Francia' },
+      { value: '3', unit: '', label: 'uffici: BENIN, BURKINA FASO, FRANCIA' },
       { value: '400', unit: 'M +', label: 'di abitanti in Africa occidentale' },
     ],
     note: 'La sottoregione condivide sfide sanitarie simili: malattie analoghe, popolazioni giovani e in forte crescita, e la stessa dipendenza dai farmaci importati.',

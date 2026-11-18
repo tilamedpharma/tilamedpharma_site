@@ -6,15 +6,15 @@ const fin: FinDict = {
     lead: 'The latest news from TILAMED Pharma.',
     bodies: [
       [
-        'The State of Benin entrusts TILAMED PHARMA SA, under a long-term lease, with a 2-hectare industrial site in Sèmè-Podji, just past the Kraké border with Nigeria.',
+        'The State of BENIN entrusts TILAMED PHARMA SA, under a long-term lease, with a 2-hectare industrial site in Sèmè-Podji, just past the Kraké border with NIGERIA.',
         'Located in a special economic zone, close to Cotonou and its autonomous port, the site will host TILAMED Pharma\'s injectable solutions plant.',
       ],
       [
-        'On 28 November 2024, the ministerial order granted by the Government of the Republic of Benin completed the approvals obtained during the year.',
+        'On 28 November 2024, the ministerial order granted by the Government of the REPUBLIC OF BENIN completed the approvals obtained during the year.',
         'In 2024, TILAMED PHARMA SA also obtained its industrial authorisation (9 September), the environmental and social compliance certificate (7 August) and APIEX\'s technical acceptability certificate (28 October).',
       ],
       [
-        'On 30 June 2023, the Benin Pharmaceutical Regulatory Agency and the Ministry of Health granted the authorisation to install and operate the plant (no. 1138 ABRP/DHE/DAE/SA).',
+        'On 30 June 2023, the BENIN Pharmaceutical Regulatory Agency and the Ministry of Health granted the authorisation to install and operate the plant (no. 1138 ABRP/DHE/DAE/SA).',
         'This authorisation allows TILAMED PHARMA SA to continue preparing its production unit in Sèmè-Podji.',
       ],
     ],
@@ -23,7 +23,7 @@ const fin: FinDict = {
         date: '2023-05-16', tag: 'Regulation',
         title: 'Favourable opinion from ABRP for the TILAMED Pharma plant',
         body: [
-          'Meeting in committee on 16 May 2023, the Benin Pharmaceutical Regulatory Agency (ABRP) gave a favourable opinion on the authorisation for TILAMED Pharma to open and operate a pharmaceutical plant.',
+          'Meeting in committee on 16 May 2023, the BENIN Pharmaceutical Regulatory Agency (ABRP) gave a favourable opinion on the authorisation for TILAMED Pharma to open and operate a pharmaceutical plant.',
           'This important regulatory step allows TILAMED Pharma to continue preparing its injectable solutions production unit in Sèmè-Podji.',
         ],
       },
@@ -58,7 +58,7 @@ const fin: FinDict = {
     lead: 'Journalists: key information and press contact.',
     briefTitle: 'TILAMED Pharma at a glance',
     brief: [
-      'Public limited company with share capital of 1,000,000,000 FCFA, West Africa subsidiary based in Cotonou (Benin).',
+      'Public limited company with share capital of 1,000,000,000 FCFA, West Africa subsidiary based in Cotonou (BENIN).',
       'Production unit for liquid pharmaceutical solutions to WHO standards in Sèmè-Podji.',
       'Planned capacity: 15 million large-volume solutions and 35 million small-volume injectables per year.',
       '150 direct jobs, 70% of them technical.',
@@ -71,7 +71,7 @@ const fin: FinDict = {
     newsCta: 'All news',
   },
   contact: {
-    meta: { title: 'Contact us · TILAMED Pharma', description: 'A question, a project, a tender? Write to the TILAMED Pharma team or call our offices in Benin, Burkina Faso and France.' },
+    meta: { title: 'Contact us · TILAMED Pharma', description: 'A question, a project, a tender? Write to the TILAMED Pharma team or call our offices in BENIN, BURKINA FASO and FRANCE.' },
     lead: 'A question, a project, a tender? Our team will answer.',
     formTitle: 'Write to us',
     intro: 'Choose the subject of your message: we forward it directly to the right person.',
@@ -86,12 +86,12 @@ const fin: FinDict = {
     officesTitle: 'Our offices',
   },
   offices: {
-    meta: { title: 'Our offices · TILAMED Pharma', description: 'Three offices to serve you, in Benin, Burkina Faso and France, and access to the Sèmè-Podji plant.' },
-    lead: 'Three offices to serve you, in Benin, Burkina Faso and France.',
+    meta: { title: 'Our offices · TILAMED Pharma', description: 'Three offices to serve you, in BENIN, BURKINA FASO and FRANCE, and access to the Sèmè-Podji plant.' },
+    lead: 'Three offices to serve you, in BENIN, BURKINA FASO and FRANCE.',
     title: 'Three offices, one plant',
     call: 'Call',
     plantTitle: 'The Sèmè-Podji plant',
-    plantText: 'Just past the Kraké border coming from Nigeria, a few kilometres from Cotonou.',
+    plantText: 'Just past the Kraké border coming from NIGERIA, a few kilometres from Cotonou.',
   },
   faq: {
     meta: { title: 'Frequently asked questions · TILAMED Pharma', description: 'Product availability, plant, standards, deliveries, distribution, recruitment, pharmacovigilance: answers to your questions.' },
@@ -99,10 +99,10 @@ const fin: FinDict = {
     title: 'Your questions, our answers',
     items: [
       { q: 'Are your products already available?', a: 'Not yet. Our range is in preparation. You can ask to be informed as soon as it is available from the Documentation request page.', link: 'documentation' },
-      { q: 'Where is your plant?', a: 'In Sèmè-Podji, in southern Benin, just past the Kraké border coming from Nigeria, on a 2-hectare site.', link: 'site-seme-podji' },
+      { q: 'Where is your plant?', a: 'In Sèmè-Podji, in southern BENIN, just past the Kraké border coming from NIGERIA, on a 2-hectare site.', link: 'site-seme-podji' },
       { q: 'What products will you make?', a: 'Infusion fluids (sodium chloride, glucose, Ringer lactate…), medicated solutions (paracetamol, metronidazole, levofloxacin, ciprofloxacin) and ampoule injectables, then other ranges as authorisations are granted.', link: 'produits' },
       { q: 'Do your products meet international standards?', a: 'Our plant is built to WHO good manufacturing practice. We are aiming for ISO 9001 and ISO 14001 certification, and EDGE green building certification is in progress.', link: 'certifications' },
-      { q: 'Do you deliver outside Benin?', a: 'Yes. We cover 15 West African countries. The Beninese market remains our priority.', link: 'presence' },
+      { q: 'Do you deliver outside BENIN?', a: 'Yes. We cover 15 West African countries. The Beninese market remains our priority.', link: 'presence' },
       { q: 'How can I become a distributor?', a: 'Fill in the form on the Become a distributor page. Our sales department will get back to you.', link: 'distributeurs' },
       { q: 'Are you recruiting?', a: 'No job offers are published at the moment, but you can submit a speculative application.', link: 'candidature' },
       { q: 'How do I report an adverse effect?', a: 'Use the form on the Pharmacovigilance page. In an emergency, contact a doctor immediately.', link: 'pharmacovigilance' },
@@ -134,7 +134,7 @@ const fin: FinDict = {
         { title: 'Use', text: ['This data is used solely to process your request. It is neither sold nor passed on to third parties.', 'Pharmacovigilance reports are handled confidentially by our responsible pharmacist and may be passed on to the health authorities where regulations require.'] },
         { title: 'Form hosting', text: ['The website\'s forms are processed on our server, hosted by Hostinger, then sent by e-mail to our teams through our mail service (OVH). They are not stored on the server.'] },
         { title: 'Retention period', text: ['Business requests are kept for no more than three years after the last contact; job applications for no more than two years. Pharmacovigilance reports are kept for the period required by regulations.'] },
-        { title: 'Your rights', text: ['Under the Digital Code of the Republic of Benin, you have the right to access, rectify and delete your data. Write to us at contact@tilamedpharma.com. You may also contact the Personal Data Protection Authority (APDP).'] },
+        { title: 'Your rights', text: ['Under the Digital Code of the REPUBLIC OF BENIN, you have the right to access, rectify and delete your data. Write to us at contact@tilamedpharma.com. You may also contact the Personal Data Protection Authority (APDP).'] },
       ],
     },
     cookies: {

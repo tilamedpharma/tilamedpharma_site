@@ -53,13 +53,13 @@ const d: AchatsCarrieresDict = {
     'chaine-distribution': {
       meta: { title: 'Nuestra distribución · Central de compras · TILAMED Pharma', description: 'De la planta de Sèmè-Podji al paciente: un circuito corto, controlado y trazable.' },
       lead: 'De la planta de Sèmè-Podji al paciente: un circuito corto, controlado y trazable.',
-      intro: 'Nuestros productos se fabrican en Benín, a pocas horas por carretera de los hospitales que los utilizan. Este es el camino que siguen, de la planta al paciente.',
+      intro: 'Nuestros productos se fabrican en BENÍN, a pocas horas por carretera de los hospitales que los utilizan. Este es el camino que siguen, de la planta al paciente.',
       facts: [],
       blocks: [
         { kind: 'sequence', title: 'Las etapas, una a una', items: [
           { title: 'La planta de Sèmè-Podji', text: 'Cada lote se fabrica, lo controla nuestro laboratorio y lo libera el farmacéutico responsable.' },
           { title: 'Nuestro almacén', text: 'Los productos terminados se almacenan en condiciones controladas, con seguimiento por lote y por fecha de caducidad.' },
-          { title: 'Centrales de compras y distribuidores', text: 'Entregamos a las centrales de compras públicas, las organizaciones de salud y nuestros distribuidores autorizados en Benín y en la subregión.' },
+          { title: 'Centrales de compras y distribuidores', text: 'Entregamos a las centrales de compras públicas, las organizaciones de salud y nuestros distribuidores autorizados en BENÍN y en la subregión.' },
           { title: 'Hospitales, clínicas y farmacias', text: 'Los centros sanitarios reciben productos disponibles más rápido, en cantidades adaptadas a su consumo real.' },
           { title: 'Los pacientes', text: 'Soluciones de perfusión de calidad, disponibles cerca de casa, a un precio accesible.' },
         ] },
@@ -67,8 +67,8 @@ const d: AchatsCarrieresDict = {
       note: 'Casi la mitad de la población africana no tiene acceso regular a los medicamentos esenciales.',
     },
     carrieres: {
-      meta: { title: 'Trabajar en TILAMED · Empleo · TILAMED Pharma', description: '150 empleos directos, 70 % de puestos técnicos y 5 años de transferencia de competencias: únase a la primera industria de soluciones inyectables de Benín.' },
-      lead: 'Únase a la primera industria de soluciones inyectables de Benín.',
+      meta: { title: 'Trabajar en TILAMED · Empleo · TILAMED Pharma', description: '150 empleos directos, 70 % de puestos técnicos y 5 años de transferencia de competencias: únase a la primera industria de soluciones inyectables de BENÍN.' },
+      lead: 'Únase a la primera industria de soluciones inyectables de BENÍN.',
       intro: '',
       facts: [
         { value: '150', unit: '', label: 'empleos directos' },
@@ -79,7 +79,7 @@ const d: AchatsCarrieresDict = {
       blocks: [
         { kind: 'prose', title: 'Un equipo en construcción', items: [
           'Construimos un equipo de profesionales cualificados, formados en la fabricación industrial y comprometidos con la calidad.',
-          'Benín cuenta con una mano de obra joven, dinámica y cualificada: contratamos y formamos prioritariamente en el país.',
+          'BENÍN cuenta con una mano de obra joven, dinámica y cualificada: contratamos y formamos prioritariamente en el país.',
         ] },
         { kind: 'points', title: 'Un empleador abierto a todas y todos', items: [
           'Procesos de contratación abiertos y equitativos, basados únicamente en las competencias.',

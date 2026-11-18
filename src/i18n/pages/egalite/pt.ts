@@ -3,7 +3,7 @@ import type { EgaliteDict } from './fr';
 const egalite: EgaliteDict = {
   meta: {
     title: 'Igualdade de género e inclusão · TILAMED Pharma',
-    description: 'Primeira indústria farmacêutica do Benim a inscrever desde a sua conceção a igualdade entre mulheres e homens e a inclusão das pessoas com deficiência.',
+    description: 'Primeira indústria farmacêutica do BENIM a inscrever desde a sua conceção a igualdade entre mulheres e homens e a inclusão das pessoas com deficiência.',
   },
   hero: {
     lead: 'A TILAMED Pharma promove, desde a sua conceção, uma igualdade real entre mulheres e homens e a inclusão das pessoas com deficiência.',
@@ -11,9 +11,9 @@ const egalite: EgaliteDict = {
   },
   first: {
     value: '1.ª',
-    label: 'indústria farmacêutica do Benim empenhada na igualdade e na inclusão desde a conceção',
-    eyebrow: 'Uma estreia no Benim',
-    text: 'A TILAMED Pharma é a primeira indústria farmacêutica do Benim a inscrever na sua organização, desde a conceção, a igualdade formal e real de direitos entre mulheres e homens, e a abrir as suas profissões às pessoas com deficiência.',
+    label: 'indústria farmacêutica do BENIM empenhada na igualdade e na inclusão desde a conceção',
+    eyebrow: 'Uma estreia no BENIM',
+    text: 'A TILAMED Pharma é a primeira indústria farmacêutica do BENIM a inscrever na sua organização, desde a conceção, a igualdade formal e real de direitos entre mulheres e homens, e a abrir as suas profissões às pessoas com deficiência.',
   },
   pillars: {
     eyebrow: 'Dois compromissos',

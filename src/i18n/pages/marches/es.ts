@@ -3,8 +3,8 @@ import type { MarchesDict } from './fr';
 const marches: MarchesDict = {
   pages: {
     clients: {
-      meta: { title: 'Nuestros clientes · Mercados · TILAMED Pharma', description: 'Centrales de compras, mayoristas, organizaciones de salud, hospitales y farmacias: los clientes de TILAMED Pharma en Benín y África Occidental.' },
-      lead: 'Abastecemos a los actores públicos y privados de la salud en Benín y África Occidental.',
+      meta: { title: 'Nuestros clientes · Mercados · TILAMED Pharma', description: 'Centrales de compras, mayoristas, organizaciones de salud, hospitales y farmacias: los clientes de TILAMED Pharma en BENÍN y África Occidental.' },
+      lead: 'Abastecemos a los actores públicos y privados de la salud en BENÍN y África Occidental.',
       intro: '',
       facts: [{ value: '15', unit: 'países', label: 'de África Occidental cubiertos' }],
       blocks: [
@@ -82,11 +82,11 @@ const marches: MarchesDict = {
     channels: ['Centrales de compras públicas', 'Hospitales y clínicas', 'Farmacias', 'Organizaciones de salud', 'Exportación subregional'],
   },
   presence: {
-    meta: { title: 'Presencia regional · Mercados · TILAMED Pharma', description: 'Una planta en Benín, 15 países de África Occidental cubiertos y oficinas en Benín, Burkina Faso y Francia.' },
-    lead: 'Una planta en Benín, 15 países de África Occidental cubiertos y una presencia internacional.',
+    meta: { title: 'Presencia regional · Mercados · TILAMED Pharma', description: 'Una planta en BENÍN, 15 países de África Occidental cubiertos y oficinas en BENÍN, BURKINA FASO y FRANCIA.' },
+    lead: 'Una planta en BENÍN, 15 países de África Occidental cubiertos y una presencia internacional.',
     facts: [
       { value: '15', unit: 'países', label: 'de África Occidental cubiertos' },
-      { value: '3', unit: '', label: 'oficinas: Benín, Burkina Faso, Francia' },
+      { value: '3', unit: '', label: 'oficinas: BENÍN, BURKINA FASO, FRANCIA' },
       { value: '400', unit: 'M +', label: 'de habitantes en África Occidental' },
     ],
     note: 'La subregión comparte desafíos sanitarios parecidos: enfermedades similares, poblaciones jóvenes y en fuerte crecimiento, y la misma dependencia de los medicamentos importados.',

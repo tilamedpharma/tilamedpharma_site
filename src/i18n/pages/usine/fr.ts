@@ -2,7 +2,7 @@
 // Sources : pages Usine de l'ancien site (usine, site-seme-podji, traitement-eau… transfert-technologie) + capacités LVP/SVP validées.
 const usine = {
   meta: {
-    title: 'Notre usine · TILAMED Pharma, Sèmè-Podji (Bénin)',
+    title: 'Notre usine · TILAMED Pharma, Sèmè-Podji (BÉNIN)',
     description: 'Une unité moderne de production de solutions injectables à Sèmè-Podji : traitement de l\'eau, soufflage-remplissage-scellage, stérilisation, contrôle à 100 % et laboratoire, selon les BPF de l\'OMS.',
   },
   hero: {
@@ -58,10 +58,10 @@ const usine = {
   },
   location: {
     eyebrow: 'Le site de Sèmè-Podji',
-    title: 'Un emplacement stratégique, entre Cotonou et le Nigéria',
+    title: 'Un emplacement stratégique, entre Cotonou et le NIGÉRIA',
     items: [
-      'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du Bénin',
-      'À proximité immédiate de la frontière de Kraké, principal passage vers le Nigéria',
+      'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du BÉNIN',
+      'À proximité immédiate de la frontière de Kraké, principal passage vers le NIGÉRIA',
       'Près de Cotonou et de son port autonome',
       'Au sein d\'une zone économique spéciale aux avantages douaniers et fiscaux',
     ],

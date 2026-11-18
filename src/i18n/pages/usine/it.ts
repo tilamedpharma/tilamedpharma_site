@@ -2,7 +2,7 @@ import type { UsineDict } from './fr';
 
 const usine: UsineDict = {
   meta: {
-    title: 'Il nostro stabilimento · TILAMED Pharma, Sèmè-Podji (Benin)',
+    title: 'Il nostro stabilimento · TILAMED Pharma, Sèmè-Podji (BENIN)',
     description: 'Uno stabilimento moderno di produzione di soluzioni iniettabili a Sèmè-Podji: trattamento dell\'acqua, soffiaggio-riempimento-sigillatura, sterilizzazione, controllo al 100 % e laboratorio, secondo le GMP dell\'OMS.',
   },
   hero: {
@@ -58,10 +58,10 @@ const usine: UsineDict = {
   },
   location: {
     eyebrow: 'Il sito di Sèmè-Podji',
-    title: 'Una posizione strategica, tra Cotonou e la Nigeria',
+    title: 'Una posizione strategica, tra Cotonou e la NIGERIA',
     items: [
-      'Nel comune di Sèmè-Podji, dipartimento dell\'Ouémé, nel sud del Benin',
-      'A ridosso della frontiera di Kraké, principale passaggio verso la Nigeria',
+      'Nel comune di Sèmè-Podji, dipartimento dell\'Ouémé, nel sud del BENIN',
+      'A ridosso della frontiera di Kraké, principale passaggio verso la NIGERIA',
       'Vicino a Cotonou e al suo porto autonomo',
       'All\'interno di una zona economica speciale con vantaggi doganali e fiscali',
     ],

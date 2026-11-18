@@ -60,13 +60,13 @@ const pages: Record<string, Topic> = {
   'chaine-distribution': {
     meta: { title: 'Notre distribution · Centrale d\'achat · TILAMED Pharma', description: 'De l\'usine de Sèmè-Podji jusqu\'au patient : un circuit court, maîtrisé et traçable.' },
     lead: 'De l\'usine de Sèmè-Podji jusqu\'au patient : un circuit court, maîtrisé et traçable.',
-    intro: 'Nos produits sont fabriqués au Bénin, à quelques heures de route des hôpitaux qui les utilisent. Voici le chemin qu\'ils suivent, de l\'usine jusqu\'au patient.',
+    intro: 'Nos produits sont fabriqués au BÉNIN, à quelques heures de route des hôpitaux qui les utilisent. Voici le chemin qu\'ils suivent, de l\'usine jusqu\'au patient.',
     facts: [],
     blocks: [
       { kind: 'sequence', title: 'Les étapes, une à une', items: [
         { title: 'L\'usine de Sèmè-Podji', text: 'Chaque lot est fabriqué, contrôlé par notre laboratoire et libéré par le pharmacien responsable.' },
         { title: 'Notre entrepôt', text: 'Les produits finis sont stockés dans des conditions maîtrisées, avec un suivi par lot et par date de péremption.' },
-        { title: 'Centrales d\'achat et distributeurs', text: 'Nous livrons les centrales d\'achat publiques, les organisations de santé et nos distributeurs agréés au Bénin et dans la sous-région.' },
+        { title: 'Centrales d\'achat et distributeurs', text: 'Nous livrons les centrales d\'achat publiques, les organisations de santé et nos distributeurs agréés au BÉNIN et dans la sous-région.' },
         { title: 'Hôpitaux, cliniques et pharmacies', text: 'Les établissements de santé reçoivent des produits disponibles plus vite, en quantité adaptée à leur consommation réelle.' },
         { title: 'Les patients', text: 'Des solutions de perfusion de qualité, disponibles près de chez eux, à un prix accessible.' },
       ] },
@@ -74,8 +74,8 @@ const pages: Record<string, Topic> = {
     note: 'Près de la moitié de la population africaine n\'a pas un accès régulier aux médicaments essentiels.',
   },
   carrieres: {
-    meta: { title: 'Travailler chez TILAMED · Carrières · TILAMED Pharma', description: '150 emplois directs, 70 % de postes techniques et 5 ans de transfert de compétences : rejoignez la première industrie de solutions injectables du Bénin.' },
-    lead: 'Rejoignez la première industrie de solutions injectables du Bénin.',
+    meta: { title: 'Travailler chez TILAMED · Carrières · TILAMED Pharma', description: '150 emplois directs, 70 % de postes techniques et 5 ans de transfert de compétences : rejoignez la première industrie de solutions injectables du BÉNIN.' },
+    lead: 'Rejoignez la première industrie de solutions injectables du BÉNIN.',
     intro: '',
     facts: [
       { value: '150', unit: '', label: 'emplois directs' },
@@ -86,7 +86,7 @@ const pages: Record<string, Topic> = {
     blocks: [
       { kind: 'prose', title: 'Une équipe en construction', items: [
         'Nous construisons une équipe de professionnels qualifiés, formés à la fabrication industrielle et engagés pour la qualité.',
-        'Le Bénin dispose d\'une main-d\'œuvre jeune, dynamique et qualifiée : nous recrutons et formons en priorité localement.',
+        'Le BÉNIN dispose d\'une main-d\'œuvre jeune, dynamique et qualifiée : nous recrutons et formons en priorité localement.',
       ] },
       { kind: 'points', title: 'Un employeur ouvert à toutes et à tous', items: [
         'Des processus de recrutement ouverts et équitables, sur la seule base des compétences.',

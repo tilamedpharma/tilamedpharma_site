@@ -107,9 +107,9 @@ const etapes: EtapesDict = {
       note: 'Nessun lotto è immesso sul mercato senza la decisione del farmacista responsabile, sulla base dei risultati di laboratorio e della revisione del dossier di lotto.',
     },
     'conditionnement-logistique': {
-      meta: { title: 'Confezionamento e consegna · Il nostro stabilimento · TILAMED Pharma', description: 'Stoccaggio secondo le buone pratiche di distribuzione e consegna con il nostro servizio logistico, in Benin e per l\'export.' },
+      meta: { title: 'Confezionamento e consegna · Il nostro stabilimento · TILAMED Pharma', description: 'Stoccaggio secondo le buone pratiche di distribuzione e consegna con il nostro servizio logistico, in BENIN e per l\'export.' },
       lead: 'Prodotti consegnati nel posto giusto, al momento giusto, nelle giuste condizioni.',
-      intro: 'I prodotti finiti sono stoccati nel nostro magazzino secondo le buone pratiche di distribuzione e consegnati ai nostri clienti in Benin dal nostro servizio logistico.',
+      intro: 'I prodotti finiti sono stoccati nel nostro magazzino secondo le buone pratiche di distribuzione e consegnati ai nostri clienti in BENIN dal nostro servizio logistico.',
       facts: [],
       block: { kind: 'points', title: 'Il nostro servizio logistico', items: [
         'Consegne in base alle reali esigenze dei clienti, senza obbligo di stoccare diversi mesi di prodotti.',

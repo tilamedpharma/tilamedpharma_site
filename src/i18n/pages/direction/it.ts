@@ -20,14 +20,14 @@ const direction: DirectionDict = {
     name: 'Casime LASSISSI',
     role: 'Direttore Generale',
     bio: [
-      'Promotore del progetto TILAMED Pharma, Casime LASSISSI è un professionista della finanza e della revisione contabile formato in Francia. Dal 2013 dirige aziende di fornitura, installazione e manutenzione di dispositivi medici in Africa occidentale.',
+      'Promotore del progetto TILAMED Pharma, Casime LASSISSI è un professionista della finanza e della revisione contabile formato in FRANCIA. Dal 2013 dirige aziende di fornitura, installazione e manutenzione di dispositivi medici in Africa occidentale.',
       'In questi anni ha condotto progetti di attrezzatura di ospedali e laboratori per organizzazioni internazionali e ministeri della salute della regione.',
     ],
     convictionLabel: 'La sua convinzione',
     conviction: 'L\'Africa occidentale deve produrre da sé i propri farmaci essenziali.',
     pathTitle: 'Il suo percorso',
     path: [
-      'Formazione superiore in contabilità, controllo e revisione (Francia).',
+      'Formazione superiore in contabilità, controllo e revisione (FRANCIA).',
       'Esperienza in una società di revisione internazionale e nel controllo interno di grandi gruppi.',
       'Oltre dieci anni di gestione di progetti medici chiavi in mano in Africa occidentale.',
       'Padronanza delle procedure di gara pubbliche e internazionali.',

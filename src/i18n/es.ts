@@ -2,8 +2,8 @@ import type { Dict } from './fr';
 
 const es: Dict = {
   meta: {
-    title: 'TILAMED Pharma · Laboratorio farmacéutico en Benín, conforme a las normas de la OMS',
-    description: 'TILAMED PHARMA SA construye en Sèmè-Podji (Benín) una planta farmacéutica de nueva generación: sueros, medicamentos inyectables, nutrición, dispositivos médicos y salud animal, conforme a las normas de la OMS y a precios accesibles.',
+    title: 'TILAMED Pharma · Laboratorio farmacéutico en BENÍN, conforme a las normas de la OMS',
+    description: 'TILAMED PHARMA SA construye en Sèmè-Podji (BENÍN) una planta farmacéutica de nueva generación: sueros, medicamentos inyectables, nutrición, dispositivos médicos y salud animal, conforme a las normas de la OMS y a precios accesibles.',
   },
   a11y: {
     skip: 'Ir al contenido', menu: 'Menú', close: 'Cerrar', search: 'Buscar', language: 'Idioma',
@@ -26,7 +26,7 @@ const es: Dict = {
     },
     pages: {
       'a-propos': 'Quiénes somos', 'vision-valeurs': 'Visión, misión y valores', direction: 'Dirección', parcours: 'Nuestra trayectoria',
-      'pourquoi-le-benin': '¿Por qué Benín?', rse: 'Responsabilidad social', egalite: 'Igualdad de género', environnement: 'Medio ambiente',
+      'pourquoi-le-benin': '¿Por qué BENÍN?', rse: 'Responsabilidad social', egalite: 'Igualdad de género', environnement: 'Medio ambiente',
       'centrale-achat': 'Nuestra central de compras', fournisseurs: 'Nuestros proveedores', 'chaine-distribution': 'Nuestra distribución',
       usine: 'Nuestra planta', 'site-seme-podji': 'El sitio de Sèmè-Podji', 'traitement-eau': 'Tratamiento del agua', 'preparation-solutions': 'Preparación de soluciones',
       'soufflage-remplissage-scellage': 'Soplado, llenado, sellado', sterilisation: 'Esterilización', inspection: 'Control al 100 %', laboratoire: 'Laboratorio de control de calidad',
@@ -44,18 +44,18 @@ const es: Dict = {
     },
   },
   hero: {
-    eyebrow: 'Laboratorio farmacéutico · Sèmè-Podji, Benín',
+    eyebrow: 'Laboratorio farmacéutico · Sèmè-Podji, BENÍN',
     title: 'La excelencia farmacéutica, fabricada en el corazón de África Occidental.',
-    lead: 'TILAMED PHARMA SA construye en Benín una planta de nueva generación para producir medicamentos de alta calidad, conformes a las normas de la Organización Mundial de la Salud, a precios accesibles para todos.',
+    lead: 'TILAMED PHARMA SA construye en BENÍN una planta de nueva generación para producir medicamentos de alta calidad, conformes a las normas de la Organización Mundial de la Salud, a precios accesibles para todos.',
     cta1: 'Descubrir nuestra planta', cta2: 'Contáctenos',
-    proofs: ['Normas OMS', 'Fabricado en la República de Benín', 'Edificio verde · EDGE en curso', 'Planta inclusiva'],
+    proofs: ['Normas OMS', 'Fabricado en la REPÚBLICA DE BENÍN', 'Edificio verde · EDGE en curso', 'Planta inclusiva'],
     caption: 'Imágenes ilustrativas del proceso',
     scroll: 'Desplazar',
   },
   heroNet: {
     eyebrow: 'Nuestra red',
-    title: 'Fabricado en Benín, distribuido en 15 países de África Occidental.',
-    lead: 'Desde Sèmè-Podji, en la frontera con Nigeria, nuestras soluciones inyectables llegan a las centrales de compra, los distribuidores y los hospitales de toda la región.',
+    title: 'Fabricado en BENÍN, distribuido en 15 países de África Occidental.',
+    lead: 'Desde Sèmè-Podji, en la frontera con NIGERIA, nuestras soluciones inyectables llegan a las centrales de compra, los distribuidores y los hospitales de toda la región.',
     count: 'países cubiertos',
     tabs: ['Nuestra planta', 'Nuestra red'],
     label: 'Presentación',
@@ -70,15 +70,15 @@ const es: Dict = {
       { value: '13', unit: 'años +', label: 'de experiencia de nuestros accionistas en el sector médico' },
       { value: '15', unit: 'países', label: 'de África Occidental cubiertos por nuestra red' },
       { value: 'EDGE', unit: '', label: 'certificación green building en curso de obtención' },
-      { value: '1.ª', unit: 'planta', label: 'farmacéutica de Benín comprometida con la igualdad de género y la inclusión de la discapacidad' },
+      { value: '1.ª', unit: 'planta', label: 'farmacéutica de BENÍN comprometida con la igualdad de género y la inclusión de la discapacidad' },
     ],
   },
   chain: {
     eyebrow: 'Nuestra cadena de distribución', title: 'De Sèmè-Podji al paciente',
-    intro: 'Un circuito corto, rápido y trazable: fabricadas en Benín, nuestras soluciones llegan a los pacientes en menos de un mes.',
+    intro: 'Un circuito corto, rápido y trazable: fabricadas en BENÍN, nuestras soluciones llegan a los pacientes en menos de un mes.',
     label: 'Cadena de distribución en tres etapas',
     steps: [
-      { title: 'Planta de Sèmè-Podji', text: 'Fabricado y controlado en Benín' },
+      { title: 'Planta de Sèmè-Podji', text: 'Fabricado y controlado en BENÍN' },
       { title: 'Centrales de compras, mayoristas y distribuidores', text: 'Cooperativas públicas regionales, mayoristas privados y otros distribuidores' },
       { title: 'Pacientes', text: 'Atendidos en menos de un mes' },
     ],
@@ -120,7 +120,7 @@ const es: Dict = {
       { icon: 'drop', title: 'Agua controlada', text: 'Agua tratada in situ, distribuida en circuito y utilizada con mesura.' },
       { icon: 'leaf', title: 'Menos plástico', text: 'El soplado-llenado-sellado fabrica el envase en el momento del llenado: menos embalajes transportados.' },
       { icon: 'recycle', title: 'Residuos controlados', text: 'Clasificación, tratamiento y eliminación segura de los residuos industriales y de laboratorio.' },
-      { icon: 'route', title: 'Menos transporte', text: 'Producir en Benín evita largos trayectos marítimos y por carretera entre Asia y nuestros hospitales.' },
+      { icon: 'route', title: 'Menos transporte', text: 'Producir en BENÍN evita largos trayectos marítimos y por carretera entre Asia y nuestros hospitales.' },
     ],
     proofs: ['Certificación EDGE en curso de obtención', 'Certificado de conformidad ambiental y social · 7 de agosto de 2024', 'Certificación ISO 14001 prevista'],
     cta: 'Nuestro compromiso ambiental',
@@ -128,7 +128,7 @@ const es: Dict = {
     techAlt: 'Técnico instalando paneles solares',
     inclusion: {
       badge: 'Planta inclusiva',
-      title: 'Primera planta farmacéutica de Benín comprometida con la igualdad y la inclusión',
+      title: 'Primera planta farmacéutica de BENÍN comprometida con la igualdad y la inclusión',
       text: 'Desde su concepción, TILAMED Pharma integra en su organización la igualdad real entre mujeres y hombres y la inclusión de las personas con discapacidad.',
       items: [
         { icon: 'users', title: 'Igualdad de género', text: 'Contratación, remuneración y carrera basadas únicamente en las competencias.' },
@@ -145,7 +145,7 @@ const es: Dict = {
     eyebrow: 'Quiénes somos',
     title: 'Una empresa farmacéutica africana de nueva generación',
     text: [
-      'TILAMED PHARMA SA construye en la República de Benín una planta de producción de productos farmacéuticos de alta calidad, conformes a las normas internacionales de la Organización Mundial de la Salud, a precios accesibles para todos.',
+      'TILAMED PHARMA SA construye en la REPÚBLICA DE BENÍN una planta de producción de productos farmacéuticos de alta calidad, conformes a las normas internacionales de la Organización Mundial de la Salud, a precios accesibles para todos.',
       'Creada en 2013 como SEDIS SARL para distribuir dispositivos médicos en África Occidental, la empresa se convierte en TILAMED PHARMA SA en 2023 y se dedica ahora a la producción industrial.',
     ],
     pillars: [
@@ -169,10 +169,10 @@ const es: Dict = {
     ],
   },
   why: {
-    eyebrow: '¿Por qué producir en Benín?',
+    eyebrow: '¿Por qué producir en BENÍN?',
     title: 'Hoy, cada frasco de perfusión viene de lejos.',
     stat: '100 %',
-    statLabel: 'de las soluciones inyectables utilizadas en Benín son importadas',
+    statLabel: 'de las soluciones inyectables utilizadas en BENÍN son importadas',
     text: 'Los hospitales dependen de importaciones lejanas, con largos plazos y riesgos de desabastecimiento. Producir localmente lo cambia todo para los pacientes, los profesionales sanitarios y la economía.',
     items: [
       { title: 'Existencias cercanas', text: 'Abastecer hospitales y centrales de compras en pocas horas, sin rupturas.' },
@@ -200,7 +200,7 @@ const es: Dict = {
   },
   products: {
     eyebrow: 'Nuestros productos',
-    title: 'Productos de salud esenciales, fabricados en Benín',
+    title: 'Productos de salud esenciales, fabricados en BENÍN',
     intro: 'Para hospitales, clínicas y farmacias de África Occidental.',
     cta: 'Ver el catálogo',
     request: 'Solicitar la documentación',
@@ -222,7 +222,7 @@ const es: Dict = {
       { title: 'Autorización industrial', ref: 'N.º LFFL EK3V JE3W CQ9Z · 9 de septiembre de 2024', by: 'Ministerio de Comercio e Industria' },
       { title: 'Certificado de conformidad ambiental y social', ref: 'Orden N.º 0253/MCVT/DC/SGM/DG-ABE/DEES/SEIES/SA · 7 de agosto de 2024', by: 'Ministerio de Salud y Ministerio de Medio Ambiente' },
       { title: 'Certificado de aceptabilidad técnica', ref: 'N.º 712/APIEX/DEAPI/SETAPI/SA · 28 de octubre de 2024', by: 'Agencia de Promoción de Inversiones y Exportaciones (APIEX)' },
-      { title: 'Orden ministerial', ref: 'N.º 034/MDC/MEF/MIC/DC/SGM/DDI/SA/041SGG24 · 28 de noviembre de 2024', by: 'Gobierno de la República de Benín' },
+      { title: 'Orden ministerial', ref: 'N.º 034/MDC/MEF/MIC/DC/SGM/DDI/SA/041SGG24 · 28 de noviembre de 2024', by: 'Gobierno de la REPÚBLICA DE BENÍN' },
       { title: 'Exención fiscal y social (waiver)', ref: 'Régimen B · 8 años', by: 'Fases de inversión y explotación' },
     ],
     standardsTitle: 'Nuestros referenciales',
@@ -248,10 +248,10 @@ const es: Dict = {
   },
   presence: {
     eyebrow: 'Dónde operamos',
-    title: 'Fabricado en Benín, distribuido en África Occidental',
-    intro: 'Desde nuestra planta de Sèmè-Podji, en la frontera con Nigeria, abastecemos a quince países de la región, con oficinas en Benín, Burkina Faso y Francia.',
+    title: 'Fabricado en BENÍN, distribuido en África Occidental',
+    intro: 'Desde nuestra planta de Sèmè-Podji, en la frontera con NIGERIA, abastecemos a quince países de la región, con oficinas en BENÍN, BURKINA FASO y FRANCIA.',
     plant: 'Planta TILAMED Pharma',
-    plantPlace: 'Sèmè-Podji · Benín',
+    plantPlace: 'Sèmè-Podji · BENÍN',
     legendCovered: 'Países cubiertos',
     legendRoute: 'Ruta de abastecimiento',
     countriesTitle: 'Cobertura geográfica',
@@ -262,8 +262,8 @@ const es: Dict = {
   },
   presenceSites: {
     title: 'Una planta, tres oficinas, quince países',
-    lead: 'Producir en Benín y estar presentes allí donde están nuestros clientes.',
-    roles: { plant: 'Producción · 2 hectáreas en la frontera con Nigeria', bj: 'Sede administrativa', bf: 'Oficina regional · Sahel', fr: 'Relaciones con Europa' },
+    lead: 'Producir en BENÍN y estar presentes allí donde están nuestros clientes.',
+    roles: { plant: 'Producción · 2 hectáreas en la frontera con NIGERIA', bj: 'Sede administrativa', bf: 'Oficina regional · Sahel', fr: 'Relaciones con Europa' },
   },
   formMsg: { sending: 'Enviando…', ok: 'Gracias, su mensaje se ha enviado correctamente. Le responderemos en breve.', error: 'El envío ha fallado. Inténtelo de nuevo o escríbanos a contact@tilamedpharma.com.', big: 'Archivo demasiado pesado (5 MB como máximo).' },
   clients: {
@@ -291,7 +291,7 @@ const es: Dict = {
     all: 'Todas las noticias',
     read: 'Leer el artículo',
     items: [
-      { date: '2025-09-09', tag: 'Sitio industrial', title: 'Un arrendamiento enfitéutico para el sitio de Sèmè-Podji', text: 'El Estado beninés confía a TILAMED PHARMA SA un sitio industrial de 2 hectáreas en la frontera con Nigeria.' },
+      { date: '2025-09-09', tag: 'Sitio industrial', title: 'Un arrendamiento enfitéutico para el sitio de Sèmè-Podji', text: 'El Estado beninés confía a TILAMED PHARMA SA un sitio industrial de 2 hectáreas en la frontera con NIGERIA.' },
       { date: '2024-11-28', tag: 'Regulación', title: 'La orden ministerial completa nuestras autorizaciones', text: 'Autorización industrial, certificados ambiental y técnico: un 2024 decisivo.' },
       { date: '2023-06-30', tag: 'Autorización', title: 'Autorización de instalación y explotación de la planta', text: 'La agencia beninesa de regulación farmacéutica autoriza la instalación y explotación de nuestra planta.' },
     ],
@@ -304,7 +304,7 @@ const es: Dict = {
     whatsapp: 'WhatsApp',
   },
   footer: {
-    about: 'Laboratorio farmacéutico · Fabricante de medicamentos. Filial de África Occidental, Cotonú (Benín). Sociedad anónima con un capital de 1 000 000 000 FCFA.',
+    about: 'Laboratorio farmacéutico · Fabricante de medicamentos. Filial de África Occidental, Cotonú (BENÍN). Sociedad anónima con un capital de 1 000 000 000 FCFA.',
     offices: 'Nuestras oficinas',
     follow: 'Síganos',
     rights: 'Todos los derechos reservados.',
@@ -321,10 +321,10 @@ const es: Dict = {
         { title: 'Prensa', text: 'Información clave, imágenes y contacto de prensa.', action: 'Sala de prensa' },
       ],
       newsletter: { title: 'Reciba las novedades del proyecto', text: 'Autorizaciones, avance de la planta, lanzamientos de productos.', placeholder: 'Su correo electrónico', button: 'Suscribirse' },
-      plant: { title: 'Planta · Sèmè-Podji', place: 'Frontera con Nigeria (Kraké)', directions: 'Cómo llegar' },
+      plant: { title: 'Planta · Sèmè-Podji', place: 'Frontera con NIGERIA (Kraké)', directions: 'Cómo llegar' },
       backToTop: 'Volver arriba',
     },
-    officeNames: { bj: 'Benín · Sede', bf: 'Burkina Faso', fr: 'Francia' },
+    officeNames: { bj: 'BENÍN · Sede', bf: 'BURKINA FASO', fr: 'FRANCIA' },
   },
 };
 

@@ -2,10 +2,10 @@
 const aPropos = {
   meta: {
     title: 'Qui sommes-nous ? · TILAMED Pharma',
-    description: 'TILAMED PHARMA SA construit au Bénin une unité de production de solutions pharmaceutiques liquides aux normes de l\'OMS. Histoire, activités, objectifs et partenaires.',
+    description: 'TILAMED PHARMA SA construit au BÉNIN une unité de production de solutions pharmaceutiques liquides aux normes de l\'OMS. Histoire, activités, objectifs et partenaires.',
   },
   hero: {
-    lead: 'TILAMED Pharma est une société pharmaceutique qui construit au Bénin une unité de production de solutions pharmaceutiques liquides, aux normes de l\'Organisation mondiale de la santé.',
+    lead: 'TILAMED Pharma est une société pharmaceutique qui construit au BÉNIN une unité de production de solutions pharmaceutiques liquides, aux normes de l\'Organisation mondiale de la santé.',
     imageAlt: 'Équipe de professionnelles en réunion de travail',
   },
   facts: [
@@ -38,12 +38,12 @@ const aPropos = {
       'Réduire la dépendance aux importations et les risques qui l\'accompagnent.',
       'Encourager la consommation de produits fabriqués localement.',
     ],
-    cta: 'Pourquoi produire au Bénin ?',
+    cta: 'Pourquoi produire au BÉNIN ?',
   },
   partnership: {
     eyebrow: 'Partenariats',
     title: 'Ouverts aux partenariats internationaux',
-    text: 'TILAMED Pharma souhaite travailler avec les organisations internationales de santé, les agences de développement et les institutions financières engagées pour l\'accès aux médicaments en Afrique. Notre ambition : devenir un partenaire industriel de confiance pour leurs programmes au Bénin et dans la sous-région.',
+    text: 'TILAMED Pharma souhaite travailler avec les organisations internationales de santé, les agences de développement et les institutions financières engagées pour l\'accès aux médicaments en Afrique. Notre ambition : devenir un partenaire industriel de confiance pour leurs programmes au BÉNIN et dans la sous-région.',
     cta1: 'Organisations de santé',
     cta2: 'Nous contacter',
   },

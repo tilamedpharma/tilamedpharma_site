@@ -20,14 +20,14 @@ const direction: DirectionDict = {
     name: 'Casime LASSISSI',
     role: 'Managing Director',
     bio: [
-      'The initiator of the TILAMED Pharma project, Casime LASSISSI is a finance and audit professional trained in France. Since 2013 he has run companies that supply, install and maintain medical devices in West Africa.',
+      'The initiator of the TILAMED Pharma project, Casime LASSISSI is a finance and audit professional trained in FRANCE. Since 2013 he has run companies that supply, install and maintain medical devices in West Africa.',
       'Over these years he has led hospital and laboratory equipment projects for international organisations and ministries of health in the region.',
     ],
     convictionLabel: 'His conviction',
     conviction: 'West Africa must produce its own essential medicines.',
     pathTitle: 'His background',
     path: [
-      'Higher education in accounting, control and audit (France).',
+      'Higher education in accounting, control and audit (FRANCE).',
       'Experience in an international audit firm and in the internal control of large groups.',
       'More than ten years managing turnkey medical projects in West Africa.',
       'Command of public and international tender procedures.',

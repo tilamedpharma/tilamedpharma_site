@@ -35,7 +35,7 @@ const rse: RseDict = {
   },
   transfer: {
     eyebrow: 'Transferência de competências',
-    title: 'Um saber-fazer que fica no Benim',
+    title: 'Um saber-fazer que fica no BENIM',
     value: '5',
     unit: 'anos',
     label: 'de acompanhamento no local pelos engenheiros dos fabricantes',

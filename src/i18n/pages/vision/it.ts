@@ -26,7 +26,7 @@ const vision: VisionDict = {
   mission: {
     eyebrow: 'La nostra missione',
     keys: [
-      { title: 'In quantità', text: 'Una capacità industriale pensata per le esigenze degli ospedali del Benin e della sottoregione.' },
+      { title: 'In quantità', text: 'Una capacità industriale pensata per le esigenze degli ospedali del BENIN e della sottoregione.' },
       { title: 'Di qualità', text: 'Prodotti fabbricati secondo le norme dell\'OMS e controllati lotto per lotto dal nostro laboratorio.' },
       { title: 'A un prezzo accessibile', text: 'Una produzione locale che riduce trasporto, stoccaggio e perdite di cambio.' },
     ],
@@ -46,8 +46,8 @@ const vision: VisionDict = {
     eyebrow: 'I nostri impegni',
     title: 'Valori che diventano azioni',
     items: [
-      { title: 'Uguaglianza e inclusione', text: 'Prima industria farmaceutica del Benin a integrare, fin dalla sua concezione, la parità tra donne e uomini e l\'inclusione delle persone con disabilità.' },
-      { title: 'Sviluppo locale', text: 'Posti di lavoro qualificati in Benin e un trasferimento di competenze verso i tecnici locali.' },
+      { title: 'Uguaglianza e inclusione', text: 'Prima industria farmaceutica del BENIN a integrare, fin dalla sua concezione, la parità tra donne e uomini e l\'inclusione delle persone con disabilità.' },
+      { title: 'Sviluppo locale', text: 'Posti di lavoro qualificati in BENIN e un trasferimento di competenze verso i tecnici locali.' },
       { title: 'Uno stabilimento verde', text: 'Certificazione EDGE dell\'IFC (edificio ecologico) in corso e certificazione ISO 14001 come obiettivo.' },
     ],
   },

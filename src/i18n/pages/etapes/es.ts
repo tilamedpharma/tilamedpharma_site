@@ -107,9 +107,9 @@ const etapes: EtapesDict = {
       note: 'Ningún lote se comercializa sin la decisión del farmacéutico responsable, basada en los resultados del laboratorio y la revisión del expediente de lote.',
     },
     'conditionnement-logistique': {
-      meta: { title: 'Acondicionamiento y entrega · Nuestra planta · TILAMED Pharma', description: 'Almacenamiento según las buenas prácticas de distribución y entrega por nuestro propio servicio logístico, en Benín y para la exportación.' },
+      meta: { title: 'Acondicionamiento y entrega · Nuestra planta · TILAMED Pharma', description: 'Almacenamiento según las buenas prácticas de distribución y entrega por nuestro propio servicio logístico, en BENÍN y para la exportación.' },
       lead: 'Productos entregados en el lugar adecuado, en el momento adecuado y en buenas condiciones.',
-      intro: 'Los productos terminados se almacenan en nuestro almacén según las buenas prácticas de distribución y se entregan a nuestros clientes en Benín por nuestro propio servicio logístico.',
+      intro: 'Los productos terminados se almacenan en nuestro almacén según las buenas prácticas de distribución y se entregan a nuestros clientes en BENÍN por nuestro propio servicio logístico.',
       facts: [],
       block: { kind: 'points', title: 'Nuestro servicio logístico', items: [
         'Entrega según las necesidades reales de los clientes, sin obligación de almacenar varios meses de productos.',

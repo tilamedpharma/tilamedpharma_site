@@ -3,15 +3,15 @@ import type { Topic } from './fr';
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
     meta: { title: 'Il sito di Sèmè-Podji · Il nostro stabilimento · TILAMED Pharma', description: 'Un sito industriale di 2 ettari a Sèmè-Podji, vicino alla frontiera di Kraké, a Cotonou e al suo porto, in una zona economica speciale.' },
-    lead: 'Un sito di 2 ettari, subito dopo la frontiera di Kraké, tra Cotonou e la Nigeria.',
+    lead: 'Un sito di 2 ettari, subito dopo la frontiera di Kraké, tra Cotonou e la NIGERIA.',
     intro: '',
     facts: [
       { value: '2', unit: 'ha', label: 'di sito industriale, cioè 20.000 m²' },
     ],
     blocks: [
       { kind: 'points', title: 'Una posizione strategica', items: [
-        'Nel comune di Sèmè-Podji, dipartimento dell\'Ouémé, nel sud del Benin.',
-        'A ridosso della frontiera di Kraké, principale punto di passaggio verso la Nigeria.',
+        'Nel comune di Sèmè-Podji, dipartimento dell\'Ouémé, nel sud del BENIN.',
+        'A ridosso della frontiera di Kraké, principale punto di passaggio verso la NIGERIA.',
         'Vicino a Cotonou e al suo porto autonomo, che gestisce la maggior parte degli scambi del paese.',
         'All\'interno di una zona economica speciale con vantaggi doganali e fiscali.',
       ] },
@@ -61,9 +61,9 @@ const pages: Record<string, Topic> = {
     note: 'La manutenzione preventiva e correttiva è svolta dai nostri tecnici, formati dai costruttori delle apparecchiature.',
   },
   'transfert-technologie': {
-    meta: { title: 'Trasferimento tecnologico · Il nostro stabilimento · TILAMED Pharma', description: 'Cinque anni di assistenza tecnica permanente in sede e formazioni per operatori, laboratorio e manutenzione: il know-how resta in Benin.' },
-    lead: 'Cinque anni di assistenza permanente perché il know-how resti in Benin.',
-    intro: 'Dall\'installazione e messa in servizio dello stabilimento, i costruttori delle apparecchiature formano le nostre squadre in Benin. I loro ingegneri restano poi distaccati in sede per cinque anni per accompagnare la produzione.',
+    meta: { title: 'Trasferimento tecnologico · Il nostro stabilimento · TILAMED Pharma', description: 'Cinque anni di assistenza tecnica permanente in sede e formazioni per operatori, laboratorio e manutenzione: il know-how resta in BENIN.' },
+    lead: 'Cinque anni di assistenza permanente perché il know-how resti in BENIN.',
+    intro: 'Dall\'installazione e messa in servizio dello stabilimento, i costruttori delle apparecchiature formano le nostre squadre in BENIN. I loro ingegneri restano poi distaccati in sede per cinque anni per accompagnare la produzione.',
     facts: [
       { value: '5', unit: 'anni', label: 'di assistenza tecnica permanente, prorogabile' },
       { value: '70', unit: '%', label: 'di posti tecnici' },

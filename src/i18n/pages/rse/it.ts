@@ -35,7 +35,7 @@ const rse: RseDict = {
   },
   transfer: {
     eyebrow: 'Trasferimento di competenze',
-    title: 'Un know-how che resta in Benin',
+    title: 'Un know-how che resta in BENIN',
     value: '5',
     unit: 'anni',
     label: 'di affiancamento in loco da parte degli ingegneri dei produttori',

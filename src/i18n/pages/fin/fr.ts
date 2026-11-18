@@ -8,11 +8,11 @@ const fin = {
     // Corps des 3 actualités de l'accueil (même ordre que t.news.items), puis une 4e actualité.
     bodies: [
       [
-        'L\'État béninois confie à TILAMED PHARMA SA, par bail emphytéotique, un site industriel de 2 hectares à Sèmè-Podji, juste après la frontière de Kraké avec le Nigéria.',
+        'L\'État béninois confie à TILAMED PHARMA SA, par bail emphytéotique, un site industriel de 2 hectares à Sèmè-Podji, juste après la frontière de Kraké avec le NIGÉRIA.',
         'Situé dans une zone économique spéciale, à proximité de Cotonou et de son port autonome, ce site accueillera l\'usine de solutions injectables de TILAMED Pharma.',
       ],
       [
-        'Le 28 novembre 2024, l\'arrêté ministériel accordé par le Gouvernement de la République du Bénin vient compléter les agréments obtenus au cours de l\'année.',
+        'Le 28 novembre 2024, l\'arrêté ministériel accordé par le Gouvernement de la RÉPUBLIQUE DU BÉNIN vient compléter les agréments obtenus au cours de l\'année.',
         'En 2024, TILAMED PHARMA SA a également obtenu l\'autorisation industrielle (9 septembre), le certificat de conformité environnementale et sociale (7 août) et le certificat d\'acceptabilité technique de l\'APIEX (28 octobre).',
       ],
       [
@@ -60,7 +60,7 @@ const fin = {
     lead: 'Journalistes : informations clés et contact presse.',
     briefTitle: 'TILAMED Pharma en bref',
     brief: [
-      'Société anonyme au capital de 1 000 000 000 FCFA, filiale Afrique de l\'Ouest basée à Cotonou (Bénin).',
+      'Société anonyme au capital de 1 000 000 000 FCFA, filiale Afrique de l\'Ouest basée à Cotonou (BÉNIN).',
       'Unité de production de solutions pharmaceutiques liquides aux normes de l\'OMS à Sèmè-Podji.',
       'Capacité prévue : 15 millions de solutés de grand volume et 35 millions d\'injectables de petit volume par an.',
       '150 emplois directs, dont 70 % de postes techniques.',
@@ -73,7 +73,7 @@ const fin = {
     newsCta: 'Toutes les actualités',
   },
   contact: {
-    meta: { title: 'Nous contacter · TILAMED Pharma', description: 'Une question, un projet, un appel d\'offres ? Écrivez à l\'équipe TILAMED Pharma ou appelez nos bureaux au Bénin, au Burkina Faso et en France.' },
+    meta: { title: 'Nous contacter · TILAMED Pharma', description: 'Une question, un projet, un appel d\'offres ? Écrivez à l\'équipe TILAMED Pharma ou appelez nos bureaux au BÉNIN, au BURKINA FASO et en FRANCE.' },
     lead: 'Une question, un projet, un appel d\'offres ? Notre équipe vous répond.',
     formTitle: 'Écrivez-nous',
     intro: 'Choisissez l\'objet de votre message : nous le transmettons directement au bon interlocuteur.',
@@ -88,12 +88,12 @@ const fin = {
     officesTitle: 'Nos bureaux',
   },
   offices: {
-    meta: { title: 'Nos bureaux · TILAMED Pharma', description: 'Trois bureaux pour vous servir, au Bénin, au Burkina Faso et en France, et l\'accès à l\'usine de Sèmè-Podji.' },
-    lead: 'Trois bureaux pour vous servir, au Bénin, au Burkina Faso et en France.',
+    meta: { title: 'Nos bureaux · TILAMED Pharma', description: 'Trois bureaux pour vous servir, au BÉNIN, au BURKINA FASO et en FRANCE, et l\'accès à l\'usine de Sèmè-Podji.' },
+    lead: 'Trois bureaux pour vous servir, au BÉNIN, au BURKINA FASO et en FRANCE.',
     title: 'Trois bureaux, une usine',
     call: 'Appeler',
     plantTitle: 'L\'usine de Sèmè-Podji',
-    plantText: 'Juste après la frontière de Kraké en venant du Nigéria, à quelques kilomètres de Cotonou.',
+    plantText: 'Juste après la frontière de Kraké en venant du NIGÉRIA, à quelques kilomètres de Cotonou.',
   },
   faq: {
     meta: { title: 'Questions fréquentes · TILAMED Pharma', description: 'Disponibilité des produits, usine, normes, livraisons, distribution, recrutement, pharmacovigilance : les réponses à vos questions.' },
@@ -101,10 +101,10 @@ const fin = {
     title: 'Vos questions, nos réponses',
     items: [
       { q: 'Vos produits sont-ils déjà disponibles ?', a: 'Pas encore. Notre gamme est en préparation. Vous pouvez demander à être informé dès sa disponibilité depuis la page Demande de documentation.', link: 'documentation' },
-      { q: 'Où se trouve votre usine ?', a: 'À Sèmè-Podji, dans le sud du Bénin, juste après la frontière de Kraké en venant du Nigéria, sur un site de 2 hectares.', link: 'site-seme-podji' },
+      { q: 'Où se trouve votre usine ?', a: 'À Sèmè-Podji, dans le sud du BÉNIN, juste après la frontière de Kraké en venant du NIGÉRIA, sur un site de 2 hectares.', link: 'site-seme-podji' },
       { q: 'Quels produits fabriquerez-vous ?', a: 'Des solutés de perfusion (chlorure de sodium, glucose, Ringer lactate…), des solutions médicamenteuses (paracétamol, métronidazole, lévofloxacine, ciprofloxacine) et des injectables en ampoules, puis d\'autres gammes au fil des autorisations.', link: 'produits' },
       { q: 'Vos produits respectent-ils les normes internationales ?', a: 'Notre usine est construite selon les bonnes pratiques de fabrication de l\'OMS. Nous visons les certifications ISO 9001 et ISO 14001, et la certification green building EDGE est en cours d\'obtention.', link: 'certifications' },
-      { q: 'Livrez-vous hors du Bénin ?', a: 'Oui. Nous couvrons 15 pays d\'Afrique de l\'Ouest. Le marché béninois reste prioritaire.', link: 'presence' },
+      { q: 'Livrez-vous hors du BÉNIN ?', a: 'Oui. Nous couvrons 15 pays d\'Afrique de l\'Ouest. Le marché béninois reste prioritaire.', link: 'presence' },
       { q: 'Comment devenir distributeur ?', a: 'Remplissez le formulaire de la page Devenir distributeur. Notre direction commerciale vous recontactera.', link: 'distributeurs' },
       { q: 'Recrutez-vous ?', a: 'Aucune offre n\'est publiée pour le moment, mais vous pouvez déposer une candidature spontanée.', link: 'candidature' },
       { q: 'Comment signaler un effet indésirable ?', a: 'Utilisez le formulaire de la page Pharmacovigilance. En cas d\'urgence, contactez immédiatement un médecin.', link: 'pharmacovigilance' },
@@ -136,7 +136,7 @@ const fin = {
         { title: 'Utilisation', text: ['Ces données servent exclusivement à traiter votre demande. Elles ne sont ni vendues ni cédées à des tiers.', 'Les signalements de pharmacovigilance sont traités de façon confidentielle par notre pharmacien responsable et peuvent être transmis aux autorités de santé lorsque la réglementation l\'exige.'] },
         { title: 'Hébergement des formulaires', text: ['Les formulaires du site sont traités sur notre serveur, hébergé par Hostinger, puis transmis par e-mail à nos équipes via notre messagerie (OVH). Ils ne sont pas conservés sur le serveur.'] },
         { title: 'Durée de conservation', text: ['Les demandes commerciales sont conservées trois ans au plus après le dernier contact ; les candidatures, deux ans au plus. Les signalements de pharmacovigilance sont conservés pendant la durée imposée par la réglementation.'] },
-        { title: 'Vos droits', text: ['Conformément au Code du numérique de la République du Bénin, vous disposez d\'un droit d\'accès, de rectification et de suppression de vos données. Écrivez-nous à contact@tilamedpharma.com. Vous pouvez aussi saisir l\'Autorité de protection des données à caractère personnel (APDP).'] },
+        { title: 'Vos droits', text: ['Conformément au Code du numérique de la RÉPUBLIQUE DU BÉNIN, vous disposez d\'un droit d\'accès, de rectification et de suppression de vos données. Écrivez-nous à contact@tilamedpharma.com. Vous pouvez aussi saisir l\'Autorité de protection des données à caractère personnel (APDP).'] },
       ],
     },
     cookies: {

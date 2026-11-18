@@ -27,7 +27,7 @@ const parcours: ParcoursDict = {
         title: 'The foundations',
         items: [
           { date: '2013', title: 'SEDIS SARL is founded', text: 'The company is set up to supply, install and maintain medical devices in West Africa, working closely with hospitals, laboratories and procurement agencies.' },
-          { date: '2013 – 2022', title: 'Ten years in the field, one finding', text: 'In Benin, no injectable solution is manufactured locally. Market studies and meetings with health authorities, procurement agencies and European equipment manufacturers: the industrial project takes shape.' },
+          { date: '2013 – 2022', title: 'Ten years in the field, one finding', text: 'In BENIN, no injectable solution is manufactured locally. Market studies and meetings with health authorities, procurement agencies and European equipment manufacturers: the industrial project takes shape.' },
         ],
       },
       {
@@ -35,7 +35,7 @@ const parcours: ParcoursDict = {
         title: 'The authorisations',
         items: [
           { date: '2023', title: 'TILAMED PHARMA SA is born', text: 'SEDIS SARL becomes TILAMED PHARMA SA, a public limited company with a share capital of one billion CFA francs, focused on industrial production.' },
-          { date: '16 May 2023', title: 'Favourable opinion from the ABRP', text: 'Meeting in committee, the Benin Pharmaceutical Regulatory Agency issues a favourable opinion on the opening and operation of a pharmaceutical plant.' },
+          { date: '16 May 2023', title: 'Favourable opinion from the ABRP', text: 'Meeting in committee, the BENIN Pharmaceutical Regulatory Agency issues a favourable opinion on the opening and operation of a pharmaceutical plant.' },
           { date: '30 June 2023', title: '', text: 'The installation and operation of the pharmaceutical plant are authorised.', comp: 0 },
           { date: '7 August 2024', title: '', text: 'The project is recognised as compliant with environmental and social requirements.', comp: 2 },
           { date: '9 September 2024', title: '', text: 'TILAMED Pharma\'s industrial activity is authorised.', comp: 1 },
@@ -47,7 +47,7 @@ const parcours: ParcoursDict = {
         range: '2025 →',
         title: 'The site and the plant',
         items: [
-          { date: '9 September 2025', title: 'The Sèmè-Podji site', text: 'The State of Benin entrusts TILAMED PHARMA SA with a 2-hectare industrial site, under a long-term lease, in the Sèmè-Podji industrial zone on the Nigerian border.', ref: 'Long-term lease No. 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
+          { date: '9 September 2025', title: 'The Sèmè-Podji site', text: 'The State of BENIN entrusts TILAMED PHARMA SA with a 2-hectare industrial site, under a long-term lease, in the Sèmè-Podji industrial zone on the Nigerian border.', ref: 'Long-term lease No. 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
           { date: 'Today', title: 'Building the plant', text: 'TILAMED Pharma is preparing its injectable-solutions production unit in the Sèmè-Podji special economic zone.', state: 'now' },
           { date: 'Tomorrow', title: 'Commissioning', text: 'Start of production and recruitment of the first teams.', state: 'next' },
         ],
@@ -56,11 +56,11 @@ const parcours: ParcoursDict = {
   },
   sites: {
     eyebrow: 'Our locations',
-    title: 'Rooted in Benin and the region',
+    title: 'Rooted in BENIN and the region',
     items: [
-      { title: 'Production site', place: 'Sèmè-Podji · Benin', text: '2 hectares (20,000 m²) in the Sèmè-Podji industrial zone, on the Nigerian border.' },
-      { title: 'Head office', place: 'Cotonou · Benin', text: 'An office building in Les Cocotiers, in the city centre, owned by TILAMED PHARMA SA.' },
-      { title: 'Regional office', place: 'Ouagadougou · Burkina Faso', text: 'A 1,000 m² office building in Dassasgho.' },
+      { title: 'Production site', place: 'Sèmè-Podji · BENIN', text: '2 hectares (20,000 m²) in the Sèmè-Podji industrial zone, on the Nigerian border.' },
+      { title: 'Head office', place: 'Cotonou · BENIN', text: 'An office building in Les Cocotiers, in the city centre, owned by TILAMED PHARMA SA.' },
+      { title: 'Regional office', place: 'Ouagadougou · BURKINA FASO', text: 'A 1,000 m² office building in Dassasgho.' },
     ],
   },
   cta: {

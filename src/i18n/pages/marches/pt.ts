@@ -3,8 +3,8 @@ import type { MarchesDict } from './fr';
 const marches: MarchesDict = {
   pages: {
     clients: {
-      meta: { title: 'Os nossos clientes · Mercados · TILAMED Pharma', description: 'Centrais de compras, grossistas, organizações de saúde, hospitais e farmácias: os clientes da TILAMED Pharma no Benim e na África Ocidental.' },
-      lead: 'Fornecemos os atores públicos e privados da saúde no Benim e na África Ocidental.',
+      meta: { title: 'Os nossos clientes · Mercados · TILAMED Pharma', description: 'Centrais de compras, grossistas, organizações de saúde, hospitais e farmácias: os clientes da TILAMED Pharma no BENIM e na África Ocidental.' },
+      lead: 'Fornecemos os atores públicos e privados da saúde no BENIM e na África Ocidental.',
       intro: '',
       facts: [{ value: '15', unit: 'países', label: 'da África Ocidental cobertos' }],
       blocks: [
@@ -82,11 +82,11 @@ const marches: MarchesDict = {
     channels: ['Centrais de compras públicas', 'Hospitais e clínicas', 'Farmácias', 'Organizações de saúde', 'Exportação sub-regional'],
   },
   presence: {
-    meta: { title: 'Presença regional · Mercados · TILAMED Pharma', description: 'Uma fábrica no Benim, 15 países da África Ocidental cobertos e escritórios no Benim, no Burkina Faso e em França.' },
-    lead: 'Uma fábrica no Benim, 15 países da África Ocidental cobertos e uma presença internacional.',
+    meta: { title: 'Presença regional · Mercados · TILAMED Pharma', description: 'Uma fábrica no BENIM, 15 países da África Ocidental cobertos e escritórios no BENIM, no BURKINA FASO e em FRANÇA.' },
+    lead: 'Uma fábrica no BENIM, 15 países da África Ocidental cobertos e uma presença internacional.',
     facts: [
       { value: '15', unit: 'países', label: 'da África Ocidental cobertos' },
-      { value: '3', unit: '', label: 'escritórios: Benim, Burkina Faso, França' },
+      { value: '3', unit: '', label: 'escritórios: BENIM, BURKINA FASO, FRANÇA' },
       { value: '400', unit: 'M +', label: 'de habitantes na África Ocidental' },
     ],
     note: 'A sub-região partilha desafios de saúde próximos: doenças semelhantes, populações jovens e em forte crescimento, e a mesma dependência dos medicamentos importados.',

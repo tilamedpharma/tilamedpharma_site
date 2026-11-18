@@ -2,17 +2,17 @@ import type { BeninDict } from './fr';
 
 const benin: BeninDict = {
   meta: {
-    title: 'Perché produrre in Benin? · TILAMED Pharma',
-    description: 'Il Benin importa la totalità delle sue soluzioni iniettabili. Produrre sul posto migliora disponibilità, tracciabilità, prezzi e occupazione.',
+    title: 'Perché produrre in BENIN? · TILAMED Pharma',
+    description: 'Il BENIN importa la totalità delle sue soluzioni iniettabili. Produrre sul posto migliora disponibilità, tracciabilità, prezzi e occupazione.',
   },
   hero: {
-    lead: 'Il Benin importa oggi la totalità delle sue soluzioni iniettabili. Produrre sul posto cambia tutto per i pazienti.',
+    lead: 'Il BENIN importa oggi la totalità delle sue soluzioni iniettabili. Produrre sul posto cambia tutto per i pazienti.',
     cta: 'La situazione',
   },
   facts: [
-    { value: '100', unit: '%', label: 'delle soluzioni iniettabili consumate in Benin sono importate' },
+    { value: '100', unit: '%', label: 'delle soluzioni iniettabili consumate in BENIN sono importate' },
     { value: '0', unit: '', label: 'produttori locali di soluzioni farmaceutiche liquide prima di TILAMED' },
-    { value: '15', unit: 'paesi', label: 'dell\'Africa occidentale da rifornire dal Benin' },
+    { value: '15', unit: 'paesi', label: 'dell\'Africa occidentale da rifornire dal BENIN' },
     { value: '400', unit: 'M +', label: 'di abitanti in Africa occidentale' },
   ],
   problem: {
@@ -21,7 +21,7 @@ const benin: BeninDict = {
     text: 'Una soluzione per infusione è composta essenzialmente da acqua. È pesante e voluminosa: il suo trasporto costa caro, perché il nolo è calcolato a peso e volume, e il suo stoccaggio occupa molto spazio. Eppure i grossisti devono tenere costantemente diversi mesi di scorte per evitare carenze.',
     todayLabel: 'Oggi · importata',
     today: ['Fabbricazione all\'estero', 'Nolo marittimo fatturato a peso e volume', 'Diversi mesi di scorte presso i grossisti', 'Ospedali e pazienti'],
-    tomorrowLabel: 'Domani · prodotta in Benin',
+    tomorrowLabel: 'Domani · prodotta in BENIN',
     tomorrow: ['Fabbricazione a Sèmè-Podji', 'Consegna su strada, secondo le reali esigenze', 'Ospedali e pazienti'],
   },
   benefits: {
@@ -37,12 +37,12 @@ const benin: BeninDict = {
   position: {
     eyebrow: 'Una posizione strategica',
     title: 'Nel cuore dell\'Africa occidentale',
-    text: 'Il nostro stabilimento sorge a Sèmè-Podji, tra Cotonou e il confine con la Nigeria: una posizione pensata per rifornire l\'intera regione.',
+    text: 'Il nostro stabilimento sorge a Sèmè-Podji, tra Cotonou e il confine con la NIGERIA: una posizione pensata per rifornire l\'intera regione.',
     corridor: 'Sul corridoio costiero Abidjan – Lagos',
     port: 'Porto',
     border: 'Confine',
     items: [
-      { title: 'La Nigeria alle porte', text: 'Il sito confina con il paese più popoloso dell\'Africa.' },
+      { title: 'La NIGERIA alle porte', text: 'Il sito confina con il paese più popoloso dell\'Africa.' },
       { title: 'Vicino al porto di Cotonou', text: 'La porta d\'ingresso commerciale del paese, per le materie prime come per le apparecchiature.' },
       { title: 'Un\'intera regione da servire', text: 'Quindici paesi e oltre 400 milioni di abitanti riforniti da un solo stabilimento.' },
     ],

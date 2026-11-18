@@ -3,7 +3,7 @@ import type { EgaliteDict } from './fr';
 const egalite: EgaliteDict = {
   meta: {
     title: 'Parità di genere e inclusione · TILAMED Pharma',
-    description: 'Prima industria farmaceutica del Benin a inserire fin dalla sua concezione la parità tra donne e uomini e l\'inclusione delle persone con disabilità.',
+    description: 'Prima industria farmaceutica del BENIN a inserire fin dalla sua concezione la parità tra donne e uomini e l\'inclusione delle persone con disabilità.',
   },
   hero: {
     lead: 'TILAMED Pharma promuove, fin dalla sua concezione, una reale uguaglianza tra donne e uomini e l\'inclusione delle persone con disabilità.',
@@ -11,9 +11,9 @@ const egalite: EgaliteDict = {
   },
   first: {
     value: '1ª',
-    label: 'industria farmaceutica del Benin impegnata per la parità e l\'inclusione fin dalla concezione',
-    eyebrow: 'Una prima in Benin',
-    text: 'TILAMED Pharma è la prima industria farmaceutica del Benin a inserire nella propria organizzazione, fin dalla concezione, l\'uguaglianza formale e reale dei diritti tra donne e uomini, e ad aprire i suoi mestieri alle persone con disabilità.',
+    label: 'industria farmaceutica del BENIN impegnata per la parità e l\'inclusione fin dalla concezione',
+    eyebrow: 'Una prima in BENIN',
+    text: 'TILAMED Pharma è la prima industria farmaceutica del BENIN a inserire nella propria organizzazione, fin dalla concezione, l\'uguaglianza formale e reale dei diritti tra donne e uomini, e ad aprire i suoi mestieri alle persone con disabilità.',
   },
   pillars: {
     eyebrow: 'Due impegni',

@@ -3,10 +3,10 @@ import type { AProposDict } from './fr';
 const aPropos: AProposDict = {
   meta: {
     title: 'Quiénes somos · TILAMED Pharma',
-    description: 'TILAMED PHARMA SA construye en Benín una planta de producción de soluciones farmacéuticas líquidas según las normas de la OMS. Historia, actividades, objetivos y socios.',
+    description: 'TILAMED PHARMA SA construye en BENÍN una planta de producción de soluciones farmacéuticas líquidas según las normas de la OMS. Historia, actividades, objetivos y socios.',
   },
   hero: {
-    lead: 'TILAMED Pharma es una empresa farmacéutica que construye en Benín una planta de producción de soluciones farmacéuticas líquidas, según las normas de la Organización Mundial de la Salud.',
+    lead: 'TILAMED Pharma es una empresa farmacéutica que construye en BENÍN una planta de producción de soluciones farmacéuticas líquidas, según las normas de la Organización Mundial de la Salud.',
     imageAlt: 'Equipo de profesionales en una reunión de trabajo',
   },
   facts: [
@@ -39,12 +39,12 @@ const aPropos: AProposDict = {
       'Reducir la dependencia de las importaciones y los riesgos que conlleva.',
       'Fomentar el consumo de productos fabricados localmente.',
     ],
-    cta: '¿Por qué producir en Benín?',
+    cta: '¿Por qué producir en BENÍN?',
   },
   partnership: {
     eyebrow: 'Alianzas',
     title: 'Abiertos a alianzas internacionales',
-    text: 'TILAMED Pharma desea trabajar con las organizaciones internacionales de salud, las agencias de desarrollo y las instituciones financieras comprometidas con el acceso a los medicamentos en África. Nuestra ambición: convertirnos en un socio industrial de confianza para sus programas en Benín y en la subregión.',
+    text: 'TILAMED Pharma desea trabajar con las organizaciones internacionales de salud, las agencias de desarrollo y las instituciones financieras comprometidas con el acceso a los medicamentos en África. Nuestra ambición: convertirnos en un socio industrial de confianza para sus programas en BENÍN y en la subregión.',
     cta1: 'Organizaciones de salud',
     cta2: 'Contáctenos',
   },

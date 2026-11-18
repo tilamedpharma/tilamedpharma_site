@@ -2,8 +2,8 @@ import type { Dict } from './fr';
 
 const pt: Dict = {
   meta: {
-    title: 'TILAMED Pharma · Laboratório farmacêutico no Benim, conforme as normas da OMS',
-    description: 'A TILAMED PHARMA SA constrói em Sèmè-Podji (Benim) uma fábrica farmacêutica de nova geração: soros, medicamentos injetáveis, nutrição, dispositivos médicos e saúde animal, conforme as normas da OMS e a preços acessíveis.',
+    title: 'TILAMED Pharma · Laboratório farmacêutico no BENIM, conforme as normas da OMS',
+    description: 'A TILAMED PHARMA SA constrói em Sèmè-Podji (BENIM) uma fábrica farmacêutica de nova geração: soros, medicamentos injetáveis, nutrição, dispositivos médicos e saúde animal, conforme as normas da OMS e a preços acessíveis.',
   },
   a11y: {
     skip: 'Ir para o conteúdo', menu: 'Menu', close: 'Fechar', search: 'Pesquisar', language: 'Idioma',
@@ -26,7 +26,7 @@ const pt: Dict = {
     },
     pages: {
       'a-propos': 'Quem somos', 'vision-valeurs': 'Visão, missão e valores', direction: 'Direção', parcours: 'O nosso percurso',
-      'pourquoi-le-benin': 'Porquê o Benim?', rse: 'Responsabilidade social', egalite: 'Igualdade de género', environnement: 'Ambiente',
+      'pourquoi-le-benin': 'Porquê o BENIM?', rse: 'Responsabilidade social', egalite: 'Igualdade de género', environnement: 'Ambiente',
       'centrale-achat': 'A nossa central de compras', fournisseurs: 'Os nossos fornecedores', 'chaine-distribution': 'A nossa distribuição',
       usine: 'A nossa fábrica', 'site-seme-podji': 'O local de Sèmè-Podji', 'traitement-eau': 'Tratamento da água', 'preparation-solutions': 'Preparação das soluções',
       'soufflage-remplissage-scellage': 'Sopro, enchimento, selagem', sterilisation: 'Esterilização', inspection: 'Controlo a 100 %', laboratoire: 'Laboratório de controlo de qualidade',
@@ -44,18 +44,18 @@ const pt: Dict = {
     },
   },
   hero: {
-    eyebrow: 'Laboratório farmacêutico · Sèmè-Podji, Benim',
+    eyebrow: 'Laboratório farmacêutico · Sèmè-Podji, BENIM',
     title: 'A excelência farmacêutica, fabricada no coração da África Ocidental.',
-    lead: 'A TILAMED PHARMA SA constrói no Benim uma fábrica de nova geração para produzir medicamentos de alta qualidade, conformes às normas da Organização Mundial da Saúde, a preços acessíveis a todos.',
+    lead: 'A TILAMED PHARMA SA constrói no BENIM uma fábrica de nova geração para produzir medicamentos de alta qualidade, conformes às normas da Organização Mundial da Saúde, a preços acessíveis a todos.',
     cta1: 'Descobrir a nossa fábrica', cta2: 'Contacte-nos',
-    proofs: ['Normas OMS', 'Fabricado na República do Benim', 'Edifício verde · EDGE em curso', 'Fábrica inclusiva'],
+    proofs: ['Normas OMS', 'Fabricado na REPÚBLICA DO BENIM', 'Edifício verde · EDGE em curso', 'Fábrica inclusiva'],
     caption: 'Imagens ilustrativas do processo',
     scroll: 'Deslizar',
   },
   heroNet: {
     eyebrow: 'A nossa rede',
-    title: 'Fabricado no Benim, distribuído em 15 países da África Ocidental.',
-    lead: 'A partir de Sèmè-Podji, na fronteira com a Nigéria, as nossas soluções injetáveis chegam às centrais de compras, aos distribuidores e aos hospitais de toda a região.',
+    title: 'Fabricado no BENIM, distribuído em 15 países da África Ocidental.',
+    lead: 'A partir de Sèmè-Podji, na fronteira com a NIGÉRIA, as nossas soluções injetáveis chegam às centrais de compras, aos distribuidores e aos hospitais de toda a região.',
     count: 'países cobertos',
     tabs: ['A nossa fábrica', 'A nossa rede'],
     label: 'Apresentação',
@@ -70,15 +70,15 @@ const pt: Dict = {
       { value: '13', unit: 'anos +', label: 'de experiência dos nossos acionistas no setor médico' },
       { value: '15', unit: 'países', label: 'da África Ocidental cobertos pela nossa rede' },
       { value: 'EDGE', unit: '', label: 'certificação green building em curso de obtenção' },
-      { value: '1.ª', unit: 'fábrica', label: 'farmacêutica do Benim empenhada na igualdade de género e na inclusão da deficiência' },
+      { value: '1.ª', unit: 'fábrica', label: 'farmacêutica do BENIM empenhada na igualdade de género e na inclusão da deficiência' },
     ],
   },
   chain: {
     eyebrow: 'A nossa cadeia de distribuição', title: 'De Sèmè-Podji até ao doente',
-    intro: 'Um circuito curto, rápido e rastreável: fabricadas no Benim, as nossas soluções chegam aos doentes em menos de um mês.',
+    intro: 'Um circuito curto, rápido e rastreável: fabricadas no BENIM, as nossas soluções chegam aos doentes em menos de um mês.',
     label: 'Cadeia de distribuição em três etapas',
     steps: [
-      { title: 'Fábrica de Sèmè-Podji', text: 'Fabricado e controlado no Benim' },
+      { title: 'Fábrica de Sèmè-Podji', text: 'Fabricado e controlado no BENIM' },
       { title: 'Centrais de compras, grossistas e distribuidores', text: 'Cooperativas públicas regionais, grossistas privados e outros distribuidores' },
       { title: 'Doentes', text: 'Tratados em menos de um mês' },
     ],
@@ -120,7 +120,7 @@ const pt: Dict = {
       { icon: 'drop', title: 'Água controlada', text: 'Água tratada no local, distribuída em circuito e utilizada com rigor.' },
       { icon: 'leaf', title: 'Menos plástico', text: 'O sopro-enchimento-selagem fabrica o recipiente no momento do enchimento: menos embalagens transportadas.' },
       { icon: 'recycle', title: 'Resíduos controlados', text: 'Triagem, tratamento e eliminação segura dos resíduos industriais e de laboratório.' },
-      { icon: 'route', title: 'Menos transporte', text: 'Produzir no Benim evita longos trajetos marítimos e rodoviários entre a Ásia e os nossos hospitais.' },
+      { icon: 'route', title: 'Menos transporte', text: 'Produzir no BENIM evita longos trajetos marítimos e rodoviários entre a Ásia e os nossos hospitais.' },
     ],
     proofs: ['Certificação EDGE em curso de obtenção', 'Certificado de conformidade ambiental e social · 7 de agosto de 2024', 'Certificação ISO 14001 visada'],
     cta: 'O nosso compromisso ambiental',
@@ -128,7 +128,7 @@ const pt: Dict = {
     techAlt: 'Técnico a instalar painéis solares',
     inclusion: {
       badge: 'Fábrica inclusiva',
-      title: 'Primeira fábrica farmacêutica do Benim empenhada na igualdade e na inclusão',
+      title: 'Primeira fábrica farmacêutica do BENIM empenhada na igualdade e na inclusão',
       text: 'Desde a sua conceção, a TILAMED Pharma integra na sua organização a igualdade real entre mulheres e homens e a inclusão das pessoas com deficiência.',
       items: [
         { icon: 'users', title: 'Igualdade de género', text: 'Recrutamento, remuneração e progressão na carreira baseados apenas nas competências.' },
@@ -145,7 +145,7 @@ const pt: Dict = {
     eyebrow: 'Quem somos',
     title: 'Uma empresa farmacêutica africana de nova geração',
     text: [
-      'A TILAMED PHARMA SA constrói na República do Benim uma fábrica de produção de produtos farmacêuticos de alta qualidade, conformes às normas internacionais da Organização Mundial da Saúde, a preços acessíveis a todos.',
+      'A TILAMED PHARMA SA constrói na REPÚBLICA DO BENIM uma fábrica de produção de produtos farmacêuticos de alta qualidade, conformes às normas internacionais da Organização Mundial da Saúde, a preços acessíveis a todos.',
       'Criada em 2013 como SEDIS SARL para distribuir dispositivos médicos na África Ocidental, a empresa tornou-se TILAMED PHARMA SA em 2023 e dedica-se agora à produção industrial.',
     ],
     pillars: [
@@ -169,10 +169,10 @@ const pt: Dict = {
     ],
   },
   why: {
-    eyebrow: 'Porquê produzir no Benim?',
+    eyebrow: 'Porquê produzir no BENIM?',
     title: 'Hoje, cada frasco de perfusão vem de longe.',
     stat: '100 %',
-    statLabel: 'das soluções injetáveis utilizadas no Benim são importadas',
+    statLabel: 'das soluções injetáveis utilizadas no BENIM são importadas',
     text: 'Os hospitais dependem de importações distantes, com prazos longos e riscos de rutura. Produzir localmente muda tudo para os doentes, os profissionais de saúde e a economia.',
     items: [
       { title: 'Stocks mais próximos', text: 'Abastecer hospitais e centrais de compras em poucas horas, sem ruturas.' },
@@ -200,7 +200,7 @@ const pt: Dict = {
   },
   products: {
     eyebrow: 'Os nossos produtos',
-    title: 'Produtos de saúde essenciais, fabricados no Benim',
+    title: 'Produtos de saúde essenciais, fabricados no BENIM',
     intro: 'Para hospitais, clínicas e farmácias da África Ocidental.',
     cta: 'Ver o catálogo',
     request: 'Pedir a documentação',
@@ -222,7 +222,7 @@ const pt: Dict = {
       { title: 'Autorização industrial', ref: 'N.º LFFL EK3V JE3W CQ9Z · 9 de setembro de 2024', by: 'Ministério do Comércio e da Indústria' },
       { title: 'Certificado de conformidade ambiental e social', ref: 'Despacho N.º 0253/MCVT/DC/SGM/DG-ABE/DEES/SEIES/SA · 7 de agosto de 2024', by: 'Ministério da Saúde e Ministério do Ambiente' },
       { title: 'Certificado de aceitabilidade técnica', ref: 'N.º 712/APIEX/DEAPI/SETAPI/SA · 28 de outubro de 2024', by: 'Agência de Promoção de Investimentos e Exportações (APIEX)' },
-      { title: 'Despacho ministerial', ref: 'N.º 034/MDC/MEF/MIC/DC/SGM/DDI/SA/041SGG24 · 28 de novembro de 2024', by: 'Governo da República do Benim' },
+      { title: 'Despacho ministerial', ref: 'N.º 034/MDC/MEF/MIC/DC/SGM/DDI/SA/041SGG24 · 28 de novembro de 2024', by: 'Governo da REPÚBLICA DO BENIM' },
       { title: 'Isenção fiscal e social (waiver)', ref: 'Regime B · 8 anos', by: 'Fases de investimento e de exploração' },
     ],
     standardsTitle: 'Os nossos referenciais',
@@ -248,10 +248,10 @@ const pt: Dict = {
   },
   presence: {
     eyebrow: 'Onde operamos',
-    title: 'Fabricado no Benim, distribuído na África Ocidental',
-    intro: 'A partir da nossa fábrica de Sèmè-Podji, na fronteira com a Nigéria, abastecemos quinze países da região, com escritórios no Benim, no Burkina Faso e em França.',
+    title: 'Fabricado no BENIM, distribuído na África Ocidental',
+    intro: 'A partir da nossa fábrica de Sèmè-Podji, na fronteira com a NIGÉRIA, abastecemos quinze países da região, com escritórios no BENIM, no BURKINA FASO e em FRANÇA.',
     plant: 'Fábrica TILAMED Pharma',
-    plantPlace: 'Sèmè-Podji · Benim',
+    plantPlace: 'Sèmè-Podji · BENIM',
     legendCovered: 'Países cobertos',
     legendRoute: 'Rota de abastecimento',
     countriesTitle: 'Cobertura geográfica',
@@ -262,8 +262,8 @@ const pt: Dict = {
   },
   presenceSites: {
     title: 'Uma fábrica, três escritórios, quinze países',
-    lead: 'Produzir no Benim e estar presentes onde estão os nossos clientes.',
-    roles: { plant: 'Produção · 2 hectares na fronteira com a Nigéria', bj: 'Sede administrativa', bf: 'Escritório regional · Sahel', fr: 'Relações com a Europa' },
+    lead: 'Produzir no BENIM e estar presentes onde estão os nossos clientes.',
+    roles: { plant: 'Produção · 2 hectares na fronteira com a NIGÉRIA', bj: 'Sede administrativa', bf: 'Escritório regional · Sahel', fr: 'Relações com a Europa' },
   },
   formMsg: { sending: 'A enviar…', ok: 'Obrigado, a sua mensagem foi enviada. Responderemos em breve.', error: 'O envio falhou. Tente novamente ou escreva-nos para contact@tilamedpharma.com.', big: 'Ficheiro demasiado pesado (máximo 5 MB).' },
   clients: {
@@ -291,7 +291,7 @@ const pt: Dict = {
     all: 'Todas as notícias',
     read: 'Ler o artigo',
     items: [
-      { date: '2025-09-09', tag: 'Local industrial', title: 'Um arrendamento enfitêutico para o local de Sèmè-Podji', text: 'O Estado beninense confia à TILAMED PHARMA SA um local industrial de 2 hectares na fronteira com a Nigéria.' },
+      { date: '2025-09-09', tag: 'Local industrial', title: 'Um arrendamento enfitêutico para o local de Sèmè-Podji', text: 'O Estado beninense confia à TILAMED PHARMA SA um local industrial de 2 hectares na fronteira com a NIGÉRIA.' },
       { date: '2024-11-28', tag: 'Regulamentação', title: 'O despacho ministerial completa as nossas autorizações', text: 'Autorização industrial, certificados ambiental e técnico: um 2024 decisivo.' },
       { date: '2023-06-30', tag: 'Autorização', title: 'Autorização de instalação e exploração da fábrica', text: 'A agência beninense de regulação farmacêutica autoriza a instalação e a exploração da nossa fábrica.' },
     ],
@@ -304,7 +304,7 @@ const pt: Dict = {
     whatsapp: 'WhatsApp',
   },
   footer: {
-    about: 'Laboratório farmacêutico · Fabricante de medicamentos. Filial da África Ocidental, Cotonou (Benim). Sociedade anónima com capital de 1 000 000 000 FCFA.',
+    about: 'Laboratório farmacêutico · Fabricante de medicamentos. Filial da África Ocidental, Cotonou (BENIM). Sociedade anónima com capital de 1 000 000 000 FCFA.',
     offices: 'Os nossos escritórios',
     follow: 'Siga-nos',
     rights: 'Todos os direitos reservados.',
@@ -321,10 +321,10 @@ const pt: Dict = {
         { title: 'Imprensa', text: 'Informações-chave, imagens e contacto de imprensa.', action: 'Espaço de imprensa' },
       ],
       newsletter: { title: 'Receba as novidades do projeto', text: 'Autorizações, avanço da fábrica, lançamentos de produtos.', placeholder: 'O seu e-mail', button: 'Subscrever' },
-      plant: { title: 'Fábrica · Sèmè-Podji', place: 'Fronteira com a Nigéria (Kraké)', directions: 'Itinerário' },
+      plant: { title: 'Fábrica · Sèmè-Podji', place: 'Fronteira com a NIGÉRIA (Kraké)', directions: 'Itinerário' },
       backToTop: 'Voltar ao topo',
     },
-    officeNames: { bj: 'Benim · Sede', bf: 'Burkina Faso', fr: 'França' },
+    officeNames: { bj: 'BENIM · Sede', bf: 'BURKINA FASO', fr: 'FRANÇA' },
   },
 };
 

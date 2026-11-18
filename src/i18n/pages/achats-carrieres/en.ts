@@ -29,7 +29,7 @@ const d: AchatsCarrieresDict = {
       blocks: [
         { kind: 'sequence', title: 'Supplier selection criteria', text: 'Each supplier is assessed before the first order, then reassessed regularly. For materials that go into the product, the assessment includes a questionnaire, a review of the technical file and, where necessary, an on-site audit.', items: [
           { title: 'Quality', text: 'A recognised quality management system, certificates of analysis for every batch and, for pharmaceutical materials, compliance with good manufacturing practice.' },
-          { title: 'Regulatory compliance', text: 'Products and documents that comply with pharmacopoeias and the requirements of the Benin Pharmaceutical Regulatory Agency (ABRP).' },
+          { title: 'Regulatory compliance', text: 'Products and documents that comply with pharmacopoeias and the requirements of the BENIN Pharmaceutical Regulatory Agency (ABRP).' },
           { title: 'Reliability', text: 'Deadlines met, sufficient capacity, full traceability and prompt notice of any change or incident.' },
           { title: 'Total cost', text: 'A fair price, assessed together with transport, lead times, storage and shortage risk, not just the purchase price.' },
           { title: 'Responsibility', text: 'Respect for human rights, occupational health and safety, the environment and anti-corruption rules.' },
@@ -53,13 +53,13 @@ const d: AchatsCarrieresDict = {
     'chaine-distribution': {
       meta: { title: 'Our distribution · Purchasing · TILAMED Pharma', description: 'From the Sèmè-Podji plant to the patient: a short, controlled and traceable supply chain.' },
       lead: 'From the Sèmè-Podji plant to the patient: a short, controlled and traceable supply chain.',
-      intro: 'Our products are made in Benin, a few hours by road from the hospitals that use them. Here is the route they follow, from the plant to the patient.',
+      intro: 'Our products are made in BENIN, a few hours by road from the hospitals that use them. Here is the route they follow, from the plant to the patient.',
       facts: [],
       blocks: [
         { kind: 'sequence', title: 'Step by step', items: [
           { title: 'The Sèmè-Podji plant', text: 'Every batch is manufactured, tested by our laboratory and released by the responsible pharmacist.' },
           { title: 'Our warehouse', text: 'Finished products are stored under controlled conditions, tracked by batch and expiry date.' },
-          { title: 'Procurement agencies and distributors', text: 'We deliver to public procurement agencies, health organisations and our approved distributors in Benin and the sub-region.' },
+          { title: 'Procurement agencies and distributors', text: 'We deliver to public procurement agencies, health organisations and our approved distributors in BENIN and the sub-region.' },
           { title: 'Hospitals, clinics and pharmacies', text: 'Health facilities receive products faster, in quantities matched to their real consumption.' },
           { title: 'Patients', text: 'Quality infusion solutions, available close to home, at an affordable price.' },
         ] },
@@ -67,8 +67,8 @@ const d: AchatsCarrieresDict = {
       note: 'Nearly half of Africa\'s population has no regular access to essential medicines.',
     },
     carrieres: {
-      meta: { title: 'Working at TILAMED · Careers · TILAMED Pharma', description: '150 direct jobs, 70% technical positions and 5 years of skills transfer: join Benin\'s first injectable solutions industry.' },
-      lead: 'Join Benin\'s first injectable solutions industry.',
+      meta: { title: 'Working at TILAMED · Careers · TILAMED Pharma', description: '150 direct jobs, 70% technical positions and 5 years of skills transfer: join BENIN\'s first injectable solutions industry.' },
+      lead: 'Join BENIN\'s first injectable solutions industry.',
       intro: '',
       facts: [
         { value: '150', unit: '', label: 'direct jobs' },
@@ -79,7 +79,7 @@ const d: AchatsCarrieresDict = {
       blocks: [
         { kind: 'prose', title: 'A team in the making', items: [
           'We are building a team of qualified professionals, trained in industrial manufacturing and committed to quality.',
-          'Benin has a young, dynamic and skilled workforce: we recruit and train locally first.',
+          'BENIN has a young, dynamic and skilled workforce: we recruit and train locally first.',
         ] },
         { kind: 'points', title: 'An employer open to everyone', items: [
           'Open, fair recruitment based on skills alone.',

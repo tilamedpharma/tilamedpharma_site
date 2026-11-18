@@ -42,7 +42,7 @@ const ocean = proj([-17, 6])!;
       {visible.map((f) => {
         const id = String(f.id).padStart(3, '0');
         const cls = id === '204' ? 'map__bj' : covNums.has(id) ? 'map__cov' : 'map__land';
-        return <path class={cls} d={path(f)}><title>{isoByNum.has(id) ? countryName(lang, isoByNum.get(id)!) : f.properties?.name}</title></path>;
+        return <path class={cls} d={path(f)}><title>{isoByNum.has(id) ? countryName(lang, isoByNum.get(id)!) : String(f.properties?.name ?? '').toUpperCase()}</title></path>;
       })}
     </g>
     <text class="map__ocean" x={ocean[0]} y={ocean[1]}>{t.presence.ocean.toUpperCase()}</text>

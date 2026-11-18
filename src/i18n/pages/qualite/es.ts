@@ -46,7 +46,7 @@ const qualite: QualiteDict = {
     },
     agrements: {
       meta: { title: 'Autorizaciones · Calidad · TILAMED Pharma', description: 'Autorizaciones de la ABRP y de los ministerios beninenses, certificados ambiental y técnico, decreto ministerial: las autorizaciones de TILAMED PHARMA SA.' },
-      lead: 'En Benín, los productos farmacéuticos dependen de la Agencia Beninesa de Regulación Farmacéutica (ABRP).',
+      lead: 'En BENÍN, los productos farmacéuticos dependen de la Agencia Beninesa de Regulación Farmacéutica (ABRP).',
       intro: '',
       facts: [
         { value: '6', unit: '', label: 'autorizaciones obtenidas' },
@@ -95,7 +95,7 @@ const qualite: QualiteDict = {
           'Procedimiento de retirada probado, en relación con las autoridades.',
         ] },
       ],
-      note: 'Benín se ha comprometido firmemente contra los medicamentos falsificados: participación en la operación internacional PANGEA de INTERPOL, ratificación del convenio MEDICRIME del Consejo de Europa y nueva ley sobre las actividades farmacéuticas en 2021.',
+      note: 'BENÍN se ha comprometido firmemente contra los medicamentos falsificados: participación en la operación internacional PANGEA de INTERPOL, ratificación del convenio MEDICRIME del Consejo de Europa y nueva ley sobre las actividades farmacéuticas en 2021.',
     },
     certifications: {
       meta: { title: 'Certificaciones · Calidad · TILAMED Pharma', description: 'BPF de la OMS, ABRP, ISO 9001, ISO 14001, BPD y EDGE: nuestros objetivos de certificación para la calidad y el medio ambiente.' },

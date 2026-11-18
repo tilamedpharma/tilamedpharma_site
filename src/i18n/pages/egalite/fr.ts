@@ -5,7 +5,7 @@
 const egalite = {
   meta: {
     title: 'Égalité femmes-hommes et inclusion · TILAMED Pharma',
-    description: 'Première industrie pharmaceutique du Bénin à inscrire dès sa conception l\'égalité femmes-hommes et l\'inclusion des personnes en situation de handicap.',
+    description: 'Première industrie pharmaceutique du BÉNIN à inscrire dès sa conception l\'égalité femmes-hommes et l\'inclusion des personnes en situation de handicap.',
   },
   hero: {
     lead: 'TILAMED Pharma promeut, dès sa conception, une égalité réelle entre les femmes et les hommes et l\'inclusion des personnes en situation de handicap.',
@@ -13,9 +13,9 @@ const egalite = {
   },
   first: {
     value: '1re',
-    label: 'industrie pharmaceutique du Bénin engagée, dès sa conception, pour l\'égalité et l\'inclusion',
-    eyebrow: 'Une première au Bénin',
-    text: 'TILAMED Pharma est la première industrie pharmaceutique du Bénin à inscrire, dès sa conception, l\'égalité formelle et réelle des droits entre les femmes et les hommes dans son organisation, et à ouvrir ses métiers aux personnes en situation de handicap.',
+    label: 'industrie pharmaceutique du BÉNIN engagée, dès sa conception, pour l\'égalité et l\'inclusion',
+    eyebrow: 'Une première au BÉNIN',
+    text: 'TILAMED Pharma est la première industrie pharmaceutique du BÉNIN à inscrire, dès sa conception, l\'égalité formelle et réelle des droits entre les femmes et les hommes dans son organisation, et à ouvrir ses métiers aux personnes en situation de handicap.',
   },
   pillars: {
     eyebrow: 'Deux engagements',

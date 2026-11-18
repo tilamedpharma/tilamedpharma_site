@@ -35,7 +35,7 @@ const rse: RseDict = {
   },
   transfer: {
     eyebrow: 'Transferencia de competencias',
-    title: 'Un saber hacer que se queda en Benín',
+    title: 'Un saber hacer que se queda en BENÍN',
     value: '5',
     unit: 'años',
     label: 'de acompañamiento in situ por los ingenieros de los fabricantes',

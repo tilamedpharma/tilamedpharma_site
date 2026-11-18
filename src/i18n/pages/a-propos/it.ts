@@ -3,10 +3,10 @@ import type { AProposDict } from './fr';
 const aPropos: AProposDict = {
   meta: {
     title: 'Chi siamo · TILAMED Pharma',
-    description: 'TILAMED PHARMA SA costruisce in Benin un\'unità di produzione di soluzioni farmaceutiche liquide secondo le norme dell\'OMS. Storia, attività, obiettivi e partner.',
+    description: 'TILAMED PHARMA SA costruisce in BENIN un\'unità di produzione di soluzioni farmaceutiche liquide secondo le norme dell\'OMS. Storia, attività, obiettivi e partner.',
   },
   hero: {
-    lead: 'TILAMED Pharma è una società farmaceutica che costruisce in Benin un\'unità di produzione di soluzioni farmaceutiche liquide, secondo le norme dell\'Organizzazione mondiale della sanità.',
+    lead: 'TILAMED Pharma è una società farmaceutica che costruisce in BENIN un\'unità di produzione di soluzioni farmaceutiche liquide, secondo le norme dell\'Organizzazione mondiale della sanità.',
     imageAlt: 'Squadra di professioniste durante una riunione di lavoro',
   },
   facts: [
@@ -39,12 +39,12 @@ const aPropos: AProposDict = {
       'Ridurre la dipendenza dalle importazioni e i rischi che ne derivano.',
       'Incoraggiare il consumo di prodotti fabbricati localmente.',
     ],
-    cta: 'Perché produrre in Benin?',
+    cta: 'Perché produrre in BENIN?',
   },
   partnership: {
     eyebrow: 'Partenariati',
     title: 'Aperti ai partenariati internazionali',
-    text: 'TILAMED Pharma intende collaborare con le organizzazioni sanitarie internazionali, le agenzie di sviluppo e le istituzioni finanziarie impegnate per l\'accesso ai farmaci in Africa. La nostra ambizione: diventare un partner industriale di fiducia per i loro programmi in Benin e nella sottoregione.',
+    text: 'TILAMED Pharma intende collaborare con le organizzazioni sanitarie internazionali, le agenzie di sviluppo e le istituzioni finanziarie impegnate per l\'accesso ai farmaci in Africa. La nostra ambizione: diventare un partner industriale di fiducia per i loro programmi in BENIN e nella sottoregione.',
     cta1: 'Organizzazioni sanitarie',
     cta2: 'Contattaci',
   },

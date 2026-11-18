@@ -2,17 +2,17 @@ import type { BeninDict } from './fr';
 
 const benin: BeninDict = {
   meta: {
-    title: 'Why produce in Benin? · TILAMED Pharma',
-    description: 'Benin imports all of its injectable solutions. Producing locally improves availability, traceability, prices and jobs.',
+    title: 'Why produce in BENIN? · TILAMED Pharma',
+    description: 'BENIN imports all of its injectable solutions. Producing locally improves availability, traceability, prices and jobs.',
   },
   hero: {
-    lead: 'Benin currently imports all of its injectable solutions. Producing locally changes things for patients.',
+    lead: 'BENIN currently imports all of its injectable solutions. Producing locally changes things for patients.',
     cta: 'The situation',
   },
   facts: [
-    { value: '100', unit: '%', label: 'of the injectable solutions used in Benin are imported' },
+    { value: '100', unit: '%', label: 'of the injectable solutions used in BENIN are imported' },
     { value: '0', unit: '', label: 'local maker of liquid pharmaceutical solutions before TILAMED' },
-    { value: '15', unit: 'countries', label: 'in West Africa to supply from Benin' },
+    { value: '15', unit: 'countries', label: 'in West Africa to supply from BENIN' },
     { value: '400', unit: 'M +', label: 'people in West Africa' },
   ],
   problem: {
@@ -21,7 +21,7 @@ const benin: BeninDict = {
     text: 'An infusion solution is mostly water. It is heavy and bulky: shipping it is expensive because freight is charged by weight and volume, and storing it takes a lot of space. Yet wholesalers must permanently hold several months of stock to avoid shortages.',
     todayLabel: 'Today · imported',
     today: ['Manufactured abroad', 'Sea freight charged by weight and volume', 'Several months of stock at wholesalers', 'Hospitals and patients'],
-    tomorrowLabel: 'Tomorrow · made in Benin',
+    tomorrowLabel: 'Tomorrow · made in BENIN',
     tomorrow: ['Manufactured in Sèmè-Podji', 'Delivered by road, to match real demand', 'Hospitals and patients'],
   },
   benefits: {
@@ -42,7 +42,7 @@ const benin: BeninDict = {
     port: 'Port',
     border: 'Border',
     items: [
-      { title: 'Nigeria on the doorstep', text: 'The site borders Africa\'s most populous country.' },
+      { title: 'NIGERIA on the doorstep', text: 'The site borders Africa\'s most populous country.' },
       { title: 'Close to the Port of Cotonou', text: 'The country\'s main trade gateway, for raw materials and equipment alike.' },
       { title: 'A whole region to serve', text: 'Fifteen countries and more than 400 million people supplied from a single plant.' },
     ],

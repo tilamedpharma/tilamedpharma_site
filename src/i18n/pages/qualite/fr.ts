@@ -47,7 +47,7 @@ const pages: Record<string, Topic> = {
   },
   agrements: {
     meta: { title: 'Agréments et autorisations · Qualité · TILAMED Pharma', description: 'Autorisations de l\'ABRP et des ministères béninois, certificats environnemental et technique, arrêté ministériel : les agréments de TILAMED PHARMA SA.' },
-    lead: 'Au Bénin, les produits pharmaceutiques relèvent de l\'Agence béninoise de régulation pharmaceutique (ABRP).',
+    lead: 'Au BÉNIN, les produits pharmaceutiques relèvent de l\'Agence béninoise de régulation pharmaceutique (ABRP).',
     intro: '',
     facts: [
       { value: '6', unit: '', label: 'agréments et autorisations obtenus' },
@@ -96,7 +96,7 @@ const pages: Record<string, Topic> = {
         'Procédure de rappel testée, en lien avec les autorités.',
       ] },
     ],
-    note: 'Le Bénin s\'est fortement engagé contre les faux médicaments : participation à l\'opération internationale PANGEA d\'INTERPOL, ratification de la convention MEDICRIME du Conseil de l\'Europe et nouvelle loi sur les activités pharmaceutiques en 2021.',
+    note: 'Le BÉNIN s\'est fortement engagé contre les faux médicaments : participation à l\'opération internationale PANGEA d\'INTERPOL, ratification de la convention MEDICRIME du Conseil de l\'Europe et nouvelle loi sur les activités pharmaceutiques en 2021.',
   },
   certifications: {
     meta: { title: 'Certifications · Qualité · TILAMED Pharma', description: 'BPF de l\'OMS, ABRP, ISO 9001, ISO 14001, BPD et EDGE : nos objectifs de certification pour la qualité et l\'environnement.' },

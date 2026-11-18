@@ -20,14 +20,14 @@ const direction: DirectionDict = {
     name: 'Casime LASSISSI',
     role: 'Diretor-Geral',
     bio: [
-      'Iniciador do projeto TILAMED Pharma, Casime LASSISSI é um profissional de finanças e auditoria formado em França. Desde 2013, dirige empresas de fornecimento, instalação e manutenção de dispositivos médicos na África Ocidental.',
+      'Iniciador do projeto TILAMED Pharma, Casime LASSISSI é um profissional de finanças e auditoria formado em FRANÇA. Desde 2013, dirige empresas de fornecimento, instalação e manutenção de dispositivos médicos na África Ocidental.',
       'Ao longo destes anos, conduziu projetos de equipamento de hospitais e laboratórios para organizações internacionais e ministérios da saúde da região.',
     ],
     convictionLabel: 'A sua convicção',
     conviction: 'A África Ocidental deve produzir ela própria os seus medicamentos essenciais.',
     pathTitle: 'O seu percurso',
     path: [
-      'Formação superior em contabilidade, controlo e auditoria (França).',
+      'Formação superior em contabilidade, controlo e auditoria (FRANÇA).',
       'Experiência numa firma de auditoria internacional e no controlo interno de grandes grupos.',
       'Mais de dez anos de gestão de projetos médicos chave na mão na África Ocidental.',
       'Domínio dos procedimentos de concursos públicos e internacionais.',

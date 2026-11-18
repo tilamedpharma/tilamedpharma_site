@@ -3,7 +3,7 @@ import type { EgaliteDict } from './fr';
 const egalite: EgaliteDict = {
   meta: {
     title: 'Gender equality and inclusion · TILAMED Pharma',
-    description: 'The first pharmaceutical industry in Benin to build gender equality and the inclusion of people with disabilities into its organisation from the start.',
+    description: 'The first pharmaceutical industry in BENIN to build gender equality and the inclusion of people with disabilities into its organisation from the start.',
   },
   hero: {
     lead: 'From its conception, TILAMED Pharma has promoted real equality between women and men and the inclusion of people with disabilities.',
@@ -11,9 +11,9 @@ const egalite: EgaliteDict = {
   },
   first: {
     value: '1st',
-    label: 'pharmaceutical industry in Benin committed to equality and inclusion from its conception',
-    eyebrow: 'A first in Benin',
-    text: 'TILAMED Pharma is the first pharmaceutical industry in Benin to build formal and real equality of rights between women and men into its organisation from the start, and to open its professions to people with disabilities.',
+    label: 'pharmaceutical industry in BENIN committed to equality and inclusion from its conception',
+    eyebrow: 'A first in BENIN',
+    text: 'TILAMED Pharma is the first pharmaceutical industry in BENIN to build formal and real equality of rights between women and men into its organisation from the start, and to open its professions to people with disabilities.',
   },
   pillars: {
     eyebrow: 'Two commitments',

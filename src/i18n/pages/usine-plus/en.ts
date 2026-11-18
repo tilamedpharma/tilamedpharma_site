@@ -3,15 +3,15 @@ import type { Topic } from './fr';
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
     meta: { title: 'The Sèmè-Podji site · Our plant · TILAMED Pharma', description: 'A 2-hectare industrial site in Sèmè-Podji, close to the Kraké border, Cotonou and its port, in a special economic zone.' },
-    lead: 'A 2-hectare site, just past the Kraké border, between Cotonou and Nigeria.',
+    lead: 'A 2-hectare site, just past the Kraké border, between Cotonou and NIGERIA.',
     intro: '',
     facts: [
       { value: '2', unit: 'ha', label: 'industrial site, i.e. 20,000 m²' },
     ],
     blocks: [
       { kind: 'points', title: 'A strategic location', items: [
-        'In the municipality of Sèmè-Podji, Ouémé department, southern Benin.',
-        'Right next to the Kraké border, the main crossing point into Nigeria.',
+        'In the municipality of Sèmè-Podji, Ouémé department, southern BENIN.',
+        'Right next to the Kraké border, the main crossing point into NIGERIA.',
         'Close to Cotonou and its autonomous port, which handles most of the country\'s trade.',
         'Within a special economic zone offering customs and tax advantages.',
       ] },
@@ -61,9 +61,9 @@ const pages: Record<string, Topic> = {
     note: 'Preventive and corrective maintenance is carried out by our technicians, trained by the equipment manufacturers.',
   },
   'transfert-technologie': {
-    meta: { title: 'Technology transfer · Our plant · TILAMED Pharma', description: 'Five years of permanent on-site technical assistance and training for operators, laboratory and maintenance staff: the know-how stays in Benin.' },
-    lead: 'Five years of permanent assistance so that the know-how stays in Benin.',
-    intro: 'From installation and commissioning, the equipment manufacturers train our teams in Benin. Their engineers then remain seconded on site for five years to support production.',
+    meta: { title: 'Technology transfer · Our plant · TILAMED Pharma', description: 'Five years of permanent on-site technical assistance and training for operators, laboratory and maintenance staff: the know-how stays in BENIN.' },
+    lead: 'Five years of permanent assistance so that the know-how stays in BENIN.',
+    intro: 'From installation and commissioning, the equipment manufacturers train our teams in BENIN. Their engineers then remain seconded on site for five years to support production.',
     facts: [
       { value: '5', unit: 'years', label: 'of permanent technical assistance, extendable' },
       { value: '70', unit: '%', label: 'technical positions' },

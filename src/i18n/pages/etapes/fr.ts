@@ -122,9 +122,9 @@ const etapes = {
       note: 'Aucun lot n\'est mis sur le marché sans la décision du pharmacien responsable, sur la base des résultats du laboratoire et de la revue du dossier de lot.',
     },
     'conditionnement-logistique': {
-      meta: { title: 'Conditionnement et livraison · Notre usine · TILAMED Pharma', description: 'Stockage selon les bonnes pratiques de distribution et livraison par notre propre service logistique, au Bénin et à l\'export.' },
+      meta: { title: 'Conditionnement et livraison · Notre usine · TILAMED Pharma', description: 'Stockage selon les bonnes pratiques de distribution et livraison par notre propre service logistique, au BÉNIN et à l\'export.' },
       lead: 'Des produits livrés au bon endroit, au bon moment, dans de bonnes conditions.',
-      intro: 'Les produits finis sont stockés dans notre entrepôt selon les bonnes pratiques de distribution, puis livrés à nos clients au Bénin par notre propre service logistique.',
+      intro: 'Les produits finis sont stockés dans notre entrepôt selon les bonnes pratiques de distribution, puis livrés à nos clients au BÉNIN par notre propre service logistique.',
       facts: [],
       block: { kind: 'points', title: 'Notre service logistique', items: [
         'Livraison selon les besoins réels des clients, sans obligation de stocker plusieurs mois de produits.',

@@ -31,7 +31,7 @@ const parcours = {
         title: 'Les fondations',
         items: [
           { date: '2013', title: 'Création de SEDIS SARL', text: 'L\'entreprise naît pour fournir, installer et entretenir des dispositifs médicaux en Afrique de l\'Ouest, au contact des hôpitaux, des laboratoires et des centrales d\'achat.' },
-          { date: '2013 – 2022', title: 'Dix ans de terrain, un constat', text: 'Au Bénin, aucune solution injectable n\'est fabriquée localement. Études de marché, rencontres avec les autorités de santé, les centrales d\'achat et des fabricants européens d\'équipements : le projet industriel prend forme.' },
+          { date: '2013 – 2022', title: 'Dix ans de terrain, un constat', text: 'Au BÉNIN, aucune solution injectable n\'est fabriquée localement. Études de marché, rencontres avec les autorités de santé, les centrales d\'achat et des fabricants européens d\'équipements : le projet industriel prend forme.' },
         ],
       },
       {
@@ -51,7 +51,7 @@ const parcours = {
         range: '2025 →',
         title: 'Le site et l\'usine',
         items: [
-          { date: '9 septembre 2025', title: 'Le site de Sèmè-Podji', text: 'L\'État béninois confie à TILAMED PHARMA SA un site industriel de 2 hectares, par bail emphytéotique, dans la zone industrielle de Sèmè-Podji, à la frontière avec le Nigéria.', ref: 'Bail emphytéotique N° 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
+          { date: '9 septembre 2025', title: 'Le site de Sèmè-Podji', text: 'L\'État béninois confie à TILAMED PHARMA SA un site industriel de 2 hectares, par bail emphytéotique, dans la zone industrielle de Sèmè-Podji, à la frontière avec le NIGÉRIA.', ref: 'Bail emphytéotique N° 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
           { date: 'Aujourd\'hui', title: 'La construction de l\'usine', text: 'TILAMED Pharma prépare son unité de production de solutions injectables dans la zone économique spéciale de Sèmè-Podji.', state: 'now' },
           { date: 'Demain', title: 'La mise en service', text: 'Démarrage de la production et recrutement des premières équipes.', state: 'next' },
         ],
@@ -60,11 +60,11 @@ const parcours = {
   },
   sites: {
     eyebrow: 'Nos implantations',
-    title: 'Un ancrage au Bénin et dans la région',
+    title: 'Un ancrage au BÉNIN et dans la région',
     items: [
-      { title: 'Site de production', place: 'Sèmè-Podji · Bénin', text: '2 hectares (20 000 m²) dans la zone industrielle de Sèmè-Podji, à la frontière avec le Nigéria.' },
-      { title: 'Siège administratif', place: 'Cotonou · Bénin', text: 'Un immeuble administratif aux Cocotiers, en centre-ville, propriété de TILAMED PHARMA SA.' },
-      { title: 'Bureau régional', place: 'Ouagadougou · Burkina Faso', text: 'Un immeuble administratif de 1 000 m² à Dassasgho.' },
+      { title: 'Site de production', place: 'Sèmè-Podji · BÉNIN', text: '2 hectares (20 000 m²) dans la zone industrielle de Sèmè-Podji, à la frontière avec le NIGÉRIA.' },
+      { title: 'Siège administratif', place: 'Cotonou · BÉNIN', text: 'Un immeuble administratif aux Cocotiers, en centre-ville, propriété de TILAMED PHARMA SA.' },
+      { title: 'Bureau régional', place: 'Ouagadougou · BURKINA FASO', text: 'Un immeuble administratif de 1 000 m² à Dassasgho.' },
     ],
   },
   cta: {

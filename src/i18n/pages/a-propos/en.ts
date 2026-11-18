@@ -3,10 +3,10 @@ import type { AProposDict } from './fr';
 const aPropos: AProposDict = {
   meta: {
     title: 'Who we are · TILAMED Pharma',
-    description: 'TILAMED PHARMA SA is building a plant in Benin to produce liquid pharmaceutical solutions to WHO standards. History, activities, objectives and partners.',
+    description: 'TILAMED PHARMA SA is building a plant in BENIN to produce liquid pharmaceutical solutions to WHO standards. History, activities, objectives and partners.',
   },
   hero: {
-    lead: 'TILAMED Pharma is a pharmaceutical company building a plant in Benin to produce liquid pharmaceutical solutions to World Health Organization standards.',
+    lead: 'TILAMED Pharma is a pharmaceutical company building a plant in BENIN to produce liquid pharmaceutical solutions to World Health Organization standards.',
     imageAlt: 'Team of professional women in a working meeting',
   },
   facts: [
@@ -39,12 +39,12 @@ const aPropos: AProposDict = {
       'Reduce dependence on imports and the risks that come with it.',
       'Encourage the use of locally made products.',
     ],
-    cta: 'Why produce in Benin?',
+    cta: 'Why produce in BENIN?',
   },
   partnership: {
     eyebrow: 'Partnerships',
     title: 'Open to international partnerships',
-    text: 'TILAMED Pharma wants to work with international health organisations, development agencies and financial institutions committed to access to medicines in Africa. Our ambition: to become a trusted industrial partner for their programmes in Benin and the sub-region.',
+    text: 'TILAMED Pharma wants to work with international health organisations, development agencies and financial institutions committed to access to medicines in Africa. Our ambition: to become a trusted industrial partner for their programmes in BENIN and the sub-region.',
     cta1: 'Health organisations',
     cta2: 'Contact us',
   },

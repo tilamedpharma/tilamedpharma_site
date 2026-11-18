@@ -1,37 +1,44 @@
-# Mise en ligne · Hostinger via GitHub
+# Mise en ligne · GitHub → Hostinger
 
-**Méthode retenue (18/11/2026)** : Hostinger est relié directement au dépôt GitHub (hPanel → déploiement Git, préréglage Astro,
-branche `main`, Node 22) et reconstruit le site à chaque envoi sur `main`. Serveur : 147.93.54.232.
-Les e-mails du domaine restent chez OVH : à la bascule, on ne change que les enregistrements A dans la **Zone DNS** OVH,
-jamais les serveurs DNS.
+**En service depuis le 18/11/2026** : https://www.tilamedpharma.com
 
-Méthode de secours ci-dessous : GitHub construit et envoie par FTP (`.github/workflows/deploy.yml`, lancement manuel).
+## Comment ça marche
 
-## Une seule fois
+1. On modifie le site en local, puis on vérifie avec `npm run build` et `npm run preview`.
+2. On enregistre la modification dans Git et on l'envoie sur GitHub, branche `main` :
+   `git add -A && git commit -m "…" && git push`.
+3. Hostinger voit l'envoi et reconstruit le site tout seul.
+   - Réglages : hPanel → déploiement Git, préréglage Astro, branche `main`, Node 22.
+   - Le site à jour est en ligne 2 à 5 minutes plus tard.
 
-1. **GitHub** : créer un dépôt **privé et vide** (sans README), puis y envoyer le projet.
-2. **Hostinger (hPanel)** : ajouter le site `tilamedpharma.com` à l'offre (domaine existant, ne pas changer les DNS).
-   Hostinger fournit une **adresse provisoire** pour tester.
-3. **Hostinger → Fichiers → Comptes FTP** : créer un compte FTP dédié au déploiement. Noter le serveur, l'identifiant, le mot de passe
-   et le dossier racine du compte.
-4. **GitHub → Settings → Secrets and variables → Actions**
-   - *Secrets* : `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`
-   - *Variables* : `FTP_DIR` = chemin de `public_html/` vu par ce compte FTP (souvent `public_html/`, ou `/` si le compte s'ouvre déjà dedans) ;
-     `FTP_PROTOCOL` = `ftp` seulement si l'envoi chiffré (`ftps`, par défaut) échoue.
-5. **Formulaires** : dans le gestionnaire de fichiers Hostinger, dans le dossier qui **contient** `public_html`
-   (ex. `domains/tilamedpharma.com/`), créer `tilamed-forms-config.php` à partir de `public/api/tilamed-forms-config.example.php`
-   et y mettre le mot de passe de la boîte `contact@tilamedpharma.com`. Ce fichier ne va jamais dans GitHub.
-6. **GitHub → Actions → « Mise en ligne Hostinger » → Run workflow**, puis tester l'adresse provisoire
-   (pages, langues, les 5 formulaires : chaque envoi doit arriver dans contact@).
+> Tout envoi sur `main` part en ligne. Une modification non terminée reste en local, ou sur une autre branche.
 
-## Bascule du domaine (après validation)
+## Configuration en place
 
-7. **OVH → Domaines → tilamedpharma.com → Zone DNS** : remplacer la cible des enregistrements **A** de `tilamedpharma.com` et de
-   `www` (aujourd'hui `75.2.60.5`, Netlify) par l'adresse IP indiquée par Hostinger. Supprimer un éventuel CNAME `www`.
-   **Ne pas toucher** aux enregistrements MX, SPF (TXT) et aux serveurs DNS : les e-mails restent chez OVH.
-8. **Hostinger → Sécurité → SSL** : activer le certificat gratuit dès que les DNS pointent sur Hostinger (quelques heures).
-9. Vérifier `https://www.tilamedpharma.com`, puis arrêter l'ancien site sur Netlify.
+- **Dépôt** : https://github.com/drickodev/tilamed_website (branche `main`).
+- **Serveur** : Hostinger « Unlimited », IP 147.93.54.232, LiteSpeed. Les `.htaccess` du site sont actifs.
+- **Domaine et DNS** : chez OVH, dans la **Zone DNS**.
+  - Seuls les enregistrements **A** de `tilamedpharma.com` et de `www` pointent vers 147.93.54.232.
+  - **Ne jamais toucher** aux serveurs DNS, ni aux enregistrements MX, SPF (TXT) et DKIM (`ovhmo-selector-1/2`) : les e-mails restent chez OVH.
+- **SSL** : Let's Encrypt, géré par Hostinger, renouvellement automatique.
+- **Formulaires** : `public/api/form.php` envoie les messages par SMTP OVH (`ssl0.ovh.net:465`) avec la boîte `contact@tilamedpharma.com`.
+  - Le mot de passe est dans `tilamed-forms-config.php`, à la racine du compte Hostinger, **à côté** de `public_html`.
+  - Ce fichier ne va jamais dans GitHub. Pour le recréer, partir du modèle `public/api/tilamed-forms-config.example.php`.
+  - Si le mot de passe de la boîte change chez OVH, il faut aussi le changer dans ce fichier.
+  - En cas d'échec d'envoi, le journal d'erreurs PHP de Hostinger contient des lignes `[tilamed-forms] …`.
+- **Polices arabe et chinoise** : générées à chaque construction par `tools/fonts-copy.mjs` (étape `prebuild`).
 
-## Au quotidien
+## Secours : envoi par FTP
 
-Modifier le site → envoyer sur `main` → GitHub reconstruit et envoie seulement les fichiers modifiés (2 à 5 min).
+Si le déploiement Git de Hostinger ne marche plus, le workflow `.github/workflows/deploy.yml` construit le site sur GitHub et l'envoie par FTP. Il se lance à la main : GitHub → Actions → « Mise en ligne Hostinger (FTP, secours) » → Run workflow.
+
+Avant de le lancer, il faut configurer une fois dans GitHub → Settings → Secrets and variables → Actions :
+
+- *Secrets* : `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`. Le compte FTP se crée dans hPanel → Fichiers → Comptes FTP.
+- *Variables* :
+  - `FTP_DIR` : le dossier `public_html/` vu par ce compte FTP ;
+  - `FTP_PROTOCOL` : `ftp`, seulement si `ftps` échoue.
+
+## Reste à faire
+
+- Arrêter l'ancien site sur Netlify. Il ne reçoit plus de trafic depuis la bascule DNS.

@@ -166,7 +166,7 @@ const fr = {
       { title: 'Des prix accessibles', text: 'Moins de transport et de stockage, des prix pensés pour le pouvoir d\'achat local.' },
       { title: 'Des compétences locales', text: 'Des emplois qualifiés et un transfert de compétences pour les techniciens béninois.' },
     ],
-    imageAlt: 'Médecin s\'entretenant avec une patiente à l\'hôpital',
+    imageAlt: 'Infirmière réglant une perfusion à l\'hôpital',
   },
   process: {
     eyebrow: 'Notre usine',
@@ -193,7 +193,7 @@ const fr = {
     note: 'Gamme en préparation, sous réserve d\'autorisation. Médicaments réservés aux professionnels de santé.',
     families: [
       { title: 'Sérums', text: 'Chlorure de sodium, glucose, Ringer lactate, bicarbonate, mannitol.', items: ['Chlorure de sodium 0,9 %', 'Glucose 5 %', 'Chlorure de sodium 0,9 % + glucose 5 %', 'Ringer lactate', 'Bicarbonate de sodium 1,4 %', 'Mannitol 20 %'], alt: 'Poche de soluté de perfusion' },
-      { title: 'Médicaments', text: 'Injectables en ampoules, antibiotiques, vaccins et sérums, solutions buvables.', items: ['Paracétamol 1 %', 'Ceftriaxone 1 g', 'Ocytocine 10 UI', 'Quinine injectable', 'Amoxicilline suspension buvable', 'Vaccin contre l\'hépatite'], alt: 'Flacons manipulés avec des gants' },
+      { title: 'Médicaments', text: 'Injectables en ampoules, antibiotiques, vaccins et sérums, solutions buvables.', items: ['Paracétamol 1 %', 'Ceftriaxone 1 g', 'Ocytocine 10 UI', 'Quinine injectable', 'Amoxicilline suspension buvable', 'Vaccin contre l\'hépatite'], alt: 'Médecin tenant une ampoule injectable' },
       { title: 'Solutions nutritionnelles', text: 'Glucose concentré, vitamines injectables et buvables.', items: ['Glucose 10 %', 'Acide ascorbique (vitamine C) 0,5 g/5 ml', 'Complexe vitaminique B'], alt: 'Soluté de glucose sur pied de perfusion' },
       { title: 'Dispositifs médicaux', text: 'Diagnostic, chirurgie, stérilisation et équipements.', items: ['Stéthoscope', 'Tensiomètre', 'Pince hémostatique', 'Oxymètre de pouls', 'Boîtes de petite chirurgie'], alt: 'Stéthoscope' },
       { title: 'Santé animale', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', items: ['Croquettes chien et chat', 'Pipettes antipuces et antitiques', 'Vermifuge chiens et chats', 'Chlorure de sodium 0,9 % vétérinaire'], alt: 'Vétérinaire et chien' },

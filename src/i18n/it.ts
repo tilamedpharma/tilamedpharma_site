@@ -168,7 +168,7 @@ const it: Dict = {
       { title: 'Prezzi accessibili', text: 'Meno trasporto e stoccaggio, prezzi pensati per il potere d\'acquisto locale.' },
       { title: 'Competenze locali', text: 'Posti di lavoro qualificati e un trasferimento di competenze per i tecnici beninesi.' },
     ],
-    imageAlt: 'Medico che parla con una paziente in ospedale',
+    imageAlt: 'Infermiera che regola una flebo in ospedale',
   },
   process: {
     eyebrow: 'Il nostro stabilimento',
@@ -195,7 +195,7 @@ const it: Dict = {
     note: 'Gamma in preparazione, soggetta ad autorizzazione. Farmaci riservati agli operatori sanitari.',
     families: [
       { title: 'Soluzioni per infusione', text: 'Cloruro di sodio, glucosio, Ringer lattato, bicarbonato, mannitolo.', items: ['Cloruro di sodio 0,9%', 'Glucosio 5%', 'Cloruro di sodio 0,9% + glucosio 5%', 'Ringer lattato', 'Bicarbonato di sodio 1,4%', 'Mannitolo 20%'], alt: 'Sacca per infusione' },
-      { title: 'Farmaci', text: 'Iniettabili in fiale, antibiotici, vaccini e sieri, soluzioni orali.', items: ['Paracetamolo 1%', 'Ceftriaxone 1 g', 'Ossitocina 10 UI', 'Chinino iniettabile', 'Amoxicillina sospensione orale', 'Vaccino contro l\'epatite'], alt: 'Flaconi maneggiati con guanti' },
+      { title: 'Farmaci', text: 'Iniettabili in fiale, antibiotici, vaccini e sieri, soluzioni orali.', items: ['Paracetamolo 1%', 'Ceftriaxone 1 g', 'Ossitocina 10 UI', 'Chinino iniettabile', 'Amoxicillina sospensione orale', 'Vaccino contro l\'epatite'], alt: 'Medica che tiene una fiala iniettabile' },
       { title: 'Soluzioni nutrizionali', text: 'Glucosio concentrato, vitamine iniettabili e orali.', items: ['Glucosio 10%', 'Acido ascorbico (vitamina C) 0,5 g/5 ml', 'Complesso vitaminico B'], alt: 'Soluzione di glucosio su un\'asta per flebo' },
       { title: 'Dispositivi medici', text: 'Diagnostica, chirurgia, sterilizzazione e attrezzature.', items: ['Stetoscopio', 'Misuratore di pressione', 'Pinza emostatica', 'Pulsossimetro', 'Kit di piccola chirurgia'], alt: 'Stetoscopio' },
       { title: 'Salute animale', text: 'Alimentazione, antiparassitari e cure per cani e gatti.', items: ['Crocchette per cani e gatti', 'Pipette antipulci e antizecche', 'Vermifugo per cani e gatti', 'Cloruro di sodio 0,9% veterinario'], alt: 'Veterinario con un cane' },

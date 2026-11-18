@@ -168,7 +168,7 @@ const en: Dict = {
       { title: 'Affordable prices', text: 'Less transport and storage, prices designed for local purchasing power.' },
       { title: 'Local skills', text: 'Skilled jobs and a skills-transfer programme for Beninese technicians.' },
     ],
-    imageAlt: 'Doctor talking with a patient in hospital',
+    imageAlt: 'Nurse adjusting an IV drip in hospital',
   },
   process: {
     eyebrow: 'Our plant',
@@ -195,7 +195,7 @@ const en: Dict = {
     note: 'Range in preparation, subject to authorisation. Medicines reserved for healthcare professionals.',
     families: [
       { title: 'Infusion fluids', text: 'Sodium chloride, glucose, Ringer lactate, bicarbonate, mannitol.', items: ['Sodium chloride 0.9%', 'Glucose 5%', 'Sodium chloride 0.9% + glucose 5%', 'Ringer lactate', 'Sodium bicarbonate 1.4%', 'Mannitol 20%'], alt: 'Infusion fluid bag' },
-      { title: 'Medicines', text: 'Ampoule injectables, antibiotics, vaccines and sera, oral solutions.', items: ['Paracetamol 1%', 'Ceftriaxone 1 g', 'Oxytocin 10 IU', 'Injectable quinine', 'Amoxicillin oral suspension', 'Hepatitis vaccine'], alt: 'Vials handled with gloves' },
+      { title: 'Medicines', text: 'Ampoule injectables, antibiotics, vaccines and sera, oral solutions.', items: ['Paracetamol 1%', 'Ceftriaxone 1 g', 'Oxytocin 10 IU', 'Injectable quinine', 'Amoxicillin oral suspension', 'Hepatitis vaccine'], alt: 'Doctor holding an injectable ampoule' },
       { title: 'Nutritional solutions', text: 'Concentrated glucose, injectable and oral vitamins.', items: ['Glucose 10%', 'Ascorbic acid (vitamin C) 0.5 g/5 ml', 'Vitamin B complex'], alt: 'Glucose solution on an infusion stand' },
       { title: 'Medical devices', text: 'Diagnostics, surgery, sterilisation and equipment.', items: ['Stethoscope', 'Blood pressure monitor', 'Haemostatic forceps', 'Pulse oximeter', 'Minor surgery kits'], alt: 'Stethoscope' },
       { title: 'Animal health', text: 'Food, parasite control and care for dogs and cats.', items: ['Dog and cat food', 'Flea and tick spot-on', 'Dewormer for dogs and cats', 'Veterinary sodium chloride 0.9%'], alt: 'Veterinarian with a dog' },

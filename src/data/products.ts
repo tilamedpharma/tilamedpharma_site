@@ -2,10 +2,10 @@
 import type { ImageMetadata } from 'astro';
 import type { Group } from './catalog';
 import imgSerums from '../assets/images/stock/perfusion-poche-pied.jpg';
-import imgMed from '../assets/images/stock/flacons-mains-gants.jpg';
+import imgMed from '../assets/images/stock/medicaments-medecin-ampoule.jpg';
 import imgNut from '../assets/images/stock/perfusion-glucose-pied.jpg';
-import imgDev from '../assets/images/stock/dispositif-stethoscope-main.jpg';
-import imgVet from '../assets/images/stock/veterinaire-chien-calin.jpg';
+import imgDev from '../assets/images/stock/dispositif-medecin-stethoscope.jpg';
+import imgVet from '../assets/images/stock/veterinaire-afrique-chien.jpg';
 import imgCatalogue from '../assets/images/stock/flacons-boite.jpg';
 
 export const productFamilies: { slug: string; group: Group; image: ImageMetadata; icon: string }[] = [

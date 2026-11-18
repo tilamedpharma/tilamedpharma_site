@@ -168,7 +168,7 @@ const pt: Dict = {
       { title: 'Preços acessíveis', text: 'Menos transporte e armazenamento, preços pensados para o poder de compra local.' },
       { title: 'Competências locais', text: 'Empregos qualificados e uma transferência de competências para os técnicos beninenses.' },
     ],
-    imageAlt: 'Médico a conversar com uma doente no hospital',
+    imageAlt: 'Enfermeira a ajustar uma perfusão no hospital',
   },
   process: {
     eyebrow: 'A nossa fábrica',
@@ -195,7 +195,7 @@ const pt: Dict = {
     note: 'Gama em preparação, sujeita a autorização. Medicamentos reservados aos profissionais de saúde.',
     families: [
       { title: 'Soros', text: 'Cloreto de sódio, glicose, Ringer lactato, bicarbonato, manitol.', items: ['Cloreto de sódio 0,9 %', 'Glicose 5 %', 'Cloreto de sódio 0,9 % + glicose 5 %', 'Ringer lactato', 'Bicarbonato de sódio 1,4 %', 'Manitol 20 %'], alt: 'Saco de soro de perfusão' },
-      { title: 'Medicamentos', text: 'Injetáveis em ampolas, antibióticos, vacinas e soros, soluções orais.', items: ['Paracetamol 1 %', 'Ceftriaxona 1 g', 'Ocitocina 10 UI', 'Quinino injetável', 'Amoxicilina suspensão oral', 'Vacina contra a hepatite'], alt: 'Frascos manuseados com luvas' },
+      { title: 'Medicamentos', text: 'Injetáveis em ampolas, antibióticos, vacinas e soros, soluções orais.', items: ['Paracetamol 1 %', 'Ceftriaxona 1 g', 'Ocitocina 10 UI', 'Quinino injetável', 'Amoxicilina suspensão oral', 'Vacina contra a hepatite'], alt: 'Médica a segurar uma ampola injetável' },
       { title: 'Soluções nutricionais', text: 'Glicose concentrada, vitaminas injetáveis e orais.', items: ['Glicose 10 %', 'Ácido ascórbico (vitamina C) 0,5 g/5 ml', 'Complexo vitamínico B'], alt: 'Solução de glicose num suporte de perfusão' },
       { title: 'Dispositivos médicos', text: 'Diagnóstico, cirurgia, esterilização e equipamentos.', items: ['Estetoscópio', 'Tensiómetro', 'Pinça hemostática', 'Oxímetro de pulso', 'Caixas de pequena cirurgia'], alt: 'Estetoscópio' },
       { title: 'Saúde animal', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', items: ['Ração para cães e gatos', 'Pipetas antipulgas e anticarraças', 'Desparasitante para cães e gatos', 'Cloreto de sódio 0,9 % veterinário'], alt: 'Veterinário com um cão' },

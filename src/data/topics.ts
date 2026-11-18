@@ -10,7 +10,7 @@ import imgCertif from '../assets/images/stock/labo-microscope.jpg';
 import imgClients from '../assets/images/stock/perfusion-poches-infirmiere.jpg';
 import imgCentrales from '../assets/images/stock/logistique-entrepot-rayonnages.jpg';
 import imgHopitaux from '../assets/images/stock/infirmiere-tensiometre.jpg';
-import imgOrgs from '../assets/images/stock/inclusion-equipe-discussion.jpg';
+import imgOrgs from '../assets/images/stock/affaires-reunion-kaduna.jpg';
 import imgCentrale from '../assets/images/stock/logistique-entrepot-equipe.jpg';
 import imgFournisseurs from '../assets/images/stock/flacons-inox.jpg';
 import imgCarrieres from '../assets/images/stock/inclusion-ingenieure-portrait.jpg';

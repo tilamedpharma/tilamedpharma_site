@@ -168,7 +168,7 @@ const es: Dict = {
       { title: 'Precios accesibles', text: 'Menos transporte y almacenamiento, precios pensados para el poder adquisitivo local.' },
       { title: 'Competencias locales', text: 'Empleos cualificados y una transferencia de competencias para los técnicos beninenses.' },
     ],
-    imageAlt: 'Médico conversando con una paciente en el hospital',
+    imageAlt: 'Enfermera ajustando una perfusión en el hospital',
   },
   process: {
     eyebrow: 'Nuestra planta',
@@ -195,7 +195,7 @@ const es: Dict = {
     note: 'Gama en preparación, sujeta a autorización. Medicamentos reservados a profesionales de la salud.',
     families: [
       { title: 'Sueros', text: 'Cloruro de sodio, glucosa, Ringer lactato, bicarbonato, manitol.', items: ['Cloruro de sodio 0,9 %', 'Glucosa 5 %', 'Cloruro de sodio 0,9 % + glucosa 5 %', 'Ringer lactato', 'Bicarbonato de sodio 1,4 %', 'Manitol 20 %'], alt: 'Bolsa de suero de perfusión' },
-      { title: 'Medicamentos', text: 'Inyectables en ampollas, antibióticos, vacunas y sueros, soluciones orales.', items: ['Paracetamol 1 %', 'Ceftriaxona 1 g', 'Oxitocina 10 UI', 'Quinina inyectable', 'Amoxicilina suspensión oral', 'Vacuna contra la hepatitis'], alt: 'Viales manipulados con guantes' },
+      { title: 'Medicamentos', text: 'Inyectables en ampollas, antibióticos, vacunas y sueros, soluciones orales.', items: ['Paracetamol 1 %', 'Ceftriaxona 1 g', 'Oxitocina 10 UI', 'Quinina inyectable', 'Amoxicilina suspensión oral', 'Vacuna contra la hepatitis'], alt: 'Médica sosteniendo una ampolla inyectable' },
       { title: 'Soluciones nutricionales', text: 'Glucosa concentrada, vitaminas inyectables y orales.', items: ['Glucosa 10 %', 'Ácido ascórbico (vitamina C) 0,5 g/5 ml', 'Complejo vitamínico B'], alt: 'Solución de glucosa en un pie de perfusión' },
       { title: 'Dispositivos médicos', text: 'Diagnóstico, cirugía, esterilización y equipamiento.', items: ['Estetoscopio', 'Tensiómetro', 'Pinza hemostática', 'Pulsioxímetro', 'Cajas de cirugía menor'], alt: 'Estetoscopio' },
       { title: 'Salud animal', text: 'Alimentación, antiparasitarios y cuidados para perros y gatos.', items: ['Pienso para perros y gatos', 'Pipetas antipulgas y antigarrapatas', 'Desparasitante para perros y gatos', 'Cloruro de sodio 0,9 % veterinario'], alt: 'Veterinario con un perro' },

@@ -21,9 +21,12 @@ const navSections = sectionKeys.filter((s) => s !== 'contact');
     <nav class="hdr__nav" aria-label="Navigation">
       <ul class="hdr__menu">
         {navSections.map((s) => (
-          <li class="hdr__item">
-            <button class="hdr__link" type="button" aria-expanded="false" aria-controls={`mega-${s}`} data-mega-trigger={s}>
+          <li class="hdr__item" data-mega-item={s}>
+            {/* La rubrique mène à sa page principale ; la flèche (ou le survol) ouvre le méga-menu. */}
+            <a class="hdr__link" href={localizePath(lang, navTree[s][0])} aria-current={(navTree[s] as readonly string[]).includes(slug) ? 'true' : undefined}>
               {t.nav.sections[s].label}
+            </a>
+            <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls={`mega-${s}`} aria-label={t.nav.sections[s].label} data-mega-trigger={s}>
               <Icon name="chevron" size={14} class="hdr__chev" />
             </button>
           </li>

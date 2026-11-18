@@ -25,6 +25,7 @@ function openMega(key: string) {
   panel.hidden = false;
   requestAnimationFrame(() => panel.classList.add('is-open'));
   btn.setAttribute('aria-expanded', 'true');
+  $(`[data-mega-item="${key}"]`)?.classList.add('is-open');
   openKey = key;
 }
 function closeMega(now = false) {
@@ -34,14 +35,17 @@ function closeMega(now = false) {
   panel?.classList.remove('is-open');
   if (panel) panel.hidden = true;
   btn?.setAttribute('aria-expanded', 'false');
+  $(`[data-mega-item="${openKey}"]`)?.classList.remove('is-open');
   openKey = null;
   if (!now) btn?.blur();
 }
+// Le libellé de la rubrique est un lien (page principale) ; la flèche ouvre/ferme le méga-menu,
+// et sur ordinateur le survol de la rubrique entière l'ouvre aussi.
 triggers.forEach((btn) => {
   const key = btn.dataset.megaTrigger!;
   btn.addEventListener('click', () => (openKey === key ? closeMega() : openMega(key)));
   if (finePointer) {
-    btn.addEventListener('mouseenter', () => openMega(key));
+    btn.closest('[data-mega-item]')?.addEventListener('mouseenter', () => openMega(key));
   }
 });
 header?.addEventListener('mouseleave', () => { if (finePointer) closeTimer = window.setTimeout(() => closeMega(), 200); });

@@ -17,10 +17,10 @@ const direction: DirectionDict = {
   ],
   dg: {
     eyebrow: 'Il direttore generale',
-    name: 'Casime LASSISSI',
+    title: 'Un dirigente cresciuto nel settore medicale',
     role: 'Direttore Generale',
     bio: [
-      'Promotore del progetto TILAMED Pharma, Casime LASSISSI è un professionista della finanza e della revisione contabile formato in FRANCIA. Dal 2013 dirige aziende di fornitura, installazione e manutenzione di dispositivi medici in Africa occidentale.',
+      'Promotore del progetto TILAMED Pharma, il nostro direttore generale è un professionista della finanza e della revisione contabile formato in FRANCIA. Dal 2013 dirige aziende di fornitura, installazione e manutenzione di dispositivi medici in Africa occidentale.',
       'In questi anni ha condotto progetti di attrezzatura di ospedali e laboratori per organizzazioni internazionali e ministeri della salute della regione.',
     ],
     convictionLabel: 'La sua convinzione',

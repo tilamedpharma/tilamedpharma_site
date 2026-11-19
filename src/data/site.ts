@@ -4,7 +4,6 @@ export const company = {
   legal: 'TILAMED PHARMA SA',
   email: 'contact@tilamedpharma.com',
   web: 'www.tilamedpharma.com',
-  ceo: 'M. Casime LASSISSI',
   rccm: 'RB/COT/23 B34825',
   ifu: '3202342942694',
   capital: '1 000 000 000 FCFA',

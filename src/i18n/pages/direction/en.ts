@@ -17,10 +17,10 @@ const direction: DirectionDict = {
   ],
   dg: {
     eyebrow: 'Our managing director',
-    name: 'Casime LASSISSI',
+    title: 'A leader from the medical field',
     role: 'Managing Director',
     bio: [
-      'The initiator of the TILAMED Pharma project, Casime LASSISSI is a finance and audit professional trained in FRANCE. Since 2013 he has run companies that supply, install and maintain medical devices in West Africa.',
+      'The initiator of the TILAMED Pharma project, our managing director is a finance and audit professional trained in FRANCE. Since 2013 he has run companies that supply, install and maintain medical devices in West Africa.',
       'Over these years he has led hospital and laboratory equipment projects for international organisations and ministries of health in the region.',
     ],
     convictionLabel: 'His conviction',

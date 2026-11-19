@@ -21,7 +21,8 @@ const L = (s: string) => localizePath(lang, s);
 const pages = t.nav.pages as Record<string, string>;
 
 const dgPhoto: ImageMetadata | undefined = undefined;
-const monogram = 'CL';
+// Le client ne souhaite pas que le nom du DG apparaisse sur le site : ni nom, ni initiales.
+const monogram = 'DG';
 const orgIcons = ['shield', 'tag', 'globe', 'truck', 'factory'];
 ---
 <PageHero lang={lang} section="entreprise" slug="direction" title={pages['direction']} lead={d.hero.lead} image={imgHero}>
@@ -49,19 +50,18 @@ const orgIcons = ['shield', 'tag', 'globe', 'truck', 'factory'];
     <figure class="dgp__visual" data-reveal="scale">
       <div class="dgp__portrait">
         {dgPhoto
-          ? <Picture src={dgPhoto} formats={['avif', 'webp']} widths={[480, 760]} sizes="(max-width: 900px) 80vw, 36vw" alt={d.dg.name} loading="lazy" />
+          ? <Picture src={dgPhoto} formats={['avif', 'webp']} widths={[480, 760]} sizes="(max-width: 900px) 80vw, 36vw" alt={d.dg.role} loading="lazy" />
           : <span class="dgp__mono" aria-hidden="true" dir="ltr">{monogram}</span>}
       </div>
       <figcaption class="dgp__card">
         <span class="dgp__card-mark"><Icon name="users" size={20} /></span>
-        <span><strong>{d.dg.name}</strong><small>{d.dg.role}</small></span>
+        <span><strong>{d.dg.role}</strong><small>TILAMED PHARMA SA</small></span>
       </figcaption>
     </figure>
 
     <div class="dgp__body">
       <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{d.dg.eyebrow}</span></p>
-      <h2 class="h2" id="dgp-title" data-reveal>{d.dg.name}</h2>
-      <p class="dgp__role" data-reveal>{d.dg.role}</p>
+      <h2 class="h2" id="dgp-title" data-reveal>{d.dg.title}</h2>
       <span class="title-rule" aria-hidden="true"></span>
       {d.dg.bio.map((p, i) => <p class:list={[i === 0 ? 'lead dgp__lead' : 'dgp__p']} data-reveal>{p}</p>)}
       <div class="dgp__conv" data-reveal>
@@ -91,7 +91,7 @@ const orgIcons = ['shield', 'tag', 'globe', 'truck', 'factory'];
     <div class="dorg__chart">
       <div class="dorg__head" data-reveal>
         <span class="dorg__head-ic"><Icon name="users" size={22} /></span>
-        <span><small>{d.dg.role}</small><strong>{d.dg.name}</strong></span>
+        <span><small>TILAMED PHARMA SA</small><strong>{d.dg.role}</strong></span>
       </div>
       <ul class="dorg__row">
         {d.org.items.map((it, i) => (

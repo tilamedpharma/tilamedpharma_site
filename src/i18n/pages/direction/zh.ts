@@ -17,10 +17,10 @@ const direction: DirectionDict = {
   ],
   dg: {
     eyebrow: '总经理',
-    name: 'Casime LASSISSI',
+    title: '一位来自医疗一线的管理者',
     role: '总经理',
     bio: [
-      'Casime LASSISSI 是 TILAMED Pharma 项目的发起人，在法国接受财务与审计专业教育。自 2013 年起，他领导多家在西非从事医疗器械供应、安装和维护的企业。',
+      '我们的总经理是 TILAMED Pharma 项目的发起人，在法国接受财务与审计专业教育。自 2013 年起，他领导多家在西非从事医疗器械供应、安装和维护的企业。',
       '多年来，他为国际组织和区域各国卫生部主持了医院和实验室装备项目。',
     ],
     convictionLabel: '他的信念',

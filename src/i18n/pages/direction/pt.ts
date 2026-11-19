@@ -17,10 +17,10 @@ const direction: DirectionDict = {
   ],
   dg: {
     eyebrow: 'O diretor-geral',
-    name: 'Casime LASSISSI',
+    title: 'Um dirigente vindo do terreno médico',
     role: 'Diretor-Geral',
     bio: [
-      'Iniciador do projeto TILAMED Pharma, Casime LASSISSI é um profissional de finanças e auditoria formado em FRANÇA. Desde 2013, dirige empresas de fornecimento, instalação e manutenção de dispositivos médicos na África Ocidental.',
+      'Iniciador do projeto TILAMED Pharma, o nosso diretor-geral é um profissional de finanças e auditoria formado em FRANÇA. Desde 2013, dirige empresas de fornecimento, instalação e manutenção de dispositivos médicos na África Ocidental.',
       'Ao longo destes anos, conduziu projetos de equipamento de hospitais e laboratórios para organizações internacionais e ministérios da saúde da região.',
     ],
     convictionLabel: 'A sua convicção',

@@ -394,7 +394,6 @@
 .dgp__card-mark { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius); background: var(--green); color: #fff; }
 .dgp__card strong { display: block; font-family: var(--font-head); font-weight: 800; font-size: 1rem; color: var(--navy); }
 .dgp__card small { display: block; margin-top: 2px; font-family: var(--font-head); font-weight: 600; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.dgp__role { margin-top: 10px; font-family: var(--font-head); font-weight: 700; font-size: .8125rem; letter-spacing: .16em; text-transform: uppercase; color: var(--green-deep); }
 .dgp__lead { margin-top: 26px; color: var(--navy); }
 .dgp__p { margin-top: 16px; }
 .dgp__conv { margin-top: 32px; padding: 26px 28px; border-inline-start: 5px solid var(--blue); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; background: var(--blue-50); }

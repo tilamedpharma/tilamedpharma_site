@@ -293,6 +293,7 @@
 .aobj__list li:last-child .aobj__n { color: var(--green); }
 .aobj__list p { font-size: var(--fs-lg); line-height: 1.45; color: var(--navy); }
 
+.apart { padding-bottom: var(--section); }
 .apart__card { display: grid; grid-template-columns: .9fr 1.1fr; border-radius: var(--radius-lg); overflow: hidden; background: var(--blue); color: rgba(255, 255, 255, .9); }
 .apart__img { position: relative; min-height: 340px; }
 .apart__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }

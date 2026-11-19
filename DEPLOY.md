@@ -28,6 +28,24 @@
   - En cas d'échec d'envoi, le journal d'erreurs PHP de Hostinger contient des lignes `[tilamed-forms] …`.
 - **Polices arabe et chinoise** : générées à chaque construction par `tools/fonts-copy.mjs` (étape `prebuild`).
 
+## Back office et pages produits (depuis le 19/11/2026)
+
+Les produits ne sont plus écrits dans le code : ils vivent dans une base de données sur le serveur et se gèrent sur **https://www.tilamedpharma.com/admin/** (guide : `GUIDE-BACK-OFFICE.md`).
+
+- **Pages servies par PHP** : `/produits/`, les 5 pages de gamme, `/produits/{adresse}/` (fiche d'un produit) et `/produits/{adresse}/fiche-technique.pdf`, dans les 7 langues. Les règles sont dans `public/.htaccess` (bloc 2c). Astro génère le gabarit de chaque page ; `public/api/catalogue.php` y insère les produits à chaque visite. Une modification faite dans le back office est donc **en ligne immédiatement**, sans envoi sur GitHub.
+- **Données** : dossier `tilamed-data`, à la racine du compte Hostinger, **à côté** de `public_html`. Il est créé tout seul à la première visite et n'est jamais touché par les déploiements.
+  - `tilamed.sqlite` : la base (produits, traductions, catégories, comptes, journal).
+  - `uploads/` : photos et documents PDF déposés. `cache/pdf/` : fiches PDF générées (se recrée tout seul).
+  - Au tout premier démarrage, la base est remplie avec les 120 références de l'ancien catalogue (`dist/api/data/seed.json`). Ensuite, `src/data/catalog.ts` ne sert plus.
+  - **Sauvegarde** : ce dossier est compris dans les sauvegardes Hostinger du compte. Pour une copie à la main : gestionnaire de fichiers → `tilamed-data` → compresser → télécharger.
+- **Premier compte administrateur** : ajouter dans `tilamed-forms-config.php` la ligne `'admin_setup_key' => '…',` (au moins 16 caractères ; l'écran `/admin/` en propose une), puis ouvrir `/admin/` et remplir le formulaire d'installation. Il n'est proposé que tant qu'aucun compte n'existe.
+- **E-mails du back office** (mot de passe oublié, invitations) : même SMTP que les formulaires. S'il échoue, l'écran affiche le lien à transmettre à la main.
+- **Fiches PDF** : bibliothèque mPDF 8.2.5 copiée dans `public/api/lib/mpdf/` (sans Composer), polices de la charte dans `public/api/lib/fonts/` (Montserrat, Carlito, IBM Plex Sans Arabic, Noto Sans SC). Après un changement de polices, augmenter `VERSION` dans `public/api/lib/tilamed/bootstrap.php`.
+- **Erreurs** : lignes `[tilamed-admin]`, `[tilamed-catalogue]` ou `[tilamed-fiche]` dans le journal d'erreurs PHP de Hostinger.
+- **Tester en local** (PHP 8.1 ou plus, avec SQLite) :
+  `npm run build`, puis dans PowerShell `$env:TLM_DATA_DIR = "C:\chemin\tilamed-data-local"` et `php -S 127.0.0.1:8080 -t dist tools/php-router.php`.
+  Le routeur `tools/php-router.php` imite les `.htaccess`. Pour la clé d'installation locale, créer `dist/api/config.php` contenant `<?php return ['admin_setup_key' => '…'];`.
+
 ## Secours : envoi par FTP
 
 Si le déploiement Git de Hostinger ne marche plus, le workflow `.github/workflows/deploy.yml` construit le site sur GitHub et l'envoie par FTP. Il se lance à la main : GitHub → Actions → « Mise en ligne Hostinger (FTP, secours) » → Run workflow.

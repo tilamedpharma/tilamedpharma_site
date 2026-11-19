@@ -1,0 +1,17 @@
+# Back office TILAMED : tout passe par index.php, sauf les fichiers de assets/. Le code (app/) n'est jamais servi.
+Options -Indexes
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Comme le reste du site : HTTPS + www sur le vrai domaine (les règles du dossier parent ne s'appliquent pas ici).
+  RewriteCond %{HTTP_HOST} ^(www\.)?tilamedpharma\.com$ [NC]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^tilamedpharma\.com$ [NC]
+  RewriteRule ^ https://www.tilamedpharma.com%{REQUEST_URI} [R=301,L]
+  RewriteRule ^app(/|$) - [F,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [L,QSA]
+</IfModule>
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>

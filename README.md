@@ -13,6 +13,8 @@ Site statique multi-pages et multilingue (fr, en, es, pt, it, zh, ar-RTL).
 - `src/components/home/` : page d'accueil + carte d'Afrique de l'Ouest générée au build
 - `src/styles/global.css` : design system (charte graphique 2026)
 - `src/assets/images/stock/` : photos Pexels (voir CREDITS.md), optimisées en AVIF/WebP au build
+- `public/admin/` : **back office** PHP (produits, catégories, comptes, journal) ; code des écrans dans `public/admin/app/`
+- `public/api/catalogue.php`, `public/api/fiche.php`, `public/api/lib/tilamed/` : pages produits et fiches PDF servies depuis la base (voir DEPLOY.md)
 - `public/brand/` : logos officiels (Livrable client) ; `public/media/` : vidéos d'illustration
 
 ## Charte (rappel)

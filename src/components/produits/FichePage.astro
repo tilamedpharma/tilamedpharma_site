@@ -1,0 +1,7 @@
+---
+// Gabarit de la page d'un produit (/produits/{slug}/). Astro le génère une fois par langue sous
+// /produits/fiche-modele/ ; public/api/catalogue.php le lit, remplace %%TLM_TITLE%% / %%TLM_DESC%%
+// et l'adresse « fiche-modele », puis remplit l'emplacement avec la fiche du produit tirée de la base.
+import Live from './Live.astro';
+---
+<Live k="fiche" />

@@ -1,0 +1,7 @@
+---
+// Emplacement « vivant » : commentaire <!--tlm:clé--> remplacé à chaque visite par public/api/catalogue.php
+// avec les produits de la base (back office). Sans PHP (astro dev / preview), l'emplacement reste vide.
+interface Props { k: string }
+const { k } = Astro.props;
+---
+<Fragment set:html={`<!--tlm:${k}-->`} />

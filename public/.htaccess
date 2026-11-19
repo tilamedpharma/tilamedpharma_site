@@ -21,6 +21,16 @@ ErrorDocument 404 /404.html
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
   RewriteRule ^ %{REQUEST_URI}/ [R=301,L]
 
+  # 2b) Fiche produit sans barre oblique finale → avec
+  RewriteRule ^((en|es|pt|it|zh|ar)/)?produits/([a-z0-9-]+)$ /$1produits/$3/ [R=301,L]
+
+  # 2c) Pages produits servies par PHP à partir de la base du back office (catalogue, gammes, fiches, PDF).
+  #     La page générée par Astro sert de gabarit (voir public/api/catalogue.php).
+  RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?(produits|serums|medicaments|solutions-nutritionnelles|dispositifs-medicaux|sante-animale)/$ api/catalogue.php?l=$1&p=$2 [L,QSA]
+  RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?produits/([a-z0-9-]+)/$ api/catalogue.php?l=$1&p=fiche&s=$2 [L,QSA]
+  RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?produits/([a-z0-9-]+)/fiche-technique\.pdf$ api/fiche.php?l=$1&s=$2 [L,QSA]
+  RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?produits/[a-z0-9-]+/documents/([0-9]+)/[A-Za-z0-9._-]*$ api/fiche.php?doc=$2 [L,QSA]
+
   # 3) Pages retirées → page la plus proche (301)
   RewriteRule ^((en|es|pt|it|zh|ar)/)?centrales-achat/?$ /$1clients/ [R=301,L]
   RewriteRule ^((en|es|pt|it|zh|ar)/)?bpf-oms/?$ /$1qualite/ [R=301,L]

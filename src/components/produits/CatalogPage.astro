@@ -1,14 +1,15 @@
 ---
 // Page « Catalogue » : les 5 gammes + catalogue complet filtrable (recherche et gammes, sans rechargement).
+// Les produits viennent de la base du back office : les emplacements <Live> sont remplis par public/api/catalogue.php.
 import { Picture } from 'astro:assets';
 import Icon from '../Icon.astro';
 import PageHero from '../page/PageHero.astro';
-import ProductCard from './ProductCard.astro';
+import Live from './Live.astro';
 import { useDict } from '../../i18n';
-import { useCatalog, itemText } from '../../i18n/catalog';
+import { useCatalog } from '../../i18n/catalog';
 import { useProduits } from '../../i18n/pages/produits';
 import { localizePath, type Locale } from '../../i18n/config';
-import { catalog, type Group } from '../../data/catalog';
+import type { Group } from '../../data/catalog';
 import { productFamilies, catalogueImage } from '../../data/products';
 
 interface Props { lang: Locale }
@@ -19,13 +20,7 @@ const p = useProduits(lang);
 const L = (s: string) => localizePath(lang, s);
 const pages = t.nav.pages as Record<string, string>;
 
-const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const groups: Group[] = productFamilies.map((f) => f.group);
-const count = (g: Group) => catalog.filter((i) => i.group === g).length;
-const searchOf = (i: (typeof catalog)[number]) => {
-  const { name, use } = itemText(lang, i);
-  return norm([name, use, i.name.fr, i.name.en, c.cats[i.cat] ?? '', i.keywords].join(' '));
-};
 ---
 <PageHero lang={lang} section="produits" slug="produits" title={pages['produits']} lead={p.catalogue.lead} image={catalogueImage}>
   <a class="btn" href="#catalogue">{p.catalogue.searchTitle}<Icon name="arrow" size={18} class="flip-rtl" /></a>
@@ -49,7 +44,7 @@ const searchOf = (i: (typeof catalog)[number]) => {
               <span class="pfam__ic"><Icon name={f.icon} size={20} /></span>
               <span class="pfam__t">{c.groups[f.group].label}</span>
               <span class="pfam__d">{c.groups[f.group].blurb}</span>
-              <span class="pfam__n">{count(f.group)} {c.ui.refs}</span>
+              <span class="pfam__n"><Live k={`count:${f.group}`} /> {c.ui.refs}</span>
             </span>
           </a>
         </li>
@@ -76,17 +71,17 @@ const searchOf = (i: (typeof catalog)[number]) => {
         <input type="search" placeholder={c.ui.search} autocomplete="off" data-cat-q />
       </label>
       <div class="pcat__chips" role="group" aria-label={c.ui.searchLabel}>
-        <button type="button" class="pcat__chip" aria-pressed="true" data-cat-g="">{c.ui.all} <span>{catalog.length}</span></button>
-        {groups.map((g) => <button type="button" class="pcat__chip" aria-pressed="false" data-cat-g={g}>{c.groups[g].label} <span>{count(g)}</span></button>)}
+        <button type="button" class="pcat__chip" aria-pressed="true" data-cat-g="">{c.ui.all} <span><Live k="n:all" /></span></button>
+        {groups.map((g) => <button type="button" class="pcat__chip" aria-pressed="false" data-cat-g={g}>{c.groups[g].label} <span><Live k={`n:${g}`} /></span></button>)}
       </div>
-      <p class="pcat__count" aria-live="polite" data-cat-count data-one={c.ui.results(1)} data-many={c.ui.results(999)}>{c.ui.results(catalog.length)}</p>
+      <p class="pcat__count" aria-live="polite" data-cat-count data-one={c.ui.results(1)} data-many={c.ui.results(999)}><Live k="results" /></p>
     </div>
 
     {groups.map((g) => (
       <div class="pcat__group" data-cat-group={g}>
         <h3 class="pcat__gh"><a href={L(productFamilies.find((f) => f.group === g)!.slug)}>{c.groups[g].label}<Icon name="arrow" size={16} class="flip-rtl" /></a></h3>
         <ul class="pcards">
-          {catalog.filter((i) => i.group === g).map((i) => <ProductCard lang={lang} item={i} search={searchOf(i)} />)}
+          <Live k={`cards:${g}`} />
         </ul>
       </div>
     ))}

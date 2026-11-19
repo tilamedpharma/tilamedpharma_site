@@ -23,7 +23,7 @@ const navSections = sectionKeys.filter((s) => s !== 'contact');
         {navSections.map((s) => (
           <li class="hdr__item" data-mega-item={s}>
             {/* La rubrique mène à sa page principale ; la flèche (ou le survol) ouvre le méga-menu. */}
-            <a class="hdr__link" href={localizePath(lang, navTree[s][0])} aria-current={(navTree[s] as readonly string[]).includes(slug) ? 'true' : undefined}>
+            <a class="hdr__link" href={localizePath(lang, navTree[s][0])} aria-current={(navTree[s] as readonly string[]).includes(slug) || slug.startsWith(`${navTree[s][0]}/`) ? 'true' : undefined}>
               {t.nav.sections[s].label}
             </a>
             <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls={`mega-${s}`} aria-label={t.nav.sections[s].label} data-mega-trigger={s}>

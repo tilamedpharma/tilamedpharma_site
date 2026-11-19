@@ -1,13 +1,14 @@
 ---
 // Page d'une gamme de produits (sérums, médicaments, nutrition, dispositifs, santé animale).
+// Produits, catégories, chiffres et phases viennent de la base du back office :
+// les emplacements <Live> sont remplis à chaque visite par public/api/catalogue.php.
 import Icon from '../Icon.astro';
 import PageHero from '../page/PageHero.astro';
-import ProductCard from './ProductCard.astro';
+import Live from './Live.astro';
 import { useDict } from '../../i18n';
 import { useCatalog } from '../../i18n/catalog';
 import { useProduits } from '../../i18n/pages/produits';
 import { localizePath, type Locale } from '../../i18n/config';
-import { catalog } from '../../data/catalog';
 import { productFamilies } from '../../data/products';
 
 interface Props { lang: Locale; slug: string }
@@ -19,13 +20,8 @@ const L = (s: string) => localizePath(lang, s);
 const pages = t.nav.pages as Record<string, string>;
 const fam = productFamilies.find((f) => f.slug === slug)!;
 const fp = p.families[slug as keyof typeof p.families];
-const items = catalog.filter((i) => i.group === fam.group);
-const cats = [...new Set(items.map((i) => i.cat))];
-const statuses = [...new Set(items.map((i) => i.family))];
 const isDevices = fam.group === 'devices';
 const isVet = fam.group === 'vet';
-const phases = [1, 2, 3].map((n) => ({ n, lines: [...new Set(items.filter((i) => i.phase === n && i.line).map((i) => i.line!))], count: items.filter((i) => i.phase === n).length })).filter((x) => x.count);
-const pad = (n: number) => String(n).padStart(2, '0');
 ---
 <PageHero lang={lang} section="produits" slug={slug} title={pages[slug]} lead={fp.lead} image={fam.image}>
   <a class="btn" href="#gamme">{p.ui.inThisRange}<Icon name="arrow" size={18} class="flip-rtl" /></a>
@@ -41,19 +37,15 @@ const pad = (n: number) => String(n).padStart(2, '0');
       <p class="lead stepc__intro" data-reveal>{c.groups[fam.group].blurb}</p>
       {isDevices && <p class="tprose" data-reveal>{p.devices.text}</p>}
       {isVet && <p class="tprose" data-reveal>{p.vet.text}</p>}
-      <ul class="pintro__status" data-reveal>
-        {statuses.map((s) => <li class={`pst pst--${s}`}><Icon name={s === 'devices' ? 'truck' : s === 'vet' ? 'clock' : 'factory'} size={16} />{c.status[s].note}</li>)}
-      </ul>
-      <nav class="pintro__cats" aria-label={p.ui.inThisRange} data-reveal>
-        {cats.map((k) => <a href={`#cat-${k}`}>{c.cats[k]} <span>{items.filter((i) => i.cat === k).length}</span></a>)}
-      </nav>
+      <ul class="pintro__status" data-reveal><Live k="fam:status" /></ul>
+      <nav class="pintro__cats" aria-label={p.ui.inThisRange} data-reveal><Live k="fam:cats" /></nav>
     </div>
     <aside class="stepc__aside">
       <div class="sfacts" data-reveal>
         <p class="sfacts__h">{p.ui.inThisRange}</p>
         <ul class="sfacts__list">
-          <li><p class="sfacts__num">{items.length}</p><p class="sfacts__l">{c.ui.refs}</p></li>
-          <li><p class="sfacts__num">{cats.length}</p><p class="sfacts__l">{p.ui.categories}</p></li>
+          <li><p class="sfacts__num"><Live k="fam:n" /></p><p class="sfacts__l">{c.ui.refs}</p></li>
+          <li><p class="sfacts__num"><Live k="fam:ncats" /></p><p class="sfacts__l">{p.ui.categories}</p></li>
         </ul>
       </div>
       {isDevices ? (
@@ -120,30 +112,14 @@ const pad = (n: number) => String(n).padStart(2, '0');
         </div>
         <p class="lead" data-reveal>{p.phases.intro}</p>
       </div>
-      <ol class="pphases__list">
-        {phases.map((ph, i) => (
-          <li data-reveal style={`--d:${i}`}>
-            <span class="pphases__n">P{ph.n}</span>
-            <h3>{c.phases[ph.n]}</h3>
-            <ul>{ph.lines.map((l) => <li><Icon name="check" size={16} />{c.lines[l]}</li>)}</ul>
-            <p class="pphases__c">{ph.count} {c.ui.refs}</p>
-          </li>
-        ))}
-      </ol>
+      <ol class="pphases__list"><Live k="fam:phases" /></ol>
     </div>
   </section>
 )}
 
 <section class="section prange" id="gamme" aria-label={p.ui.inThisRange}>
   <div class="wrap">
-    {cats.map((k, ci) => (
-      <div class="prange__cat" id={`cat-${k}`}>
-        <h2 class="prange__h" data-reveal><span>{pad(ci + 1)}</span>{c.cats[k]}<small>{items.filter((i) => i.cat === k).length}</small></h2>
-        <ul class="pcards">
-          {items.filter((i) => i.cat === k).map((i) => <ProductCard lang={lang} item={i} />)}
-        </ul>
-      </div>
-    ))}
+    <Live k="fam:range" />
     <ul class="pcat__legal">{c.ui.legal.map((x) => <li>{x}</li>)}</ul>
   </div>
 </section>

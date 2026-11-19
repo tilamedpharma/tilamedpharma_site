@@ -19,6 +19,7 @@ import AgrementsPage from '../components/qualite/AgrementsPage.astro';
 import CatalogPage from '../components/produits/CatalogPage.astro';
 import FamilyPage from '../components/produits/FamilyPage.astro';
 import DocPage from '../components/produits/DocPage.astro';
+import FichePage from '../components/produits/FichePage.astro';
 import PvPage from '../components/qualite/PvPage.astro';
 import DistribPage from '../components/marches/DistribPage.astro';
 import PresencePage from '../components/marches/PresencePage.astro';
@@ -60,7 +61,7 @@ import { locales, defaultLocale, type Locale } from '../i18n/config';
 import { processSteps } from '../data/site';
 import { topicPages } from '../data/topics';
 
-type Kind = 'step' | 'topic' | 'about' | 'vision' | 'direction' | 'parcours' | 'benin' | 'rse' | 'egalite' | 'env' | 'centrale' | 'suppliers' | 'distribution' | 'agrements' | 'catalog' | 'family' | 'doc' | 'pv' | 'distrib' | 'presence' | 'clients' | 'hopitaux' | 'orgs' | 'cand' | 'news' | 'media' | 'press' | 'contact' | 'offices' | 'faq' | 'legal';
+type Kind = 'step' | 'topic' | 'about' | 'vision' | 'direction' | 'parcours' | 'benin' | 'rse' | 'egalite' | 'env' | 'centrale' | 'suppliers' | 'distribution' | 'agrements' | 'catalog' | 'family' | 'fiche' | 'doc' | 'pv' | 'distrib' | 'presence' | 'clients' | 'hopitaux' | 'orgs' | 'cand' | 'news' | 'media' | 'press' | 'contact' | 'offices' | 'faq' | 'legal';
 export function getStaticPaths() {
   const out: { params: { route: string }; props: { lang: Locale; slug: string; kind: Kind; image: string } }[] = [];
   const add = (lang: Locale, slug: string, kind: Kind, image: string) =>
@@ -82,6 +83,7 @@ export function getStaticPaths() {
     add(lang, 'agrements', 'agrements', '/media/video/hero-wide.jpg');
     add(lang, 'produits', 'catalog', catalogueImage.src);
     for (const f of productFamilies) add(lang, f.slug, 'family', f.image.src);
+    add(lang, 'produits/fiche-modele', 'fiche', catalogueImage.src); // gabarit des pages produits (rempli par PHP)
     add(lang, 'documentation', 'doc', catalogueImage.src);
     add(lang, 'pharmacovigilance', 'pv', catalogueImage.src);
     add(lang, 'distributeurs', 'distrib', '/media/video/chargement-camion.jpg');
@@ -119,6 +121,7 @@ const meta =
   : kind === 'agrements' ? useQualite(lang).pages.agrements.meta
   : kind === 'catalog' ? useProduits(lang).catalogue.meta
   : kind === 'family' ? useProduits(lang).families[slug as keyof ReturnType<typeof useProduits>['families']].meta
+  : kind === 'fiche' ? { title: '%%TLM_TITLE%%', description: '%%TLM_DESC%%' }
   : kind === 'pv' ? useQualite(lang).pv.meta
   : kind === 'distrib' ? useMarches(lang).distrib.meta
   : kind === 'presence' ? usePresence(lang).meta
@@ -152,6 +155,7 @@ const meta =
   {kind === 'agrements' && <AgrementsPage lang={lang} />}
   {kind === 'catalog' && <CatalogPage lang={lang} />}
   {kind === 'family' && <FamilyPage lang={lang} slug={slug} />}
+  {kind === 'fiche' && <FichePage />}
   {kind === 'doc' && <DocPage lang={lang} />}
   {kind === 'pv' && <PvPage lang={lang} />}
   {kind === 'distrib' && <DistribPage lang={lang} />}

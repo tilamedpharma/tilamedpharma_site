@@ -17,6 +17,11 @@ return [
     'smtp_pass'   => 'MOT_DE_PASSE_DE_LA_BOITE',
     'from'        => 'contact@tilamedpharma.com',
 
+    // Back office (/admin/) : clé demandée UNE fois, pour créer le premier compte administrateur (16 caractères ou plus).
+    'admin_setup_key' => '',
+    // Dossier des données du back office (base + fichiers déposés). Par défaut : « tilamed-data » à côté de public_html.
+    // 'data_dir' => '/home/u123456789/domains/tilamedpharma.com/tilamed-data',
+
     // Destinataires : 'default' pour tous, ou une adresse par formulaire.
     'to' => [
         'default' => ['contact@tilamedpharma.com'],

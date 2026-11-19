@@ -1,4 +1,5 @@
-// Généré par tools/build-catalog.mjs depuis l'ancien site — ne pas modifier à la main.
+// Données initiales du catalogue (120 références de l'ancien site) : ne servent plus qu'à remplir la base du back office
+// à sa création (voir src/pages/api/data/seed.json.ts). Les produits se gèrent ensuite dans /admin/.
 // 120 références visibles.
 export type Group = 'serum' | 'medicines' | 'nutrition' | 'devices' | 'vet';
 export type CatalogItem = {

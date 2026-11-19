@@ -15,3 +15,6 @@ content-map-raw.md
 *.log
 .DS_Store
 Thumbs.db
+
+# Données du back office en local (base SQLite, fichiers déposés) : jamais dans GitHub
+tilamed-data/

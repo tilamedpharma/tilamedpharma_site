@@ -15,7 +15,7 @@ const cat: CatalogDict = {
     pack: 'Packaging',
     refs: 'references',
     request: 'Request information',
-    legal: ['TILAMED products in preparation · not yet for sale.', 'Images are not contractual.', 'Information intended for healthcare professionals.'],
+    legal: ['TILAMED products in preparation · not yet for sale.', 'Information intended for healthcare professionals.'],
   },
   groups: {
     serum: { label: 'Infusion fluids', blurb: 'Basic infusion fluids and specific solutions.' },

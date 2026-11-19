@@ -141,7 +141,6 @@ function fiche_pdf(array $p, string $lang): string
     if ($vis['file'] !== '' && is_file($vis['file'])) {
         $html .= '<td style="width:66mm;vertical-align:middle;text-align:' . $end . '"><div style="background:#FFFFFF;padding:1.6mm;border-radius:2.5mm">'
             . '<img src="' . h($vis['file']) . '" style="width:62.8mm;border-radius:1.8mm"></div>'
-            . (!$vis['photo'] ? '<div style="font-size:6.5pt;color:#CFE0F5;margin-top:1.4mm;text-align:' . $end . '">' . h($t['ui']['legal'][1] ?? '') . '</div>' : '')
             . '</td>';
     }
     $html .= '</tr></table></div>'
@@ -193,7 +192,7 @@ function fiche_pdf(array $p, string $lang): string
         . '<div class="cv" dir="ltr" style="text-align:' . $start . '">' . h($c['email']) . '<br>' . h($o['phone']) . '<br>' . h($c['web']) . '</div></td>'
         . '<td style="background:#39A845"><div class="ct" style="color:#EBF6ED">' . h(mb_strtoupper($f['web'])) . '</div>'
         . '<div class="cv" dir="ltr" style="font-size:8.5pt;text-align:' . $start . '"><a href="' . h($url) . '" style="color:#FFFFFF;text-decoration:none">' . h(str_replace('https://', '', $url)) . '</a></div></td></tr></table>';
-    $html .= '<div class="disc">' . h($f['disclaimer']) . ' ' . h(implode(' · ', $t['ui']['legal'])) . '</div></div>';
+    $html .= '<div class="disc">' . h($f['disclaimer']) . ' ' . h($t['ui']['legal'][0] ?? '') . '</div></div>';
 
     $mpdf->WriteHTML($ls($html));
     $part = $file . '.' . bin2hex(random_bytes(4)) . '.tmp';

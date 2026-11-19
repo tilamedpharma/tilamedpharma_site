@@ -15,7 +15,7 @@ const cat: CatalogDict = {
     pack: 'Acondicionamento',
     refs: 'referências',
     request: 'Pedir informações',
-    legal: ['Produtos TILAMED em preparação · ainda não à venda.', 'Imagens não contratuais.', 'Informação destinada aos profissionais de saúde.'],
+    legal: ['Produtos TILAMED em preparação · ainda não à venda.', 'Informação destinada aos profissionais de saúde.'],
   },
   groups: {
     serum: { label: 'Soros', blurb: 'Soluções de perfusão de base e soluções específicas.' },

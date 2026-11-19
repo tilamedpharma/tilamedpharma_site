@@ -838,7 +838,6 @@
 .pfhero__media { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: var(--radius-lg); background: #fff; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .55); }
 .pfhero__media img { width: 100%; height: 100%; object-fit: cover; }
 .pfhero__media--photo img { object-fit: contain; }
-.pfhero__note { position: absolute; inset-inline-end: 10px; bottom: 8px; padding: 2px 8px; border-radius: 99px; background: rgba(255, 255, 255, .85); font-size: .6875rem; color: var(--muted); }
 .pfhero__media:not(:has(img)) { background: var(--blue); }
 .pfhero__media:not(:has(img))::after { content: ''; position: absolute; inset: auto 0 0; height: 30%; background: var(--green); }
 .pfhero__ic { position: relative; z-index: 1; display: grid; place-items: center; width: 46%; aspect-ratio: 1; margin-top: -12%; border: 2px solid rgba(255, 255, 255, .35); border-radius: 50%; color: #fff; }

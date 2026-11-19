@@ -223,9 +223,7 @@ function render_product(string $html, array $p, string $lang, bool $preview): st
     $o .= '</div></div><div class="pfhero__media' . ($vis['photo'] ? ' pfhero__media--photo' : '') . '">';
     if ($vis['url'] !== '') {
         // Illustration de catégorie : décorative (alt vide) ; photo du produit : alt = nom.
-        $o .= '<img src="' . h($vis['url']) . '" alt="' . ($vis['photo'] ? h($name) : '') . '" width="480" height="360" loading="eager" decoding="async">';
-        if (!$vis['photo']) { $o .= '<span class="pfhero__note">' . h($t['ui']['legal'][1] ?? '') . '</span>'; }
-    } else {
+        $o .= '<img src="' . h($vis['url']) . '" alt="' . ($vis['photo'] ? h($name) : '') . '" width="480" height="360" loading="eager" decoding="async">';    } else {
         $o .= '<span class="pfhero__ic" aria-hidden="true">' . icon($fam['icon'] ?? 'vial', 72) . '</span><span class="pfhero__brand" aria-hidden="true">TILAMED <b>Pharma</b></span>';
     }
     $o .= '</div></div><div class="duo-rule duo-rule--thick" aria-hidden="true"><span></span><span></span></div>';

@@ -14,7 +14,7 @@ const cat = {
     pack: 'Conditionnement',
     refs: 'références',
     request: 'Demander des informations',
-    legal: ['Produits TILAMED en préparation · pas encore en vente.', 'Visuels non contractuels.', 'Information destinée aux professionnels de santé.'],
+    legal: ['Produits TILAMED en préparation · pas encore en vente.', 'Information destinée aux professionnels de santé.'],
   },
   groups: {
     serum: { label: 'Sérums', blurb: 'Solutés de perfusion de base et solutés spécifiques.' },

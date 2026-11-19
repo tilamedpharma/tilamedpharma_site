@@ -38,7 +38,7 @@ const vision: VisionDict = {
     items: [
       { title: 'Rigour', text: 'Written procedures, followed and checked at every step, from the choice of raw materials to the patient.' },
       { title: 'Excellence', text: 'Demanding quality standards, constantly checked by our laboratory.' },
-      { title: 'Compliance with the most demanding standards', text: 'A plant designed to WHO good manufacturing practice and authorised by the BENIN Pharmaceutical Regulatory Agency.' },
+      { title: 'Compliance with the most demanding standards', text: 'A plant authorised by the BENIN Pharmaceutical Regulatory Agency, with every batch tested and then released by the qualified pharmacist.' },
       { title: 'Reliability', text: 'Products available when caregivers need them, deliveries on schedule and batches traced from end to end.' },
     ],
   },

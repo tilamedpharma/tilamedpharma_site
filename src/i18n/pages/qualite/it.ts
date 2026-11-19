@@ -3,16 +3,14 @@ import type { QualiteDict } from './fr';
 const qualite: QualiteDict = {
   pages: {
     qualite: {
-      meta: { title: 'Qualità e conformità · TILAMED Pharma', description: 'GMP dell\'OMS, parere favorevole dell\'ABRP, ISO 9001 e ISO 14001 previste, buone pratiche di distribuzione: il nostro sistema di qualità farmaceutica.' },
+      meta: { title: 'Qualità e conformità · TILAMED Pharma', description: 'parere favorevole dell\'ABRP, ISO 9001 e ISO 14001 previste, buone pratiche di distribuzione: il nostro sistema di qualità farmaceutica.' },
       lead: 'La qualità si costruisce in ogni fase, dalla materia prima al paziente.',
       intro: '',
       facts: [
-        { value: 'GMP', unit: '', label: 'stabilimento progettato secondo le buone pratiche di fabbricazione dell\'OMS' },
         { value: '6', unit: '', label: 'autorizzazioni ottenute dalle autorità beninesi' },
       ],
       blocks: [
         { kind: 'cards', title: 'I nostri riferimenti', items: [
-          { title: 'GMP dell\'OMS', text: 'Uno stabilimento progettato e gestito secondo le buone pratiche di fabbricazione dell\'OMS.' },
           { title: 'ISO 9001 e ISO 14001', text: 'Certificazioni previste per la qualità e l\'ambiente.' },
           { title: 'ABRP', text: 'Parere favorevole del 16 maggio 2023 all\'autorizzazione di apertura ed esercizio.' },
           { title: 'GDP', text: 'Buone pratiche di distribuzione per i nostri magazzini e le nostre consegne.' },
@@ -26,23 +24,6 @@ const qualite: QualiteDict = {
         ] },
       ],
       note: '',
-    },
-    'bpf-oms': {
-      meta: { title: 'GMP dell\'OMS · Qualità · TILAMED Pharma', description: 'Le buone pratiche di fabbricazione dell\'OMS: personale, locali, documentazione, produzione, controllo qualità e autoispezione.' },
-      lead: 'Le regole internazionali che garantiscono una qualità costante, lotto dopo lotto.',
-      intro: 'Le buone pratiche di fabbricazione (GMP) dell\'Organizzazione mondiale della sanità fissano i requisiti minimi che un produttore deve rispettare affinché i suoi prodotti siano sempre di qualità, da un lotto all\'altro, per l\'uso a cui sono destinati.',
-      facts: [],
-      blocks: [
-        { kind: 'cards', title: 'Sei pilastri', items: [
-          { title: 'Personale', text: 'Qualificato, formato e vestito secondo le zone.' },
-          { title: 'Locali e apparecchiature', text: 'Progettati, qualificati e mantenuti per evitare qualsiasi contaminazione.' },
-          { title: 'Documentazione', text: 'Ogni operazione è descritta, eseguita e registrata.' },
-          { title: 'Produzione', text: 'Processi convalidati, padroneggiati e controllati.' },
-          { title: 'Controllo qualità', text: 'Analisi indipendenti dalla produzione.' },
-          { title: 'Autoispezione', text: 'Audit interni regolari per migliorare.' },
-        ] },
-      ],
-      note: 'Il nostro stabilimento è costruito secondo le norme GMP dell\'OMS. Certificazioni e autorizzazioni saranno presentate su questo sito man mano che saranno ottenute.',
     },
     agrements: {
       meta: { title: 'Autorizzazioni · Qualità · TILAMED Pharma', description: 'Autorizzazioni dell\'ABRP e dei ministeri beninesi, certificati ambientale e tecnico, decreto ministeriale: le autorizzazioni di TILAMED PHARMA SA.' },
@@ -98,13 +79,12 @@ const qualite: QualiteDict = {
       note: 'Il BENIN si è fortemente impegnato contro i farmaci contraffatti: partecipazione all\'operazione internazionale PANGEA dell\'INTERPOL, ratifica della convenzione MEDICRIME del Consiglio d\'Europa e nuova legge sulle attività farmaceutiche nel 2021.',
     },
     certifications: {
-      meta: { title: 'Certificazioni · Qualità · TILAMED Pharma', description: 'GMP dell\'OMS, ABRP, ISO 9001, ISO 14001, GDP ed EDGE: i nostri obiettivi di certificazione per la qualità e l\'ambiente.' },
+      meta: { title: 'Certificazioni · Qualità · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, GDP ed EDGE: i nostri obiettivi di certificazione per la qualità e l\'ambiente.' },
       lead: 'I nostri obiettivi di certificazione per la qualità e l\'ambiente.',
       intro: '',
       facts: [],
       blocks: [
         { kind: 'table', title: 'A che punto siamo', head: ['Riferimento', 'Ambito', 'Stato'], rows: [
-          ['GMP dell\'OMS', 'Fabbricazione farmaceutica', 'Stabilimento costruito secondo queste norme'],
           ['ABRP', 'Apertura ed esercizio di uno stabilimento farmaceutico', 'Parere favorevole, commissione del 16 maggio 2023'],
           ['ISO 9001', 'Gestione della qualità', 'Certificazione prevista'],
           ['ISO 14001', 'Gestione ambientale', 'Certificazione prevista'],

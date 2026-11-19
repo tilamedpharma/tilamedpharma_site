@@ -3,11 +3,11 @@ import type { UsineDict } from './fr';
 const usine: UsineDict = {
   meta: {
     title: 'Our plant · TILAMED Pharma, Sèmè-Podji (BENIN)',
-    description: 'A modern plant producing injectable solutions in Sèmè-Podji: water treatment, blow-fill-seal, sterilisation, 100% inspection and laboratory, built to WHO good manufacturing practice.',
+    description: 'A modern plant producing injectable solutions in Sèmè-Podji: water treatment, blow-fill-seal, sterilisation, 100% inspection and laboratory.',
   },
   hero: {
     title: 'Our plant',
-    lead: 'A modern, expandable plant producing injectable solutions, built in Sèmè-Podji to WHO good manufacturing practice.',
+    lead: 'A modern, expandable plant producing injectable solutions, built in Sèmè-Podji.',
     cta1: 'The 7-step process',
     cta2: 'The Sèmè-Podji site',
   },

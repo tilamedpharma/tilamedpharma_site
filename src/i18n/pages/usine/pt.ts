@@ -3,11 +3,11 @@ import type { UsineDict } from './fr';
 const usine: UsineDict = {
   meta: {
     title: 'A nossa fábrica · TILAMED Pharma, Sèmè-Podji (BENIM)',
-    description: 'Uma fábrica moderna de produção de soluções injetáveis em Sèmè-Podji: tratamento da água, sopro-enchimento-selagem, esterilização, controlo a 100 % e laboratório, segundo as BPF da OMS.',
+    description: 'Uma fábrica moderna de produção de soluções injetáveis em Sèmè-Podji: tratamento da água, sopro-enchimento-selagem, esterilização, controlo a 100 % e laboratório.',
   },
   hero: {
     title: 'A nossa fábrica',
-    lead: 'Uma unidade moderna e expansível de produção de soluções injetáveis, construída em Sèmè-Podji segundo as boas práticas de fabrico da OMS.',
+    lead: 'Uma unidade moderna e expansível de produção de soluções injetáveis, construída em Sèmè-Podji.',
     cta1: 'O processo em 7 etapas',
     cta2: 'O local de Sèmè-Podji',
   },

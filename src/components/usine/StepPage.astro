@@ -50,11 +50,10 @@ const cardIcons = ['flask', 'eye', 'clock', 'shield'];
 <!-- Contenu de l'étape -->
 <TopicBody lang={lang} eyebrowN={pad(idx + 1)} eyebrow={pages[slug]} intro={s.intro} blocks={[s.block]} facts={s.facts} note={s.note} figures={e.ui.figures} icons={cardIcons} />
 
-<!-- Étape précédente / suivante -->
+<!-- Étape précédente / suivante (texte seul : les vidéos ne sont qu'en en-tête de leur page) -->
 <nav class="spn" aria-label={e.ui.rail}>
   <div class="wrap spn__grid">
     <a class="spn__card spn__card--prev" href={L(prev ? prev.slug : 'usine')} rel={prev ? 'prev' : undefined}>
-      <span class="spn__img" style={`background-image:url(/media/video/${prev ? prev.video : 'couloir-zone-propre'}.jpg)`} aria-hidden="true"></span>
       <span class="spn__body">
         <span class="spn__k"><Icon name="arrow" size={16} class="spn__back" />{prev ? e.ui.prev : e.ui.overview}</span>
         <span class="spn__t">{prev ? `${pad(idx)} · ${u.process.steps[idx - 1].title}` : e.ui.backTo}</span>
@@ -65,7 +64,6 @@ const cardIcons = ['flask', 'eye', 'clock', 'shield'];
         <span class="spn__k">{next ? e.ui.next : e.ui.overview}<Icon name="arrow" size={16} class="flip-rtl" /></span>
         <span class="spn__t">{next ? `${pad(idx + 2)} · ${u.process.steps[idx + 1].title}` : e.ui.backTo}</span>
       </span>
-      <span class="spn__img" style={`background-image:url(/media/video/${next ? next.video : 'couloir-zone-propre'}.jpg)`} aria-hidden="true"></span>
     </a>
   </div>
 </nav>

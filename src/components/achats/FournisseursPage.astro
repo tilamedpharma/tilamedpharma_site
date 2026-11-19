@@ -1,0 +1,160 @@
+---
+// Page « Nos fournisseurs » (rubrique Centrale d'achat) : grands fabricants partenaires (logos, maison des logos
+// fournisseurs), 5 critères, parcours de référencement en 4 étapes, principes, achats responsables, appel.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useFournisseurs } from '../../i18n/pages/fournisseurs';
+import { localizePath, type Locale } from '../../i18n/config';
+import { company, suppliers } from '../../data/site';
+
+import imgHero from '../../assets/images/stock/affaires-poignee-main-bureau.jpg';
+import imgCta from '../../assets/images/stock/affaires-reunion-tableau.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const f = useFournisseurs(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+const mailto = `mailto:${company.email}?subject=${encodeURIComponent(f.cta.subject)}`;
+
+const stepIcons = ['mail', 'eye', 'book', 'gauge'];
+const principleIcons = ['users', 'shield', 'eye', 'sparkle'];
+---
+<PageHero lang={lang} section="achats" slug="fournisseurs" title={pages['fournisseurs']} lead={f.hero.lead} image={imgHero}>
+  <a class="btn" href="#criteres">{f.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href="#devenir">{f.hero.cta2}</a>
+</PageHero>
+
+<!-- PARTENAIRES -->
+<section class="section" aria-labelledby="fptn-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split fptn__head">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="globe" size={16} class="eyebrow__ic" /><span>{f.partners.eyebrow}</span></p>
+        <h2 class="h2" id="fptn-title" data-reveal>{f.partners.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <div>
+        <p class="lead" data-reveal>{f.partners.text[0]}</p>
+        <p class="fptn__p" data-reveal>{f.partners.text[1]} <a class="link-arrow" href={L('transfert-technologie')}>{pages['transfert-technologie']}<Icon name="arrow" size={14} class="flip-rtl" /></a></p>
+      </div>
+    </div>
+    <div class="ptn__block fptn__logos" data-reveal>
+      <div class="ptn__head"><h3>{t.partners.suppliersTitle}</h3><p>{t.partners.suppliersText}</p></div>
+      <ul class="ptn__logos">
+        {suppliers.map((s) => (
+          <li class="ptn__logo" title={s.name}>
+            {s.logo ? <img src={s.logo} alt={s.name} loading="lazy" decoding="async" /> : <span class="ptn__word">{s.name}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CRITÈRES -->
+<section class="section aobj vcom" id="criteres" aria-labelledby="fcri-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="filter" size={16} class="eyebrow__ic" /><span>{f.criteria.eyebrow}</span></p>
+      <h2 class="h2" id="fcri-title" data-reveal>{f.criteria.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="fcri__text" data-reveal>{f.criteria.text}</p>
+    </div>
+    <ol class="seq fcri__list">
+      {f.criteria.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <span class="seq__n">{pad(i + 1)}</span>
+          <div><h3>{it.title}</h3><p>{it.text}</p></div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- DEVENIR FOURNISSEUR -->
+<section class="section" id="devenir" aria-labelledby="fstp-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{f.steps.eyebrow}</span></p>
+      <h2 class="h2" id="fstp-title" data-reveal>{f.steps.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ol class="vval__list fstp__list">
+      {f.steps.items.map((it, i) => (
+        <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={stepIcons[i]} size={24} /></span>
+          </div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+          {i === 0 && <a class="link-arrow" href={mailto}>{f.cta.mail}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- PRINCIPES -->
+<section class="section cfor" aria-labelledby="fpri-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="shield" size={16} class="eyebrow__ic" /><span>{f.principles.eyebrow}</span></p>
+      <h2 class="h2" id="fpri-title" data-reveal>{f.principles.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="cfor__grid">
+      {f.principles.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <div class="cfor__card fpri__card">
+            <span class="cfor__ic"><Icon name={principleIcons[i]} size={22} /></span>
+            <h3>{it.title}</h3>
+            <p>{it.text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- ACHATS RESPONSABLES -->
+<section class="section aobj" aria-labelledby="fsus-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="leaf" size={16} class="eyebrow__ic" /><span>{f.sustainable.eyebrow}</span></p>
+      <h2 class="h2" id="fsus-title" data-reveal>{f.sustainable.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="fcri__text" data-reveal>{f.sustainable.text}</p>
+    </div>
+    <ol class="aobj__list">
+      {f.sustainable.items.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}><span class="aobj__n">{pad(i + 1)}</span><p>{x}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- APPEL -->
+<section class="apart vcta" aria-labelledby="fcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="tag" size={16} /><span>{f.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="fcta-title">{f.cta.title}</h2>
+        <p>{f.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={mailto}><Icon name="mail" size={18} />{f.cta.mail}</a>
+          <a class="btn btn--outline-light" href={L('contact')}>{t.header.cta}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -18,7 +18,7 @@ const en: Dict = {
       achats: { label: 'Procurement', blurb: 'Our purchasing, our suppliers and our distribution chain.' },
       usine: { label: 'Plant', blurb: 'The Sèmè-Podji site and every manufacturing step.' },
       produits: { label: 'Products', blurb: 'Infusion fluids, medicines, nutrition, medical devices and animal health.' },
-      qualite: { label: 'Quality', blurb: 'WHO GMP, approvals and testing of every batch.' },
+      qualite: { label: 'Quality', blurb: 'Approvals, testing of every batch and traceability.' },
       marches: { label: 'Markets', blurb: 'Purchasing centres, hospitals, distributors and health organisations.' },
       carrieres: { label: 'Careers', blurb: 'Why join us, our professions and how to apply.' },
       medias: { label: 'Media', blurb: 'News, media library and press area.' },
@@ -33,7 +33,7 @@ const en: Dict = {
       'conditionnement-logistique': 'Packaging and delivery', 'salles-propres': 'Clean rooms', utilites: 'Industrial utilities', 'transfert-technologie': 'Technology transfer',
       produits: 'Catalogue', serums: 'Infusion fluids', medicaments: 'Medicines', 'solutions-nutritionnelles': 'Nutritional solutions', 'dispositifs-medicaux': 'Medical devices',
       'sante-animale': 'Animal health', documentation: 'Request documentation',
-      qualite: 'Quality and compliance', 'bpf-oms': 'WHO GMP', agrements: 'Approvals and licences', 'controle-qualite': 'Quality control', tracabilite: 'Traceability',
+      qualite: 'Quality and compliance', agrements: 'Approvals and licences', 'controle-qualite': 'Quality control', tracabilite: 'Traceability',
       pharmacovigilance: 'Pharmacovigilance', certifications: 'Certifications',
       clients: 'Our customers', 'centrales-achat': 'Purchasing centres', 'hopitaux-cliniques': 'Hospitals, clinics, pharmacies', 'organisations-sante': 'Health organisations',
       distributeurs: 'Become a distributor', presence: 'Regional presence',
@@ -162,7 +162,7 @@ const en: Dict = {
     title: 'Four businesses serving health',
     intro: 'From manufacturing to distribution, we cover the whole chain of essential health products for West Africa.',
     items: [
-      { title: 'Finished pharmaceutical products', text: 'Infusion fluids, injectables and oral solutions, made and tested in our Sèmè-Podji plant.', alt: 'Ampoule filling line' },
+      { title: 'Finished pharmaceutical products', text: 'Infusion fluids, injectables and oral solutions, made and tested in our Sèmè-Podji plant.', alt: 'Operator checking bottles on a production line' },
       { title: 'Medical devices', text: 'Approved distributor: diagnostics, surgery, sterilisation and hospital equipment.', alt: 'Blood pressure monitor and medical equipment' },
       { title: 'Medical laboratory', text: 'Analyses and quality control performed to international standards.', alt: 'Laboratory technician performing an analysis' },
       { title: 'Animal health', text: 'Food, parasite control and care for dogs and cats.', alt: 'Veterinarian examining a dog' },
@@ -185,7 +185,7 @@ const en: Dict = {
   process: {
     eyebrow: 'Our plant',
     title: 'From ordinary water to delivered pharmaceutical solutions',
-    intro: 'Seven steps in a controlled-atmosphere area, designed to WHO good manufacturing practice.',
+    intro: 'Seven steps in a controlled-atmosphere area, from water treatment to packaging.',
     step: 'Step',
     cta: 'Visit the plant',
     steps: [
@@ -216,7 +216,7 @@ const en: Dict = {
   compliance: {
     eyebrow: 'Approvals and compliance',
     title: 'Authorised, approved, built by the rules',
-    intro: 'Our plant is designed to WHO good manufacturing practice (GMP). Every stage of the project is overseen by the Beninese authorities.',
+    intro: 'Every stage of the project is overseen by the Beninese authorities: six approvals and licences obtained since 2023.',
     items: [
       { title: 'Authorisation to install and operate', ref: 'No. 1138 ABRP/DHE/DAE/SA · 30 June 2023', by: 'BENIN Pharmaceutical Regulatory Agency and Ministry of Health' },
       { title: 'Industrial authorisation', ref: 'No. LFFL EK3V JE3W CQ9Z · 9 September 2024', by: 'Ministry of Trade and Industry' },
@@ -226,10 +226,9 @@ const en: Dict = {
       { title: 'Tax and social exemption (waiver)', ref: 'Regime B · 8 years', by: 'Investment and operating phases' },
     ],
     standardsTitle: 'Our standards',
-    standardsStatus: ['Reference', 'Reference', 'Targeted', 'In progress'],
+    standardsStatus: ['Reference', 'Targeted', 'In progress'],
     standards: [
       { code: 'WHO', label: 'Standards and guidelines of the World Health Organization' },
-      { code: 'GMP', label: 'Good manufacturing practice, the design reference of the plant' },
       { code: 'ISO', label: 'ISO 9001 and ISO 14001 certifications targeted' },
       { code: 'EDGE', label: 'IFC green building certification in progress' },
     ],

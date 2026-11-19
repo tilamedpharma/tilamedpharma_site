@@ -3,11 +3,11 @@ import type { UsineDict } from './fr';
 const usine: UsineDict = {
   meta: {
     title: 'Nuestra planta · TILAMED Pharma, Sèmè-Podji (BENÍN)',
-    description: 'Una planta moderna de producción de soluciones inyectables en Sèmè-Podji: tratamiento del agua, soplado-llenado-sellado, esterilización, control al 100 % y laboratorio, según las BPF de la OMS.',
+    description: 'Una planta moderna de producción de soluciones inyectables en Sèmè-Podji: tratamiento del agua, soplado-llenado-sellado, esterilización, control al 100 % y laboratorio.',
   },
   hero: {
     title: 'Nuestra planta',
-    lead: 'Una unidad moderna y ampliable de producción de soluciones inyectables, construida en Sèmè-Podji según las buenas prácticas de fabricación de la OMS.',
+    lead: 'Una unidad moderna y ampliable de producción de soluciones inyectables, construida en Sèmè-Podji.',
     cta1: 'El proceso en 7 etapas',
     cta2: 'El sitio de Sèmè-Podji',
   },

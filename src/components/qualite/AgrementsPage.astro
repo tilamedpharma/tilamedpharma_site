@@ -1,0 +1,169 @@
+---
+// Page « Agréments et autorisations » (rubrique Qualité) : maison des 6 agréments (n°, date, autorité).
+// Chiffres, frise chronologique, rôle de l'ABRP, ce que nous transmettons, référentiels (logos), appel documents.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useQualite } from '../../i18n/pages/qualite';
+import { useAgrements } from '../../i18n/pages/agrements';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/administratif-signature-bureau.jpg';
+import imgCta from '../../assets/images/stock/administratif-signature-femme.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const q = useQualite(lang).pages.agrements;
+const a = useAgrements(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+// Ordre chronologique des agréments de t.compliance.items (installation 2023, environnement, industrie, technique, arrêté, Waiver).
+const order = [0, 2, 1, 3, 4, 5];
+// Icônes dans l'ordre de t.compliance.items : installation, industrielle, environnementale, technique, arrêté, Waiver.
+const icons = ['shield', 'factory', 'leaf', 'wrench', 'building', 'tag'];
+const items = order.map((idx) => {
+  const it = t.compliance.items[idx];
+  const parts = it.ref.split(' · ');
+  const when = parts.length > 1 ? parts[parts.length - 1] : '';
+  const num = parts.length > 1 ? parts.slice(0, -1).join(' · ') : it.ref;
+  const year = when.match(/20\d\d/)?.[0];
+  // Préfixe en toutes lettres (« N° », « Arrêté N° », « رقم »…) puis code de référence, isolé en sens gauche → droite.
+  const cut = num.search(/[0-9A-Z]{2}|[0-9]/);
+  const pre = cut > 0 ? num.slice(0, cut) : '';
+  const code = cut > 0 ? num.slice(cut) : num;
+  return { ...it, when, num, pre, code, year, icon: icons[idx], isWaiver: idx === 5 };
+});
+const [roleBlock, sendBlock] = q.blocks as { title: string; text?: string; items: string[] }[];
+const stdLogos = ['/media/standards/oms.svg', '/media/standards/iso.svg', '/media/standards/edge.svg'];
+---
+<PageHero lang={lang} section="qualite" slug="agrements" title={pages['agrements']} lead={q.lead} image={imgHero}>
+  <a class="btn" href="#liste">{a.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('certifications')}>{pages['certifications']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts dfacts" aria-label={pages['agrements']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {a.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- FRISE DES AGRÉMENTS -->
+<section class="section" id="liste" aria-labelledby="atl-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="clock" size={16} class="eyebrow__ic" /><span>{a.timeline.eyebrow}</span></p>
+      <h2 class="h2" id="atl-title" data-reveal>{t.compliance.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="fcri__text" data-reveal>{t.compliance.intro}</p>
+    </div>
+    <ol class="atl">
+      {items.map((it, i) => (
+        <>
+          {it.year && it.year !== items[i - 1]?.year && <li class="atl__year" aria-hidden="true">{it.year}</li>}
+          <li class="atl__item" data-reveal style={`--d:${i}`}>
+            <span class="atl__ic"><Icon name={it.icon} size={20} /></span>
+            <div class="atl__card">
+              {it.when && <p class="atl__when">{it.when}</p>}
+              <h3>{it.title}</h3>
+              <p class="atl__num">{it.pre}<span class="atl__code" dir="ltr">{it.code}</span></p>
+              <p class="atl__by">{!it.isWaiver && <span>{a.timeline.by}</span>} {it.by}</p>
+            </div>
+          </li>
+        </>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- RÔLE DE L'ABRP + CE QUE NOUS TRANSMETTONS -->
+<section class="section vcom" aria-labelledby="abrp-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="shield" size={16} class="eyebrow__ic" /><span>{a.abrp.eyebrow}</span></p>
+      <h2 class="h2" id="abrp-title" data-reveal>{roleBlock.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vval__list abrp__list">
+      {roleBlock.items.map((x, i) => (
+        <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={['book', 'eye', 'flask'][i] ?? 'check'} size={24} /></span>
+          </div>
+          <p class="abrp__t">{x}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="abrp__send" data-reveal>
+      <div>
+        <h3>{sendBlock.title}</h3>
+        {sendBlock.text && <p>{sendBlock.text}</p>}
+      </div>
+      <ul class="dpart__list">
+        {sendBlock.items.map((x) => <li><Icon name="check" size={18} />{x}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RÉFÉRENTIELS -->
+<section class="section" aria-labelledby="astd-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="award" size={16} class="eyebrow__ic" /><span>{a.standards.eyebrow}</span></p>
+        <h2 class="h2" id="astd-title" data-reveal>{t.compliance.standardsTitle}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{a.standards.text} <a class="link-arrow" href={L('certifications')}>{pages['certifications']}<Icon name="arrow" size={14} class="flip-rtl" /></a></p>
+    </div>
+    <div class="comp__std astd" data-reveal>
+      <ul>
+        {t.compliance.standards.map((s, i) => (
+          <li class:list={[{ 'is-green': i === t.compliance.standards.length - 1 }]}>
+            <span class="comp__std-top">
+              <span class="comp__id">
+                <span class="comp__logo"><img src={stdLogos[i]} alt="" width="120" height="56" loading="lazy" decoding="async" /></span>
+                <span class="comp__code">{s.code}</span>
+              </span>
+              <span class="comp__st"><Icon name={i === 0 ? 'check-circle' : 'clock'} size={14} />{t.compliance.standardsStatus[i]}</span>
+            </span>
+            <p>{s.label}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="apart vcta" aria-labelledby="acta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="book" size={16} /><span>{a.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="acta-title">{a.cta.title}</h2>
+        <p>{a.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('contact')}>{t.header.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('documentation')}>{pages['documentation']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

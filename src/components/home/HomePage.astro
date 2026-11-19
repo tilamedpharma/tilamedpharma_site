@@ -2,6 +2,9 @@
 import { Picture } from 'astro:assets';
 import Icon from '../Icon.astro';
 import NetworkMap from './NetworkMap.astro';
+// Logos officiels des référentiels (choix de l'utilisateur, 19/11/2026, informé des règles d'usage de l'OMS, de l'ISO et d'EDGE).
+// BPF retiré des référentiels (19/11/2026). Ordre = t.compliance.standards (OMS, ISO, EDGE).
+const stdLogos = ['/media/standards/oms.svg', '/media/standards/iso.svg', '/media/standards/edge.svg'];
 import { useDict } from '../../i18n';
 import { localizePath, localeMeta, type Locale } from '../../i18n/config';
 import { suppliers, trustLogos } from '../../data/site';
@@ -268,8 +271,11 @@ const whyIcons = ['truck', 'route', 'tag', 'users'];
         {t.compliance.standards.map((s, i) => (
           <li class:list={[{ 'is-green': i === t.compliance.standards.length - 1 }]}>
             <span class="comp__std-top">
-              <span class="comp__code">{s.code}</span>
-              <span class="comp__st"><Icon name={i < 2 ? 'check-circle' : 'clock'} size={14} />{t.compliance.standardsStatus[i]}</span>
+              <span class="comp__id">
+                <span class="comp__logo"><img src={stdLogos[i]} alt="" width="120" height="56" loading="lazy" decoding="async" /></span>
+                <span class="comp__code">{s.code}</span>
+              </span>
+              <span class="comp__st"><Icon name={i === 0 ? 'check-circle' : 'clock'} size={14} />{t.compliance.standardsStatus[i]}</span>
             </span>
             <p>{s.label}</p>
           </li>

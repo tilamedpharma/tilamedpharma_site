@@ -3,16 +3,14 @@ import type { QualiteDict } from './fr';
 const qualite: QualiteDict = {
   pages: {
     qualite: {
-      meta: { title: 'Qualidade e conformidade · TILAMED Pharma', description: 'BPF da OMS, parecer favorável da ABRP, ISO 9001 e ISO 14001 visadas, boas práticas de distribuição: o nosso sistema de qualidade farmacêutica.' },
+      meta: { title: 'Qualidade e conformidade · TILAMED Pharma', description: 'parecer favorável da ABRP, ISO 9001 e ISO 14001 visadas, boas práticas de distribuição: o nosso sistema de qualidade farmacêutica.' },
       lead: 'A qualidade constrói-se em cada etapa, da matéria-prima ao doente.',
       intro: '',
       facts: [
-        { value: 'BPF', unit: '', label: 'fábrica concebida segundo as boas práticas de fabrico da OMS' },
         { value: '6', unit: '', label: 'autorizações obtidas junto das autoridades beninenses' },
       ],
       blocks: [
         { kind: 'cards', title: 'Os nossos referenciais', items: [
-          { title: 'BPF da OMS', text: 'Uma fábrica concebida e explorada segundo as boas práticas de fabrico da OMS.' },
           { title: 'ISO 9001 e ISO 14001', text: 'Certificações visadas para a qualidade e o ambiente.' },
           { title: 'ABRP', text: 'Parecer favorável de 16 de maio de 2023 à autorização de abertura e exploração.' },
           { title: 'BPD', text: 'Boas práticas de distribuição para os nossos armazéns e entregas.' },
@@ -26,23 +24,6 @@ const qualite: QualiteDict = {
         ] },
       ],
       note: '',
-    },
-    'bpf-oms': {
-      meta: { title: 'BPF da OMS · Qualidade · TILAMED Pharma', description: 'As boas práticas de fabrico da OMS: pessoal, instalações, documentação, produção, controlo de qualidade e autoinspeção.' },
-      lead: 'As regras internacionais que garantem uma qualidade constante, lote após lote.',
-      intro: 'As boas práticas de fabrico (BPF, em inglês GMP) da Organização Mundial da Saúde fixam os requisitos mínimos que um fabricante deve cumprir para que os seus produtos tenham sempre qualidade, de um lote para outro, para o uso a que se destinam.',
-      facts: [],
-      blocks: [
-        { kind: 'cards', title: 'Seis pilares', items: [
-          { title: 'Pessoal', text: 'Qualificado, formado e equipado segundo as zonas.' },
-          { title: 'Instalações e equipamentos', text: 'Concebidos, qualificados e mantidos para evitar qualquer contaminação.' },
-          { title: 'Documentação', text: 'Cada operação é descrita, realizada e registada.' },
-          { title: 'Produção', text: 'Processos validados, dominados e controlados.' },
-          { title: 'Controlo de qualidade', text: 'Análises independentes da produção.' },
-          { title: 'Autoinspeção', text: 'Auditorias internas regulares para melhorar.' },
-        ] },
-      ],
-      note: 'A nossa fábrica é construída segundo as normas BPF da OMS. As certificações e autorizações serão apresentadas neste site à medida que forem obtidas.',
     },
     agrements: {
       meta: { title: 'Autorizações · Qualidade · TILAMED Pharma', description: 'Autorizações da ABRP e dos ministérios beninenses, certificados ambiental e técnico, despacho ministerial: as autorizações da TILAMED PHARMA SA.' },
@@ -98,13 +79,12 @@ const qualite: QualiteDict = {
       note: 'O BENIM empenhou-se fortemente contra os medicamentos falsificados: participação na operação internacional PANGEA da INTERPOL, ratificação da convenção MEDICRIME do Conselho da Europa e nova lei sobre as atividades farmacêuticas em 2021.',
     },
     certifications: {
-      meta: { title: 'Certificações · Qualidade · TILAMED Pharma', description: 'BPF da OMS, ABRP, ISO 9001, ISO 14001, BPD e EDGE: os nossos objetivos de certificação para a qualidade e o ambiente.' },
+      meta: { title: 'Certificações · Qualidade · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, BPD e EDGE: os nossos objetivos de certificação para a qualidade e o ambiente.' },
       lead: 'Os nossos objetivos de certificação para a qualidade e o ambiente.',
       intro: '',
       facts: [],
       blocks: [
         { kind: 'table', title: 'Onde estamos', head: ['Referencial', 'Âmbito', 'Estado'], rows: [
-          ['BPF (GMP) da OMS', 'Fabrico farmacêutico', 'Fábrica construída segundo estas normas'],
           ['ABRP', 'Abertura e exploração de uma fábrica farmacêutica', 'Parecer favorável, comissão de 16 de maio de 2023'],
           ['ISO 9001', 'Gestão da qualidade', 'Certificação visada'],
           ['ISO 14001', 'Gestão ambiental', 'Certificação visada'],

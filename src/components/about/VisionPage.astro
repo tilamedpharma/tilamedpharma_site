@@ -9,10 +9,10 @@ import { useVision } from '../../i18n/pages/vision';
 import { localizePath, type Locale } from '../../i18n/config';
 
 import imgHero from '../../assets/images/stock/infirmiere-portrait.jpg';
-import imgEgal from '../../assets/images/stock/inclusion-femmes-metiers.jpg';
+import imgEgal from '../../assets/images/stock/affaires-femmes-direction.jpg';
 import imgLocal from '../../assets/images/stock/production-salle-sterile-equipe.jpg';
-import imgGreen from '../../assets/images/stock/green-toiture-solaire-industrielle.jpg';
-import imgCta from '../../assets/images/stock/hopital-infirmiere-enfant.jpg';
+import imgGreen from '../../assets/images/stock/green-panneaux-ciel-bleu.jpg';
+import imgCta from '../../assets/images/stock/sante-enfants-terrain.jpg';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
@@ -24,7 +24,7 @@ const pages = t.nav.pages as Record<string, string>;
 const [pVision, pMission] = t.about.pillars;
 
 const valueIcons = ['book', 'award', 'shield', 'check-circle'];
-const valueLinks = ['bpf-oms', 'controle-qualite', 'agrements', 'tracabilite'];
+const valueLinks = ['qualite', 'controle-qualite', 'agrements', 'tracabilite'];
 const commitImgs = [imgEgal, imgLocal, imgGreen];
 const commitIcons = ['accessible', 'users', 'leaf'];
 const commitLinks = ['egalite', 'rse', 'environnement'];

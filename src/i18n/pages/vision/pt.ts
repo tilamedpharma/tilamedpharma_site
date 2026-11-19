@@ -38,7 +38,7 @@ const vision: VisionDict = {
     items: [
       { title: 'Rigor', text: 'Procedimentos escritos, seguidos e verificados em cada etapa, desde a escolha das matérias-primas até ao doente.' },
       { title: 'Excelência', text: 'Um elevado nível de exigência em qualidade, controlado permanentemente pelo nosso laboratório.' },
-      { title: 'Respeito pelas normas mais exigentes', text: 'Uma fábrica concebida segundo as boas práticas de fabrico da OMS e autorizada pela Agência Beninense de Regulação Farmacêutica.' },
+      { title: 'Respeito pelas normas mais exigentes', text: 'Uma fábrica autorizada pela Agência Beninense de Regulação Farmacêutica, com lotes controlados e libertados pelo farmacêutico responsável.' },
       { title: 'Fiabilidade', text: 'Produtos disponíveis quando os profissionais de saúde precisam, entregas cumpridas e lotes rastreados de ponta a ponta.' },
     ],
   },

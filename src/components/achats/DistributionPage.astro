@@ -1,0 +1,166 @@
+---
+// Page « Notre distribution » (rubrique Centrale d'achat) : chiffres, schéma « deux sources, un seul circuit »,
+// étapes pas à pas, garanties (liens traçabilité / bureaux), enjeu d'accès aux médicaments, appel distributeurs.
+// Le constat « tout est importé » reste sur pourquoi-le-benin ; la procédure lot / rappel détaillée sur tracabilite.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useDistribution } from '../../i18n/pages/distribution';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgSteps from '../../assets/images/stock/pharmacie-lagos-clients.jpg';
+import imgCta from '../../assets/images/stock/logistique-livreur-utilitaire.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const d = useDistribution(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const srcIcons = ['factory', 'globe'];
+const destIcons = ['building', 'truck', 'stetho', 'users'];
+const guarIcons = ['box', 'eye', 'shield', 'pin'];
+const guarLinks: (string | undefined)[] = [undefined, 'tracabilite', undefined, 'bureaux'];
+---
+<PageHero lang={lang} section="achats" slug="chaine-distribution" title={pages['chaine-distribution']} lead={d.hero.lead} video="chargement-camion">
+  <a class="btn" href="#circuit">{d.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('tracabilite')}>{pages['tracabilite']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts dfacts" aria-label={pages['chaine-distribution']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {d.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- SCHÉMA DU CIRCUIT -->
+<section class="section" id="circuit" aria-labelledby="dflow-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{d.flow.eyebrow}</span></p>
+      <h2 class="h2" id="dflow-title" data-reveal>{d.flow.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead" data-reveal>{d.flow.intro}</p>
+    </div>
+    <div class="dflow" aria-label={d.flow.label} data-reveal="fade">
+      <div class="dflow__col">
+        {d.flow.sources.map((s, i) => (
+          <div class="dflow__src">
+            <span class="dflow__ic"><Icon name={srcIcons[i]} size={22} /></span>
+            <div><h3>{s.title}</h3><p>{s.text}</p></div>
+          </div>
+        ))}
+      </div>
+      <span class="dflow__arr" aria-hidden="true"><Icon name="arrow" size={22} class="flip-rtl" /></span>
+      <div class="dflow__hub">
+        <span class="dflow__ic"><Icon name="box" size={26} /></span>
+        <h3>{d.flow.hub.title}</h3>
+        <p>{d.flow.hub.text}</p>
+      </div>
+      <span class="dflow__arr" aria-hidden="true"><Icon name="arrow" size={22} class="flip-rtl" /></span>
+      <ul class="dflow__col dflow__dests">
+        {d.flow.dests.map((x, i) => (
+          <li><Icon name={destIcons[i]} size={18} />{x}</li>
+        ))}
+      </ul>
+      <span class="dflow__arr" aria-hidden="true"><Icon name="arrow" size={22} class="flip-rtl" /></span>
+      <div class="dflow__end">
+        <span class="dflow__ic"><Icon name="stetho" size={26} /></span>
+        <h3>{d.flow.end.title}</h3>
+        <p>{d.flow.end.text}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉTAPES -->
+<section class="section vcom" aria-labelledby="dstp-title">
+  <div class="wrap dstp__grid">
+    <figure class="usite__visual dstp__visual" data-reveal="scale">
+      <Picture src={imgSteps} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt={d.steps.imageAlt} loading="lazy" />
+    </figure>
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="layers" size={16} class="eyebrow__ic" /><span>{d.steps.eyebrow}</span></p>
+      <h2 class="h2" id="dstp-title" data-reveal>{d.steps.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <ol class="seq fcri__list dstp__list">
+        {d.steps.items.map((it, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <span class="seq__n">{pad(i + 1)}</span>
+            <div><h3>{it.title}</h3><p>{it.text}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIES -->
+<section class="section" aria-labelledby="dgar-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="check-circle" size={16} class="eyebrow__ic" /><span>{d.guarantees.eyebrow}</span></p>
+      <h2 class="h2" id="dgar-title" data-reveal>{d.guarantees.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vval__list">
+      {d.guarantees.items.map((it, i) => {
+        const href = guarLinks[i];
+        return (
+          <li class="vval__card" data-reveal style={`--d:${i}`}>
+            <div class="vval__top">
+              <span class="vval__n">{pad(i + 1)}</span>
+              <span class="vval__ic"><Icon name={guarIcons[i]} size={24} /></span>
+            </div>
+            <h3>{it.title}</h3>
+            <p>{it.text}</p>
+            {href && <a class="link-arrow" href={L(href)}>{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>
+
+<!-- ENJEU -->
+<section class="section bcovid" aria-labelledby="dwhy-title">
+  <div class="wrap bcovid__inner">
+    <p class="eyebrow eyebrow--light" data-reveal><Icon name="sparkle" size={16} /><span>{d.why.eyebrow}</span></p>
+    <p class="bcovid__text" id="dwhy-title" data-reveal>{d.why.text}</p>
+    <div class="bcovid__ctas" data-reveal>
+      <a class="btn btn--light" href={L('pourquoi-le-benin')}>{pages['pourquoi-le-benin']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+      <a class="btn btn--outline-light" href={L('presence')}>{pages['presence']}</a>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUTEURS -->
+<section class="apart vcta" aria-labelledby="dcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="truck" size={16} /><span>{d.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="dcta-title">{d.cta.title}</h2>
+        <p>{d.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('distributeurs')}>{pages['distributeurs']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('contact')}>{t.header.cta}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -16,7 +16,7 @@ const fr = {
       achats: { label: 'Centrale d\'achat', blurb: 'Nos achats, nos fournisseurs et notre chaîne de distribution.' },
       usine: { label: 'Usine', blurb: 'Le site de Sèmè-Podji et chaque étape de fabrication.' },
       produits: { label: 'Produits', blurb: 'Sérums, médicaments, nutrition, dispositifs médicaux et santé animale.' },
-      qualite: { label: 'Qualité', blurb: 'BPF de l\'OMS, agréments et contrôle de chaque lot.' },
+      qualite: { label: 'Qualité', blurb: 'Agréments, contrôle de chaque lot et traçabilité.' },
       marches: { label: 'Marchés', blurb: 'Centrales d\'achat, hôpitaux, distributeurs et organisations de santé.' },
       carrieres: { label: 'Carrières', blurb: 'Pourquoi nous rejoindre, nos métiers et les candidatures.' },
       medias: { label: 'Médias', blurb: 'Actualités, médiathèque et espace presse.' },
@@ -31,7 +31,7 @@ const fr = {
       'conditionnement-logistique': 'Conditionnement et livraison', 'salles-propres': 'Salles propres', utilites: 'Utilités industrielles', 'transfert-technologie': 'Transfert de technologie',
       produits: 'Catalogue', serums: 'Sérums', medicaments: 'Médicaments', 'solutions-nutritionnelles': 'Solutions nutritionnelles', 'dispositifs-medicaux': 'Dispositifs médicaux',
       'sante-animale': 'Santé animale', documentation: 'Demande de documentation',
-      qualite: 'Qualité et conformité', 'bpf-oms': 'BPF de l\'OMS', agrements: 'Agréments et autorisations', 'controle-qualite': 'Contrôle qualité', tracabilite: 'Traçabilité',
+      qualite: 'Qualité et conformité', agrements: 'Agréments et autorisations', 'controle-qualite': 'Contrôle qualité', tracabilite: 'Traçabilité',
       pharmacovigilance: 'Pharmacovigilance', certifications: 'Certifications',
       clients: 'Nos clients', 'centrales-achat': 'Centrales d\'achat', 'hopitaux-cliniques': 'Hôpitaux, cliniques, pharmacies', 'organisations-sante': 'Organisations de santé',
       distributeurs: 'Devenir distributeur', presence: 'Présence régionale',
@@ -160,7 +160,7 @@ const fr = {
     title: 'Quatre métiers au service de la santé',
     intro: 'De la fabrication à la distribution, nous couvrons toute la chaîne des produits de santé essentiels pour l\'Afrique de l\'Ouest.',
     items: [
-      { title: 'Produits pharmaceutiques finis', text: 'Solutés de perfusion, injectables et solutions buvables, fabriqués et contrôlés dans notre usine de Sèmè-Podji.', alt: 'Ligne de remplissage d\'ampoules' },
+      { title: 'Produits pharmaceutiques finis', text: 'Solutés de perfusion, injectables et solutions buvables, fabriqués et contrôlés dans notre usine de Sèmè-Podji.', alt: 'Opératrice contrôlant des bouteilles sur une ligne de production' },
       { title: 'Dispositifs médicaux', text: 'Distributeur agréé : diagnostic, chirurgie, stérilisation et équipement hospitalier.', alt: 'Tensiomètre et matériel médical' },
       { title: 'Laboratoire médical', text: 'Analyses et contrôle qualité réalisés selon les standards internationaux.', alt: 'Technicienne de laboratoire réalisant une analyse' },
       { title: 'Santé animale', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', alt: 'Vétérinaire examinant un chien' },
@@ -183,7 +183,7 @@ const fr = {
   process: {
     eyebrow: 'Notre usine',
     title: 'De l\'eau ordinaire aux solutions pharmaceutiques livrées',
-    intro: 'Sept étapes en zone à atmosphère contrôlée, conçues selon les bonnes pratiques de fabrication de l\'OMS.',
+    intro: 'Sept étapes en zone à atmosphère contrôlée, du traitement de l\'eau au conditionnement.',
     step: 'Étape',
     cta: 'Visiter l\'usine',
     steps: [
@@ -214,7 +214,7 @@ const fr = {
   compliance: {
     eyebrow: 'Agréments et conformité',
     title: 'Autorisés, agréés, construits selon les règles',
-    intro: 'Notre usine est conçue selon les bonnes pratiques de fabrication (BPF) de l\'OMS. Chaque étape du projet est encadrée par les autorités béninoises.',
+    intro: 'Chaque étape du projet est encadrée par les autorités béninoises : six agréments et autorisations obtenus depuis 2023.',
     items: [
       { title: 'Autorisation d\'installation et d\'exploitation', ref: 'N° 1138 ABRP/DHE/DAE/SA · 30 juin 2023', by: 'Agence béninoise de régulation pharmaceutique et ministère de la Santé' },
       { title: 'Autorisation industrielle', ref: 'N° LFFL EK3V JE3W CQ9Z · 9 septembre 2024', by: 'Ministère du Commerce et de l\'Industrie' },
@@ -224,10 +224,9 @@ const fr = {
       { title: 'Exonération fiscale et sociale (Waiver)', ref: 'Régime B · 8 ans', by: 'Phases d\'investissement et d\'exploitation' },
     ],
     standardsTitle: 'Nos référentiels',
-    standardsStatus: ['Référence', 'Référence', 'Visée', 'En cours'],
+    standardsStatus: ['Référence', 'Visée', 'En cours'],
     standards: [
       { code: 'OMS', label: 'Normes et lignes directrices de l\'Organisation mondiale de la santé' },
-      { code: 'BPF', label: 'Bonnes pratiques de fabrication, référence de conception de l\'usine' },
       { code: 'ISO', label: 'Certifications ISO 9001 et ISO 14001 visées' },
       { code: 'EDGE', label: 'Certification green building de l\'IFC en cours d\'obtention' },
     ],

@@ -20,6 +20,10 @@ ErrorDocument 404 /404.html
   RewriteCond %{REQUEST_URI} !/$
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
   RewriteRule ^ %{REQUEST_URI}/ [R=301,L]
+
+  # 3) Pages retirées → page la plus proche (301)
+  RewriteRule ^((en|es|pt|it|zh|ar)/)?centrales-achat/?$ /$1clients/ [R=301,L]
+  RewriteRule ^((en|es|pt|it|zh|ar)/)?bpf-oms/?$ /$1qualite/ [R=301,L]
 </IfModule>
 
 # Sécurité

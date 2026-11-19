@@ -101,7 +101,7 @@ const fin: FinDict = {
       { q: 'I vostri prodotti sono già disponibili?', a: 'Non ancora. La nostra gamma è in preparazione. Potete chiedere di essere informati non appena sarà disponibile dalla pagina Richiesta di documentazione.', link: 'documentation' },
       { q: 'Dove si trova il vostro stabilimento?', a: 'A Sèmè-Podji, nel sud del BENIN, subito dopo la frontiera di Kraké arrivando dalla NIGERIA, su un sito di 2 ettari.', link: 'site-seme-podji' },
       { q: 'Quali prodotti fabbricherete?', a: 'Soluzioni per infusione (sodio cloruro, glucosio, Ringer lattato…), soluzioni medicinali (paracetamolo, metronidazolo, levofloxacina, ciprofloxacina) e iniettabili in fiale, poi altre gamme man mano che arriveranno le autorizzazioni.', link: 'produits' },
-      { q: 'I vostri prodotti rispettano le norme internazionali?', a: 'Il nostro stabilimento è costruito secondo le buone pratiche di fabbricazione dell\'OMS. Puntiamo alle certificazioni ISO 9001 e ISO 14001, e la certificazione green building EDGE è in corso.', link: 'certifications' },
+      { q: 'I vostri prodotti rispettano le norme internazionali?', a: 'Puntiamo alle certificazioni ISO 9001 e ISO 14001, e la certificazione green building EDGE è in corso.', link: 'certifications' },
       { q: 'Consegnate fuori dal BENIN?', a: 'Sì. Copriamo 15 paesi dell\'Africa occidentale. Il mercato beninese resta prioritario.', link: 'presence' },
       { q: 'Come diventare distributore?', a: 'Compilate il modulo della pagina Diventare distributore. La nostra direzione commerciale vi ricontatterà.', link: 'distributeurs' },
       { q: 'State assumendo?', a: 'Al momento non sono pubblicate offerte, ma potete inviare una candidatura spontanea.', link: 'candidature' },

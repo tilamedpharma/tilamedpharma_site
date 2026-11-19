@@ -1,0 +1,209 @@
+---
+// Page « Notre centrale d'achat » (rubrique Centrale d'achat) : présentation (distribution = premier métier),
+// 5 gammes, 6 missions, savoir-faire + vraies photos de salons, publics (liens Marchés), vision, appel fournisseurs.
+// Critères fournisseurs → page fournisseurs ; circuit usine → patient → page chaine-distribution (simples liens).
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useCentrale } from '../../i18n/pages/centrale';
+import { localizePath, type Locale } from '../../i18n/config';
+
+import imgHero from '../../assets/images/stock/logistique-magasinier-rayons.jpg';
+import imgIntro from '../../assets/images/stock/logistique-magasinier-cartons.jpg';
+import imgFair1 from '../../assets/images/tilamed/13-arab-health-dubai.jpg';
+import imgFair2 from '../../assets/images/tilamed/15-medica-dubai.jpg';
+import imgFair3 from '../../assets/images/tilamed/12-salons-internationaux.jpg';
+import imgCta from '../../assets/images/stock/affaires-poignee-main-lagos.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const c = useCentrale(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const rangeIcons = ['vial', 'stetho', 'flask', 'paw', 'drop'];
+const rangeLinks: (string | undefined)[] = ['medicaments', 'dispositifs-medicaux', undefined, 'sante-animale', undefined];
+const duoIcons = ['factory', 'box'];
+const fairs = [imgFair1, imgFair2, imgFair3];
+// La page Marchés › Centrales d'achat a été retirée (19/11) : la 1re carte garde son libellé et mène à « Nos clients ».
+const audTitles = ['centrales-achat', 'hopitaux-cliniques', 'organisations-sante', 'distributeurs'];
+const audLinks = ['clients', 'hopitaux-cliniques', 'organisations-sante', 'distributeurs'];
+const audIcons = ['building', 'stetho', 'globe', 'truck'];
+---
+<PageHero lang={lang} section="achats" slug="centrale-achat" title={pages['centrale-achat']} lead={c.hero.lead} image={imgHero}>
+  <a class="btn" href="#gammes">{c.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('fournisseurs')}>{pages['fournisseurs']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts pfacts" aria-label={pages['centrale-achat']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {c.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- PRÉSENTATION -->
+<section class="section" aria-labelledby="cint-title">
+  <div class="wrap astory__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="clock" size={16} class="eyebrow__ic" /><span>{c.intro.eyebrow}</span></p>
+      <h2 class="h2" id="cint-title" data-reveal>{c.intro.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      {c.intro.text.map((p, i) => <p class:list={[i === 0 ? 'lead astory__lead' : 'astory__p']} data-reveal>{p}</p>)}
+      <ul class="cduo">
+        {c.intro.duo.map((d, i) => (
+          <li class:list={[{ 'is-current': i === 1 }]} data-reveal style={`--d:${i}`}>
+            <span class="cduo__ic"><Icon name={duoIcons[i]} size={22} /></span>
+            <div>
+              <h3>{d.title}</h3>
+              <p>{d.text}</p>
+              {i === 0 && <a class="link-arrow" href={L('usine')}>{pages['usine']}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <figure class="usite__visual" data-reveal="scale">
+      <Picture src={imgIntro} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={c.intro.imageAlt} loading="lazy" />
+      <figcaption><Icon name="award" size={20} />{c.intro.badge}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- GAMMES -->
+<section class="section vcom" id="gammes" aria-labelledby="cgam-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split cgam__head">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="box" size={16} class="eyebrow__ic" /><span>{c.ranges.eyebrow}</span></p>
+        <h2 class="h2" id="cgam-title" data-reveal>{c.ranges.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{c.ranges.intro}</p>
+    </div>
+    <ul class="vval__list cgam__list">
+      {c.ranges.items.map((it, i) => {
+        const href = rangeLinks[i];
+        return (
+          <li class="vval__card" data-reveal style={`--d:${i}`}>
+            <div class="vval__top">
+              <span class="vval__n">{pad(i + 1)}</span>
+              <span class="vval__ic"><Icon name={rangeIcons[i]} size={24} /></span>
+            </div>
+            <h3>{it.title}</h3>
+            <p>{it.text}</p>
+            {href && <a class="link-arrow" href={L(href)}>{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+          </li>
+        );
+      })}
+    </ul>
+    <p class="cgam__more" data-reveal><a class="btn btn--ghost" href={L('produits')}>{c.ranges.more}<Icon name="arrow" size={18} class="flip-rtl" /></a></p>
+  </div>
+</section>
+
+<!-- MISSIONS -->
+<section class="section aobj" aria-labelledby="cmis-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{c.missions.eyebrow}</span></p>
+      <h2 class="h2" id="cmis-title" data-reveal>{c.missions.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ol class="aobj__list">
+      {c.missions.items.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}><span class="aobj__n">{pad(i + 1)}</span><p>{x}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- SAVOIR-FAIRE + SALONS -->
+<section class="section cxp" aria-labelledby="cxp-title">
+  <div class="wrap cxp__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="award" size={16} class="eyebrow__ic" /><span>{c.expertise.eyebrow}</span></p>
+      <h2 class="h2" id="cxp-title" data-reveal>{c.expertise.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <ul class="pts">
+        {c.expertise.items.map((it, i) => (
+          <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{it}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="cxp__fairs" data-reveal="fade">
+      <p class="cxp__fl">{c.expertise.fairs}</p>
+      <div class="cxp__mosaic">
+        {fairs.map((img, i) => (
+          <figure class:list={['cxp__ph', { 'is-big': i === 0 }]}>
+            <Picture src={img} formats={['avif', 'webp']} widths={i === 0 ? [480, 760, 1040] : [360, 560]} sizes={i === 0 ? '(max-width: 900px) 92vw, 44vw' : '(max-width: 900px) 46vw, 22vw'} alt={c.expertise.captions[i]} loading="lazy" />
+            <figcaption>{c.expertise.captions[i]}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="section cfor" aria-labelledby="cfor-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{c.audience.eyebrow}</span></p>
+      <h2 class="h2" id="cfor-title" data-reveal>{c.audience.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="cfor__grid">
+      {c.audience.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="cfor__card" href={L(audLinks[i])}>
+            <span class="cfor__ic"><Icon name={audIcons[i]} size={22} /></span>
+            <h3>{pages[audTitles[i]]}</h3>
+            <p>{it.text}</p>
+            <Icon name="arrow" size={18} class="cfor__go flip-rtl" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="section bcovid" aria-labelledby="cvis-title">
+  <div class="wrap bcovid__inner">
+    <p class="eyebrow eyebrow--light" data-reveal><Icon name="eye" size={16} /><span>{c.vision.eyebrow}</span></p>
+    <p class="bcovid__text" id="cvis-title" data-reveal>{c.vision.text}</p>
+    <div class="bcovid__ctas" data-reveal>
+      <a class="btn btn--light" href={L('chaine-distribution')}>{pages['chaine-distribution']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- DEVENIR FOURNISSEUR -->
+<section class="apart vcta" aria-labelledby="ccta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="tag" size={16} /><span>{c.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="ccta-title">{c.cta.title}</h2>
+        <p>{c.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('fournisseurs')}>{pages['fournisseurs']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('contact')}>{t.header.cta}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

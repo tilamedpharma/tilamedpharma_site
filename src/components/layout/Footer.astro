@@ -15,7 +15,7 @@ const pages = t.nav.pages as Record<string, string>;
 const L = (slug: string) => localizePath(lang, slug);
 const year = new Date().getFullYear();
 const audIcons = ['truck', 'globe', 'users', 'sparkle'];
-const audLinks = ['centrales-achat', 'distributeurs', 'candidature', 'presse'];
+const audLinks = ['contact', 'distributeurs', 'candidature', 'presse'];
 const mapSections = sectionKeys.filter((s) => s !== 'contact');
 ---
 {portal && <section class="portal" aria-labelledby="portal-title">

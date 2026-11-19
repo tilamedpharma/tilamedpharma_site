@@ -44,7 +44,7 @@ const searchOf = (i: (typeof catalog)[number]) => {
       {productFamilies.map((f, i) => (
         <li data-reveal style={`--d:${i}`}>
           <a class="pfam__card" href={L(f.slug)}>
-            <span class="pfam__img"><Picture src={f.image} formats={['avif', 'webp']} widths={[360, 560, 800]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 20vw" alt="" loading="lazy" /></span>
+            <span class="pfam__img"><Picture src={f.card} formats={['avif', 'webp']} widths={[360, 560, 800]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 20vw" alt="" loading="lazy" /></span>
             <span class="pfam__body">
               <span class="pfam__ic"><Icon name={f.icon} size={20} /></span>
               <span class="pfam__t">{c.groups[f.group].label}</span>

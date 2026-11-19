@@ -101,7 +101,7 @@ const fin: FinDict = {
       { q: 'Os vossos produtos já estão disponíveis?', a: 'Ainda não. A nossa gama está em preparação. Pode pedir para ser informado assim que estiver disponível na página Pedido de documentação.', link: 'documentation' },
       { q: 'Onde fica a vossa fábrica?', a: 'Em Sèmè-Podji, no sul do BENIM, logo após a fronteira de Kraké vindo da NIGÉRIA, num local de 2 hectares.', link: 'site-seme-podji' },
       { q: 'Que produtos vão fabricar?', a: 'Soros de perfusão (cloreto de sódio, glicose, Ringer lactato…), soluções medicamentosas (paracetamol, metronidazol, levofloxacina, ciprofloxacina) e injetáveis em ampolas, e depois outras gamas à medida das autorizações.', link: 'produits' },
-      { q: 'Os vossos produtos respeitam as normas internacionais?', a: 'A nossa fábrica é construída segundo as boas práticas de fabrico da OMS. Visamos as certificações ISO 9001 e ISO 14001, e a certificação de edifício verde EDGE está em curso.', link: 'certifications' },
+      { q: 'Os vossos produtos respeitam as normas internacionais?', a: 'Visamos as certificações ISO 9001 e ISO 14001, e a certificação de edifício verde EDGE está em curso.', link: 'certifications' },
       { q: 'Entregam fora do BENIM?', a: 'Sim. Cobrimos 15 países da África Ocidental. O mercado beninense continua a ser prioritário.', link: 'presence' },
       { q: 'Como tornar-se distribuidor?', a: 'Preencha o formulário da página Tornar-se distribuidor. A nossa direção comercial entrará em contacto consigo.', link: 'distributeurs' },
       { q: 'Estão a recrutar?', a: 'Não há ofertas publicadas de momento, mas pode enviar uma candidatura espontânea.', link: 'candidature' },

@@ -12,12 +12,19 @@ import BeninPage from '../components/about/BeninPage.astro';
 import RsePage from '../components/about/RsePage.astro';
 import EgalitePage from '../components/about/EgalitePage.astro';
 import EnvPage from '../components/about/EnvPage.astro';
+import CentralePage from '../components/achats/CentralePage.astro';
+import FournisseursPage from '../components/achats/FournisseursPage.astro';
+import DistributionPage from '../components/achats/DistributionPage.astro';
+import AgrementsPage from '../components/qualite/AgrementsPage.astro';
 import CatalogPage from '../components/produits/CatalogPage.astro';
 import FamilyPage from '../components/produits/FamilyPage.astro';
 import DocPage from '../components/produits/DocPage.astro';
 import PvPage from '../components/qualite/PvPage.astro';
 import DistribPage from '../components/marches/DistribPage.astro';
 import PresencePage from '../components/marches/PresencePage.astro';
+import ClientsPage from '../components/marches/ClientsPage.astro';
+import HopitauxPage from '../components/marches/HopitauxPage.astro';
+import OrganisationsPage from '../components/marches/OrganisationsPage.astro';
 import CandPage from '../components/carrieres/CandPage.astro';
 import NewsPage from '../components/fin/NewsPage.astro';
 import MediaPage from '../components/fin/MediaPage.astro';
@@ -42,11 +49,18 @@ import { useBenin } from '../i18n/pages/benin';
 import { useRse } from '../i18n/pages/rse';
 import { useEgalite } from '../i18n/pages/egalite';
 import { useEnvironnement } from '../i18n/pages/environnement';
+import { useCentrale } from '../i18n/pages/centrale';
+import { useFournisseurs } from '../i18n/pages/fournisseurs';
+import { useDistribution } from '../i18n/pages/distribution';
+import { useClients } from '../i18n/pages/clients';
+import { useHopitaux } from '../i18n/pages/hopitaux';
+import { useOrganisations } from '../i18n/pages/organisations';
+import { usePresence } from '../i18n/pages/presence';
 import { locales, defaultLocale, type Locale } from '../i18n/config';
 import { processSteps } from '../data/site';
 import { topicPages } from '../data/topics';
 
-type Kind = 'step' | 'topic' | 'about' | 'vision' | 'direction' | 'parcours' | 'benin' | 'rse' | 'egalite' | 'env' | 'catalog' | 'family' | 'doc' | 'pv' | 'distrib' | 'presence' | 'cand' | 'news' | 'media' | 'press' | 'contact' | 'offices' | 'faq' | 'legal';
+type Kind = 'step' | 'topic' | 'about' | 'vision' | 'direction' | 'parcours' | 'benin' | 'rse' | 'egalite' | 'env' | 'centrale' | 'suppliers' | 'distribution' | 'agrements' | 'catalog' | 'family' | 'doc' | 'pv' | 'distrib' | 'presence' | 'clients' | 'hopitaux' | 'orgs' | 'cand' | 'news' | 'media' | 'press' | 'contact' | 'offices' | 'faq' | 'legal';
 export function getStaticPaths() {
   const out: { params: { route: string }; props: { lang: Locale; slug: string; kind: Kind; image: string } }[] = [];
   const add = (lang: Locale, slug: string, kind: Kind, image: string) =>
@@ -62,12 +76,19 @@ export function getStaticPaths() {
     add(lang, 'rse', 'rse', '/media/video/hero-wide.jpg');
     add(lang, 'egalite', 'egalite', '/media/video/hero-wide.jpg');
     add(lang, 'environnement', 'env', '/media/video/hero-wide.jpg');
+    add(lang, 'centrale-achat', 'centrale', '/media/video/chargement-camion.jpg');
+    add(lang, 'fournisseurs', 'suppliers', '/media/video/hero-wide.jpg');
+    add(lang, 'chaine-distribution', 'distribution', '/media/video/chargement-camion.jpg');
+    add(lang, 'agrements', 'agrements', '/media/video/hero-wide.jpg');
     add(lang, 'produits', 'catalog', catalogueImage.src);
     for (const f of productFamilies) add(lang, f.slug, 'family', f.image.src);
     add(lang, 'documentation', 'doc', catalogueImage.src);
     add(lang, 'pharmacovigilance', 'pv', catalogueImage.src);
     add(lang, 'distributeurs', 'distrib', '/media/video/chargement-camion.jpg');
     add(lang, 'presence', 'presence', '/media/video/chargement-camion.jpg');
+    add(lang, 'clients', 'clients', '/media/video/chargement-camion.jpg');
+    add(lang, 'hopitaux-cliniques', 'hopitaux', '/media/video/hero-wide.jpg');
+    add(lang, 'organisations-sante', 'orgs', '/media/video/hero-wide.jpg');
     add(lang, 'candidature', 'cand', '/media/video/hero-wide.jpg');
     add(lang, 'actualites', 'news', '/media/video/hero-wide.jpg');
     add(lang, 'mediatheque', 'media', '/media/video/hero-wide.jpg');
@@ -92,11 +113,18 @@ const meta =
   : kind === 'rse' ? useRse(lang).meta
   : kind === 'egalite' ? useEgalite(lang).meta
   : kind === 'env' ? useEnvironnement(lang).meta
+  : kind === 'centrale' ? useCentrale(lang).meta
+  : kind === 'suppliers' ? useFournisseurs(lang).meta
+  : kind === 'distribution' ? useDistribution(lang).meta
+  : kind === 'agrements' ? useQualite(lang).pages.agrements.meta
   : kind === 'catalog' ? useProduits(lang).catalogue.meta
   : kind === 'family' ? useProduits(lang).families[slug as keyof ReturnType<typeof useProduits>['families']].meta
   : kind === 'pv' ? useQualite(lang).pv.meta
   : kind === 'distrib' ? useMarches(lang).distrib.meta
-  : kind === 'presence' ? useMarches(lang).presence.meta
+  : kind === 'presence' ? usePresence(lang).meta
+  : kind === 'clients' ? useClients(lang).meta
+  : kind === 'hopitaux' ? useHopitaux(lang).meta
+  : kind === 'orgs' ? useOrganisations(lang).meta
   : kind === 'cand' ? useAchatsCarrieres(lang).cand.meta
   : kind === 'news' ? useFin(lang).news.meta
   : kind === 'media' ? useFin(lang).media.meta
@@ -118,12 +146,19 @@ const meta =
   {kind === 'rse' && <RsePage lang={lang} />}
   {kind === 'egalite' && <EgalitePage lang={lang} />}
   {kind === 'env' && <EnvPage lang={lang} />}
+  {kind === 'centrale' && <CentralePage lang={lang} />}
+  {kind === 'suppliers' && <FournisseursPage lang={lang} />}
+  {kind === 'distribution' && <DistributionPage lang={lang} />}
+  {kind === 'agrements' && <AgrementsPage lang={lang} />}
   {kind === 'catalog' && <CatalogPage lang={lang} />}
   {kind === 'family' && <FamilyPage lang={lang} slug={slug} />}
   {kind === 'doc' && <DocPage lang={lang} />}
   {kind === 'pv' && <PvPage lang={lang} />}
   {kind === 'distrib' && <DistribPage lang={lang} />}
   {kind === 'presence' && <PresencePage lang={lang} />}
+  {kind === 'clients' && <ClientsPage lang={lang} />}
+  {kind === 'hopitaux' && <HopitauxPage lang={lang} />}
+  {kind === 'orgs' && <OrganisationsPage lang={lang} />}
   {kind === 'cand' && <CandPage lang={lang} />}
   {kind === 'news' && <NewsPage lang={lang} />}
   {kind === 'media' && <MediaPage lang={lang} />}

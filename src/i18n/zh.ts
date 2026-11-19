@@ -18,7 +18,7 @@ const zh: Dict = {
       achats: { label: '采购中心', blurb: '我们的采购、供应商与分销链。' },
       usine: { label: '工厂', blurb: '塞梅-波吉厂区与每一道生产工序。' },
       produits: { label: '产品', blurb: '输液、药品、营养制剂、医疗器械与动物保健。' },
-      qualite: { label: '质量', blurb: '世卫组织 GMP、许可批准与逐批检验。' },
+      qualite: { label: '质量', blurb: '许可批准、逐批检验与可追溯性。' },
       marches: { label: '市场', blurb: '采购中心、医院、经销商与卫生组织。' },
       carrieres: { label: '招聘', blurb: '加入我们的理由、岗位类别与申请方式。' },
       medias: { label: '媒体', blurb: '新闻、媒体库与新闻中心。' },
@@ -33,7 +33,7 @@ const zh: Dict = {
       'conditionnement-logistique': '包装与交付', 'salles-propres': '洁净室', utilites: '工业公用设施', 'transfert-technologie': '技术转移',
       produits: '产品目录', serums: '输液', medicaments: '药品', 'solutions-nutritionnelles': '营养制剂', 'dispositifs-medicaux': '医疗器械',
       'sante-animale': '动物保健', documentation: '索取资料',
-      qualite: '质量与合规', 'bpf-oms': '世卫组织 GMP', agrements: '许可与批准', 'controle-qualite': '质量控制', tracabilite: '可追溯性',
+      qualite: '质量与合规', agrements: '许可与批准', 'controle-qualite': '质量控制', tracabilite: '可追溯性',
       pharmacovigilance: '药物警戒', certifications: '认证',
       clients: '我们的客户', 'centrales-achat': '采购中心', 'hopitaux-cliniques': '医院、诊所、药房', 'organisations-sante': '卫生组织',
       distributeurs: '成为经销商', presence: '区域布局',
@@ -162,7 +162,7 @@ const zh: Dict = {
     title: '服务健康的四大业务',
     intro: '从生产到分销，我们覆盖西非基本医疗产品的完整链条。',
     items: [
-      { title: '成品药', text: '输液、注射剂和口服液，均在塞梅-波吉工厂生产和检验。', alt: '安瓿灌装生产线' },
+      { title: '成品药', text: '输液、注射剂和口服液，均在塞梅-波吉工厂生产和检验。', alt: '操作员在生产线上检查瓶子' },
       { title: '医疗器械', text: '授权经销商：诊断、外科、灭菌及医院设备。', alt: '血压计与医疗器材' },
       { title: '医学实验室', text: '按国际标准开展检测与质量控制。', alt: '实验室技术人员进行分析' },
       { title: '动物保健', text: '犬猫食品、驱虫产品与护理用品。', alt: '兽医为狗检查' },
@@ -185,7 +185,7 @@ const zh: Dict = {
   process: {
     eyebrow: '我们的工厂',
     title: '从普通用水到交付的药用溶液',
-    intro: '七道工序均在受控环境中进行，依据世卫组织药品生产质量管理规范设计。',
+    intro: '七道工序均在受控环境中进行，从水处理到包装。',
     step: '工序',
     cta: '参观工厂',
     steps: [
@@ -216,7 +216,7 @@ const zh: Dict = {
   compliance: {
     eyebrow: '许可与合规',
     title: '获得授权与批准，依规建设',
-    intro: '我们的工厂依据世卫组织药品生产质量管理规范（GMP）设计，项目每个阶段均受贝宁主管部门监管。',
+    intro: '项目每个阶段均受贝宁主管部门监管：自 2023 年起已获得六项许可与批准。',
     items: [
       { title: '安装与运营许可', ref: '第 1138 ABRP/DHE/DAE/SA 号 · 2023 年 6 月 30 日', by: '贝宁药品监管局与卫生部' },
       { title: '工业许可', ref: '第 LFFL EK3V JE3W CQ9Z 号 · 2024 年 9 月 9 日', by: '工商部' },
@@ -226,10 +226,9 @@ const zh: Dict = {
       { title: '税收与社保豁免', ref: 'B 类制度 · 8 年', by: '投资期与运营期' },
     ],
     standardsTitle: '我们的标准',
-    standardsStatus: ['参照标准', '参照标准', '目标', '进行中'],
+    standardsStatus: ['参照标准', '目标', '进行中'],
     standards: [
       { code: 'WHO', label: '世界卫生组织的标准与指南' },
-      { code: 'GMP', label: '药品生产质量管理规范，工厂设计依据' },
       { code: 'ISO', label: '目标获得 ISO 9001 与 ISO 14001 认证' },
       { code: 'EDGE', label: '国际金融公司绿色建筑认证申请中' },
     ],

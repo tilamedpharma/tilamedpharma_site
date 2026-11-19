@@ -1,25 +1,59 @@
 ---
-// Page « Présence régionale » : carte de l'Afrique de l'Ouest, pays couverts, bureaux.
+// Page « Présence régionale » (maison de la carte et des 15 pays) : chiffres, carte animée + pays couverts,
+// implantations (usine + 3 bureaux, adresses → page bureaux), pourquoi toute la sous-région, comment nous servons
+// chaque pays (direct / distributeurs), appel aux distributeurs.
 import Icon from '../Icon.astro';
 import PageHero from '../page/PageHero.astro';
 import NetworkMap from '../home/NetworkMap.astro';
 import { useDict, countryName } from '../../i18n';
-import { useMarches } from '../../i18n/pages/marches';
-import { useEtapes } from '../../i18n/pages/etapes';
-import { type Locale } from '../../i18n/config';
+import { usePresence } from '../../i18n/pages/presence';
+import { localizePath, type Locale } from '../../i18n/config';
 import { company, offices, coverage } from '../../data/site';
+import { Picture } from 'astro:assets';
 import imgPres from '../../assets/images/stock/logistique-camion-route.jpg';
+import imgC1 from '../../assets/images/stock/ville-lagos-aerien.jpg';
+import imgC2 from '../../assets/images/stock/ville-abidjan-echangeur.jpg';
+import imgC3 from '../../assets/images/stock/ville-accra-arche.jpg';
+import imgC4 from '../../assets/images/stock/ville-dakar-rue.jpg';
+import imgC5 from '../../assets/images/stock/ville-cotonou-marche.jpg';
+import imgC6 from '../../assets/images/stock/port-tema-conteneurs.jpg';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const t = useDict(lang);
-const m = useMarches(lang).presence;
-const e = useEtapes(lang);
+const x = usePresence(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
 const pages = t.nav.pages as Record<string, string>;
 const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ' ? 1 : countryName(lang, a.iso).localeCompare(countryName(lang, b.iso), lang)));
+const roles = t.presenceSites.roles as Record<string, string>;
+const sites = [
+  { id: 'plant', icon: 'factory', place: t.presence.plantPlace, name: t.presence.plant, href: 'site-seme-podji' },
+  ...offices.map((o) => ({ id: o.id, icon: 'building', place: `${o.city} · ${countryName(lang, o.country)}`, name: '', href: 'bureaux', hq: 'hq' in o && o.hq })),
+];
+const cityImgs = [imgC1, imgC2, imgC3, imgC4, imgC5, imgC6];
+const whyIcons = ['stetho', 'users', 'globe'];
 ---
-<PageHero lang={lang} section="marches" slug="presence" title={pages['presence']} lead={m.lead} image={imgPres} />
+<PageHero lang={lang} section="marches" slug="presence" title={pages['presence']} lead={x.hero.lead} image={imgPres}>
+  <a class="btn" href={L('distributeurs')}>{pages['distributeurs']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('bureaux')}>{pages['bureaux']}</a>
+</PageHero>
 
+<!-- CHIFFRES -->
+<section class="ufacts pfacts" aria-label={pages['presence']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {x.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- CARTE -->
 <section class="section pres" aria-labelledby="pres-title">
   <div class="wrap">
     <div class="sec-head sec-head--split">
@@ -30,14 +64,6 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
       </div>
       <p class="lead" data-reveal>{t.presence.intro}</p>
     </div>
-    <ul class="ufacts__list ufacts__list--3 ppres__facts">
-      {m.facts.map((f, i) => (
-        <li data-reveal style={`--d:${i}`}>
-          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
-          <p class="ufacts__label">{f.label}</p>
-        </li>
-      ))}
-    </ul>
     <div class="pres__grid">
       <div data-reveal="scale"><div class="pres__nm" role="img" aria-label={t.presence.title}><NetworkMap variant="a" id="presence" side="center" lang={lang} /></div></div>
       <div class="pres__side">
@@ -47,22 +73,101 @@ const sorted = [...coverage].sort((a, b) => (a.iso === 'BJ' ? -1 : b.iso === 'BJ
             {sorted.map((c) => <li class:list={{ 'is-bj': c.iso === 'BJ' }}>{countryName(lang, c.iso)}</li>)}
           </ul>
         </div>
-        <div data-reveal>
-          <p class="pres__h">{t.presence.officesTitle}</p>
-          <ul class="pres__offices">
-            {offices.map((o) => (
-              <li class="pres__office">
-                <strong>{countryName(lang, o.country)}{'hq' in o && o.hq && <em>{t.presence.hq}</em>}</strong>
-                <span dir="auto">{o.address.join(', ')}</span>
-                <a href={`tel:${o.tel}`} dir="ltr">{o.phone}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <p class="mpres__legend" data-reveal><span class="mpres__dot" aria-hidden="true"></span>{x.map.legend}</p>
         <div data-reveal><a class="link-arrow" href={company.plant.maps} target="_blank" rel="noopener">{t.presence.directions}<Icon name="arrow-up-right" size={16} /></a></div>
       </div>
     </div>
-    <p class="note ppres__note" data-reveal><Icon name="check-circle" size={20} />{m.note}</p>
   </div>
 </section>
 
+<!-- IMPLANTATIONS -->
+<section class="section vcom" aria-labelledby="psites-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--action">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="pin" size={16} class="eyebrow__ic" /><span>{x.sites.eyebrow}</span></p>
+        <h2 class="h2" id="psites-title" data-reveal>{x.sites.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <a class="link-arrow" href={L('bureaux')} data-reveal>{x.sites.more}<Icon name="arrow" size={14} class="flip-rtl" /></a>
+    </div>
+    <ul class="msites">
+      {sites.map((s, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class:list={['msites__card', { 'is-plant': s.id === 'plant' }]} href={L(s.href)}>
+            <span class="msites__ic"><Icon name={s.icon} size={24} /></span>
+            <p class="msites__place">{s.place}{'hq' in s && s.hq && <em>{t.presence.hq}</em>}</p>
+            {s.name && <h3>{s.name}</h3>}
+            <p class="msites__role">{roles[s.id]}</p>
+            <Icon name="arrow" size={18} class="msites__go flip-rtl" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- POURQUOI TOUTE LA SOUS-RÉGION -->
+<section class="section" aria-labelledby="pwhy-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{x.why.eyebrow}</span></p>
+        <h2 class="h2" id="pwhy-title" data-reveal>{x.why.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{x.why.text}</p>
+    </div>
+    <ul class="vval__list abrp__list">
+      {x.why.items.map((it, i) => (
+        <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={whyIcons[i]} size={24} /></span>
+          </div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+          {i === 2 && <a class="link-arrow" href={L('pourquoi-le-benin')}>{pages['pourquoi-le-benin']}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+        </li>
+      ))}
+    </ul>
+    <p class="pres__h mgal2__t" data-reveal>{x.gallery.title}</p>
+    <ul class="mgal2">
+      {cityImgs.map((img, i) => (
+        <li class:list={['mgal2__item', { 'is-big': i === 0 }]} data-reveal style={`--d:${i % 3}`}>
+          <Picture src={img} formats={['avif', 'webp']} widths={i === 0 ? [560, 900, 1300] : [360, 560, 760]} sizes={i === 0 ? "(max-width: 640px) 92vw, 50vw" : "(max-width: 640px) 92vw, 25vw"} alt={x.gallery.captions[i]} loading="lazy" />
+          <span class="mgal2__cap"><Icon name="pin" size={14} />{x.gallery.captions[i]}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- COMMENT NOUS SERVONS CHAQUE PAYS -->
+<section class="section vcom" aria-labelledby="pserve-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{x.serve.eyebrow}</span></p>
+      <h2 class="h2" id="pserve-title" data-reveal>{x.serve.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <div class="dpart">
+      <div class="dpart__col" data-reveal>
+        <span class="dpart__ic"><Icon name="building" size={22} /></span>
+        <h3>{x.serve.direct.title}</h3>
+        <p class="mserve__p">{x.serve.direct.text}</p>
+        <a class="link-arrow" href={L('clients')}>{pages['clients']}<Icon name="arrow" size={14} class="flip-rtl" /></a>
+      </div>
+      <div class="dpart__col is-give" data-reveal style="--d:1">
+        <span class="dpart__ic"><Icon name="truck" size={22} /></span>
+        <h3>{x.serve.partners.title}</h3>
+        <p class="mserve__p">{x.serve.partners.text}</p>
+        <a class="link-arrow mserve__light" href={L('chaine-distribution')}>{pages['chaine-distribution']}<Icon name="arrow" size={14} class="flip-rtl" /></a>
+      </div>
+    </div>
+    <div class="mserve__cta" data-reveal>
+      <p><strong>{x.cta.title}</strong> {x.cta.text}</p>
+      <a class="btn" href={L('distributeurs')}>{pages['distributeurs']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+    </div>
+  </div>
+</section>

@@ -1,19 +1,17 @@
-// Rubrique Qualité · français (référence). Source : pages qualite, bpf-oms, reglementation, controle-qualite, tracabilite,
+// Rubrique Qualité · français (référence). Source : pages qualite, reglementation, controle-qualite, tracabilite,
 // certifications et pharmacovigilance de l'ancien site. La liste des agréments vient de l'accueil (t.compliance.items).
 import type { Topic } from '../usine-plus/fr';
 
 const pages: Record<string, Topic> = {
   qualite: {
-    meta: { title: 'Qualité et conformité · TILAMED Pharma', description: 'BPF de l\'OMS, avis favorable de l\'ABRP, ISO 9001 et 14001 visées, bonnes pratiques de distribution : notre système qualité pharmaceutique.' },
+    meta: { title: 'Qualité et conformité · TILAMED Pharma', description: 'avis favorable de l\'ABRP, ISO 9001 et 14001 visées, bonnes pratiques de distribution : notre système qualité pharmaceutique.' },
     lead: 'La qualité se construit à chaque étape, de la matière première au patient.',
     intro: '',
     facts: [
-      { value: 'BPF', unit: '', label: 'usine conçue selon les bonnes pratiques de fabrication de l\'OMS' },
       { value: '6', unit: '', label: 'agréments et autorisations obtenus auprès des autorités béninoises' },
     ],
     blocks: [
       { kind: 'cards', title: 'Nos référentiels', items: [
-        { title: 'BPF de l\'OMS', text: 'Une usine conçue et exploitée selon les bonnes pratiques de fabrication de l\'OMS.' },
         { title: 'ISO 9001 et ISO 14001', text: 'Certifications visées pour la qualité et l\'environnement.' },
         { title: 'ABRP', text: 'Avis favorable du 16 mai 2023 à l\'autorisation d\'ouverture et d\'exploitation.' },
         { title: 'BPD', text: 'Bonnes pratiques de distribution pour nos entrepôts et nos livraisons.' },
@@ -27,23 +25,6 @@ const pages: Record<string, Topic> = {
       ] },
     ],
     note: '',
-  },
-  'bpf-oms': {
-    meta: { title: 'BPF de l\'OMS · Qualité · TILAMED Pharma', description: 'Les bonnes pratiques de fabrication de l\'OMS : personnel, locaux, documentation, production, contrôle qualité et auto-inspection.' },
-    lead: 'Les règles internationales qui garantissent une qualité constante, lot après lot.',
-    intro: 'Les bonnes pratiques de fabrication (BPF, en anglais GMP) de l\'Organisation mondiale de la santé fixent les exigences minimales qu\'un fabricant doit respecter pour que ses produits soient toujours de qualité, d\'un lot à l\'autre, pour l\'usage auquel ils sont destinés.',
-    facts: [],
-    blocks: [
-      { kind: 'cards', title: 'Six piliers', items: [
-        { title: 'Personnel', text: 'Qualifié, formé et habillé selon les zones.' },
-        { title: 'Locaux et équipements', text: 'Conçus, qualifiés et entretenus pour éviter toute contamination.' },
-        { title: 'Documentation', text: 'Chaque opération est décrite, réalisée et enregistrée.' },
-        { title: 'Production', text: 'Des procédés validés, maîtrisés et contrôlés.' },
-        { title: 'Contrôle qualité', text: 'Des analyses indépendantes de la production.' },
-        { title: 'Auto-inspection', text: 'Des audits internes réguliers pour progresser.' },
-      ] },
-    ],
-    note: 'Notre usine est construite selon les normes BPF de l\'OMS. Les certifications et autorisations seront présentées sur ce site à mesure qu\'elles seront obtenues.',
   },
   agrements: {
     meta: { title: 'Agréments et autorisations · Qualité · TILAMED Pharma', description: 'Autorisations de l\'ABRP et des ministères béninois, certificats environnemental et technique, arrêté ministériel : les agréments de TILAMED PHARMA SA.' },
@@ -99,13 +80,12 @@ const pages: Record<string, Topic> = {
     note: 'Le BÉNIN s\'est fortement engagé contre les faux médicaments : participation à l\'opération internationale PANGEA d\'INTERPOL, ratification de la convention MEDICRIME du Conseil de l\'Europe et nouvelle loi sur les activités pharmaceutiques en 2021.',
   },
   certifications: {
-    meta: { title: 'Certifications · Qualité · TILAMED Pharma', description: 'BPF de l\'OMS, ABRP, ISO 9001, ISO 14001, BPD et EDGE : nos objectifs de certification pour la qualité et l\'environnement.' },
+    meta: { title: 'Certifications · Qualité · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, BPD et EDGE : nos objectifs de certification pour la qualité et l\'environnement.' },
     lead: 'Nos objectifs de certification pour la qualité et l\'environnement.',
     intro: '',
     facts: [],
     blocks: [
       { kind: 'table', title: 'Où nous en sommes', head: ['Référentiel', 'Domaine', 'Statut'], rows: [
-        ['BPF (GMP) de l\'OMS', 'Fabrication pharmaceutique', 'Usine construite selon ces normes'],
         ['ABRP', 'Ouverture et exploitation d\'une usine pharmaceutique', 'Avis favorable, commission du 16 mai 2023'],
         ['ISO 9001', 'Management de la qualité', 'Certification visée'],
         ['ISO 14001', 'Management environnemental', 'Certification visée'],

@@ -18,7 +18,7 @@ const es: Dict = {
       achats: { label: 'Central de compras', blurb: 'Nuestras compras, nuestros proveedores y nuestra cadena de distribución.' },
       usine: { label: 'Planta', blurb: 'El sitio de Sèmè-Podji y cada etapa de fabricación.' },
       produits: { label: 'Productos', blurb: 'Sueros, medicamentos, nutrición, dispositivos médicos y salud animal.' },
-      qualite: { label: 'Calidad', blurb: 'BPF de la OMS, autorizaciones y control de cada lote.' },
+      qualite: { label: 'Calidad', blurb: 'Autorizaciones, control de cada lote y trazabilidad.' },
       marches: { label: 'Mercados', blurb: 'Centrales de compras, hospitales, distribuidores y organizaciones de salud.' },
       carrieres: { label: 'Empleo', blurb: 'Por qué unirse a nosotros, nuestros oficios y las candidaturas.' },
       medias: { label: 'Medios', blurb: 'Noticias, mediateca y sala de prensa.' },
@@ -33,7 +33,7 @@ const es: Dict = {
       'conditionnement-logistique': 'Acondicionamiento y entrega', 'salles-propres': 'Salas limpias', utilites: 'Servicios industriales', 'transfert-technologie': 'Transferencia de tecnología',
       produits: 'Catálogo', serums: 'Sueros', medicaments: 'Medicamentos', 'solutions-nutritionnelles': 'Soluciones nutricionales', 'dispositifs-medicaux': 'Dispositivos médicos',
       'sante-animale': 'Salud animal', documentation: 'Solicitar documentación',
-      qualite: 'Calidad y conformidad', 'bpf-oms': 'BPF de la OMS', agrements: 'Autorizaciones y licencias', 'controle-qualite': 'Control de calidad', tracabilite: 'Trazabilidad',
+      qualite: 'Calidad y conformidad', agrements: 'Autorizaciones y licencias', 'controle-qualite': 'Control de calidad', tracabilite: 'Trazabilidad',
       pharmacovigilance: 'Farmacovigilancia', certifications: 'Certificaciones',
       clients: 'Nuestros clientes', 'centrales-achat': 'Centrales de compras', 'hopitaux-cliniques': 'Hospitales, clínicas, farmacias', 'organisations-sante': 'Organizaciones de salud',
       distributeurs: 'Ser distribuidor', presence: 'Presencia regional',
@@ -162,7 +162,7 @@ const es: Dict = {
     title: 'Cuatro oficios al servicio de la salud',
     intro: 'De la fabricación a la distribución, cubrimos toda la cadena de productos de salud esenciales para África Occidental.',
     items: [
-      { title: 'Productos farmacéuticos terminados', text: 'Sueros de perfusión, inyectables y soluciones orales, fabricados y controlados en nuestra planta de Sèmè-Podji.', alt: 'Línea de llenado de ampollas' },
+      { title: 'Productos farmacéuticos terminados', text: 'Sueros de perfusión, inyectables y soluciones orales, fabricados y controlados en nuestra planta de Sèmè-Podji.', alt: 'Operaria controlando botellas en una línea de producción' },
       { title: 'Dispositivos médicos', text: 'Distribuidor autorizado: diagnóstico, cirugía, esterilización y equipamiento hospitalario.', alt: 'Tensiómetro y material médico' },
       { title: 'Laboratorio médico', text: 'Análisis y control de calidad según los estándares internacionales.', alt: 'Técnica de laboratorio realizando un análisis' },
       { title: 'Salud animal', text: 'Alimentación, antiparasitarios y cuidados para perros y gatos.', alt: 'Veterinario examinando a un perro' },
@@ -185,7 +185,7 @@ const es: Dict = {
   process: {
     eyebrow: 'Nuestra planta',
     title: 'Del agua corriente a las soluciones farmacéuticas entregadas',
-    intro: 'Siete etapas en zona de atmósfera controlada, diseñadas según las buenas prácticas de fabricación de la OMS.',
+    intro: 'Siete etapas en zona de atmósfera controlada, del tratamiento del agua al acondicionamiento.',
     step: 'Etapa',
     cta: 'Visitar la planta',
     steps: [
@@ -216,7 +216,7 @@ const es: Dict = {
   compliance: {
     eyebrow: 'Autorizaciones y conformidad',
     title: 'Autorizados, homologados, construidos según las normas',
-    intro: 'Nuestra planta está diseñada según las buenas prácticas de fabricación (BPF) de la OMS. Cada etapa del proyecto está supervisada por las autoridades beninesas.',
+    intro: 'Cada etapa del proyecto está supervisada por las autoridades beninesas: seis autorizaciones y licencias obtenidas desde 2023.',
     items: [
       { title: 'Autorización de instalación y explotación', ref: 'N.º 1138 ABRP/DHE/DAE/SA · 30 de junio de 2023', by: 'Agencia beninesa de regulación farmacéutica y Ministerio de Salud' },
       { title: 'Autorización industrial', ref: 'N.º LFFL EK3V JE3W CQ9Z · 9 de septiembre de 2024', by: 'Ministerio de Comercio e Industria' },
@@ -226,10 +226,9 @@ const es: Dict = {
       { title: 'Exención fiscal y social (waiver)', ref: 'Régimen B · 8 años', by: 'Fases de inversión y explotación' },
     ],
     standardsTitle: 'Nuestros referenciales',
-    standardsStatus: ['Referencia', 'Referencia', 'Prevista', 'En curso'],
+    standardsStatus: ['Referencia', 'Prevista', 'En curso'],
     standards: [
       { code: 'OMS', label: 'Normas y directrices de la Organización Mundial de la Salud' },
-      { code: 'BPF', label: 'Buenas prácticas de fabricación, referencia de diseño de la planta' },
       { code: 'ISO', label: 'Certificaciones ISO 9001 e ISO 14001 previstas' },
       { code: 'EDGE', label: 'Certificación de edificio verde de la IFC en curso' },
     ],

@@ -3,11 +3,11 @@
 const usine = {
   meta: {
     title: 'Notre usine · TILAMED Pharma, Sèmè-Podji (BÉNIN)',
-    description: 'Une unité moderne de production de solutions injectables à Sèmè-Podji : traitement de l\'eau, soufflage-remplissage-scellage, stérilisation, contrôle à 100 % et laboratoire, selon les BPF de l\'OMS.',
+    description: 'Une unité moderne de production de solutions injectables à Sèmè-Podji : traitement de l\'eau, soufflage-remplissage-scellage, stérilisation, contrôle à 100 % et laboratoire.',
   },
   hero: {
     title: 'Notre usine',
-    lead: 'Une unité moderne et extensible de production de solutions injectables, construite à Sèmè-Podji selon les bonnes pratiques de fabrication de l\'OMS.',
+    lead: 'Une unité moderne et extensible de production de solutions injectables, construite à Sèmè-Podji.',
     cta1: 'Le procédé en 7 étapes',
     cta2: 'Le site de Sèmè-Podji',
   },

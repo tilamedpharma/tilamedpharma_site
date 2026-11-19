@@ -101,7 +101,7 @@ const fin: FinDict = {
       { q: '¿Sus productos ya están disponibles?', a: 'Todavía no. Nuestra gama está en preparación. Puede pedir que le informemos en cuanto esté disponible desde la página Solicitud de documentación.', link: 'documentation' },
       { q: '¿Dónde está su planta?', a: 'En Sèmè-Podji, en el sur de BENÍN, justo después de la frontera de Kraké viniendo de NIGERIA, en un sitio de 2 hectáreas.', link: 'site-seme-podji' },
       { q: '¿Qué productos fabricarán?', a: 'Sueros de perfusión (cloruro de sodio, glucosa, Ringer lactato…), soluciones medicamentosas (paracetamol, metronidazol, levofloxacino, ciprofloxacino) e inyectables en ampollas, y después otras gamas a medida que se obtengan las autorizaciones.', link: 'produits' },
-      { q: '¿Sus productos cumplen las normas internacionales?', a: 'Nuestra planta se construye según las buenas prácticas de fabricación de la OMS. Aspiramos a las certificaciones ISO 9001 e ISO 14001, y la certificación de edificio verde EDGE está en curso.', link: 'certifications' },
+      { q: '¿Sus productos cumplen las normas internacionales?', a: 'Aspiramos a las certificaciones ISO 9001 e ISO 14001, y la certificación de edificio verde EDGE está en curso.', link: 'certifications' },
       { q: '¿Entregan fuera de BENÍN?', a: 'Sí. Cubrimos 15 países de África Occidental. El mercado beninés sigue siendo prioritario.', link: 'presence' },
       { q: '¿Cómo ser distribuidor?', a: 'Rellene el formulario de la página Ser distribuidor. Nuestra dirección comercial se pondrá en contacto con usted.', link: 'distributeurs' },
       { q: '¿Están contratando?', a: 'No hay ofertas publicadas por el momento, pero puede enviar una candidatura espontánea.', link: 'candidature' },

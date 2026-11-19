@@ -3,16 +3,14 @@ import type { QualiteDict } from './fr';
 const qualite: QualiteDict = {
   pages: {
     qualite: {
-      meta: { title: 'Quality and compliance · TILAMED Pharma', description: 'WHO GMP, favourable opinion from ABRP, ISO 9001 and 14001 targeted, good distribution practice: our pharmaceutical quality system.' },
+      meta: { title: 'Quality and compliance · TILAMED Pharma', description: 'favourable opinion from ABRP, ISO 9001 and 14001 targeted, good distribution practice: our pharmaceutical quality system.' },
       lead: 'Quality is built at every step, from raw material to patient.',
       intro: '',
       facts: [
-        { value: 'GMP', unit: '', label: 'plant designed to WHO good manufacturing practice' },
         { value: '6', unit: '', label: 'approvals and authorisations obtained from the Beninese authorities' },
       ],
       blocks: [
         { kind: 'cards', title: 'Our standards', items: [
-          { title: 'WHO GMP', text: 'A plant designed and operated to WHO good manufacturing practice.' },
           { title: 'ISO 9001 and ISO 14001', text: 'Certifications targeted for quality and the environment.' },
           { title: 'ABRP', text: 'Favourable opinion of 16 May 2023 on the authorisation to open and operate.' },
           { title: 'GDP', text: 'Good distribution practice for our warehouses and deliveries.' },
@@ -26,23 +24,6 @@ const qualite: QualiteDict = {
         ] },
       ],
       note: '',
-    },
-    'bpf-oms': {
-      meta: { title: 'WHO GMP · Quality · TILAMED Pharma', description: 'WHO good manufacturing practice: personnel, premises, documentation, production, quality control and self-inspection.' },
-      lead: 'The international rules that guarantee consistent quality, batch after batch.',
-      intro: 'The World Health Organization\'s good manufacturing practice (GMP) sets the minimum requirements a manufacturer must meet so that its products are always of consistent quality, batch after batch, for their intended use.',
-      facts: [],
-      blocks: [
-        { kind: 'cards', title: 'Six pillars', items: [
-          { title: 'Personnel', text: 'Qualified, trained and gowned according to each area.' },
-          { title: 'Premises and equipment', text: 'Designed, qualified and maintained to prevent any contamination.' },
-          { title: 'Documentation', text: 'Every operation is described, performed and recorded.' },
-          { title: 'Production', text: 'Validated, controlled and monitored processes.' },
-          { title: 'Quality control', text: 'Testing independent of production.' },
-          { title: 'Self-inspection', text: 'Regular internal audits to keep improving.' },
-        ] },
-      ],
-      note: 'Our plant is built to WHO GMP standards. Certifications and authorisations will be presented on this site as they are obtained.',
     },
     agrements: {
       meta: { title: 'Approvals and authorisations · Quality · TILAMED Pharma', description: 'Authorisations from ABRP and Beninese ministries, environmental and technical certificates, ministerial order: TILAMED PHARMA SA\'s approvals.' },
@@ -98,13 +79,12 @@ const qualite: QualiteDict = {
       note: 'BENIN is strongly committed against fake medicines: participation in INTERPOL\'s international operation PANGEA, ratification of the Council of Europe\'s MEDICRIME convention and a new law on pharmaceutical activities in 2021.',
     },
     certifications: {
-      meta: { title: 'Certifications · Quality · TILAMED Pharma', description: 'WHO GMP, ABRP, ISO 9001, ISO 14001, GDP and EDGE: our certification goals for quality and the environment.' },
+      meta: { title: 'Certifications · Quality · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, GDP and EDGE: our certification goals for quality and the environment.' },
       lead: 'Our certification goals for quality and the environment.',
       intro: '',
       facts: [],
       blocks: [
         { kind: 'table', title: 'Where we stand', head: ['Standard', 'Scope', 'Status'], rows: [
-          ['WHO GMP', 'Pharmaceutical manufacturing', 'Plant built to these standards'],
           ['ABRP', 'Opening and operating a pharmaceutical plant', 'Favourable opinion, committee of 16 May 2023'],
           ['ISO 9001', 'Quality management', 'Certification targeted'],
           ['ISO 14001', 'Environmental management', 'Certification targeted'],

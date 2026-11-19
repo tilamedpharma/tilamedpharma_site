@@ -3,16 +3,14 @@ import type { QualiteDict } from './fr';
 const qualite: QualiteDict = {
   pages: {
     qualite: {
-      meta: { title: '质量与合规 · TILAMED Pharma', description: '世卫组织药品生产质量管理规范、ABRP 积极意见、目标 ISO 9001 与 ISO 14001、药品经营质量管理规范：我们的药品质量体系。' },
+      meta: { title: '质量与合规 · TILAMED Pharma', description: 'ABRP 积极意见、目标 ISO 9001 与 ISO 14001、药品经营质量管理规范：我们的药品质量体系。' },
       lead: '质量贯穿每一个环节，从原料到患者。',
       intro: '',
       facts: [
-        { value: 'GMP', unit: '', label: '工厂按照世卫组织药品生产质量管理规范设计' },
         { value: '6', unit: '', label: '项贝宁主管部门的批准与许可' },
       ],
       blocks: [
         { kind: 'cards', title: '我们遵循的标准', items: [
-          { title: '世卫组织 GMP', text: '按照世卫组织药品生产质量管理规范设计和运营的工厂。' },
           { title: 'ISO 9001 与 ISO 14001', text: '质量与环境管理体系目标认证。' },
           { title: 'ABRP', text: '2023 年 5 月 16 日对工厂开办和运营许可出具积极意见。' },
           { title: 'GDP', text: '仓储与配送遵循药品经营质量管理规范。' },
@@ -26,23 +24,6 @@ const qualite: QualiteDict = {
         ] },
       ],
       note: '',
-    },
-    'bpf-oms': {
-      meta: { title: '世卫组织 GMP · 质量 · TILAMED Pharma', description: '世卫组织药品生产质量管理规范：人员、厂房、文件、生产、质量控制与自检。' },
-      lead: '保证批批质量稳定的国际规范。',
-      intro: '世界卫生组织的药品生产质量管理规范（GMP）规定了生产企业必须满足的最低要求，以确保产品批与批之间质量一致，符合预定用途。',
-      facts: [],
-      blocks: [
-        { kind: 'cards', title: '六大支柱', items: [
-          { title: '人员', text: '具备资质、经过培训，并按区域要求着装。' },
-          { title: '厂房与设备', text: '经设计、确认和维护，防止任何污染。' },
-          { title: '文件', text: '每项操作都有描述、执行和记录。' },
-          { title: '生产', text: '经过验证、受控和监测的工艺。' },
-          { title: '质量控制', text: '独立于生产部门的检验。' },
-          { title: '自检', text: '定期内部审计，持续改进。' },
-        ] },
-      ],
-      note: '我们的工厂按照世卫组织 GMP 标准建设。各项认证与许可获得后将在本网站公布。',
     },
     agrements: {
       meta: { title: '批准与许可 · 质量 · TILAMED Pharma', description: 'ABRP 及贝宁各部委的许可、环境与技术证书、部长令：TILAMED PHARMA SA 的各项批准。' },
@@ -98,13 +79,12 @@ const qualite: QualiteDict = {
       note: '贝宁大力打击假药：参与国际刑警组织“盘古”国际行动，批准欧洲委员会《MEDICRIME 公约》，并于 2021 年颁布新的药事活动法。',
     },
     certifications: {
-      meta: { title: '认证 · 质量 · TILAMED Pharma', description: '世卫组织 GMP、ABRP、ISO 9001、ISO 14001、GDP 与 EDGE：我们在质量与环境方面的认证目标。' },
+      meta: { title: '认证 · 质量 · TILAMED Pharma', description: 'ABRP、ISO 9001、ISO 14001、GDP 与 EDGE：我们在质量与环境方面的认证目标。' },
       lead: '我们在质量与环境方面的认证目标。',
       intro: '',
       facts: [],
       blocks: [
         { kind: 'table', title: '当前进展', head: ['标准', '领域', '状态'], rows: [
-          ['世卫组织 GMP', '药品生产', '工厂按此标准建设'],
           ['ABRP', '制药工厂开办与运营', '积极意见，2023 年 5 月 16 日委员会'],
           ['ISO 9001', '质量管理', '目标认证'],
           ['ISO 14001', '环境管理', '目标认证'],

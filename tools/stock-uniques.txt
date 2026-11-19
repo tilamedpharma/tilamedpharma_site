@@ -1,0 +1,55 @@
+30688593|affaires-reunion-lagos-bureau|Professionnels en réunion informelle dans un bureau, Lagos
+9301745|commercial-entretien-bureau|Deux professionnels en rendez-vous dans un bureau moderne
+6169652|entrepot-controle-clipboard|Employé d'entrepôt souriant avec un bloc-notes
+9090940|entrepot-agente-gilet|Agente d'entrepôt en gilet de sécurité parmi les marchandises
+33127835|sante-communautaire-kaduna|Agents de santé lors d'une action communautaire, Kaduna (NIGÉRIA)
+37285163|sante-mission-gombe|Professionnels de santé en mission auprès d'un village, Gombe (NIGÉRIA)
+13003793|pharmacie-vendeur-comptoir|Vendeur souriant au comptoir d'une pharmacie
+6129577|infirmiere-couloir-equipement|Infirmière avec du matériel médical dans un couloir d'hôpital
+33538174|perfusion-chambre-pied|Pied à perfusion dans une chambre d'hôpital
+7470819|ampoules-seringue-fond-noir|Ampoules en verre et seringue sur fond noir
+28318745|perfusion-chambre-goutte|Chambre compte-gouttes d'une perfusion à l'hôpital
+9551688|dispositifs-stethoscope-table|Stéthoscope et fournitures médicales vus de dessus
+3944795|ampoules-plastique-bleu|Ampoules en plastique sur fond bleu
+8248290|sante-conference-femmes|Médecin animant une séance de santé devant des femmes
+36423824|usine-bouteilles-ligne|Opératrice supervisant une ligne d'embouteillage, Dar es Salaam
+8851629|labo-scientifique-lunettes|Scientifique en blouse dans un laboratoire moderne
+9301257|affaires-presentation-ecran|Présentation devant une équipe dans un bureau
+6169643|logistique-colis-entrepot|Préparateur vérifiant des colis dans un entrepôt
+30879378|formation-salle-informatique|Formation dans une salle informatique
+3894378|affaires-femmes-ordinateur|Trois femmes travaillant ensemble sur un ordinateur portable
+39382227|green-ferme-solaire|Panneaux solaires dans une exploitation agricole, Manzini
+7993903|affaires-entretien-laptop|Deux professionnels discutant d'un projet avec des ordinateurs
+41086845|ville-lagos-aerien|Vue aérienne de Lagos (NIGÉRIA)
+7381785|ville-abidjan-echangeur|Échangeur autoroutier d'Abidjan (CÔTE D'IVOIRE)
+39708639|ville-accra-arche|Arche de l'Indépendance, Accra (GHANA)
+18189724|ville-dakar-rue|Circulation dans une rue de Dakar (SÉNÉGAL)
+8655018|ville-cotonou-marche|Vendeuse de tissus au marché, Cotonou (BÉNIN)
+32458792|port-tema-conteneurs|Conteneurs et grues du port de Tema (GHANA)
+39569474|perfusion-main-reglage|Mains réglant une perfusion à l'hôpital
+33394283|medicaments-seringues-table|Seringues et médicaments sur une table
+8830486|ampoules-seringue-vert|Ampoules et seringue sur fond vert
+33132346|sante-tension-kaduna|Prise de tension lors d'une action de santé, Kaduna (NIGÉRIA)
+27421346|veterinaire-injection-animal|Vétérinaire administrant une injection à un animal
+35116401|veterinaire-enfant-chien|Vétérinaire soignant le chien d'un enfant en milieu rural
+34185205|infirmiere-nouveau-ne|Infirmière s'occupant d'un nouveau-né en couveuse
+34605564|infirmieres-hijab|Quatre infirmières en uniforme bleu et hijab
+36423823|usine-bouteilles-controle|Opératrice contrôlant des bouteilles en verre dans une usine
+3894375|affaires-femmes-discussion|Quatre femmes en discussion dans un bureau
+9301248|affaires-reunion-tableau|Réunion de travail avec ordinateur et tableau blanc
+38214016|route-abuja-camion|Camion-citerne sur une route nationale, Abuja (NIGÉRIA)
+31374518|route-camion-verdure|Camion sur une route rurale bordée de verdure
+33915172|ingenieur-poste-electrique|Jeune ingénieur devant un poste électrique, Kaduna
+39909710|formation-classe-nigeria|Séance de formation dans une salle de classe au NIGÉRIA
+6208710|labo-etudiants-equipement|Étudiants manipulant du matériel dans un laboratoire
+8525502|inclusion-femme-fauteuil|Jeune femme en fauteuil roulant
+3894383|affaires-trois-femmes|Trois femmes en réunion de travail
+34526423|technicienne-armoire-electrique|Technicienne réparant une armoire électrique
+3869645|affaires-femmes-direction|Trois femmes cadres dans un bureau moderne
+34717769|sante-enfants-terrain|Agente de santé souriante avec deux enfants
+11174197|ingenieure-terrain-plans|Ingénieure en casque étudiant des plans sur le terrain
+8550500|affaires-reunion-salle|Réunion de travail autour d'une table de bureau
+9301316|affaires-equipe-ordinateur|Équipe réunie autour d'un ordinateur portable
+9301299|affaires-bureau-echange|Deux collègues échangeant dans un bureau moderne
+38774686|pharmacienne-medicaments|Pharmacienne tenant des boîtes de médicaments
+6169158|logistique-employe-cartons|Jeune employé rangeant des cartons d'expédition

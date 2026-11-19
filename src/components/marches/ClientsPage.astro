@@ -1,0 +1,149 @@
+---
+// Page « Nos clients » : chiffres, 5 familles de clients (maison de la liste + exemples, chacune renvoie à sa page),
+// 3 canaux de vente + direction commerciale unique, ressources pour acheteurs, appel à contact.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useClients } from '../../i18n/pages/clients';
+import { localizePath, type Locale } from '../../i18n/config';
+import imgHero from '../../assets/images/stock/affaires-reunion-lagos-bureau.jpg';
+import imgCta from '../../assets/images/stock/commercial-entretien-bureau.jpg';
+import imgW1 from '../../assets/images/stock/entrepot-controle-clipboard.jpg';
+import imgW2 from '../../assets/images/stock/entrepot-agente-gilet.jpg';
+import imgW3 from '../../assets/images/stock/sante-communautaire-kaduna.jpg';
+import imgW4 from '../../assets/images/stock/sante-mission-gombe.jpg';
+import imgW5 from '../../assets/images/stock/pharmacie-vendeur-comptoir.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const x = useClients(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const whoImgs = [imgW1, imgW2, imgW3, imgW4, imgW5];
+const whoIcons = ['building', 'truck', 'globe', 'shield', 'stetho'];
+const whoLinks = ['chaine-distribution', 'distributeurs', 'organisations-sante', 'organisations-sante', 'hopitaux-cliniques'];
+const howIcons = ['box', 'book', 'users'];
+const resLinks = ['produits', 'documentation', 'agrements'];
+const resIcons = ['layers', 'download', 'award'];
+---
+<PageHero lang={lang} section="marches" slug="clients" title={pages['clients']} lead={x.hero.lead} image={imgHero}>
+  <a class="btn" href={L('contact')}>{x.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('distributeurs')}>{pages['distributeurs']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts pfacts" aria-label={pages['clients']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {x.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- À QUI NOUS NOUS ADRESSONS -->
+<section class="section" aria-labelledby="mcli-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{x.who.eyebrow}</span></p>
+      <h2 class="h2" id="mcli-title" data-reveal>{x.who.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="mcli__text" data-reveal>{x.who.text}</p>
+    </div>
+    <ul class="mcli__list">
+      {x.who.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <div class="mcli__img">
+            <Picture src={whoImgs[i]} formats={['avif', 'webp']} widths={[320, 520, 760]} sizes="(max-width: 640px) 92vw, 220px" alt="" loading="lazy" />
+            <span class="mcli__ic"><Icon name={whoIcons[i]} size={22} /></span>
+          </div>
+          <div class="mcli__body">
+            <h3>{it.title}</h3>
+            <ul class="mcli__ex">{it.examples.map((e) => <li>{e}</li>)}</ul>
+            <p>{it.text}</p>
+            <a class="link-arrow" href={L(whoLinks[i])}>{pages[whoLinks[i]]}<Icon name="arrow" size={14} class="flip-rtl" /></a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- COMMENT NOUS TRAVAILLONS -->
+<section class="section vcom" aria-labelledby="mhow-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{x.how.eyebrow}</span></p>
+      <h2 class="h2" id="mhow-title" data-reveal>{x.how.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="mhow">
+      {x.how.items.map((it, i) => (
+        <li class="mhow__card" data-reveal style={`--d:${i}`}>
+          <div class="vval__top">
+            <span class="vval__n">{pad(i + 1)}</span>
+            <span class="vval__ic"><Icon name={howIcons[i]} size={24} /></span>
+          </div>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+          <p class="mhow__for"><span>{x.how.forLabel}</span>{it.for}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="mhow__hub" data-reveal>
+      <span class="mhow__hubic"><Icon name="check-circle" size={24} /></span>
+      <p>{x.how.central}</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESSOURCES -->
+<section class="section" aria-labelledby="mres-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="book" size={16} class="eyebrow__ic" /><span>{x.resources.eyebrow}</span></p>
+      <h2 class="h2" id="mres-title" data-reveal>{x.resources.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="cfor__grid mres__grid">
+      {x.resources.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="cfor__card" href={L(resLinks[i])}>
+            <span class="cfor__ic"><Icon name={resIcons[i]} size={22} /></span>
+            <h3>{pages[resLinks[i]]}</h3>
+            <p>{it.text}</p>
+            <Icon name="arrow" size={18} class="cfor__go flip-rtl" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="apart vcta" aria-labelledby="mcta-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt={x.cta.imageAlt} loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="mail" size={16} /><span>{x.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="mcta-title">{x.cta.title}</h2>
+        <p>{x.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('contact')}>{t.header.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('documentation')}>{pages['documentation']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

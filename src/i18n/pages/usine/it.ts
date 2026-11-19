@@ -3,11 +3,11 @@ import type { UsineDict } from './fr';
 const usine: UsineDict = {
   meta: {
     title: 'Il nostro stabilimento · TILAMED Pharma, Sèmè-Podji (BENIN)',
-    description: 'Uno stabilimento moderno di produzione di soluzioni iniettabili a Sèmè-Podji: trattamento dell\'acqua, soffiaggio-riempimento-sigillatura, sterilizzazione, controllo al 100 % e laboratorio, secondo le GMP dell\'OMS.',
+    description: 'Uno stabilimento moderno di produzione di soluzioni iniettabili a Sèmè-Podji: trattamento dell\'acqua, soffiaggio-riempimento-sigillatura, sterilizzazione, controllo al 100 % e laboratorio.',
   },
   hero: {
     title: 'Il nostro stabilimento',
-    lead: 'Un\'unità moderna ed espandibile di produzione di soluzioni iniettabili, costruita a Sèmè-Podji secondo le buone pratiche di fabbricazione dell\'OMS.',
+    lead: 'Un\'unità moderna ed espandibile di produzione di soluzioni iniettabili, costruita a Sèmè-Podji.',
     cta1: 'Il processo in 7 fasi',
     cta2: 'Il sito di Sèmè-Podji',
   },

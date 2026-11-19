@@ -1,0 +1,177 @@
+---
+// Page « Hôpitaux, cliniques, pharmacies » : au cœur des soins (services), 4 gammes de médecine humaine avec
+// exemples (→ pages familles), le flacon plastique (→ étapes BFS / inspection), comment s'approvisionner,
+// sécurité des patients (pharmacovigilance, documentation, traçabilité).
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useCatalog } from '../../i18n/catalog';
+import { useHopitaux } from '../../i18n/pages/hopitaux';
+import { localizePath, type Locale } from '../../i18n/config';
+import { productFamilies } from '../../data/products';
+import imgHero from '../../assets/images/stock/hopital-infirmiere-enfant.jpg';
+import imgIntro from '../../assets/images/stock/infirmiere-couloir-equipement.jpg';
+import imgBottle from '../../assets/images/stock/ampoules-plastique-bleu.jpg';
+import imgG1 from '../../assets/images/stock/perfusion-chambre-pied.jpg';
+import imgG2 from '../../assets/images/stock/ampoules-seringue-fond-noir.jpg';
+import imgG3 from '../../assets/images/stock/perfusion-chambre-goutte.jpg';
+import imgG4 from '../../assets/images/stock/dispositifs-stethoscope-table.jpg';
+import imgSupply from '../../assets/images/stock/infirmiere-tensiometre.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const c = useCatalog(lang);
+const x = useHopitaux(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+// Visuels propres à cette page (les images des familles restent en en-tête de leurs pages).
+const families = productFamilies.filter((f) => f.group !== 'vet');
+const gamImgs = [imgG1, imgG2, imgG3, imgG4];
+const serviceIcons = ['flame', 'stetho', 'vial', 'users', 'sparkle'];
+const bottleIcons = ['shield', 'box', 'drop', 'eye'];
+const bottleLinks: (string | undefined)[] = [undefined, undefined, 'soufflage-remplissage-scellage', 'inspection'];
+const supplyIcons = ['building', 'stetho', 'mail'];
+const supplyLinks = ['clients', 'contact', 'contact'];
+const safetyLinks = ['pharmacovigilance', 'documentation', 'tracabilite'];
+const safetyIcons = ['shield', 'download', 'route'];
+---
+<PageHero lang={lang} section="marches" slug="hopitaux-cliniques" title={pages['hopitaux-cliniques']} lead={x.hero.lead} image={imgHero}>
+  <a class="btn" href={L('produits')}>{x.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('documentation')}>{pages['documentation']}</a>
+</PageHero>
+
+<!-- AU CŒUR DES SOINS -->
+<section class="section" aria-labelledby="hint-title">
+  <div class="wrap astory__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="stetho" size={16} class="eyebrow__ic" /><span>{x.intro.eyebrow}</span></p>
+      <h2 class="h2" id="hint-title" data-reveal>{x.intro.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      {x.intro.text.map((p, i) => <p class:list={[i === 0 ? 'lead astory__lead' : 'astory__p']} data-reveal>{p}</p>)}
+      <ul class="hsvc">
+        {x.intro.services.map((s, i) => (
+          <li data-reveal style={`--d:${i}`}><Icon name={serviceIcons[i]} size={18} />{s}</li>
+        ))}
+      </ul>
+    </div>
+    <figure class="usite__visual" data-reveal="scale">
+      <Picture src={imgIntro} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={x.intro.imageAlt} loading="lazy" />
+      <figcaption><Icon name="pin" size={20} />{x.intro.badge}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- GAMME -->
+<section class="section vcom" id="gamme" aria-labelledby="hgam-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="layers" size={16} class="eyebrow__ic" /><span>{x.range.eyebrow}</span></p>
+        <h2 class="h2" id="hgam-title" data-reveal>{x.range.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{x.range.text}</p>
+    </div>
+    <ul class="hgam">
+      {families.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="vcom__card" href={L(f.slug)}>
+            <div class="vcom__img">
+              <Picture src={gamImgs[i]} formats={['avif', 'webp']} widths={[360, 560, 760]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 23vw" alt="" loading="lazy" />
+            </div>
+            <div class="vcom__body">
+              <span class:list={['vcom__ic', { 'is-green': i === families.length - 1 }]}><Icon name={f.icon} size={24} /></span>
+              <h3>{c.groups[f.group].label}</h3>
+              <ul class="hgam__ex">{x.range.items[i].map((p) => <li>{p}</li>)}</ul>
+              <span class="link-arrow">{pages[f.slug]}<Icon name="arrow" size={14} class="flip-rtl" /></span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="note hgam__note" data-reveal><Icon name="check-circle" size={20} />{x.range.note}</p>
+  </div>
+</section>
+
+<!-- LE FLACON PLASTIQUE -->
+<section class="section" aria-labelledby="hbot-title">
+  <div class="wrap hbot__grid">
+    <figure class="hbot__img" data-reveal="scale">
+      <Picture src={imgBottle} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt={x.bottle.imageAlt} loading="lazy" />
+    </figure>
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="drop" size={16} class="eyebrow__ic" /><span>{x.bottle.eyebrow}</span></p>
+      <h2 class="h2" id="hbot-title" data-reveal>{x.bottle.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead hbot__lead" data-reveal>{x.bottle.text}</p>
+      <ul class="hbot__list">
+        {x.bottle.items.map((it, i) => {
+          const href = bottleLinks[i];
+          return (
+            <li data-reveal style={`--d:${i}`}>
+              <span class="hbot__ic"><Icon name={bottleIcons[i]} size={22} /></span>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+              {href && <a class="link-arrow" href={L(href)}>{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SÉCURITÉ DES PATIENTS -->
+<section class="section bcovid hsafe" aria-labelledby="hsafe-title">
+  <div class="wrap">
+    <div class="bcovid__inner hsafe__head">
+      <p class="eyebrow eyebrow--light" data-reveal><Icon name="shield" size={16} /><span>{x.safety.eyebrow}</span></p>
+      <h2 class="bcovid__text" id="hsafe-title" data-reveal>{x.safety.title}</h2>
+    </div>
+    <ul class="hsafe__list">
+      {x.safety.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="hsafe__card" href={L(safetyLinks[i])}>
+            <span class="hsafe__n">{pad(i + 1)}</span>
+            <Icon name={safetyIcons[i]} size={24} class="hsafe__ic" />
+            <h3>{pages[safetyLinks[i]]}</h3>
+            <p>{it.text}</p>
+            <Icon name="arrow" size={18} class="hsafe__go flip-rtl" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- S'APPROVISIONNER -->
+<section class="section cfor" aria-labelledby="hsup-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="truck" size={16} class="eyebrow__ic" /><span>{x.supply.eyebrow}</span></p>
+      <h2 class="h2" id="hsup-title" data-reveal>{x.supply.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <div class="hsup__grid">
+      <figure class="hsup__img" data-reveal="scale">
+        <Picture src={imgSupply} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt={x.supply.imageAlt} loading="lazy" />
+      </figure>
+      <ol class="hsup">
+        {x.supply.items.map((it, i) => (
+          <li data-reveal style={`--d:${i}`}>
+            <a class="cfor__card" href={L(supplyLinks[i])}>
+              <span class="cfor__ic"><Icon name={supplyIcons[i]} size={22} /></span>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+              <Icon name="arrow" size={18} class="cfor__go flip-rtl" />
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

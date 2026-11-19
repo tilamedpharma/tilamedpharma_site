@@ -101,7 +101,7 @@ const fin: FinDict = {
       { q: 'Are your products already available?', a: 'Not yet. Our range is in preparation. You can ask to be informed as soon as it is available from the Documentation request page.', link: 'documentation' },
       { q: 'Where is your plant?', a: 'In Sèmè-Podji, in southern BENIN, just past the Kraké border coming from NIGERIA, on a 2-hectare site.', link: 'site-seme-podji' },
       { q: 'What products will you make?', a: 'Infusion fluids (sodium chloride, glucose, Ringer lactate…), medicated solutions (paracetamol, metronidazole, levofloxacin, ciprofloxacin) and ampoule injectables, then other ranges as authorisations are granted.', link: 'produits' },
-      { q: 'Do your products meet international standards?', a: 'Our plant is built to WHO good manufacturing practice. We are aiming for ISO 9001 and ISO 14001 certification, and EDGE green building certification is in progress.', link: 'certifications' },
+      { q: 'Do your products meet international standards?', a: 'We are aiming for ISO 9001 and ISO 14001 certification, and EDGE green building certification is in progress.', link: 'certifications' },
       { q: 'Do you deliver outside BENIN?', a: 'Yes. We cover 15 West African countries. The Beninese market remains our priority.', link: 'presence' },
       { q: 'How can I become a distributor?', a: 'Fill in the form on the Become a distributor page. Our sales department will get back to you.', link: 'distributeurs' },
       { q: 'Are you recruiting?', a: 'No job offers are published at the moment, but you can submit a speculative application.', link: 'candidature' },

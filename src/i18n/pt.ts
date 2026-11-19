@@ -18,7 +18,7 @@ const pt: Dict = {
       achats: { label: 'Central de compras', blurb: 'As nossas compras, os nossos fornecedores e a nossa cadeia de distribuição.' },
       usine: { label: 'Fábrica', blurb: 'O local de Sèmè-Podji e cada etapa de fabrico.' },
       produits: { label: 'Produtos', blurb: 'Soros, medicamentos, nutrição, dispositivos médicos e saúde animal.' },
-      qualite: { label: 'Qualidade', blurb: 'BPF da OMS, autorizações e controlo de cada lote.' },
+      qualite: { label: 'Qualidade', blurb: 'Autorizações, controlo de cada lote e rastreabilidade.' },
       marches: { label: 'Mercados', blurb: 'Centrais de compras, hospitais, distribuidores e organizações de saúde.' },
       carrieres: { label: 'Carreiras', blurb: 'Porquê juntar-se a nós, as nossas profissões e as candidaturas.' },
       medias: { label: 'Media', blurb: 'Notícias, mediateca e espaço de imprensa.' },
@@ -33,7 +33,7 @@ const pt: Dict = {
       'conditionnement-logistique': 'Embalagem e entrega', 'salles-propres': 'Salas limpas', utilites: 'Utilidades industriais', 'transfert-technologie': 'Transferência de tecnologia',
       produits: 'Catálogo', serums: 'Soros', medicaments: 'Medicamentos', 'solutions-nutritionnelles': 'Soluções nutricionais', 'dispositifs-medicaux': 'Dispositivos médicos',
       'sante-animale': 'Saúde animal', documentation: 'Pedido de documentação',
-      qualite: 'Qualidade e conformidade', 'bpf-oms': 'BPF da OMS', agrements: 'Autorizações e licenças', 'controle-qualite': 'Controlo de qualidade', tracabilite: 'Rastreabilidade',
+      qualite: 'Qualidade e conformidade', agrements: 'Autorizações e licenças', 'controle-qualite': 'Controlo de qualidade', tracabilite: 'Rastreabilidade',
       pharmacovigilance: 'Farmacovigilância', certifications: 'Certificações',
       clients: 'Os nossos clientes', 'centrales-achat': 'Centrais de compras', 'hopitaux-cliniques': 'Hospitais, clínicas, farmácias', 'organisations-sante': 'Organizações de saúde',
       distributeurs: 'Tornar-se distribuidor', presence: 'Presença regional',
@@ -162,7 +162,7 @@ const pt: Dict = {
     title: 'Quatro profissões ao serviço da saúde',
     intro: 'Do fabrico à distribuição, cobrimos toda a cadeia dos produtos de saúde essenciais para a África Ocidental.',
     items: [
-      { title: 'Produtos farmacêuticos acabados', text: 'Soros de perfusão, injetáveis e soluções orais, fabricados e controlados na nossa fábrica de Sèmè-Podji.', alt: 'Linha de enchimento de ampolas' },
+      { title: 'Produtos farmacêuticos acabados', text: 'Soros de perfusão, injetáveis e soluções orais, fabricados e controlados na nossa fábrica de Sèmè-Podji.', alt: 'Operadora a controlar garrafas numa linha de produção' },
       { title: 'Dispositivos médicos', text: 'Distribuidor autorizado: diagnóstico, cirurgia, esterilização e equipamento hospitalar.', alt: 'Tensiómetro e material médico' },
       { title: 'Laboratório médico', text: 'Análises e controlo de qualidade segundo as normas internacionais.', alt: 'Técnica de laboratório a realizar uma análise' },
       { title: 'Saúde animal', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', alt: 'Veterinário a examinar um cão' },
@@ -185,7 +185,7 @@ const pt: Dict = {
   process: {
     eyebrow: 'A nossa fábrica',
     title: 'Da água comum às soluções farmacêuticas entregues',
-    intro: 'Sete etapas em zona de atmosfera controlada, concebidas segundo as boas práticas de fabrico da OMS.',
+    intro: 'Sete etapas em zona de atmosfera controlada, do tratamento da água ao acondicionamento.',
     step: 'Etapa',
     cta: 'Visitar a fábrica',
     steps: [
@@ -216,7 +216,7 @@ const pt: Dict = {
   compliance: {
     eyebrow: 'Autorizações e conformidade',
     title: 'Autorizados, aprovados, construídos segundo as regras',
-    intro: 'A nossa fábrica é concebida segundo as boas práticas de fabrico (BPF) da OMS. Cada etapa do projeto é acompanhada pelas autoridades beninenses.',
+    intro: 'Cada etapa do projeto é acompanhada pelas autoridades beninenses: seis autorizações e licenças obtidas desde 2023.',
     items: [
       { title: 'Autorização de instalação e exploração', ref: 'N.º 1138 ABRP/DHE/DAE/SA · 30 de junho de 2023', by: 'Agência beninense de regulação farmacêutica e Ministério da Saúde' },
       { title: 'Autorização industrial', ref: 'N.º LFFL EK3V JE3W CQ9Z · 9 de setembro de 2024', by: 'Ministério do Comércio e da Indústria' },
@@ -226,10 +226,9 @@ const pt: Dict = {
       { title: 'Isenção fiscal e social (waiver)', ref: 'Regime B · 8 anos', by: 'Fases de investimento e de exploração' },
     ],
     standardsTitle: 'Os nossos referenciais',
-    standardsStatus: ['Referência', 'Referência', 'Visada', 'Em curso'],
+    standardsStatus: ['Referência', 'Visada', 'Em curso'],
     standards: [
       { code: 'OMS', label: 'Normas e diretrizes da Organização Mundial da Saúde' },
-      { code: 'BPF', label: 'Boas práticas de fabrico, referência de conceção da fábrica' },
       { code: 'ISO', label: 'Certificações ISO 9001 e ISO 14001 visadas' },
       { code: 'EDGE', label: 'Certificação de edifício verde da IFC em curso' },
     ],

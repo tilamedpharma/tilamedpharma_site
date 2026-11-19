@@ -1,0 +1,169 @@
+---
+// Page « Organisations de santé » : chiffres, présentation (procédures connues, références → clients),
+// 4 apports pour les programmes, dossier d'appel d'offres (liste sticky), objectifs partagés (→ RSE), appel à contact.
+import { Picture } from 'astro:assets';
+import Icon from '../Icon.astro';
+import PageHero from '../page/PageHero.astro';
+import { useDict } from '../../i18n';
+import { useOrganisations } from '../../i18n/pages/organisations';
+import { localizePath, type Locale } from '../../i18n/config';
+import imgHero from '../../assets/images/stock/affaires-reunion-kaduna.jpg';
+import imgIntro from '../../assets/images/stock/sante-conference-femmes.jpg';
+import imgCta from '../../assets/images/stock/affaires-entretien-laptop.jpg';
+import imgB1 from '../../assets/images/stock/usine-bouteilles-ligne.jpg';
+import imgB2 from '../../assets/images/stock/labo-scientifique-lunettes.jpg';
+import imgB3 from '../../assets/images/stock/affaires-presentation-ecran.jpg';
+import imgB4 from '../../assets/images/stock/logistique-colis-entrepot.jpg';
+import imgGo1 from '../../assets/images/stock/formation-salle-informatique.jpg';
+import imgGo2 from '../../assets/images/stock/affaires-femmes-ordinateur.jpg';
+import imgGo3 from '../../assets/images/stock/green-ferme-solaire.jpg';
+
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const t = useDict(lang);
+const x = useOrganisations(lang);
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
+const pages = t.nav.pages as Record<string, string>;
+
+const bringImgs = [imgB1, imgB2, imgB3, imgB4];
+const goalImgs = [imgGo1, imgGo2, imgGo3];
+const bringIcons = ['factory', 'book', 'filter', 'truck'];
+const bringLinks: (string | undefined)[] = ['pourquoi-le-benin', 'documentation', undefined, 'centrale-achat'];
+const goalLinks = ['transfert-technologie', 'egalite', 'environnement'];
+const goalIcons = ['users', 'accessible', 'leaf'];
+---
+<PageHero lang={lang} section="marches" slug="organisations-sante" title={pages['organisations-sante']} lead={x.hero.lead} image={imgHero}>
+  <a class="btn" href={L('contact')}>{x.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('documentation')}>{pages['documentation']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts dfacts" aria-label={pages['organisations-sante']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {x.facts.map((f, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          <p class="ufacts__label">{f.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- PRÉSENTATION -->
+<section class="section" aria-labelledby="oint-title">
+  <div class="wrap astory__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="globe" size={16} class="eyebrow__ic" /><span>{x.intro.eyebrow}</span></p>
+      <h2 class="h2" id="oint-title" data-reveal>{x.intro.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      {x.intro.text.map((p, i) => <p class:list={[i === 0 ? 'lead astory__lead' : 'astory__p']} data-reveal>{p}</p>)}
+      <p class="astory__ct" data-reveal>{x.intro.already}</p>
+      <ul class="astory__countries" data-reveal>{x.intro.names.map((n) => <li>{n}</li>)}</ul>
+      <div data-reveal><a class="link-arrow" href={L('clients')}>{pages['clients']}<Icon name="arrow" size={14} class="flip-rtl" /></a></div>
+    </div>
+    <figure class="usite__visual" data-reveal="scale">
+      <Picture src={imgIntro} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={x.intro.imageAlt} loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<!-- CE QUE NOUS APPORTONS -->
+<section class="section" aria-labelledby="obr-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{x.bring.eyebrow}</span></p>
+      <h2 class="h2" id="obr-title" data-reveal>{x.bring.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ul class="vcom__grid obring__grid">
+      {x.bring.items.map((it, i) => {
+        const href = bringLinks[i];
+        const body = (
+          <>
+            <div class="vcom__img"><Picture src={bringImgs[i]} formats={['avif', 'webp']} widths={[360, 560, 800]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 23vw" alt="" loading="lazy" /></div>
+            <div class="vcom__body">
+              <span class:list={['vcom__ic', { 'is-green': i === 3 }]}><Icon name={bringIcons[i]} size={22} /></span>
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+              {href && <span class="link-arrow">{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></span>}
+            </div>
+          </>
+        );
+        return (
+          <li data-reveal style={`--d:${i}`}>
+            {href ? <a class="vcom__card" href={L(href)}>{body}</a> : <div class="vcom__card">{body}</div>}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>
+
+<!-- DOSSIER D'APPEL D'OFFRES -->
+<section class="section aobj" aria-labelledby="ofile-title">
+  <div class="wrap aobj__grid">
+    <div class="aobj__head">
+      <p class="eyebrow" data-reveal><Icon name="book" size={16} class="eyebrow__ic" /><span>{x.file.eyebrow}</span></p>
+      <h2 class="h2" id="ofile-title" data-reveal>{x.file.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <a class="link-arrow" href={L('agrements')} data-reveal>{pages['agrements']}<Icon name="arrow" size={14} class="flip-rtl" /></a>
+    </div>
+    <ol class="aobj__list">
+      {x.file.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}><span class="aobj__n">{pad(i + 1)}</span><p>{it}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- OBJECTIFS PARTAGÉS -->
+<section class="section vcom" aria-labelledby="ogoal-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="leaf" size={16} class="eyebrow__ic" /><span>{x.goals.eyebrow}</span></p>
+        <h2 class="h2" id="ogoal-title" data-reveal>{x.goals.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal><a class="link-arrow" href={L('rse')}>{pages['rse']}<Icon name="arrow" size={14} class="flip-rtl" /></a></p>
+    </div>
+    <ul class="vcom__grid ogoal__grid">
+      {x.goals.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="vcom__card" href={L(goalLinks[i])}>
+            <div class="vcom__img"><Picture src={goalImgs[i]} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 900px) 92vw, 30vw" alt="" loading="lazy" /></div>
+            <div class="vcom__body">
+              <span class:list={['vcom__ic', { 'is-green': i === 2 }]}><Icon name={goalIcons[i]} size={22} /></span>
+              <h3>{pages[goalLinks[i]]}</h3>
+              <p>{it.text}</p>
+              <span class="link-arrow">{x.goals.more}<Icon name="arrow" size={14} class="flip-rtl" /></span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="apart vcta octa" aria-labelledby="octa-title">
+  <div class="wrap">
+    <div class="apart__card" data-reveal>
+      <div class="apart__img">
+        <Picture src={imgCta} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 40vw" alt="" loading="lazy" />
+      </div>
+      <div class="apart__body">
+        <p class="eyebrow eyebrow--light"><Icon name="mail" size={16} /><span>{x.cta.eyebrow}</span></p>
+        <h2 class="apart__title" id="octa-title">{x.cta.title}</h2>
+        <p>{x.cta.text}</p>
+        <div class="apart__ctas">
+          <a class="btn btn--light" href={L('contact')}>{t.header.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+          <a class="btn btn--outline-light" href={L('documentation')}>{pages['documentation']}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

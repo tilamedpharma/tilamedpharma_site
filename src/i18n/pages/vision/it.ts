@@ -38,7 +38,7 @@ const vision: VisionDict = {
     items: [
       { title: 'Rigore', text: 'Procedure scritte, seguite e verificate a ogni fase, dalla scelta delle materie prime fino al paziente.' },
       { title: 'Eccellenza', text: 'Un alto livello di esigenza sulla qualità, controllato costantemente dal nostro laboratorio.' },
-      { title: 'Rispetto delle norme più esigenti', text: 'Uno stabilimento progettato secondo le buone pratiche di fabbricazione dell\'OMS e autorizzato dall\'Agenzia beninese di regolamentazione farmaceutica.' },
+      { title: 'Rispetto delle norme più esigenti', text: 'Uno stabilimento autorizzato dall\'Agenzia beninese di regolamentazione farmaceutica, con lotti controllati e rilasciati dal farmacista responsabile.' },
       { title: 'Affidabilità', text: 'Prodotti disponibili quando gli operatori sanitari ne hanno bisogno, consegne rispettate e lotti tracciati dall\'inizio alla fine.' },
     ],
   },

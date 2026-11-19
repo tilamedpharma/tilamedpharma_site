@@ -1,94 +1,204 @@
 ---
-// Page « Devenir distributeur » : critères + formulaire de candidature (envoi via /api/form.php).
+// Page « Devenir distributeur » : chiffres, 4 raisons, partenariat (critères | ce que nous apportons),
+// 4 étapes, zone couverte (bandeau court, liste des 15 pays → presence), formulaire de candidature (envoi via /api/form.php).
+// Textes de présentation : dictionnaire `distributeurs` ; chapô, critères et formulaire : `useMarches(lang).distrib`.
 import Icon from '../Icon.astro';
 import PageHero from '../page/PageHero.astro';
 import { useDict, countryName } from '../../i18n';
 import { useCatalog } from '../../i18n/catalog';
 import { useMarches } from '../../i18n/pages/marches';
-import { type Locale } from '../../i18n/config';
+import { useDistributeurs } from '../../i18n/pages/distributeurs';
+import { localizePath, type Locale } from '../../i18n/config';
 import { company, offices, coverage } from '../../data/site';
 import { productFamilies } from '../../data/products';
-import imgDist from '../../assets/images/stock/logistique-camion-accra.jpg';
+import { Picture } from 'astro:assets';
+import imgDist from '../../assets/images/stock/logistique-livraison-utilitaire.jpg';
+import imgWh1 from '../../assets/images/stock/logistique-entrepot-rayonnages.jpg';
+import imgWh2 from '../../assets/images/stock/logistique-employe-cartons.jpg';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const t = useDict(lang);
 const c = useCatalog(lang);
 const d = useMarches(lang).distrib;
+const x = useDistributeurs(lang);
 const f = d.fields;
+const L = (s: string) => localizePath(lang, s);
+const pad = (n: number) => String(n).padStart(2, '0');
 const pages = t.nav.pages as Record<string, string>;
-const countries = coverage.map((x) => ({ iso: x.iso, name: countryName(lang, x.iso) })).sort((a, b) => a.name.localeCompare(b.name, lang));
----
-<PageHero lang={lang} section="marches" slug="distributeurs" title={pages['distributeurs']} lead={d.lead} image={imgDist} />
+const countries = coverage.map((k) => ({ iso: k.iso, name: countryName(lang, k.iso) })).sort((a, b) => a.name.localeCompare(b.name, lang));
 
-<section class="section pdoc" aria-labelledby="dist-title">
+const whyIcons = ['pin', 'shield', 'layers', 'book'];
+const whyLinks: (string | undefined)[] = [undefined, 'controle-qualite', 'produits', 'documentation'];
+---
+<PageHero lang={lang} section="marches" slug="distributeurs" title={pages['distributeurs']} lead={d.lead} image={imgDist}>
+  <a class="btn" href="#candidature">{x.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+  <a class="btn btn--outline-light" href={L('produits')}>{pages['produits']}</a>
+</PageHero>
+
+<!-- CHIFFRES -->
+<section class="ufacts pfacts" aria-label={pages['distributeurs']}>
+  <div class="wrap">
+    <ul class="ufacts__list">
+      {x.facts.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <p class="ufacts__num" dir="ltr">{it.value}{it.unit && <small>{it.unit}</small>}</p>
+          <p class="ufacts__label">{it.label}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS REJOINDRE -->
+<section class="section" aria-labelledby="dwhy2-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{x.why.eyebrow}</span></p>
+        <h2 class="h2" id="dwhy2-title" data-reveal>{x.why.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{d.intro}</p>
+    </div>
+    <ul class="vval__list">
+      {x.why.items.map((it, i) => {
+        const href = whyLinks[i];
+        return (
+          <li class="vval__card" data-reveal style={`--d:${i}`}>
+            <div class="vval__top">
+              <span class="vval__n">{pad(i + 1)}</span>
+              <span class="vval__ic"><Icon name={whyIcons[i]} size={24} /></span>
+            </div>
+            <h3>{it.title}</h3>
+            <p>{it.text}</p>
+            {href && <a class="link-arrow" href={L(href)}>{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
+          </li>
+        );
+      })}
+    </ul>
+    <div class="dduo" data-reveal="fade">
+      <figure class="dduo__ph is-big"><Picture src={imgWh1} formats={['avif', 'webp']} widths={[560, 900, 1300]} sizes="(max-width: 640px) 92vw, 58vw" alt="" loading="lazy" /></figure>
+      <figure class="dduo__ph"><Picture src={imgWh2} formats={['avif', 'webp']} widths={[360, 560, 800]} sizes="(max-width: 640px) 92vw, 34vw" alt="" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PARTENARIAT -->
+<section class="section vcom" aria-labelledby="dpart-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{x.partner.eyebrow}</span></p>
+      <h2 class="h2" id="dpart-title" data-reveal>{x.partner.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <div class="dpart">
+      <div class="dpart__col" data-reveal>
+        <span class="dpart__ic"><Icon name="filter" size={22} /></span>
+        <h3>{d.reqTitle}</h3>
+        <ul class="dpart__list">
+          {d.reqs.map((r) => <li><Icon name="check" size={18} />{r}</li>)}
+        </ul>
+      </div>
+      <div class="dpart__col is-give" data-reveal style="--d:1">
+        <span class="dpart__ic"><Icon name="award" size={22} /></span>
+        <h3>{x.partner.giveTitle}</h3>
+        <ul class="dpart__list">
+          {x.partner.give.map((r) => <li><Icon name="check" size={18} />{r}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉTAPES -->
+<section class="section" aria-labelledby="dsteps-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{x.steps.eyebrow}</span></p>
+      <h2 class="h2" id="dsteps-title" data-reveal>{x.steps.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+    <ol class="dsteps">
+      {x.steps.items.map((it, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <span class="dsteps__n">{pad(i + 1)}</span>
+          <h3>{it.title}</h3>
+          <p>{it.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- ZONE COUVERTE -->
+<section class="section bcovid dcov" aria-labelledby="dcov-title">
+  <div class="wrap bcovid__inner">
+    <p class="eyebrow eyebrow--light" data-reveal><Icon name="globe" size={16} /><span>{x.coverage.eyebrow}</span></p>
+    <h2 class="bcovid__text" id="dcov-title" data-reveal>{x.coverage.title}</h2>
+    <p class="dcov__text" data-reveal>{x.coverage.text}</p>
+    <div class="bcovid__ctas" data-reveal>
+      <a class="btn btn--light" href={L('presence')}>{pages['presence']}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="section pdoc" id="candidature" aria-labelledby="dform-title">
   <div class="wrap stepc__grid">
     <div>
-      <p class="eyebrow" data-reveal><Icon name="globe" size={16} class="eyebrow__ic" /><span>{pages['distributeurs']}</span></p>
-      <h2 class="h2" id="dist-title" data-reveal>{d.reqTitle}</h2>
+      <p class="eyebrow" data-reveal><Icon name="mail" size={16} class="eyebrow__ic" /><span>{pages['distributeurs']}</span></p>
+      <h2 class="h2" id="dform-title" data-reveal>{d.formTitle}</h2>
       <span class="title-rule" aria-hidden="true"></span>
-      <p class="lead stepc__intro" data-reveal>{d.intro}</p>
-      <ul class="pts">
-        {d.reqs.map((x, i) => <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{x}</li>)}
-      </ul>
-
-      <div class="tblock tblock--next">
-        <h2 class="h2" data-reveal>{d.formTitle}</h2>
-        <span class="title-rule" aria-hidden="true"></span>
-        <form class="form" name="distributeur" method="POST" action="/api/form.php" data-form data-msg-sending={t.formMsg.sending} data-msg-ok={t.formMsg.ok} data-msg-error={t.formMsg.error} data-msg-big={t.formMsg.big}>
-          <input type="hidden" name="form-name" value="distributeur" />
-          <input type="hidden" name="langue" value={lang} />
-          <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
-          <div class="form__row">
-            <label class="field"><span>{f.company} <b aria-hidden="true">*</b></span><input name="societe" required autocomplete="organization" /></label>
-            <label class="field"><span>{f.country} <b aria-hidden="true">*</b></span>
-              <select name="pays" required><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}</select>
-            </label>
-          </div>
-          <div class="form__row">
-            <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="contact" required autocomplete="name" /></label>
-            <label class="field"><span>{f.role}</span><input name="fonction" autocomplete="organization-title" /></label>
-          </div>
-          <div class="form__row">
-            <label class="field"><span>{f.email} <b aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" /></label>
-            <label class="field"><span>{f.phone} <b aria-hidden="true">*</b></span><input type="tel" name="telephone" required autocomplete="tel" dir="ltr" /></label>
-          </div>
-          <div class="form__row">
-            <label class="field"><span>{f.licence} <b aria-hidden="true">*</b></span>
-              <select name="autorisation" required><option value="">{f.select}</option><option>{f.yes}</option><option>{f.pending}</option><option>{f.no}</option></select>
-            </label>
-            <label class="field"><span>{f.warehouse} <b aria-hidden="true">*</b></span>
-              <select name="entrepot_bpd" required><option value="">{f.select}</option><option>{f.yes}</option><option>{f.pending}</option><option>{f.no}</option></select>
-            </label>
-          </div>
-          <fieldset class="field field--set">
-            <legend>{f.channels}</legend>
-            <div class="checks">{d.channels.map((x) => <label class="check"><input type="checkbox" name="circuits[]" value={x} /><span>{x}</span></label>)}</div>
-          </fieldset>
-          <fieldset class="field field--set">
-            <legend>{f.ranges}</legend>
-            <div class="checks">{productFamilies.map((x) => <label class="check"><input type="checkbox" name="gammes[]" value={x.group} /><span><Icon name={x.icon} size={18} />{c.groups[x.group].label}</span></label>)}</div>
-          </fieldset>
-          <label class="field"><span>{f.message}</span><textarea name="presentation" rows="5" placeholder={f.messageHint}></textarea></label>
-          <label class="check check--consent"><input type="checkbox" name="consentement" required /><span>{f.consent}</span></label>
-          <button class="btn" type="submit">{f.submit}<Icon name="arrow" size={18} class="flip-rtl" /></button>
-          <p class="form__status" role="status" aria-live="polite" hidden></p>
-          <p class="form__req"><b aria-hidden="true">*</b> {f.required}</p>
-        </form>
-      </div>
+      <p class="lead dform__lead" data-reveal>{x.formLead}</p>
+      <form class="form dform" name="distributeur" method="POST" action="/api/form.php" data-form data-msg-sending={t.formMsg.sending} data-msg-ok={t.formMsg.ok} data-msg-error={t.formMsg.error} data-msg-big={t.formMsg.big}>
+        <input type="hidden" name="form-name" value="distributeur" />
+        <input type="hidden" name="langue" value={lang} />
+        <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
+        <div class="form__row">
+          <label class="field"><span>{f.company} <b aria-hidden="true">*</b></span><input name="societe" required autocomplete="organization" /></label>
+          <label class="field"><span>{f.country} <b aria-hidden="true">*</b></span>
+            <select name="pays" required><option value="">{f.select}</option>{countries.map((k) => <option value={k.iso}>{k.name}</option>)}</select>
+          </label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="contact" required autocomplete="name" /></label>
+          <label class="field"><span>{f.role}</span><input name="fonction" autocomplete="organization-title" /></label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span>{f.email} <b aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" /></label>
+          <label class="field"><span>{f.phone} <b aria-hidden="true">*</b></span><input type="tel" name="telephone" required autocomplete="tel" dir="ltr" /></label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span>{f.licence} <b aria-hidden="true">*</b></span>
+            <select name="autorisation" required><option value="">{f.select}</option><option>{f.yes}</option><option>{f.pending}</option><option>{f.no}</option></select>
+          </label>
+          <label class="field"><span>{f.warehouse} <b aria-hidden="true">*</b></span>
+            <select name="entrepot_bpd" required><option value="">{f.select}</option><option>{f.yes}</option><option>{f.pending}</option><option>{f.no}</option></select>
+          </label>
+        </div>
+        <fieldset class="field field--set">
+          <legend>{f.channels}</legend>
+          <div class="checks">{d.channels.map((ch) => <label class="check"><input type="checkbox" name="circuits[]" value={ch} /><span>{ch}</span></label>)}</div>
+        </fieldset>
+        <fieldset class="field field--set">
+          <legend>{f.ranges}</legend>
+          <div class="checks">{productFamilies.map((p) => <label class="check"><input type="checkbox" name="gammes[]" value={p.group} /><span><Icon name={p.icon} size={18} />{c.groups[p.group].label}</span></label>)}</div>
+        </fieldset>
+        <label class="field"><span>{f.message}</span><textarea name="presentation" rows="5" placeholder={f.messageHint}></textarea></label>
+        <label class="check check--consent"><input type="checkbox" name="consentement" required /><span>{f.consent}</span></label>
+        <button class="btn" type="submit">{f.submit}<Icon name="arrow" size={18} class="flip-rtl" /></button>
+        <p class="form__status" role="status" aria-live="polite" hidden></p>
+        <p class="form__req"><b aria-hidden="true">*</b> {f.required}</p>
+      </form>
     </div>
 
     <aside class="stepc__aside">
-      <div class="sfacts" data-reveal>
-        <p class="sfacts__h">{t.presence.countriesTitle}</p>
-        <ul class="sfacts__list"><li><p class="sfacts__num">15</p><p class="sfacts__l">{countries.map((x) => x.name).join(' · ')}</p></li></ul>
-      </div>
       <div class="sdoc" data-reveal>
-        <span class="sdoc__t">{t.header.cta}</span>
+        <span class="sdoc__t">{x.contact}</span>
         <a class="pdoc__contact" href={`mailto:${company.email}`}><Icon name="mail" size={18} />{company.email}</a>
         <a class="pdoc__contact" href={`tel:${offices[0].tel}`} dir="ltr"><Icon name="phone" size={18} />{offices[0].phone}</a>
       </div>
     </aside>
   </div>
 </section>
-

@@ -1,5 +1,5 @@
 ---
-// Page « Médiathèque » : photos TILAMED (visionneuse plein écran).
+// Page « Médiathèque » : photos TILAMED (visionneuse plein écran), sauf celles déjà utilisées ailleurs.
 // La section « Le procédé en vidéo » a été retirée (vidéos visibles sur les pages de l'usine).
 import { Picture, getImage } from 'astro:assets';
 import Icon from '../Icon.astro';
@@ -14,17 +14,16 @@ import p4 from '../../assets/images/tilamed/07-equipe-conditionnement.jpg';
 import p5 from '../../assets/images/tilamed/09-visite-usine-1.jpg';
 import p6 from '../../assets/images/tilamed/10-visite-usine-2.jpg';
 import p7 from '../../assets/images/tilamed/11-salon-emballage.jpg';
-import p8 from '../../assets/images/tilamed/12-salons-internationaux.jpg';
-import p9 from '../../assets/images/tilamed/13-arab-health-dubai.jpg';
-import p10 from '../../assets/images/tilamed/15-medica-dubai.jpg';
-import imgHero from '../../assets/images/tilamed/09-visite-usine-1.jpg';
+import imgHero from '../../assets/images/stock/media-photographe-exterieur.jpg';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const t = useDict(lang);
 const m = useFin(lang).media;
 const pages = t.nav.pages as Record<string, string>;
-const photos = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+// Les photos de salons (Arab Health, MEDICA, salons internationaux) sont sur la page Centrale d'achat :
+// une image n'apparaît qu'à un seul endroit du site (règle du client, 19/11/2026).
+const photos = [p1, p2, p3, p4, p5, p6, p7];
 const full = await Promise.all(photos.map((p) => getImage({ src: p, width: 1400, format: 'webp' })));
 ---
 <PageHero lang={lang} section="medias" slug="mediatheque" title={pages['mediatheque']} lead={m.lead} image={imgHero} />

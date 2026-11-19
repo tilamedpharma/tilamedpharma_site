@@ -39,7 +39,7 @@ const vision = {
     items: [
       { title: 'Rigueur', text: 'Des procédures écrites, suivies et vérifiées à chaque étape, du choix des matières premières jusqu\'au patient.' },
       { title: 'Excellence', text: 'Un haut niveau d\'exigence sur la qualité, contrôlé en permanence par notre laboratoire.' },
-      { title: 'Respect des normes les plus exigeantes', text: 'Une usine conçue selon les bonnes pratiques de fabrication de l\'OMS et autorisée par l\'Agence béninoise de régulation pharmaceutique.' },
+      { title: 'Respect des normes les plus exigeantes', text: 'Une usine autorisée par l\'Agence béninoise de régulation pharmaceutique, et des lots contrôlés puis libérés par le pharmacien responsable.' },
       { title: 'Fiabilité', text: 'Des produits disponibles quand les soignants en ont besoin, des livraisons tenues et des lots tracés de bout en bout.' },
     ],
   },

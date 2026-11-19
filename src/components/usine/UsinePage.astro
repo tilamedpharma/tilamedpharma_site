@@ -10,10 +10,13 @@ import { useUsine } from '../../i18n/pages/usine';
 import { getTopic } from '../../i18n/pages/topics';
 import { localizePath, type Locale } from '../../i18n/config';
 import { processSteps } from '../../data/site';
-import { topicPages } from '../../data/topics';
 
 import imgSite from '../../assets/images/stock/equipement-inox-usine.jpg';
 import imgGreen from '../../assets/images/stock/green-usine-solaire-champs.jpg';
+import imgExSalles from '../../assets/images/stock/salle-propre-couloir-chariot.jpg';
+import imgExUtil from '../../assets/images/stock/ingenieur-poste-electrique.jpg';
+import imgExTransfert from '../../assets/images/stock/formation-classe-nigeria.jpg';
+import imgExSite from '../../assets/images/stock/route-camion-verdure.jpg';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
@@ -24,14 +27,16 @@ const pad = (n: number) => String(n).padStart(2, '0');
 const pages = t.nav.pages as Record<string, string>;
 
 const stepSlugs = processSteps.map((s) => s.slug);
-const stepVideos = processSteps.map((s) => s.video);
-// Renvois : titre = nom de la page, texte = chapô de la page cible, visuel = image de son en-tête.
+// Les vidéos des étapes ne sont qu'en en-tête de leur page (une image = un seul endroit, 19/11/2026) :
+// ici, chaque étape a un panneau numéroté avec une icône.
+const stepIcons = ['drop', 'flask', 'vial', 'flame', 'eye', 'shield', 'box'];
+// Renvois : titre = nom de la page, texte = chapô de la page cible, visuel propre à la carte (pas l'en-tête de la cible).
 const explore = [
-  { slug: 'salles-propres', icon: 'filter' },
-  { slug: 'utilites', icon: 'gauge' },
-  { slug: 'transfert-technologie', icon: 'users' },
-  { slug: 'site-seme-podji', icon: 'pin' },
-].map((x) => ({ ...x, poster: topicPages.find((p) => p.slug === x.slug)?.video ?? 'hero-wide', lead: getTopic(lang, x.slug).lead }));
+  { slug: 'salles-propres', icon: 'filter', img: imgExSalles },
+  { slug: 'utilites', icon: 'gauge', img: imgExUtil },
+  { slug: 'transfert-technologie', icon: 'users', img: imgExTransfert },
+  { slug: 'site-seme-podji', icon: 'pin', img: imgExSite },
+].map((x) => ({ ...x, lead: getTopic(lang, x.slug).lead }));
 ---
 <PageHero lang={lang} section="usine" slug="usine" title={u.hero.title} lead={u.hero.lead} video="ligne-remplissage">
   <a class="btn" href="#procede">{u.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
@@ -84,10 +89,8 @@ const explore = [
       {u.process.steps.map((s, i) => (
         <li class="ustep" data-reveal style={`--d:${i % 2}`}>
           <a class="ustep__link" href={L(stepSlugs[i])}>
-            <span class="ustep__media" data-hover-play>
-              <video muted loop playsinline preload="none" poster={`/media/video/${stepVideos[i]}.jpg`} aria-hidden="true">
-                <source src={`/media/video/${stepVideos[i]}.mp4`} type="video/mp4" />
-              </video>
+            <span class="ustep__media ustep__media--icon" aria-hidden="true">
+              <Icon name={stepIcons[i]} size={56} class="ustep__big" />
               <span class="ustep__n"><small>{t.page.step}</small>{pad(i + 1)}</span>
             </span>
             <span class="ustep__body">
@@ -128,7 +131,7 @@ const explore = [
       {explore.map((x, i) => (
         <li data-reveal style={`--d:${i}`}>
           <a class="vcom__card" href={L(x.slug)}>
-            <div class="vcom__img"><img src={`/media/video/${x.poster}.jpg`} alt="" loading="lazy" decoding="async" /></div>
+            <div class="vcom__img"><Picture src={x.img} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 24vw" alt="" loading="lazy" /></div>
             <div class="vcom__body">
               <span class:list={['vcom__ic', { 'is-green': i === 3 }]}><Icon name={x.icon} size={22} /></span>
               <h3>{pages[x.slug]}</h3>

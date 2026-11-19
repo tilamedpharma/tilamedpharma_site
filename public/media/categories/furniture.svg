@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+<rect width="480" height="360" fill="#ECF0F5"/>
+<g fill="#1C64BA" opacity=".22"><circle cx="44" cy="40" r="2.4"/><circle cx="44" cy="54" r="2.4"/><circle cx="44" cy="68" r="2.4"/><circle cx="44" cy="82" r="2.4"/><circle cx="58" cy="40" r="2.4"/><circle cx="58" cy="54" r="2.4"/><circle cx="58" cy="68" r="2.4"/><circle cx="58" cy="82" r="2.4"/><circle cx="72" cy="40" r="2.4"/><circle cx="72" cy="54" r="2.4"/><circle cx="72" cy="68" r="2.4"/><circle cx="72" cy="82" r="2.4"/><circle cx="86" cy="40" r="2.4"/><circle cx="86" cy="54" r="2.4"/><circle cx="86" cy="68" r="2.4"/><circle cx="86" cy="82" r="2.4"/></g>
+<g fill="#39A845" opacity=".55"><path d="M412 262h6v-6h4v6h6v4h-6v6h-4v-6h-6z"/></g>
+<circle cx="404" cy="78" r="5" fill="none" stroke="#4F9BE0" stroke-width="2.5" opacity=".6"/>
+<circle cx="240" cy="182" r="122" fill="#FFFFFF"/>
+<g fill="none" stroke-width="5" stroke-linecap="round"><path d="M122.2 250.0A136 136 0 1 1 371.4 217.2" stroke="#1C64BA"/><path d="M357.8 250.0A136 136 0 0 1 182.5 305.3" stroke="#39A845"/></g>
+<ellipse cx="240" cy="300" rx="130" ry="8" fill="#12305A" opacity=".09"/>
+<g fill="none" stroke="#8C9CAF" stroke-width="7" stroke-linecap="round"><path d="M136 120v148M344 160v108M136 210h208"/></g>
+<rect x="128" y="104" width="16" height="64" rx="6" fill="#1C64BA"/>
+<path d="M146 186h186a12 12 0 0 1 12 12v12H146z" fill="#D6E5F6"/>
+<rect x="146" y="176" width="198" height="16" rx="6" fill="#FFFFFF" stroke="#D6E5F6" stroke-width="2"/>
+<rect x="152" y="160" width="54" height="22" rx="10" fill="#FFFFFF" stroke="#D6E5F6" stroke-width="2"/>
+<rect x="214" y="164" width="124" height="16" rx="6" fill="#39A845"/>
+<path d="M200 230h108" stroke="#8C9CAF" stroke-width="5" stroke-linecap="round"/>
+<g fill="#12305A"><circle cx="146" cy="276" r="11"/><circle cx="334" cy="276" r="11"/></g>
+<g fill="#E6ECF2"><circle cx="146" cy="276" r="4"/><circle cx="334" cy="276" r="4"/></g>
+<g transform="translate(330 98)"><rect x="-4" y="0" width="8" height="70" rx="4" fill="#8C9CAF"/><rect x="-22" y="-8" width="44" height="8" rx="4" fill="#6B7C91"/><path d="M-20 0h18v28c0 6-4 10-9 10s-9-4-9-10z" fill="#4F9BE0" opacity=".7"/></g>
+</svg>

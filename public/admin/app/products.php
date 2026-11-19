@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Tlm\Admin;
 
-use function Tlm\{h, db, now, current_user, is_admin, audit, products, product, categories, cat_label, slugify, fiche_filled, clear_pdf_cache, data_dir, product_url, pdf_url, documents, document_url, image_url, lang_path};
+use function Tlm\{h, db, now, current_user, is_admin, audit, products, product, categories, cat_label, slugify, fiche_filled, clear_pdf_cache, data_dir, product_url, pdf_url, documents, document_url, image_url, lang_path, visual, category_image};
 
 use const Tlm\{LANGS, GROUPS, KINDS, STATES, TEXT_FIELDS, FICHE_FIELDS, RESERVED_SLUGS};
 
@@ -145,7 +145,8 @@ function products_page(): void
             $langs .= '<span class="alang' . ($on ? ' is-on' : '') . '" title="' . h(LANG_NAMES[$l]) . ($on ? ' : traduit' : ' : à traduire') . '">' . strtoupper($l) . '</span>';
         }
         $n = fiche_filled($p);
-        $thumb = $p['image'] !== '' ? '<img class="aprod__img" src="' . h(image_url($p)) . '" alt="" width="44" height="44" loading="lazy">' : '<span class="aprod__img aprod__img--none" aria-hidden="true">' . aicon('vial', 18) . '</span>';
+        $vis = visual($p);
+        $thumb = $vis['url'] !== '' ? '<img class="aprod__img" src="' . h($vis['url']) . '" alt="" width="44" height="44" loading="lazy">' : '<span class="aprod__img aprod__img--none" aria-hidden="true">' . aicon('vial', 18) . '</span>';
         $menu = '<a href="' . url('produits/' . $id) . '">' . aicon('check') . 'Modifier</a><a href="' . h($p['state'] === 'published' ? product_url($p, 'fr') : url('produits/' . $id . '/apercu')) . '" target="_blank" rel="noopener">' . aicon('eye') . ($p['state'] === 'published' ? 'Voir sur le site' : 'Aperçu') . '</a>';
         if ($p['state'] !== 'published') { $menu .= post_button('produits/' . $id . '/etat', 'Mettre en ligne', 'amenu__btn', ['etat' => 'published'], '', 'check-circle'); }
         if ($p['state'] === 'published') { $menu .= post_button('produits/' . $id . '/etat', 'Masquer', 'amenu__btn', ['etat' => 'hidden'], '', 'filter'); }
@@ -508,11 +509,13 @@ function product_form(?array $p, array $v, array $errors): never
         . '</div></section>';
 
     // --- Photo
-    $o .= '<section class="acard"><div class="acard__h"><h2>Photo du produit</h2><p class="acard__sub">Facultative. Affichée sur la fiche du produit et dans le PDF. JPEG, PNG ou WebP, 8 Mo au maximum.</p></div><div class="aphoto">';
+    $o .= '<section class="acard"><div class="acard__h"><h2>Photo du produit</h2><p class="acard__sub">Facultative. Affichée sur les cartes du catalogue, la page du produit et le PDF. Sans photo, l\'illustration de la catégorie est utilisée. JPEG, PNG ou WebP, 8 Mo au maximum.</p></div><div class="aphoto">';
     if ($p && $p['image'] !== '') {
         $o .= '<img class="aphoto__img" src="' . h(image_url($p)) . '" alt="Photo actuelle" width="160" height="160"><div><label class="acheckline"><input type="checkbox" name="remove_image" value="1"> Retirer la photo</label>';
     } else {
-        $o .= '<span class="aphoto__img aphoto__img--none" aria-hidden="true">' . aicon('vial', 32) . '</span><div>';
+        $ill = category_image($v['cat'], $v['grp']);
+        $o .= ($ill !== '' ? '<img class="aphoto__img aphoto__img--ill" src="' . h($ill) . '" alt="Illustration de la catégorie" width="213" height="160">' : '<span class="aphoto__img aphoto__img--none" aria-hidden="true">' . aicon('vial', 32) . '</span>')
+            . '<div>' . ($ill !== '' ? '<p class="afield__h">Illustration provisoire de la catégorie (même image pour tous ses produits).</p>' : '');
     }
     $o .= '<label class="afile">' . aicon('download') . '<span>' . ($p && $p['image'] !== '' ? 'Remplacer la photo' : 'Choisir une photo') . '</span><input type="file" name="image" accept="image/jpeg,image/png,image/webp" data-preview></label><p class="afield__h">Règle du site : une photo n\'est utilisée qu\'à un seul endroit.</p></div></div></section>';
     $o .= '</form>';

@@ -384,3 +384,4 @@ select { appearance: none; padding-right: 36px; background: #fff url("data:image
   .amenu__pop { left: 0; right: auto; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.aphoto__img--ill { width: 213px; object-fit: cover; }

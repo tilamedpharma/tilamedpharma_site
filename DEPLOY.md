@@ -40,7 +40,9 @@ Les produits ne sont plus écrits dans le code : ils vivent dans une base de don
   - **Sauvegarde** : ce dossier est compris dans les sauvegardes Hostinger du compte. Pour une copie à la main : gestionnaire de fichiers → `tilamed-data` → compresser → télécharger.
 - **Premier compte administrateur** : ajouter dans `tilamed-forms-config.php` la ligne `'admin_setup_key' => '…',` (au moins 16 caractères ; l'écran `/admin/` en propose une), puis ouvrir `/admin/` et remplir le formulaire d'installation. Il n'est proposé que tant qu'aucun compte n'existe.
 - **E-mails du back office** (mot de passe oublié, invitations) : même SMTP que les formulaires. S'il échoue, l'écran affiche le lien à transmettre à la main.
+- **Illustrations provisoires** : une par catégorie (`public/media/categories/{catégorie}.svg`), dessinées par `node tools/category-art.mjs` aux couleurs de la charte. Un produit sans photo prend celle de sa catégorie (cartes, page produit, PDF). Une nouvelle catégorie créée dans le back office prend celle d’une catégorie représentative de sa gamme, jusqu’à ce qu’on lui dessine la sienne.
 - **Fiches PDF** : bibliothèque mPDF 8.2.5 copiée dans `public/api/lib/mpdf/` (sans Composer), polices de la charte dans `public/api/lib/fonts/` (Montserrat, Carlito, IBM Plex Sans Arabic, Noto Sans SC). Après un changement de polices, augmenter `VERSION` dans `public/api/lib/tilamed/bootstrap.php`.
+- **Vérifier un PDF sans logiciel** : `powershell -ExecutionPolicy Bypass -File tools/pdf2png.ps1 -Pdf fiche.pdf -Out page.png` (moteur PDF intégré à Windows, option `-Page 1` pour la 2e page).
 - **Erreurs** : lignes `[tilamed-admin]`, `[tilamed-catalogue]` ou `[tilamed-fiche]` dans le journal d'erreurs PHP de Hostinger.
 - **Tester en local** (PHP 8.1 ou plus, avec SQLite) :
   `npm run build`, puis dans PowerShell `$env:TLM_DATA_DIR = "C:\chemin\tilamed-data-local"` et `php -S 127.0.0.1:8080 -t dist tools/php-router.php`.

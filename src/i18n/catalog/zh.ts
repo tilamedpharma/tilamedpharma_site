@@ -92,6 +92,12 @@ const cat: CatalogDict = {
     askTitle: '对本产品有疑问？',
     askText: '我们的销售部门为医疗专业人员、采购中心和经销商提供解答。',
     disclaimer: '本文件仅供医疗专业人员参考，不能替代产品说明书或产品特性概要。',
+    keyFacts: '概要',
+    characteristics: '产品特性',
+    contactTitle: '销售部',
+    onRequestTitle: '完整技术资料',
+    onRequest: '详细成分、用法用量及贮存条件可应医疗专业人员、采购中心和经销商的要求提供。',
+    web: '在线资料',
   },
   items: {
     nacl: ['氯化钠注射液 0.9%', '补液、保持静脉通路及稀释药物。'],

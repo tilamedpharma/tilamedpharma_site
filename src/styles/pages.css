@@ -805,6 +805,11 @@
 
 /* Cartes produit cliquables → fiche du produit (rendues par PHP, voir public/api/lib/tilamed/render.php) */
 .pcard { position: relative; transition: border-color .25s, box-shadow .25s; }
+.pcard__img { display: block; margin: -20px -20px 6px; aspect-ratio: 16 / 10.5; overflow: hidden; border-radius: var(--radius) var(--radius) 0 0; background: var(--mist); }
+.pcard__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.pcard__img--photo { background: #fff; border-bottom: 1px solid var(--line); }
+.pcard__img--photo img { object-fit: contain; }
+.pcard:hover .pcard__img img { transform: scale(1.04); }
 .pcard:hover { border-color: var(--blue); box-shadow: var(--shadow); }
 .pcard__link { color: inherit; }
 .pcard__link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
@@ -822,7 +827,7 @@
 .pfpreview a { margin-inline-start: auto; font-family: var(--font-head); font-weight: 700; text-decoration: underline; }
 .phero--product { min-height: 0; }
 .phero--product::before { background: var(--navy-900); }
-.pfhero { display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 28vw, 360px); align-items: center; gap: clamp(32px, 5vw, 80px); padding-block: clamp(32px, 4vw, 48px) clamp(64px, 7vw, 96px); }
+.pfhero { display: grid; grid-template-columns: minmax(0, 1fr) clamp(280px, 34vw, 460px); align-items: center; gap: clamp(32px, 5vw, 80px); padding-block: clamp(32px, 4vw, 48px) clamp(64px, 7vw, 96px); }
 .pfhero .phero__eyebrow { margin-top: 28px; }
 .pfhero .phero__title { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); }
 .pfhero__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
@@ -830,8 +835,10 @@
 .pfhero__tags .pfhero__badge { border-color: transparent; background: var(--blue); color: #fff; }
 .pfhero__tags .pfhero__badge--devices { background: var(--green); }
 .pfhero__pdf { padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, .18); font-size: .6875rem; letter-spacing: .06em; }
-.pfhero__media { position: relative; display: grid; place-items: center; aspect-ratio: 1; border-radius: var(--radius-lg); background: #fff; overflow: hidden; }
-.pfhero__media img { width: 100%; height: 100%; object-fit: contain; }
+.pfhero__media { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: var(--radius-lg); background: #fff; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .55); }
+.pfhero__media img { width: 100%; height: 100%; object-fit: cover; }
+.pfhero__media--photo img { object-fit: contain; }
+.pfhero__note { position: absolute; inset-inline-end: 10px; bottom: 8px; padding: 2px 8px; border-radius: 99px; background: rgba(255, 255, 255, .85); font-size: .6875rem; color: var(--muted); }
 .pfhero__media:not(:has(img)) { background: var(--blue); }
 .pfhero__media:not(:has(img))::after { content: ''; position: absolute; inset: auto 0 0; height: 30%; background: var(--green); }
 .pfhero__ic { position: relative; z-index: 1; display: grid; place-items: center; width: 46%; aspect-ratio: 1; margin-top: -12%; border: 2px solid rgba(255, 255, 255, .35); border-radius: 50%; color: #fff; }
@@ -864,7 +871,7 @@
 .pfrel .pcards { margin-top: 40px; }
 @media (max-width: 900px) {
   .pfhero { grid-template-columns: 1fr; }
-  .pfhero__media { width: min(260px, 70%); }
+  .pfhero__media { width: min(420px, 100%); }
 }
 @media (max-width: 640px) {
   .pfspec > div { grid-template-columns: 1fr; }

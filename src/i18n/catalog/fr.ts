@@ -91,6 +91,12 @@ const cat = {
     askTitle: 'Une question sur ce produit ?',
     askText: 'Notre direction commerciale répond aux professionnels de santé, aux centrales d\'achat et aux distributeurs.',
     disclaimer: 'Document d\'information destiné aux professionnels de santé. Il ne remplace pas la notice ni le résumé des caractéristiques du produit.',
+    keyFacts: 'En bref',
+    characteristics: 'Caractéristiques',
+    contactTitle: 'Direction commerciale',
+    onRequestTitle: 'Dossier technique complet',
+    onRequest: 'La composition détaillée, la posologie et les conditions de conservation sont communiquées sur demande aux professionnels de santé, aux centrales d\'achat et aux distributeurs.',
+    web: 'Fiche en ligne',
   },
   /** Traductions des noms et usages (vide en fr/en : repris de src/data/catalog.ts). */
   items: {} as Record<string, [string, string]>,

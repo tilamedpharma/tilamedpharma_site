@@ -132,6 +132,34 @@ function image_url(array $p): string
     return $p['image'] !== '' ? '/api/fiche.php?img=' . rawurlencode($p['image']) : '';
 }
 
+/**
+ * Illustration provisoire d'une catégorie (public/media/categories/{id}.svg, dessinées par tools/category-art.mjs),
+ * ou à défaut celle d'une catégorie représentative de la gamme. Chemin public, '' si aucune.
+ */
+function category_image(string $cat, string $grp): string
+{
+    $fallback = ['serum' => 'standard', 'medicines' => 'svp', 'nutrition' => 'nutrition', 'devices' => 'diagnostic', 'vet' => 'vet-care'];
+    foreach ([$cat, $fallback[$grp] ?? 'standard'] as $id) {
+        if (preg_match('/^[a-z0-9-]+$/', $id) && is_file(root() . '/media/categories/' . $id . '.svg')) {
+            return '/media/categories/' . $id . '.svg';
+        }
+    }
+    return '';
+}
+
+/**
+ * Visuel d'un produit : sa photo (déposée dans le back office) sinon l'illustration de sa catégorie.
+ * @return array{url:string, file:string, photo:bool} url publique, fichier local (pour le PDF), photo réelle ou non
+ */
+function visual(array $p): array
+{
+    if ($p['image'] !== '' && is_file(data_dir() . '/uploads/images/' . basename($p['image']))) {
+        return ['url' => image_url($p), 'file' => data_dir() . '/uploads/images/' . basename($p['image']), 'photo' => true];
+    }
+    $url = category_image($p['cat'], $p['grp']);
+    return ['url' => $url, 'file' => $url !== '' ? root() . $url : '', 'photo' => false];
+}
+
 function documents(int $productId): array
 {
     $st = db()->prepare('SELECT * FROM documents WHERE product_id = ? ORDER BY position, id');

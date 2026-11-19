@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360">
+<rect width="480" height="360" fill="#ECF0F5"/>
+<g fill="#1C64BA" opacity=".22"><circle cx="44" cy="40" r="2.4"/><circle cx="44" cy="54" r="2.4"/><circle cx="44" cy="68" r="2.4"/><circle cx="44" cy="82" r="2.4"/><circle cx="58" cy="40" r="2.4"/><circle cx="58" cy="54" r="2.4"/><circle cx="58" cy="68" r="2.4"/><circle cx="58" cy="82" r="2.4"/><circle cx="72" cy="40" r="2.4"/><circle cx="72" cy="54" r="2.4"/><circle cx="72" cy="68" r="2.4"/><circle cx="72" cy="82" r="2.4"/><circle cx="86" cy="40" r="2.4"/><circle cx="86" cy="54" r="2.4"/><circle cx="86" cy="68" r="2.4"/><circle cx="86" cy="82" r="2.4"/></g>
+<g fill="#39A845" opacity=".55"><path d="M412 262h6v-6h4v6h6v4h-6v6h-4v-6h-6z"/></g>
+<circle cx="404" cy="78" r="5" fill="none" stroke="#4F9BE0" stroke-width="2.5" opacity=".6"/>
+<circle cx="240" cy="182" r="122" fill="#FFFFFF"/>
+<g fill="none" stroke-width="5" stroke-linecap="round"><path d="M122.2 250.0A136 136 0 1 1 371.4 217.2" stroke="#1C64BA"/><path d="M357.8 250.0A136 136 0 0 1 182.5 305.3" stroke="#39A845"/></g>
+<ellipse cx="240" cy="300" rx="110" ry="7" fill="#12305A" opacity=".09"/>
+<g transform="translate(186 180) rotate(-24)">
+<path d="M-5 -110L-12 70c0 6 5 8 8 6L0 -100 4 76c3 2 8 0 8-6L5 -110c0-6-10-6-10 0z" fill="#E6ECF2" stroke="#8C9CAF" stroke-width="2"/>
+<g stroke="#8C9CAF" stroke-width="2"><path d="M-9 30h5M-10 40h5M-10 50h5M5 30h5M6 40h5M6 50h5"/></g></g>
+<g transform="translate(286 184) rotate(22)">
+<path d="M-4 -126L-2 -6M4 -126L2 -6" stroke="#8C9CAF" stroke-width="7" stroke-linecap="round"/>
+<path d="M-4 -126L-2 -6M4 -126L2 -6" stroke="#E6ECF2" stroke-width="3" stroke-linecap="round"/>
+<circle r="6" fill="#6B7C91"/>
+<path d="M-2 4L-18 46M2 4L18 46" stroke="#8C9CAF" stroke-width="7" stroke-linecap="round"/>
+<circle cx="-24" cy="62" r="16" fill="none" stroke="#1C64BA" stroke-width="8"/><circle cx="24" cy="62" r="16" fill="none" stroke="#39A845" stroke-width="8"/>
+<g fill="#6B7C91"><rect x="-10" y="18" width="8" height="5" rx="1"/><rect x="2" y="18" width="8" height="5" rx="1"/></g></g>
+</svg>

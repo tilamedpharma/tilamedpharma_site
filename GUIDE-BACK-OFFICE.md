@@ -41,7 +41,7 @@ Menu **Produits** → **Ajouter un produit**, ou cliquez sur le nom d'un produit
    - Rubriques de la fiche : composition, forme et présentation, indications, posologie, contre-indications, mises en garde, conservation, durée de conservation, caractéristiques techniques, statut réglementaire. Une rubrique vide n'apparaît nulle part.
    - Pour une liste, commencez chaque ligne par « - ».
 2. **Classement et caractéristiques** : gamme, catégorie, statut commercial (la pastille de la carte), présentations (une par ligne), voie, ligne de production, conditionnement, phase, mots-clés de recherche.
-3. **Photo** (facultative) : JPEG, PNG ou WebP, 8 Mo au maximum. Elle est réduite automatiquement. Rappel : une photo n'est utilisée qu'à un seul endroit du site.
+3. **Photo** (facultative) : JPEG, PNG ou WebP, 8 Mo au maximum. Elle est réduite automatiquement et remplace l'illustration provisoire de la catégorie (cartes du catalogue, page du produit, fiche PDF). Rappel : une photo n'est utilisée qu'à un seul endroit du site.
 4. **Publication** (colonne de droite) : choisissez l'état, puis cliquez sur **Enregistrer**.
    - L'adresse de la page se crée à partir du nom. La changer pour un produit déjà en ligne rend l'ancienne adresse introuvable.
 5. **Documents à télécharger** (après le premier enregistrement) : ajoutez des PDF officiels (notice, RCP, certificat…), 15 Mo au maximum chacun. Ils sont proposés sur la fiche du produit.

@@ -50,7 +50,12 @@ function card(array $p, string $lang, bool $withSearch = false): string
         $search = norm(implode(' ', [$name, $use, $p['texts']['fr']['name'] ?? '', $p['texts']['en']['name'] ?? '', cat_label($p['cat'], $lang), $p['keywords']]));
         $out .= ' data-s="' . h($search) . '"';
     }
-    $out .= '><div class="pcard__top"><span class="pcard__badge" title="' . h($st['note']) . '">' . h($st['badge']) . '</span>';
+    $vis = visual($p);
+    $out .= '>';
+    if ($vis['url'] !== '') {
+        $out .= '<span class="pcard__img' . ($vis['photo'] ? ' pcard__img--photo' : '') . '"><img src="' . h($vis['url']) . '" alt="" width="480" height="360" loading="lazy" decoding="async"></span>';
+    }
+    $out .= '<div class="pcard__top"><span class="pcard__badge" title="' . h($st['note']) . '">' . h($st['badge']) . '</span>';
     if ($p['phase']) { $out .= '<span class="pcard__phase">P' . (int) $p['phase'] . '</span>'; }
     $out .= '</div><h3 class="pcard__name"' . lang_attr($nl, $lang) . '><a class="pcard__link" href="' . h(product_url($p, $lang)) . '">' . h($name) . '</a></h3>';
     if ($use !== '') { $out .= '<p class="pcard__use"' . lang_attr($ul, $lang) . '>' . h($use) . '</p>'; }
@@ -214,9 +219,12 @@ function render_product(string $html, array $p, string $lang, bool $preview): st
     $o .= '<a class="btn" href="' . h($pdf) . '" download>' . icon('download', 18) . h($f['download']) . ' <small class="pfhero__pdf">' . h($f['pdf']) . '</small></a>';
     $isDevices = $p['grp'] === 'devices';
     $o .= '<a class="btn btn--outline-light" href="' . h(lang_path($lang, $isDevices || $p['grp'] === 'vet' ? 'contact' : 'documentation')) . '">' . h($isDevices || $p['grp'] === 'vet' ? $t['produits']['contactCta'] : $t['produits']['docCta']) . '</a>';
-    $o .= '</div></div><div class="pfhero__media">';
-    if ($p['image'] !== '') {
-        $o .= '<img src="' . h(image_url($p)) . '" alt="' . h($name) . '" width="800" height="800" loading="eager" decoding="async">';
+    $vis = visual($p);
+    $o .= '</div></div><div class="pfhero__media' . ($vis['photo'] ? ' pfhero__media--photo' : '') . '">';
+    if ($vis['url'] !== '') {
+        // Illustration de catégorie : décorative (alt vide) ; photo du produit : alt = nom.
+        $o .= '<img src="' . h($vis['url']) . '" alt="' . ($vis['photo'] ? h($name) : '') . '" width="480" height="360" loading="eager" decoding="async">';
+        if (!$vis['photo']) { $o .= '<span class="pfhero__note">' . h($t['ui']['legal'][1] ?? '') . '</span>'; }
     } else {
         $o .= '<span class="pfhero__ic" aria-hidden="true">' . icon($fam['icon'] ?? 'vial', 72) . '</span><span class="pfhero__brand" aria-hidden="true">TILAMED <b>Pharma</b></span>';
     }

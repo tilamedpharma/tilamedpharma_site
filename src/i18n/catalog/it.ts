@@ -92,6 +92,12 @@ const cat: CatalogDict = {
     askTitle: 'Una domanda su questo prodotto?',
     askText: 'La nostra direzione commerciale risponde ai professionisti sanitari, alle centrali d\'acquisto e ai distributori.',
     disclaimer: 'Documento informativo destinato ai professionisti sanitari. Non sostituisce il foglio illustrativo né il riassunto delle caratteristiche del prodotto.',
+    keyFacts: 'In breve',
+    characteristics: 'Caratteristiche',
+    contactTitle: 'Direzione commerciale',
+    onRequestTitle: 'Dossier tecnico completo',
+    onRequest: 'La composizione dettagliata, la posologia e le condizioni di conservazione sono comunicate su richiesta ai professionisti sanitari, alle centrali d\'acquisto e ai distributori.',
+    web: 'Scheda online',
   },
   items: {
     nacl: ['Sodio cloruro 0,9 %', 'Reidratazione, mantenimento di un accesso venoso e diluizione di farmaci.'],

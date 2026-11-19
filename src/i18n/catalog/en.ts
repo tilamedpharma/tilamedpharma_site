@@ -92,6 +92,12 @@ const cat: CatalogDict = {
     askTitle: 'A question about this product?',
     askText: 'Our sales department answers healthcare professionals, purchasing centres and distributors.',
     disclaimer: 'Information document for healthcare professionals. It does not replace the package leaflet or the summary of product characteristics.',
+    keyFacts: 'At a glance',
+    characteristics: 'Characteristics',
+    contactTitle: 'Sales department',
+    onRequestTitle: 'Full technical file',
+    onRequest: 'Detailed composition, dosage and storage conditions are provided on request to healthcare professionals, purchasing centres and distributors.',
+    web: 'Online sheet',
   },
   items: {},
 };

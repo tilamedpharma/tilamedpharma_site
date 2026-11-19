@@ -92,6 +92,12 @@ const cat: CatalogDict = {
     askTitle: '¿Una pregunta sobre este producto?',
     askText: 'Nuestra dirección comercial responde a los profesionales de la salud, las centrales de compras y los distribuidores.',
     disclaimer: 'Documento informativo destinado a los profesionales de la salud. No sustituye al prospecto ni a la ficha técnica oficial del producto.',
+    keyFacts: 'En resumen',
+    characteristics: 'Características',
+    contactTitle: 'Dirección comercial',
+    onRequestTitle: 'Expediente técnico completo',
+    onRequest: 'La composición detallada, la posología y las condiciones de conservación se comunican a petición a los profesionales de la salud, las centrales de compras y los distribuidores.',
+    web: 'Ficha en línea',
   },
   items: {
     nacl: ['Cloruro de sodio 0,9 %', 'Rehidratación, mantenimiento de una vía venosa y dilución de medicamentos.'],

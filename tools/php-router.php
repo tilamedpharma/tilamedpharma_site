@@ -52,7 +52,10 @@ if (preg_match("#^/{$L}produits/([a-z0-9-]+)/fiche-technique\\.pdf$#", $uri, $m)
 if (preg_match("#^/{$L}produits/[a-z0-9-]+/documents/([0-9]+)/[A-Za-z0-9._-]*$#", $uri, $m)) {
     return $run('api/fiche.php', ['doc' => $m[2]]);
 }
-if (preg_match('#^/api/(catalogue|fiche|form)\.php$#', $uri, $m)) {
+if ($uri === '/sitemap-produits.xml') {
+    return $run('api/sitemap.php');
+}
+if (preg_match('#^/api/(catalogue|fiche|form|sitemap)\.php$#', $uri, $m)) {
     return $run('api/' . $m[1] . '.php');
 }
 // Fichiers statiques et dossiers avec index.html

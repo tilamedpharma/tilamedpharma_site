@@ -30,6 +30,8 @@ ErrorDocument 404 /404.html
   RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?produits/([a-z0-9-]+)/$ api/catalogue.php?l=$1&p=fiche&s=$2 [L,QSA]
   RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?produits/([a-z0-9-]+)/fiche-technique\.pdf$ api/fiche.php?l=$1&s=$2 [L,QSA]
   RewriteRule ^(?:(en|es|pt|it|zh|ar)/)?produits/[a-z0-9-]+/documents/([0-9]+)/[A-Za-z0-9._-]*$ api/fiche.php?doc=$2 [L,QSA]
+  # Plan du site des fiches produits (lu dans la base) — déclaré dans /sitemap.xml, généré par tools/sitemap.mjs
+  RewriteRule ^sitemap-produits\.xml$ api/sitemap.php [L]
 
   # 3) Pages retirées → page la plus proche (301)
   RewriteRule ^((en|es|pt|it|zh|ar)/)?centrales-achat/?$ /$1clients/ [R=301,L]

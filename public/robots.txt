@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /produits/fiche-modele/
+Disallow: /*/produits/fiche-modele/
+
+Sitemap: https://www.tilamedpharma.com/sitemap.xml

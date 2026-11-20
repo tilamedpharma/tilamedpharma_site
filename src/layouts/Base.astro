@@ -13,12 +13,45 @@ import '../styles/pages.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import { locales, localeMeta, localizePath, type Locale } from '../i18n/config';
+import { company, offices, socials } from '../data/site';
 
 interface Props { lang: Locale; title: string; description: string; slug?: string; image?: string }
 const { lang, title, description, slug = '', image = '/media/video/hero-wide.jpg' } = Astro.props;
 const meta = localeMeta[lang];
 const site = Astro.site ?? new URL('https://www.tilamedpharma.com');
 const canonical = new URL(localizePath(lang, slug), site).href;
+// Données structurées (schema.org) sur l'accueil de chaque langue : identité de l'entreprise et nom du site,
+// pour que Google associe « TILAMED » à ce site (nom affiché, logo, réseaux sociaux).
+const hq = offices.find((o) => o.hq)!;
+const home = new URL(localizePath(lang, ''), site).href;
+const ld = slug === '' ? JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${site.origin}/#organization`,
+    name: company.name,
+    legalName: company.legal,
+    alternateName: ['TILAMED', 'TILAMED PHARMA', 'Tilamed Pharma SA'],
+    url: `${site.origin}/`,
+    logo: new URL('/brand/Tilamed_logo_principal.png', site).href,
+    image: new URL(image, site).href,
+    description,
+    email: company.email,
+    telephone: hq.phone,
+    address: { '@type': 'PostalAddress', streetAddress: hq.address[0], addressLocality: hq.city, addressCountry: hq.country },
+    sameAs: socials.filter((s) => s.id !== 'whatsapp').map((s) => s.url),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site.origin}/#website`,
+    name: company.name,
+    alternateName: ['TILAMED', 'tilamedpharma.com'],
+    url: home,
+    inLanguage: meta.htmlLang,
+    publisher: { '@id': `${site.origin}/#organization` },
+  },
+]).replace(/</g, '\\u003c') : null;
 ---
 <!doctype html>
 <html lang={meta.htmlLang} dir={meta.dir} data-lang={lang}>
@@ -43,6 +76,7 @@ const canonical = new URL(localizePath(lang, slug), site).href;
     <meta property="og:locale" content={meta.og} />
     <meta property="og:image" content={new URL(image, site).href} />
     <meta name="twitter:card" content="summary_large_image" />
+    {ld && <script type="application/ld+json" set:html={ld} />}
     {lang === 'ar' && <link rel="preload" as="style" href="/fonts/ar.css" />}
     {lang === 'ar' && <link rel="stylesheet" href="/fonts/ar.css" />}
     {lang === 'zh' && <link rel="stylesheet" href="/fonts/zh.css" />}

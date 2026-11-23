@@ -139,10 +139,29 @@ $$<HTMLElement>('[data-nm-auto]').forEach((nm) => nmAutoIO.observe(nm));
 
 /* ---------- Slider du hero (vidéo de l'usine · carte du réseau) ---------- */
 // Carte : entière (meet) sur grand écran, recadrée sur la région (slice) sur mobile.
+// Écran vertical : la carte passe au-dessus du texte (voir global.css), cadrée sur la seule région desservie,
+// élargie au format de son cadre pour le remplir sans bandes.
 const nmFit = window.matchMedia('(max-width: 900px)');
-const fitMaps = () => $$<SVGSVGElement>('[data-nm-fit]').forEach((s) => s.setAttribute('preserveAspectRatio', `${s.dataset.nmFit} ${nmFit.matches ? 'slice' : 'meet'}`));
+const nmPortrait = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
+const fitMaps = () => $$<SVGSVGElement>('[data-nm-fit]').forEach((s) => {
+  const region = s.dataset.region?.split(' ').map(Number);
+  if (nmPortrait.matches && region) {
+    const [x, y, w, h] = region;
+    const ratio = s.clientWidth && s.clientHeight ? s.clientWidth / s.clientHeight : 1.25;
+    const W = Number(s.dataset.full?.split(' ')[2]) || x + w;
+    const w2 = Math.max(w, h * ratio), h2 = w2 / ratio;
+    const x2 = Math.min(Math.max(0, x + (w - w2) / 2), Math.max(0, W - w2)); // élargi sans sortir de la carte
+    s.setAttribute('viewBox', [x2, y + (h - h2) / 2, w2, h2].map((v) => v.toFixed(1)).join(' '));
+    s.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    return;
+  }
+  if (s.dataset.full) s.setAttribute('viewBox', s.dataset.full);
+  s.setAttribute('preserveAspectRatio', `${s.dataset.nmFit} ${nmFit.matches ? 'slice' : 'meet'}`);
+});
 fitMaps();
 nmFit.addEventListener('change', fitMaps);
+nmPortrait.addEventListener('change', fitMaps);
+window.addEventListener('resize', () => nmPortrait.matches && fitMaps());
 const hslider = $('[data-hslider]');
 if (hslider) {
   const slides = $$('[data-slide]', hslider);

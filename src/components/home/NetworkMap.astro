@@ -78,6 +78,10 @@ const order = new Map(routes.map((r, i) => [r.num, i]));
 const zw = 430, zh = zw * H / W;
 const zoomBox = [plant[0] - zw * 0.62, plant[1] - zh * 0.55, zw, zh].map((v) => +v.toFixed(2));
 const fullBox = [0, 0, W, H];
+// Région desservie seule (lon -29 à 16, lat 3 à 19 ; marge à l'ouest pour l'étiquette du Cap-Vert) : cadrage utilisé sur écran vertical, où la carte passe au-dessus du texte.
+const rx0 = Math.max(0, proj([-29, 0])![0]), rx1 = Math.min(W, proj([16, 0])![0]);
+const ry0 = Math.max(0, proj([0, 19])![1]), ry1 = Math.min(H, proj([0, 3])![1]);
+const regionBox = [rx0, ry0, rx1 - rx0, ry1 - ry0].map((v) => +v.toFixed(1));
 const zp = (lng: number, lat: number) => proj([lng, lat])!.map((v) => +v.toFixed(1));
 const zfs = +(zw / 62).toFixed(2);
 const zLabels = [
@@ -94,7 +98,7 @@ const timing = {
 ---
 <div class:list={['nm', `nm--${variant}`, `nm--${side}`]} dir="ltr" data-nm={variant} data-nm-auto={center ? '' : undefined} data-full={fullBox.join(' ')} data-zoom={zoomBox.join(' ')}
   style={`--t0:${timing.t0}s;--st:${timing.st}s;--d:${timing.d}s`}>
-  <svg viewBox={fullBox.join(' ')} preserveAspectRatio={center ? 'xMidYMid meet' : side === 'right' ? 'xMaxYMid meet' : 'xMinYMid meet'} data-nm-fit={center ? undefined : side === 'right' ? 'xMaxYMid' : 'xMinYMid'} aria-hidden="true" data-nm-svg>
+  <svg viewBox={fullBox.join(' ')} preserveAspectRatio={center ? 'xMidYMid meet' : side === 'right' ? 'xMaxYMid meet' : 'xMinYMid meet'} data-nm-fit={center ? undefined : side === 'right' ? 'xMaxYMid' : 'xMinYMid'} data-full={fullBox.join(' ')} data-region={center ? undefined : regionBox.join(' ')} aria-hidden="true" data-nm-svg>
     <defs>
       <filter id={`glow-${id}`} x="-200%" y="-200%" width="500%" height="500%">
         <feGaussianBlur stdDeviation="4" result="b" />
@@ -146,7 +150,7 @@ const timing = {
 
     <g class="cities">
       {routes.map((r, i) => (
-        <g class="city" style={`--i:${i}`}>
+        <g class="city" data-iso={r.iso} style={`--i:${i}`}>
           <circle cx={r.p[0].toFixed(1)} cy={r.p[1].toFixed(1)} r="4.5" />
           <text x={(r.p[0] + Number(r.lab[0]) * k).toFixed(1)} y={(r.p[1] + Number(r.lab[1]) * k).toFixed(1)} text-anchor={r.lab[2] as string}>{countryName(lang, r.iso)}</text>
         </g>
@@ -220,4 +224,13 @@ const timing = {
   @keyframes nm-bj { from { fill-opacity: 0; } to { fill-opacity: 1; } }
   @keyframes nm-zl { 0% { opacity: 0; } 12% { opacity: 1; } 45% { opacity: 1; } 75%, 100% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .plant__ring { animation: none; } }
+  /* Écran vertical (héros de l'accueil) : la carte est affichée en petit au-dessus du texte → textes et repères agrandis. */
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .nm:not(.nm--center) .city text { font-size: 17px; stroke-width: 4px; }
+    .nm:not(.nm--center) .city circle { r: 6px; }
+    .nm:not(.nm--center) .route { stroke-width: 3.5; }
+    .nm:not(.nm--center) .plant__label { font-size: 21px; stroke-width: 4px; }
+    /* Cap-Vert : étiquette remontée pour ne pas toucher celle du Sénégal à cette taille */
+    .nm:not(.nm--center) .city[data-iso="CV"] text { transform: translateY(-14px); }
+  }
 </style>

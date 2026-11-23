@@ -764,6 +764,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .map__legend { position: static; margin: 0 12px 12px; }
 }
 
+/* Accueil sur écran vertical (téléphone, tablette tenue droite) : la vidéo 16:9 recadrée en plein écran n'en montrait
+   qu'environ 20 % (une poche floue). Elle s'affiche donc entière en haut du slider, le texte passe dessous. */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .hero__slide--video { flex-direction: column; }
+  .hero__slide--video::before { display: none; }
+  .hero__slide--video .hero__media { position: relative; inset: auto; z-index: 0; flex: none; aspect-ratio: 16 / 9; }
+  .hero__slide--video .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, var(--navy-900) 0%, rgba(10, 28, 54, 0) 28%); }
+  .hero__slide--video .hero__media video { transform: none; animation: none; }
+  .hero__slide--video .hero__body { align-items: flex-start; padding-block: 24px 40px; }
+  /* Commandes du slider (précédent / pause / suivant) : en bas à droite de la vidéo, pour ne pas gêner le texte. */
+  .hero__aside { top: calc(100vw * 9 / 16 - 56px); bottom: auto; }
+}
+
 /* Petits téléphones : le bandeau de chiffres garde unité sur 1 ligne et description sur 3 lignes max */
 @media (max-width: 420px) {
   .kband { padding-inline: 2px; }

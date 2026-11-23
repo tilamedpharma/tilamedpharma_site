@@ -1,19 +1,22 @@
 /* =========================================================================
    PAGES INTÉRIEURES — gabarits communs (en-tête de page, fil d'Ariane, rubrique)
    ========================================================================= */
-.phero { position: relative; display: flex; flex-direction: column; min-height: clamp(460px, 64svh, 620px); color: #fff; background: var(--navy-900); isolation: isolate; overflow: hidden; }
+/* En-tête « bandeau » (2026-11-24, version C retenue par le client) : hauteur réduite, pas d'étiquette de rubrique
+   (déjà dans le fil d'Ariane), titre et chapô sur toute la largeur du contenu. La fiche produit (.pfhero) garde sa mise en page. */
+.phero { position: relative; display: flex; flex-direction: column; color: #fff; background: var(--navy-900); isolation: isolate; overflow: hidden; }
 .phero__media { position: absolute; inset: 0; z-index: -2; }
 .phero__media video, .phero__media img { width: 100%; height: 100%; object-fit: cover; }
 .phero__media picture { display: contents; }
-.phero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10, 28, 54, .93) 0%, rgba(10, 28, 54, .8) 40%, rgba(10, 28, 54, .3) 78%, rgba(10, 28, 54, .15) 100%); }
-[dir='rtl'] .phero::before { background: linear-gradient(270deg, rgba(10, 28, 54, .93) 0%, rgba(10, 28, 54, .8) 40%, rgba(10, 28, 54, .3) 78%, rgba(10, 28, 54, .15) 100%); }
-.phero__body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-block: 40px 104px; }
-.phero__eyebrow { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; margin-top: 40px; padding: 8px 14px 8px 10px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 99px; background: rgba(255, 255, 255, .06); font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; }
-.phero__title { margin-top: 20px; max-width: 900px; font-size: var(--fs-h1); font-weight: 800; line-height: 1.05; letter-spacing: -.025em; color: #fff; }
-.phero__lead { margin-top: 22px; max-width: 640px; font-size: var(--fs-lg); line-height: 1.55; color: rgba(255, 255, 255, .86); }
-.phero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+/* Voile plus soutenu à droite qu'avant : le texte occupe désormais toute la largeur et doit rester lisible sur la photo. */
+.phero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10, 28, 54, .93) 0%, rgba(10, 28, 54, .84) 45%, rgba(10, 28, 54, .66) 75%, rgba(10, 28, 54, .5) 100%); }
+[dir='rtl'] .phero::before { background: linear-gradient(270deg, rgba(10, 28, 54, .93) 0%, rgba(10, 28, 54, .84) 45%, rgba(10, 28, 54, .66) 75%, rgba(10, 28, 54, .5) 100%); }
+.phero__body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-block: 22px 44px; }
+.phero__eyebrow { display: none; align-items: center; gap: 10px; align-self: flex-start; margin-top: 40px; padding: 8px 14px 8px 10px; border: 1px solid rgba(255, 255, 255, .28); border-radius: 99px; background: rgba(255, 255, 255, .06); font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; }
+.phero__title { margin-top: 18px; font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.8rem); font-weight: 800; line-height: 1.05; letter-spacing: -.025em; color: #fff; }
+.phero__lead { margin-top: 12px; font-size: 1rem; line-height: 1.55; color: rgba(255, 255, 255, .86); }
+.phero__ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
 .phero__ctas:empty { display: none; }
-.phero__aside { position: absolute; inset-inline-end: var(--gutter); bottom: 80px; display: flex; align-items: center; gap: 12px; font-size: .8125rem; color: rgba(255, 255, 255, .7); }
+.phero__aside { position: absolute; inset-inline-end: var(--gutter); bottom: 28px; display: flex; align-items: center; gap: 12px; font-size: .8125rem; color: rgba(255, 255, 255, .7); }
 .phero .duo-rule { position: absolute; inset-inline: 0; bottom: 0; }
 
 .crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: .875rem; color: rgba(255, 255, 255, .7); }
@@ -39,6 +42,8 @@
 /* Chiffres */
 .ufacts { position: relative; z-index: 2; margin-top: -1px; padding-top: 0; }
 .ufacts__list { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: -56px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+/* Le bloc de chiffres remonte sur le bandeau : on lui réserve la place pour ne pas couvrir les boutons. */
+.phero:has(+ .ufacts) .phero__body { padding-bottom: 100px; }
 .ufacts__list li { padding: 26px 26px 28px; }
 .ufacts__list li + li { border-inline-start: 1px solid var(--line); }
 .ufacts__code { display: inline-block; height: 22px; padding: 3px 9px; border-radius: 4px; background: var(--blue); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: .6875rem; letter-spacing: .12em; }
@@ -828,8 +833,10 @@
 .phero--product { min-height: 0; }
 .phero--product::before { background: var(--navy-900); }
 .pfhero { display: grid; grid-template-columns: minmax(0, 1fr) clamp(280px, 34vw, 460px); align-items: center; gap: clamp(32px, 5vw, 80px); padding-block: clamp(32px, 4vw, 48px) clamp(64px, 7vw, 96px); }
-.pfhero .phero__eyebrow { margin-top: 28px; }
-.pfhero .phero__title { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); }
+.pfhero .phero__eyebrow { display: inline-flex; margin-top: 28px; }
+.pfhero .phero__title { margin-top: 20px; font-size: clamp(2rem, 1.4rem + 2.4vw, 3.2rem); }
+.pfhero .phero__lead { margin-top: 22px; max-width: 640px; font-size: var(--fs-lg); }
+.pfhero .phero__ctas { margin-top: 34px; }
 .pfhero__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .pfhero__tags li { padding: 5px 12px; border: 1px solid rgba(255, 255, 255, .24); border-radius: 99px; font-family: var(--font-head); font-weight: 700; font-size: .75rem; color: rgba(255, 255, 255, .86); }
 .pfhero__tags .pfhero__badge { border-color: transparent; background: var(--blue); color: #fff; }
@@ -1047,6 +1054,7 @@
 @media (max-width: 640px) {
   .phero__aside { display: none; }
   .ufacts__list { grid-template-columns: 1fr 1fr; margin-top: -40px; }
+  .phero:has(+ .ufacts) .phero__body { padding-bottom: 76px; }
   .ufacts__list li { padding: 20px; }
   .ufacts__list li:nth-child(4) { border-inline-start: 1px solid var(--line); }
   .ufacts__list li:nth-child(odd) { border-inline-start: 0; }

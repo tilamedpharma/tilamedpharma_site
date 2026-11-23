@@ -9,7 +9,7 @@ import { company } from '../../data/site';
 import type { Block, Fact } from '../../i18n/pages/etapes/fr';
 
 interface Props {
-  lang: Locale; eyebrow: string; eyebrowN?: string; intro?: string; blocks: Block[]; facts: Fact[]; note?: string;
+  lang: Locale; eyebrow?: string; eyebrowN?: string; intro?: string; blocks: Block[]; facts: Fact[]; note?: string;
   figures: string; icons?: string[]; map?: { directions: string }; doc?: boolean;
 }
 const { lang, eyebrow, eyebrowN, intro, blocks, facts, note, figures, icons = ['flask', 'eye', 'clock', 'shield', 'wrench'], map, doc = true } = Astro.props;
@@ -21,7 +21,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 <section class="section stepc" aria-labelledby="stepc-title">
   <div class="wrap stepc__grid">
     <div class="stepc__main">
-      <p class="eyebrow" data-reveal>{eyebrowN && <><span class="eyebrow__n">{eyebrowN}</span>·</>}<span>{eyebrow}</span></p>
+      {eyebrow && <p class="eyebrow" data-reveal>{eyebrowN && <><span class="eyebrow__n">{eyebrowN}</span>·</>}<span>{eyebrow}</span></p>}
       {blocks.map((b, bi) => (
         <div class:list={['tblock', { 'tblock--next': bi > 0 }]}>
           <h2 class="h2" id={bi === 0 ? 'stepc-title' : undefined} data-reveal>{b.title}</h2>

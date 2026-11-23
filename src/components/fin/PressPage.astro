@@ -21,7 +21,6 @@ const pages = t.nav.pages as Record<string, string>;
 <section class="section pdoc" aria-labelledby="press-title">
   <div class="wrap stepc__grid">
     <div>
-      <p class="eyebrow" data-reveal><Icon name="sparkle" size={16} class="eyebrow__ic" /><span>{pages['presse']}</span></p>
       <h2 class="h2" id="press-title" data-reveal>{p.briefTitle}</h2>
       <span class="title-rule" aria-hidden="true"></span>
       <ul class="pts">{p.brief.map((x, i) => <li data-reveal style={`--d:${i}`}><span class="pts__ic"><Icon name="check" size={18} /></span>{x}</li>)}</ul>

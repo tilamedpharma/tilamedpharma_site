@@ -18,6 +18,8 @@
 .phero__ctas:empty { display: none; }
 .phero__aside { position: absolute; inset-inline-end: var(--gutter); bottom: 28px; display: flex; align-items: center; gap: 12px; font-size: .8125rem; color: rgba(255, 255, 255, .7); }
 .phero .duo-rule { position: absolute; inset-inline: 0; bottom: 0; }
+/* Sous le bandeau compact, la première section démarre plus près (l'espacement standard de 136 px laissait un grand vide). */
+.phero + .section { padding-top: clamp(48px, 5vw, 72px); }
 
 .crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: .875rem; color: rgba(255, 255, 255, .7); }
 .crumbs li { display: inline-flex; align-items: center; gap: 6px; }

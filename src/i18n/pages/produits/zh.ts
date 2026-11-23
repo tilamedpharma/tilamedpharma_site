@@ -5,7 +5,6 @@ const produits: ProduitsDict = {
   catalogue: {
     meta: { title: '产品目录 · TILAMED Pharma', description: '输液、注射及口服药品、营养溶液、医疗器械与动物保健：TILAMED Pharma 产品目录。' },
     lead: '搜索我们的注射液、未来的液体药品以及我们经销的医疗器械。',
-    warning: 'TILAMED 注射液和液体药品正在筹备中，尚未上市销售。',
     familiesTitle: '五大产品线',
     searchTitle: '完整目录',
     searchIntro: '按产品线筛选，或按名称、用途、类别搜索。',

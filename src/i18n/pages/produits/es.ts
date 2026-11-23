@@ -5,7 +5,6 @@ const produits: ProduitsDict = {
   catalogue: {
     meta: { title: 'Catálogo de productos · TILAMED Pharma', description: 'Sueros, medicamentos inyectables y bebibles, soluciones nutricionales, dispositivos médicos y salud animal: el catálogo de TILAMED Pharma.' },
     lead: 'Busque entre nuestras soluciones inyectables, nuestros futuros productos líquidos y los dispositivos médicos que distribuimos.',
-    warning: 'Las soluciones inyectables y los productos líquidos TILAMED están en preparación y aún no están disponibles a la venta.',
     familiesTitle: 'Cinco gamas',
     searchTitle: 'Todo el catálogo',
     searchIntro: 'Filtre por gama o busque por nombre, uso o categoría.',

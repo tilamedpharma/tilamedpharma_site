@@ -10,7 +10,6 @@ const produits = {
   catalogue: {
     meta: { title: 'Catalogue des produits · TILAMED Pharma', description: 'Sérums, médicaments injectables et buvables, solutions nutritionnelles, dispositifs médicaux et santé animale : le catalogue TILAMED Pharma.' },
     lead: 'Recherchez parmi nos solutions injectables, nos futurs produits liquides et les dispositifs médicaux que nous distribuons.',
-    warning: 'Les solutions injectables et les produits liquides TILAMED sont en préparation et ne sont pas encore disponibles à la vente.',
     familiesTitle: 'Cinq gammes',
     searchTitle: 'Tout le catalogue',
     searchIntro: 'Filtrez par gamme ou recherchez par nom, usage ou catégorie.',

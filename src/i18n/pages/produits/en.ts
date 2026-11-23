@@ -5,7 +5,6 @@ const produits: ProduitsDict = {
   catalogue: {
     meta: { title: 'Product catalogue · TILAMED Pharma', description: 'Infusion fluids, injectable and oral medicines, nutritional solutions, medical devices and animal health: the TILAMED Pharma catalogue.' },
     lead: 'Search our injectable solutions, our future liquid products and the medical devices we distribute.',
-    warning: 'TILAMED injectable solutions and liquid products are in preparation and not yet available for sale.',
     familiesTitle: 'Five ranges',
     searchTitle: 'The full catalogue',
     searchIntro: 'Filter by range or search by name, use or category.',

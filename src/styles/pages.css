@@ -711,7 +711,6 @@
 /* =========================================================================
    RUBRIQUE PRODUITS
    ========================================================================= */
-.pfam__warn { margin: 0 0 clamp(48px, 6vw, 72px); }
 .pfam__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px; }
 .pfam__card { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; transition: border-color .3s; }
 .pfam__card:hover { border-color: var(--blue); }

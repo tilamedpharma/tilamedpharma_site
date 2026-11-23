@@ -5,7 +5,6 @@ const produits: ProduitsDict = {
   catalogue: {
     meta: { title: 'Catalogo dei prodotti · TILAMED Pharma', description: 'Soluzioni per infusione, farmaci iniettabili e orali, soluzioni nutrizionali, dispositivi medici e salute animale: il catalogo TILAMED Pharma.' },
     lead: 'Cerca tra le nostre soluzioni iniettabili, i nostri futuri prodotti liquidi e i dispositivi medici che distribuiamo.',
-    warning: 'Le soluzioni iniettabili e i prodotti liquidi TILAMED sono in preparazione e non ancora disponibili alla vendita.',
     familiesTitle: 'Cinque gamme',
     searchTitle: 'Tutto il catalogo',
     searchIntro: 'Filtra per gamma o cerca per nome, uso o categoria.',

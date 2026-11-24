@@ -697,10 +697,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 /* En dessous de 1240 px, les 8 rubriques + langue + bouton ne tiennent plus : menu « burger » */
 @media (max-width: 1239px) {
-  :root { --hdr: 72px; }
+  /* Barre équilibrée : logo, langue et menu de hauteurs proches ; pas de changement de taille au défilement */
+  :root { --hdr: 68px; }
   .hdr__nav, .hdr__cta { display: none; }
-  .hdr__burger { display: inline-flex; }
-  .hdr__bar { justify-content: space-between; }
+  .hdr__burger { display: inline-flex; width: 44px; height: 44px; }
+  .hdr__bar, .hdr.is-scrolled .hdr__bar { justify-content: space-between; height: var(--hdr); }
+  .hdr__logo .logo, .hdr.is-scrolled .hdr__logo .logo { width: 96px; }
+}
+@media (max-width: 640px) {
+  :root { --hdr: 62px; }
+  .hdr__logo .logo, .hdr.is-scrolled .hdr__logo .logo { width: 84px; }
+  .hdr__tools { gap: 8px; }
 }
 @media (max-width: 1100px) {
   .portal__grid { grid-template-columns: 1fr 1fr; }

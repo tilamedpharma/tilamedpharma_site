@@ -40,7 +40,7 @@ const centrale = {
       { title: 'Médicaments génériques', text: 'Des médicaments essentiels de qualité et, demain, nos propres solutions injectables.' },
       { title: 'Dispositifs médicaux', text: 'Diagnostic, chirurgie, stérilisation et équipements, avec leur installation et leur maintenance.' },
       { title: 'Laboratoire', text: 'Réactifs, consommables et équipements pour les laboratoires d\'analyses.' },
-      { title: 'Santé animale', text: 'Intrants vétérinaires, alimentation, antiparasitaires et soins.' },
+      { title: 'Produits vétérinaires', text: 'Intrants vétérinaires, alimentation, antiparasitaires et soins.' },
       { title: 'Produits chimiques et pharmaceutiques', text: 'Des produits chimiques et pharmaceutiques destinés aux établissements de santé.' },
     ],
     more: 'Voir le catalogue',

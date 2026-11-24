@@ -22,7 +22,7 @@ const cat: CatalogDict = {
     medicines: { label: '药品', blurb: '安瓿注射剂、抗生素、疫苗和血清、口服制剂。' },
     nutrition: { label: '营养溶液', blurb: '高浓度葡萄糖、注射及口服维生素。' },
     devices: { label: '医疗器械', blurb: '诊断、外科、灭菌及设备。' },
-    vet: { label: '动物保健', blurb: '犬猫食品、驱虫产品与护理用品。' },
+    vet: { label: '兽用产品', blurb: '犬猫食品、驱虫产品与护理用品。' },
   },
   status: {
     iv: { badge: '尚未上市', note: 'TILAMED 生产 · 计划产品，尚未上市销售' },

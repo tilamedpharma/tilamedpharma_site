@@ -3,7 +3,7 @@ import type { Dict } from './fr';
 const it: Dict = {
   meta: {
     title: 'TILAMED Pharma · Industria farmaceutica in BENIN, standard OMS',
-    description: 'TILAMED PHARMA SA costruisce a Sèmè-Podji (BENIN) uno stabilimento farmaceutico di nuova generazione: soluzioni per infusione, farmaci iniettabili, nutrizione, dispositivi medici e salute animale, conformi agli standard OMS e a prezzi accessibili.',
+    description: 'TILAMED PHARMA SA costruisce a Sèmè-Podji (BENIN) uno stabilimento farmaceutico di nuova generazione: soluzioni per infusione, farmaci iniettabili, nutrizione, dispositivi medici e prodotti veterinari, conformi agli standard OMS e a prezzi accessibili.',
   },
   a11y: {
     skip: 'Vai al contenuto', menu: 'Menu', close: 'Chiudi', search: 'Cerca', language: 'Lingua',
@@ -17,7 +17,7 @@ const it: Dict = {
       entreprise: { label: 'Chi siamo', blurb: 'Chi siamo, la nostra visione, il nostro percorso e i nostri impegni.' },
       achats: { label: 'Centrale acquisti', blurb: 'I nostri acquisti, i nostri fornitori e la nostra catena di distribuzione.' },
       usine: { label: 'Stabilimento', blurb: 'Il sito di Sèmè-Podji e ogni fase di produzione.' },
-      produits: { label: 'Prodotti', blurb: 'Soluzioni per infusione, farmaci, nutrizione, dispositivi medici e salute animale.' },
+      produits: { label: 'Prodotti', blurb: 'Soluzioni per infusione, farmaci, nutrizione, dispositivi medici e prodotti veterinari.' },
       qualite: { label: 'Norme', blurb: 'Autorizzazioni, controllo di ogni lotto e tracciabilità.' },
       marches: { label: 'Mercati', blurb: 'Centrali d\'acquisto, ospedali, distributori e organizzazioni sanitarie.' },
       carrieres: { label: 'Carriere', blurb: 'Perché lavorare con noi, i nostri mestieri e le candidature.' },
@@ -32,7 +32,7 @@ const it: Dict = {
       'soufflage-remplissage-scellage': 'Soffiaggio, riempimento, sigillatura', sterilisation: 'Sterilizzazione', inspection: 'Controllo al 100%', laboratoire: 'Laboratorio di controllo qualità',
       'conditionnement-logistique': 'Confezionamento e consegna', 'salles-propres': 'Camere bianche', utilites: 'Utilities industriali', 'transfert-technologie': 'Trasferimento tecnologico',
       produits: 'Catalogo', serums: 'Soluzioni per infusione', medicaments: 'Farmaci', 'solutions-nutritionnelles': 'Soluzioni nutrizionali', 'dispositifs-medicaux': 'Dispositivi medici',
-      'sante-animale': 'Salute animale', documentation: 'Richiesta di documentazione',
+      'sante-animale': 'Prodotti veterinari', documentation: 'Richiesta di documentazione',
       qualite: 'Qualità e conformità', agrements: 'Autorizzazioni e licenze', 'controle-qualite': 'Controllo qualità', tracabilite: 'Tracciabilità',
       pharmacovigilance: 'Farmacovigilanza', certifications: 'Certificazioni',
       clients: 'I nostri clienti', 'centrales-achat': 'Centrali d\'acquisto', 'hopitaux-cliniques': 'Ospedali, cliniche, farmacie', 'organisations-sante': 'Organizzazioni sanitarie',
@@ -165,7 +165,7 @@ const it: Dict = {
       { title: 'Prodotti farmaceutici finiti', text: 'Soluzioni per infusione, iniettabili e soluzioni orali, prodotti e controllati nel nostro stabilimento di Sèmè-Podji.', alt: 'Operatrice che controlla bottiglie su una linea di produzione' },
       { title: 'Dispositivi medici', text: 'Distributore autorizzato: diagnostica, chirurgia, sterilizzazione e attrezzature ospedaliere.', alt: 'Misuratore di pressione e materiale medico' },
       { title: 'Laboratorio medico', text: 'Analisi e controllo qualità eseguiti secondo gli standard internazionali.', alt: 'Tecnica di laboratorio che esegue un\'analisi' },
-      { title: 'Salute animale', text: 'Alimentazione, antiparassitari e cure per cani e gatti.', alt: 'Veterinario che visita un cane' },
+      { title: 'Prodotti veterinari', text: 'Alimentazione, antiparassitari e cure per cani e gatti.', alt: 'Veterinario che visita un cane' },
     ],
   },
   why: {
@@ -210,7 +210,7 @@ const it: Dict = {
       { title: 'Farmaci', text: 'Iniettabili in fiale, antibiotici, vaccini e sieri, soluzioni orali.', items: ['Paracetamolo 1%', 'Ceftriaxone 1 g', 'Ossitocina 10 UI', 'Chinino iniettabile', 'Amoxicillina sospensione orale', 'Vaccino contro l\'epatite'], alt: 'Medica che tiene una fiala iniettabile' },
       { title: 'Soluzioni nutrizionali', text: 'Glucosio concentrato, vitamine iniettabili e orali.', items: ['Glucosio 10%', 'Acido ascorbico (vitamina C) 0,5 g/5 ml', 'Complesso vitaminico B'], alt: 'Soluzione di glucosio su un\'asta per flebo' },
       { title: 'Dispositivi medici', text: 'Diagnostica, chirurgia, sterilizzazione e attrezzature.', items: ['Stetoscopio', 'Misuratore di pressione', 'Pinza emostatica', 'Pulsossimetro', 'Kit di piccola chirurgia'], alt: 'Stetoscopio' },
-      { title: 'Salute animale', text: 'Alimentazione, antiparassitari e cure per cani e gatti.', items: ['Crocchette per cani e gatti', 'Pipette antipulci e antizecche', 'Vermifugo per cani e gatti', 'Cloruro di sodio 0,9% veterinario'], alt: 'Veterinario con un cane' },
+      { title: 'Prodotti veterinari', text: 'Alimentazione, antiparassitari e cure per cani e gatti.', items: ['Crocchette per cani e gatti', 'Pipette antipulci e antizecche', 'Vermifugo per cani e gatti', 'Cloruro di sodio 0,9% veterinario'], alt: 'Veterinario con un cane' },
     ],
   },
   compliance: {

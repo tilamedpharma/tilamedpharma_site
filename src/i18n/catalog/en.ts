@@ -22,7 +22,7 @@ const cat: CatalogDict = {
     medicines: { label: 'Medicines', blurb: 'Ampoule injectables, antibiotics, vaccines and sera, oral forms.' },
     nutrition: { label: 'Nutritional solutions', blurb: 'Concentrated glucose, injectable and oral vitamins.' },
     devices: { label: 'Medical devices', blurb: 'Diagnosis, surgery, sterilisation and equipment.' },
-    vet: { label: 'Animal health', blurb: 'Food, parasite control and care for dogs and cats.' },
+    vet: { label: 'Veterinary products', blurb: 'Food, parasite control and care for dogs and cats.' },
   },
   status: {
     iv: { badge: 'Not yet available', note: 'Made by TILAMED · planned range, not yet for sale' },

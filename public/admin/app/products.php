@@ -503,7 +503,7 @@ function product_form(?array $p, array $v, array $errors): never
         . field('Ligne de production', select('line', $lines, $v['line']))
         . field('Conditionnement', select('pack', $packs, $v['pack']))
         . field('Phase de production', select('phase', $phases, $v['phase']))
-        . field('Espèces (santé animale)', select('species', SPECIES, $v['species']), '', '', false, 'afield--vet')
+        . field('Espèces (produits vétérinaires)', select('species', SPECIES, $v['species']), '', '', false, 'afield--vet')
         . field('Code ATC', input('atc', $v['atc'], ['maxlength' => 20, 'placeholder' => 'B05BB01']), 'Facultatif.')
         . field('Mots-clés de recherche', textarea('keywords', $v['keywords'], ['rows' => 2]), 'Synonymes et termes que les visiteurs peuvent taper (non affichés).', '', false, 'afield--wide')
         . '</div></section>';

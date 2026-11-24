@@ -15,7 +15,7 @@ const distributeurs: DistributeursDict = {
     items: [
       { title: 'Un proveedor local', text: 'Una planta en BENÍN, a pocas horas por carretera y no a semanas por mar: pedidos más frecuentes, menos existencias inmovilizadas, menos rupturas.' },
       { title: 'Una calidad controlada', text: 'Cada lote es controlado por nuestro laboratorio y liberado por el farmacéutico responsable, bajo la supervisión de la ABRP.' },
-      { title: 'Una gama completa', text: 'Sueros, medicamentos inyectables, soluciones nutricionales, dispositivos médicos y salud animal.' },
+      { title: 'Una gama completa', text: 'Sueros, medicamentos inyectables, soluciones nutricionales, dispositivos médicos y productos veterinarios.' },
       { title: 'Acompañamiento', text: 'La documentación técnica y reglamentaria de nuestros productos, y apoyo para sus respuestas a licitaciones.' },
     ],
   },

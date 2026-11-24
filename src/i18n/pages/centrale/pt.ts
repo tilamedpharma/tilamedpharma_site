@@ -38,7 +38,7 @@ const centrale: CentraleDict = {
       { title: 'Medicamentos genéricos', text: 'Medicamentos essenciais de qualidade e, em breve, as nossas próprias soluções injetáveis.' },
       { title: 'Dispositivos médicos', text: 'Diagnóstico, cirurgia, esterilização e equipamentos, com instalação e manutenção.' },
       { title: 'Laboratório', text: 'Reagentes, consumíveis e equipamentos para laboratórios de análises.' },
-      { title: 'Saúde animal', text: 'Insumos veterinários, alimentação, antiparasitários e cuidados.' },
+      { title: 'Produtos veterinários', text: 'Insumos veterinários, alimentação, antiparasitários e cuidados.' },
       { title: 'Produtos químicos e farmacêuticos', text: 'Produtos químicos e farmacêuticos destinados às unidades de saúde.' },
     ],
     more: 'Ver o catálogo',

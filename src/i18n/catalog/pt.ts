@@ -22,7 +22,7 @@ const cat: CatalogDict = {
     medicines: { label: 'Medicamentos', blurb: 'Injetáveis em ampolas, antibióticos, vacinas e soros, formas orais.' },
     nutrition: { label: 'Soluções nutricionais', blurb: 'Glicose concentrada, vitaminas injetáveis e orais.' },
     devices: { label: 'Dispositivos médicos', blurb: 'Diagnóstico, cirurgia, esterilização e equipamento.' },
-    vet: { label: 'Saúde animal', blurb: 'Alimentação, antiparasitários e cuidados para cães e gatos.' },
+    vet: { label: 'Produtos veterinários', blurb: 'Alimentação, antiparasitários e cuidados para cães e gatos.' },
   },
   status: {
     iv: { badge: 'Ainda não disponível', note: 'Fabrico TILAMED · gama prevista, ainda não à venda' },

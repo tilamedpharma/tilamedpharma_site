@@ -14,7 +14,7 @@ const aPropos: AProposDict = {
     { value: '1.000', unit: 'M FCFA', label: 'de capital social, sociedade anónima' },
     { value: 'Cotonou', unit: '', label: 'sede social' },
     { value: '15', unit: 'países', label: 'da África Ocidental cobertos' },
-    { value: '4', unit: 'atividades', label: 'produção, dispositivos médicos, laboratório, saúde animal' },
+    { value: '4', unit: 'atividades', label: 'produção, dispositivos médicos, laboratório, produtos veterinários' },
   ],
   story: {
     eyebrow: 'A nossa história',

@@ -15,7 +15,7 @@ const distributeurs: DistributeursDict = {
     items: [
       { title: 'Um fornecedor local', text: 'Uma fábrica no BENIM, a poucas horas de estrada e não a semanas de mar: encomendas mais frequentes, menos stock imobilizado, menos ruturas.' },
       { title: 'Uma qualidade controlada', text: 'Cada lote é controlado pelo nosso laboratório e libertado pelo farmacêutico responsável, sob a supervisão da ABRP.' },
-      { title: 'Uma gama completa', text: 'Soros, medicamentos injetáveis, soluções nutricionais, dispositivos médicos e saúde animal.' },
+      { title: 'Uma gama completa', text: 'Soros, medicamentos injetáveis, soluções nutricionais, dispositivos médicos e produtos veterinários.' },
       { title: 'Acompanhamento', text: 'A documentação técnica e regulamentar dos nossos produtos, e apoio nas suas respostas a concursos.' },
     ],
   },

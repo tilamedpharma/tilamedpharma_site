@@ -15,7 +15,7 @@ const distributeurs: DistributeursDict = {
     items: [
       { title: 'A local supplier', text: 'A plant in BENIN, a few hours away by road rather than weeks away by sea: more frequent orders, less capital tied up in stock, fewer shortages.' },
       { title: 'Controlled quality', text: 'Every batch is tested by our laboratory and then released by the qualified pharmacist, under the oversight of the ABRP.' },
-      { title: 'A full range', text: 'IV fluids, injectable medicines, nutritional solutions, medical devices and animal health.' },
+      { title: 'A full range', text: 'IV fluids, injectable medicines, nutritional solutions, medical devices and veterinary products.' },
       { title: 'Support', text: 'Technical and regulatory documentation for our products, and help with your tender submissions.' },
     ],
   },

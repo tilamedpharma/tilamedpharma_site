@@ -21,7 +21,7 @@ const cat = {
     medicines: { label: 'Médicaments', blurb: 'Injectables en ampoules, antibiotiques, vaccins et sérums, formes buvables.' },
     nutrition: { label: 'Solutions nutritionnelles', blurb: 'Glucose concentré, vitamines injectables et buvables.' },
     devices: { label: 'Dispositifs médicaux', blurb: 'Diagnostic, chirurgie, stérilisation et équipement.' },
-    vet: { label: 'Santé animale', blurb: 'Alimentation, antiparasitaires et soins pour chiens et chats.' },
+    vet: { label: 'Produits vétérinaires', blurb: 'Alimentation, antiparasitaires et soins pour chiens et chats.' },
   },
   status: {
     iv: { badge: 'Non encore disponible', note: 'Fabrication TILAMED · gamme prévue, non disponible à la vente' },

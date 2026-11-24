@@ -22,7 +22,7 @@ const cat: CatalogDict = {
     medicines: { label: 'Farmaci', blurb: 'Iniettabili in fiale, antibiotici, vaccini e sieri, forme orali.' },
     nutrition: { label: 'Soluzioni nutrizionali', blurb: 'Glucosio concentrato, vitamine iniettabili e orali.' },
     devices: { label: 'Dispositivi medici', blurb: 'Diagnostica, chirurgia, sterilizzazione e attrezzature.' },
-    vet: { label: 'Salute animale', blurb: 'Alimentazione, antiparassitari e cure per cani e gatti.' },
+    vet: { label: 'Prodotti veterinari', blurb: 'Alimentazione, antiparassitari e cure per cani e gatti.' },
   },
   status: {
     iv: { badge: 'Non ancora disponibile', note: 'Produzione TILAMED · gamma prevista, non ancora in vendita' },

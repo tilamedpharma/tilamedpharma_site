@@ -14,7 +14,7 @@ const aPropos: AProposDict = {
     { value: '10', unit: '亿西非法郎', label: '注册资本，股份有限公司' },
     { value: '科托努', unit: '', label: '公司总部' },
     { value: '15', unit: '个国家', label: '覆盖西非国家' },
-    { value: '4', unit: '大业务', label: '药品生产、医疗器械、医学检验、动物保健' },
+    { value: '4', unit: '大业务', label: '药品生产、医疗器械、医学检验、兽用产品' },
   ],
   story: {
     eyebrow: '我们的历史',

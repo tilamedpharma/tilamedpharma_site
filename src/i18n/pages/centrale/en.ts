@@ -38,7 +38,7 @@ const centrale: CentraleDict = {
       { title: 'Generic medicines', text: 'Quality essential medicines and, soon, our own injectable solutions.' },
       { title: 'Medical devices', text: 'Diagnostics, surgery, sterilisation and equipment, with installation and maintenance.' },
       { title: 'Laboratory', text: 'Reagents, consumables and equipment for testing laboratories.' },
-      { title: 'Animal health', text: 'Veterinary inputs, pet food, parasite control and care products.' },
+      { title: 'Veterinary products', text: 'Veterinary inputs, pet food, parasite control and care products.' },
       { title: 'Chemical and pharmaceutical products', text: 'Chemical and pharmaceutical products for health facilities.' },
     ],
     more: 'View the catalogue',

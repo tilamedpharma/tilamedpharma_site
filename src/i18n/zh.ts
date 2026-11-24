@@ -3,7 +3,7 @@ import type { Dict } from './fr';
 const zh: Dict = {
   meta: {
     title: 'TILAMED Pharma · 贝宁制药企业，符合世卫组织标准',
-    description: 'TILAMED PHARMA SA 正在贝宁塞梅-波吉建设新一代制药工厂：输液、注射药品、营养制剂、医疗器械和动物保健产品，符合世卫组织标准，价格人人可及。',
+    description: 'TILAMED PHARMA SA 正在贝宁塞梅-波吉建设新一代制药工厂：输液、注射药品、营养制剂、医疗器械和兽用产品产品，符合世卫组织标准，价格人人可及。',
   },
   a11y: {
     skip: '跳到正文', menu: '菜单', close: '关闭', search: '搜索', language: '语言',
@@ -17,7 +17,7 @@ const zh: Dict = {
       entreprise: { label: '关于我们', blurb: '我们是谁、我们的愿景、发展历程与承诺。' },
       achats: { label: '采购中心', blurb: '我们的采购、供应商与分销链。' },
       usine: { label: '工厂', blurb: '塞梅-波吉厂区与每一道生产工序。' },
-      produits: { label: '产品', blurb: '输液、药品、营养制剂、医疗器械与动物保健。' },
+      produits: { label: '产品', blurb: '输液、药品、营养制剂、医疗器械与兽用产品。' },
       qualite: { label: '标准', blurb: '许可批准、逐批检验与可追溯性。' },
       marches: { label: '市场', blurb: '采购中心、医院、经销商与卫生组织。' },
       carrieres: { label: '招聘', blurb: '加入我们的理由、岗位类别与申请方式。' },
@@ -32,7 +32,7 @@ const zh: Dict = {
       'soufflage-remplissage-scellage': '吹瓶、灌装、封口', sterilisation: '灭菌', inspection: '100% 检查', laboratoire: '质量控制实验室',
       'conditionnement-logistique': '包装与交付', 'salles-propres': '洁净室', utilites: '工业公用设施', 'transfert-technologie': '技术转移',
       produits: '产品目录', serums: '输液', medicaments: '药品', 'solutions-nutritionnelles': '营养制剂', 'dispositifs-medicaux': '医疗器械',
-      'sante-animale': '动物保健', documentation: '索取资料',
+      'sante-animale': '兽用产品', documentation: '索取资料',
       qualite: '质量与合规', agrements: '许可与批准', 'controle-qualite': '质量控制', tracabilite: '可追溯性',
       pharmacovigilance: '药物警戒', certifications: '认证',
       clients: '我们的客户', 'centrales-achat': '采购中心', 'hopitaux-cliniques': '医院、诊所、药房', 'organisations-sante': '卫生组织',
@@ -165,7 +165,7 @@ const zh: Dict = {
       { title: '成品药', text: '输液、注射剂和口服液，均在塞梅-波吉工厂生产和检验。', alt: '操作员在生产线上检查瓶子' },
       { title: '医疗器械', text: '授权经销商：诊断、外科、灭菌及医院设备。', alt: '血压计与医疗器材' },
       { title: '医学实验室', text: '按国际标准开展检测与质量控制。', alt: '实验室技术人员进行分析' },
-      { title: '动物保健', text: '犬猫食品、驱虫产品与护理用品。', alt: '兽医为狗检查' },
+      { title: '兽用产品', text: '犬猫食品、驱虫产品与护理用品。', alt: '兽医为狗检查' },
     ],
   },
   why: {
@@ -210,7 +210,7 @@ const zh: Dict = {
       { title: '药品', text: '安瓿注射剂、抗生素、疫苗与血清、口服液。', items: ['1% 对乙酰氨基酚', '头孢曲松 1 g', '缩宫素 10 IU', '注射用奎宁', '阿莫西林口服混悬液', '肝炎疫苗'], alt: '医生手持注射用安瓿' },
       { title: '营养制剂', text: '高浓度葡萄糖、注射及口服维生素。', items: ['10% 葡萄糖', '维生素 C（抗坏血酸）0.5 g/5 ml', '复合维生素 B'], alt: '输液架上的葡萄糖溶液' },
       { title: '医疗器械', text: '诊断、外科、灭菌与设备。', items: ['听诊器', '血压计', '止血钳', '脉搏血氧仪', '小手术器械包'], alt: '听诊器' },
-      { title: '动物保健', text: '犬猫食品、驱虫产品与护理用品。', items: ['犬猫粮', '驱跳蚤和蜱虫滴剂', '犬猫驱虫药', '兽用 0.9% 氯化钠'], alt: '兽医与狗' },
+      { title: '兽用产品', text: '犬猫食品、驱虫产品与护理用品。', items: ['犬猫粮', '驱跳蚤和蜱虫滴剂', '犬猫驱虫药', '兽用 0.9% 氯化钠'], alt: '兽医与狗' },
     ],
   },
   compliance: {

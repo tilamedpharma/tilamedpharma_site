@@ -15,7 +15,7 @@ const distributeurs: DistributeursDict = {
     items: [
       { title: 'Un fornitore locale', text: 'Uno stabilimento in BENIN, a poche ore di strada e non a settimane di mare: ordini più frequenti, meno scorte immobilizzate, meno carenze.' },
       { title: 'Una qualità controllata', text: 'Ogni lotto è controllato dal nostro laboratorio e rilasciato dal farmacista responsabile, sotto la vigilanza dell\'ABRP.' },
-      { title: 'Una gamma completa', text: 'Soluzioni infusionali, farmaci iniettabili, soluzioni nutrizionali, dispositivi medici e salute animale.' },
+      { title: 'Una gamma completa', text: 'Soluzioni infusionali, farmaci iniettabili, soluzioni nutrizionali, dispositivi medici e prodotti veterinari.' },
       { title: 'Affiancamento', text: 'La documentazione tecnica e regolatoria dei nostri prodotti, e un supporto per le sue risposte alle gare.' },
     ],
   },

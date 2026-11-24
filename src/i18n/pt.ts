@@ -3,7 +3,7 @@ import type { Dict } from './fr';
 const pt: Dict = {
   meta: {
     title: 'TILAMED Pharma · Laboratório farmacêutico no BENIM, normas OMS',
-    description: 'A TILAMED PHARMA SA constrói em Sèmè-Podji (BENIM) uma fábrica farmacêutica de nova geração: soros, medicamentos injetáveis, nutrição, dispositivos médicos e saúde animal, conforme as normas da OMS e a preços acessíveis.',
+    description: 'A TILAMED PHARMA SA constrói em Sèmè-Podji (BENIM) uma fábrica farmacêutica de nova geração: soros, medicamentos injetáveis, nutrição, dispositivos médicos e produtos veterinários, conforme as normas da OMS e a preços acessíveis.',
   },
   a11y: {
     skip: 'Ir para o conteúdo', menu: 'Menu', close: 'Fechar', search: 'Pesquisar', language: 'Idioma',
@@ -17,7 +17,7 @@ const pt: Dict = {
       entreprise: { label: 'Sobre nós', blurb: 'Quem somos, a nossa visão, o nosso percurso e os nossos compromissos.' },
       achats: { label: 'Central de compras', blurb: 'As nossas compras, os nossos fornecedores e a nossa cadeia de distribuição.' },
       usine: { label: 'Fábrica', blurb: 'O local de Sèmè-Podji e cada etapa de fabrico.' },
-      produits: { label: 'Produtos', blurb: 'Soros, medicamentos, nutrição, dispositivos médicos e saúde animal.' },
+      produits: { label: 'Produtos', blurb: 'Soros, medicamentos, nutrição, dispositivos médicos e produtos veterinários.' },
       qualite: { label: 'Normas', blurb: 'Autorizações, controlo de cada lote e rastreabilidade.' },
       marches: { label: 'Mercados', blurb: 'Centrais de compras, hospitais, distribuidores e organizações de saúde.' },
       carrieres: { label: 'Carreiras', blurb: 'Porquê juntar-se a nós, as nossas profissões e as candidaturas.' },
@@ -32,7 +32,7 @@ const pt: Dict = {
       'soufflage-remplissage-scellage': 'Sopro, enchimento, selagem', sterilisation: 'Esterilização', inspection: 'Controlo a 100 %', laboratoire: 'Laboratório de controlo de qualidade',
       'conditionnement-logistique': 'Embalagem e entrega', 'salles-propres': 'Salas limpas', utilites: 'Utilidades industriais', 'transfert-technologie': 'Transferência de tecnologia',
       produits: 'Catálogo', serums: 'Soros', medicaments: 'Medicamentos', 'solutions-nutritionnelles': 'Soluções nutricionais', 'dispositifs-medicaux': 'Dispositivos médicos',
-      'sante-animale': 'Saúde animal', documentation: 'Pedido de documentação',
+      'sante-animale': 'Produtos veterinários', documentation: 'Pedido de documentação',
       qualite: 'Qualidade e conformidade', agrements: 'Autorizações e licenças', 'controle-qualite': 'Controlo de qualidade', tracabilite: 'Rastreabilidade',
       pharmacovigilance: 'Farmacovigilância', certifications: 'Certificações',
       clients: 'Os nossos clientes', 'centrales-achat': 'Centrais de compras', 'hopitaux-cliniques': 'Hospitais, clínicas, farmácias', 'organisations-sante': 'Organizações de saúde',
@@ -165,7 +165,7 @@ const pt: Dict = {
       { title: 'Produtos farmacêuticos acabados', text: 'Soros de perfusão, injetáveis e soluções orais, fabricados e controlados na nossa fábrica de Sèmè-Podji.', alt: 'Operadora a controlar garrafas numa linha de produção' },
       { title: 'Dispositivos médicos', text: 'Distribuidor autorizado: diagnóstico, cirurgia, esterilização e equipamento hospitalar.', alt: 'Tensiómetro e material médico' },
       { title: 'Laboratório médico', text: 'Análises e controlo de qualidade segundo as normas internacionais.', alt: 'Técnica de laboratório a realizar uma análise' },
-      { title: 'Saúde animal', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', alt: 'Veterinário a examinar um cão' },
+      { title: 'Produtos veterinários', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', alt: 'Veterinário a examinar um cão' },
     ],
   },
   why: {
@@ -210,7 +210,7 @@ const pt: Dict = {
       { title: 'Medicamentos', text: 'Injetáveis em ampolas, antibióticos, vacinas e soros, soluções orais.', items: ['Paracetamol 1 %', 'Ceftriaxona 1 g', 'Ocitocina 10 UI', 'Quinino injetável', 'Amoxicilina suspensão oral', 'Vacina contra a hepatite'], alt: 'Médica a segurar uma ampola injetável' },
       { title: 'Soluções nutricionais', text: 'Glicose concentrada, vitaminas injetáveis e orais.', items: ['Glicose 10 %', 'Ácido ascórbico (vitamina C) 0,5 g/5 ml', 'Complexo vitamínico B'], alt: 'Solução de glicose num suporte de perfusão' },
       { title: 'Dispositivos médicos', text: 'Diagnóstico, cirurgia, esterilização e equipamentos.', items: ['Estetoscópio', 'Tensiómetro', 'Pinça hemostática', 'Oxímetro de pulso', 'Caixas de pequena cirurgia'], alt: 'Estetoscópio' },
-      { title: 'Saúde animal', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', items: ['Ração para cães e gatos', 'Pipetas antipulgas e anticarraças', 'Desparasitante para cães e gatos', 'Cloreto de sódio 0,9 % veterinário'], alt: 'Veterinário com um cão' },
+      { title: 'Produtos veterinários', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', items: ['Ração para cães e gatos', 'Pipetas antipulgas e anticarraças', 'Desparasitante para cães e gatos', 'Cloreto de sódio 0,9 % veterinário'], alt: 'Veterinário com um cão' },
     ],
   },
   compliance: {

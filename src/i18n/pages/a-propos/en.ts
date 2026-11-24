@@ -14,7 +14,7 @@ const aPropos: AProposDict = {
     { value: '1', unit: 'bn FCFA', label: 'share capital, public limited company' },
     { value: 'Cotonou', unit: '', label: 'head office' },
     { value: '15', unit: 'countries', label: 'in West Africa covered' },
-    { value: '4', unit: 'activities', label: 'manufacturing, medical devices, laboratory, animal health' },
+    { value: '4', unit: 'activities', label: 'manufacturing, medical devices, laboratory, veterinary products' },
   ],
   story: {
     eyebrow: 'Our story',

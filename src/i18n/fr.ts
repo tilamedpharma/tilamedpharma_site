@@ -1,7 +1,7 @@
 const fr = {
   meta: {
     title: 'TILAMED Pharma · Laboratoire pharmaceutique au BÉNIN, normes OMS',
-    description: 'TILAMED PHARMA SA construit à Sèmè-Podji (BÉNIN) une usine pharmaceutique de nouvelle génération : solutés, médicaments injectables, nutrition, dispositifs médicaux et santé animale, aux normes de l\'OMS et à des prix accessibles.',
+    description: 'TILAMED PHARMA SA construit à Sèmè-Podji (BÉNIN) une usine pharmaceutique de nouvelle génération : solutés, médicaments injectables, nutrition, dispositifs médicaux et produits vétérinaires, aux normes de l\'OMS et à des prix accessibles.',
   },
   a11y: {
     skip: 'Aller au contenu', menu: 'Menu', close: 'Fermer', search: 'Rechercher', language: 'Langue',
@@ -15,7 +15,7 @@ const fr = {
       entreprise: { label: 'À propos', blurb: 'Qui nous sommes, notre vision, notre parcours et nos engagements.' },
       achats: { label: 'Centrale d\'achat', blurb: 'Nos achats, nos fournisseurs et notre chaîne de distribution.' },
       usine: { label: 'Usine', blurb: 'Le site de Sèmè-Podji et chaque étape de fabrication.' },
-      produits: { label: 'Produits', blurb: 'Sérums, médicaments, nutrition, dispositifs médicaux et santé animale.' },
+      produits: { label: 'Produits', blurb: 'Sérums, médicaments, nutrition, dispositifs médicaux et produits vétérinaires.' },
       qualite: { label: 'Normes', blurb: 'Agréments, contrôle de chaque lot et traçabilité.' },
       marches: { label: 'Marchés', blurb: 'Centrales d\'achat, hôpitaux, distributeurs et organisations de santé.' },
       carrieres: { label: 'Carrières', blurb: 'Pourquoi nous rejoindre, nos métiers et les candidatures.' },
@@ -30,7 +30,7 @@ const fr = {
       'soufflage-remplissage-scellage': 'Soufflage, remplissage, scellage', sterilisation: 'Stérilisation', inspection: 'Contrôle à 100 %', laboratoire: 'Laboratoire de contrôle qualité',
       'conditionnement-logistique': 'Conditionnement et livraison', 'salles-propres': 'Salles propres', utilites: 'Utilités industrielles', 'transfert-technologie': 'Transfert de technologie',
       produits: 'Catalogue', serums: 'Sérums', medicaments: 'Médicaments', 'solutions-nutritionnelles': 'Solutions nutritionnelles', 'dispositifs-medicaux': 'Dispositifs médicaux',
-      'sante-animale': 'Santé animale', documentation: 'Demande de documentation',
+      'sante-animale': 'Produits vétérinaires', documentation: 'Demande de documentation',
       qualite: 'Qualité et conformité', agrements: 'Agréments et autorisations', 'controle-qualite': 'Contrôle qualité', tracabilite: 'Traçabilité',
       pharmacovigilance: 'Pharmacovigilance', certifications: 'Certifications',
       clients: 'Nos clients', 'centrales-achat': 'Centrales d\'achat', 'hopitaux-cliniques': 'Hôpitaux, cliniques, pharmacies', 'organisations-sante': 'Organisations de santé',
@@ -163,7 +163,7 @@ const fr = {
       { title: 'Produits pharmaceutiques finis', text: 'Solutés de perfusion, injectables et solutions buvables, fabriqués et contrôlés dans notre usine de Sèmè-Podji.', alt: 'Opératrice contrôlant des bouteilles sur une ligne de production' },
       { title: 'Dispositifs médicaux', text: 'Distributeur agréé : diagnostic, chirurgie, stérilisation et équipement hospitalier.', alt: 'Tensiomètre et matériel médical' },
       { title: 'Laboratoire médical', text: 'Analyses et contrôle qualité réalisés selon les standards internationaux.', alt: 'Technicienne de laboratoire réalisant une analyse' },
-      { title: 'Santé animale', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', alt: 'Vétérinaire examinant un chien' },
+      { title: 'Produits vétérinaires', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', alt: 'Vétérinaire examinant un chien' },
     ],
   },
   why: {
@@ -208,7 +208,7 @@ const fr = {
       { title: 'Médicaments', text: 'Injectables en ampoules, antibiotiques, vaccins et sérums, solutions buvables.', items: ['Paracétamol 1 %', 'Ceftriaxone 1 g', 'Ocytocine 10 UI', 'Quinine injectable', 'Amoxicilline suspension buvable', 'Vaccin contre l\'hépatite'], alt: 'Médecin tenant une ampoule injectable' },
       { title: 'Solutions nutritionnelles', text: 'Glucose concentré, vitamines injectables et buvables.', items: ['Glucose 10 %', 'Acide ascorbique (vitamine C) 0,5 g/5 ml', 'Complexe vitaminique B'], alt: 'Soluté de glucose sur pied de perfusion' },
       { title: 'Dispositifs médicaux', text: 'Diagnostic, chirurgie, stérilisation et équipements.', items: ['Stéthoscope', 'Tensiomètre', 'Pince hémostatique', 'Oxymètre de pouls', 'Boîtes de petite chirurgie'], alt: 'Stéthoscope' },
-      { title: 'Santé animale', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', items: ['Croquettes chien et chat', 'Pipettes antipuces et antitiques', 'Vermifuge chiens et chats', 'Chlorure de sodium 0,9 % vétérinaire'], alt: 'Vétérinaire et chien' },
+      { title: 'Produits vétérinaires', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', items: ['Croquettes chien et chat', 'Pipettes antipuces et antitiques', 'Vermifuge chiens et chats', 'Chlorure de sodium 0,9 % vétérinaire'], alt: 'Vétérinaire et chien' },
     ],
   },
   compliance: {

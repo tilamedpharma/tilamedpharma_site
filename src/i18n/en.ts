@@ -3,7 +3,7 @@ import type { Dict } from './fr';
 const en: Dict = {
   meta: {
     title: 'TILAMED Pharma · Pharma manufacturer in BENIN, WHO standards',
-    description: 'TILAMED PHARMA SA is building a new-generation pharmaceutical plant in Sèmè-Podji, BENIN: infusion fluids, injectable medicines, nutrition, medical devices and animal health, to WHO standards and at affordable prices.',
+    description: 'TILAMED PHARMA SA is building a new-generation pharmaceutical plant in Sèmè-Podji, BENIN: infusion fluids, injectable medicines, nutrition, medical devices and veterinary products, to WHO standards and at affordable prices.',
   },
   a11y: {
     skip: 'Skip to content', menu: 'Menu', close: 'Close', search: 'Search', language: 'Language',
@@ -17,7 +17,7 @@ const en: Dict = {
       entreprise: { label: 'About', blurb: 'Who we are, our vision, our journey and our commitments.' },
       achats: { label: 'Procurement', blurb: 'Our purchasing, our suppliers and our distribution chain.' },
       usine: { label: 'Plant', blurb: 'The Sèmè-Podji site and every manufacturing step.' },
-      produits: { label: 'Products', blurb: 'Infusion fluids, medicines, nutrition, medical devices and animal health.' },
+      produits: { label: 'Products', blurb: 'Infusion fluids, medicines, nutrition, medical devices and veterinary products.' },
       qualite: { label: 'Standards', blurb: 'Approvals, testing of every batch and traceability.' },
       marches: { label: 'Markets', blurb: 'Purchasing centres, hospitals, distributors and health organisations.' },
       carrieres: { label: 'Careers', blurb: 'Why join us, our professions and how to apply.' },
@@ -32,7 +32,7 @@ const en: Dict = {
       'soufflage-remplissage-scellage': 'Blow-fill-seal', sterilisation: 'Sterilisation', inspection: '100% inspection', laboratoire: 'Quality control laboratory',
       'conditionnement-logistique': 'Packaging and delivery', 'salles-propres': 'Clean rooms', utilites: 'Industrial utilities', 'transfert-technologie': 'Technology transfer',
       produits: 'Catalogue', serums: 'Infusion fluids', medicaments: 'Medicines', 'solutions-nutritionnelles': 'Nutritional solutions', 'dispositifs-medicaux': 'Medical devices',
-      'sante-animale': 'Animal health', documentation: 'Request documentation',
+      'sante-animale': 'Veterinary products', documentation: 'Request documentation',
       qualite: 'Quality and compliance', agrements: 'Approvals and licences', 'controle-qualite': 'Quality control', tracabilite: 'Traceability',
       pharmacovigilance: 'Pharmacovigilance', certifications: 'Certifications',
       clients: 'Our customers', 'centrales-achat': 'Purchasing centres', 'hopitaux-cliniques': 'Hospitals, clinics, pharmacies', 'organisations-sante': 'Health organisations',
@@ -165,7 +165,7 @@ const en: Dict = {
       { title: 'Finished pharmaceutical products', text: 'Infusion fluids, injectables and oral solutions, made and tested in our Sèmè-Podji plant.', alt: 'Operator checking bottles on a production line' },
       { title: 'Medical devices', text: 'Approved distributor: diagnostics, surgery, sterilisation and hospital equipment.', alt: 'Blood pressure monitor and medical equipment' },
       { title: 'Medical laboratory', text: 'Analyses and quality control performed to international standards.', alt: 'Laboratory technician performing an analysis' },
-      { title: 'Animal health', text: 'Food, parasite control and care for dogs and cats.', alt: 'Veterinarian examining a dog' },
+      { title: 'Veterinary products', text: 'Food, parasite control and care for dogs and cats.', alt: 'Veterinarian examining a dog' },
     ],
   },
   why: {
@@ -210,7 +210,7 @@ const en: Dict = {
       { title: 'Medicines', text: 'Ampoule injectables, antibiotics, vaccines and sera, oral solutions.', items: ['Paracetamol 1%', 'Ceftriaxone 1 g', 'Oxytocin 10 IU', 'Injectable quinine', 'Amoxicillin oral suspension', 'Hepatitis vaccine'], alt: 'Doctor holding an injectable ampoule' },
       { title: 'Nutritional solutions', text: 'Concentrated glucose, injectable and oral vitamins.', items: ['Glucose 10%', 'Ascorbic acid (vitamin C) 0.5 g/5 ml', 'Vitamin B complex'], alt: 'Glucose solution on an infusion stand' },
       { title: 'Medical devices', text: 'Diagnostics, surgery, sterilisation and equipment.', items: ['Stethoscope', 'Blood pressure monitor', 'Haemostatic forceps', 'Pulse oximeter', 'Minor surgery kits'], alt: 'Stethoscope' },
-      { title: 'Animal health', text: 'Food, parasite control and care for dogs and cats.', items: ['Dog and cat food', 'Flea and tick spot-on', 'Dewormer for dogs and cats', 'Veterinary sodium chloride 0.9%'], alt: 'Veterinarian with a dog' },
+      { title: 'Veterinary products', text: 'Food, parasite control and care for dogs and cats.', items: ['Dog and cat food', 'Flea and tick spot-on', 'Dewormer for dogs and cats', 'Veterinary sodium chloride 0.9%'], alt: 'Veterinarian with a dog' },
     ],
   },
   compliance: {

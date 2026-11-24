@@ -38,7 +38,7 @@ const centrale: CentraleDict = {
       { title: 'Farmaci generici', text: 'Farmaci essenziali di qualità e, presto, le nostre soluzioni iniettabili.' },
       { title: 'Dispositivi medici', text: 'Diagnostica, chirurgia, sterilizzazione e attrezzature, con installazione e manutenzione.' },
       { title: 'Laboratorio', text: 'Reagenti, materiali di consumo e attrezzature per i laboratori di analisi.' },
-      { title: 'Salute animale', text: 'Prodotti veterinari, alimentazione, antiparassitari e cure.' },
+      { title: 'Prodotti veterinari', text: 'Prodotti veterinari, alimentazione, antiparassitari e cure.' },
       { title: 'Prodotti chimici e farmaceutici', text: 'Prodotti chimici e farmaceutici destinati alle strutture sanitarie.' },
     ],
     more: 'Vedi il catalogo',

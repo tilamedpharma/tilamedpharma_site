@@ -8,7 +8,7 @@ const produits = {
     categories: 'catégories',
   },
   catalogue: {
-    meta: { title: 'Catalogue des produits · TILAMED Pharma', description: 'Sérums, médicaments injectables et buvables, solutions nutritionnelles, dispositifs médicaux et santé animale : le catalogue TILAMED Pharma.' },
+    meta: { title: 'Catalogue des produits · TILAMED Pharma', description: 'Sérums, médicaments injectables et buvables, solutions nutritionnelles, dispositifs médicaux et produits vétérinaires : le catalogue TILAMED Pharma.' },
     lead: 'Recherchez parmi nos solutions injectables, nos futurs produits liquides et les dispositifs médicaux que nous distribuons.',
     familiesTitle: 'Cinq gammes',
     searchTitle: 'Tout le catalogue',
@@ -32,7 +32,7 @@ const produits = {
       lead: 'Diagnostic, instruments de chirurgie, stérilisation et équipement : les dispositifs médicaux que nous distribuons.',
     },
     'sante-animale': {
-      meta: { title: 'Santé animale · Produits · TILAMED Pharma', description: 'Alimentation, antiparasitaires, soins et médicaments pour chiens et chats, distribués par notre centrale d\'achat.' },
+      meta: { title: 'Produits vétérinaires · Produits · TILAMED Pharma', description: 'Alimentation, antiparasitaires, soins et médicaments pour chiens et chats, distribués par notre centrale d\'achat.' },
       lead: 'Alimentation, antiparasitaires, soins et médicaments pour chiens et chats.',
     },
   },

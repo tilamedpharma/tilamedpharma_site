@@ -19,7 +19,7 @@ const distributeurs = {
     items: [
       { title: 'Un fournisseur local', text: 'Une usine au BÉNIN, à quelques heures de route plutôt qu\'à plusieurs semaines de mer : des commandes plus fréquentes, moins de stock immobilisé, moins de ruptures.' },
       { title: 'Une qualité contrôlée', text: 'Chaque lot est contrôlé par notre laboratoire puis libéré par le pharmacien responsable, sous le contrôle de l\'ABRP.' },
-      { title: 'Une gamme complète', text: 'Sérums, médicaments injectables, solutions nutritionnelles, dispositifs médicaux et santé animale.' },
+      { title: 'Une gamme complète', text: 'Sérums, médicaments injectables, solutions nutritionnelles, dispositifs médicaux et produits vétérinaires.' },
       { title: 'Un accompagnement', text: 'La documentation technique et réglementaire de nos produits, et un appui pour vos réponses aux appels d\'offres.' },
     ],
   },

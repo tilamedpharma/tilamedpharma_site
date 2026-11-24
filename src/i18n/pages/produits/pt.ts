@@ -3,7 +3,7 @@ import type { ProduitsDict } from './fr';
 const produits: ProduitsDict = {
   ui: { seeRange: 'Ver a gama', docCta: 'Pedir a documentação', contactCta: 'Contactar a nossa direção comercial', inThisRange: 'Nesta gama', categories: 'categorias' },
   catalogue: {
-    meta: { title: 'Catálogo de produtos · TILAMED Pharma', description: 'Soros, medicamentos injetáveis e orais, soluções nutricionais, dispositivos médicos e saúde animal: o catálogo da TILAMED Pharma.' },
+    meta: { title: 'Catálogo de produtos · TILAMED Pharma', description: 'Soros, medicamentos injetáveis e orais, soluções nutricionais, dispositivos médicos e produtos veterinários: o catálogo da TILAMED Pharma.' },
     lead: 'Pesquise as nossas soluções injetáveis, os nossos futuros produtos líquidos e os dispositivos médicos que distribuímos.',
     familiesTitle: 'Cinco gamas',
     searchTitle: 'Todo o catálogo',
@@ -14,7 +14,7 @@ const produits: ProduitsDict = {
     medicaments: { meta: { title: 'Medicamentos · Produtos · TILAMED Pharma', description: 'Injetáveis em ampolas, soluções medicamentosas, antibióticos injetáveis, vacinas e soros, soluções orais.' }, lead: 'Injetáveis em ampolas, antibióticos, vacinas e soros, soluções orais: uma gama implementada em três fases de produção.' },
     'solutions-nutritionnelles': { meta: { title: 'Soluções nutricionais · Produtos · TILAMED Pharma', description: 'Glicose concentrada e vitaminas injetáveis ou orais para o aporte calórico e a correção de carências.' }, lead: 'Glicose concentrada e vitaminas, injetáveis ou orais, para o aporte calórico e a correção de carências.' },
     'dispositifs-medicaux': { meta: { title: 'Dispositivos médicos · Produtos · TILAMED Pharma', description: 'Diagnóstico, instrumentos cirúrgicos, esterilização e equipamento: os dispositivos médicos distribuídos pela TILAMED Pharma.' }, lead: 'Diagnóstico, instrumentos cirúrgicos, esterilização e equipamento: os dispositivos médicos que distribuímos.' },
-    'sante-animale': { meta: { title: 'Saúde animal · Produtos · TILAMED Pharma', description: 'Alimentação, antiparasitários, cuidados e medicamentos para cães e gatos, distribuídos pela nossa central de compras.' }, lead: 'Alimentação, antiparasitários, cuidados e medicamentos para cães e gatos.' },
+    'sante-animale': { meta: { title: 'Produtos veterinários · Produtos · TILAMED Pharma', description: 'Alimentação, antiparasitários, cuidados e medicamentos para cães e gatos, distribuídos pela nossa central de compras.' }, lead: 'Alimentação, antiparasitários, cuidados e medicamentos para cães e gatos.' },
   },
   formats: {
     title: 'Frascos adaptados a cada uso',

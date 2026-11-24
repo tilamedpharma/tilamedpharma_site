@@ -3,7 +3,7 @@ import type { ProduitsDict } from './fr';
 const produits: ProduitsDict = {
   ui: { seeRange: '查看产品线', docCta: '索取资料', contactCta: '联系我们的商务部', inThisRange: '本产品线', categories: '个类别' },
   catalogue: {
-    meta: { title: '产品目录 · TILAMED Pharma', description: '输液、注射及口服药品、营养溶液、医疗器械与动物保健：TILAMED Pharma 产品目录。' },
+    meta: { title: '产品目录 · TILAMED Pharma', description: '输液、注射及口服药品、营养溶液、医疗器械与兽用产品：TILAMED Pharma 产品目录。' },
     lead: '搜索我们的注射液、未来的液体药品以及我们经销的医疗器械。',
     familiesTitle: '五大产品线',
     searchTitle: '完整目录',
@@ -14,7 +14,7 @@ const produits: ProduitsDict = {
     medicaments: { meta: { title: '药品 · 产品 · TILAMED Pharma', description: '安瓿注射剂、含药溶液、注射用抗生素、疫苗和血清、口服液。' }, lead: '安瓿注射剂、抗生素、疫苗和血清、口服液：分三个生产阶段推出的产品线。' },
     'solutions-nutritionnelles': { meta: { title: '营养溶液 · 产品 · TILAMED Pharma', description: '高浓度葡萄糖及注射或口服维生素，用于补充热量和纠正缺乏。' }, lead: '高浓度葡萄糖和维生素（注射或口服），用于补充热量和纠正缺乏。' },
     'dispositifs-medicaux': { meta: { title: '医疗器械 · 产品 · TILAMED Pharma', description: '诊断、外科器械、灭菌与设备：TILAMED Pharma 经销的医疗器械。' }, lead: '诊断、外科器械、灭菌与设备：我们经销的医疗器械。' },
-    'sante-animale': { meta: { title: '动物保健 · 产品 · TILAMED Pharma', description: '犬猫食品、驱虫、护理与药品，由我们的采购中心经销。' }, lead: '犬猫食品、驱虫产品、护理用品与药品。' },
+    'sante-animale': { meta: { title: '兽用产品 · 产品 · TILAMED Pharma', description: '犬猫食品、驱虫、护理与药品，由我们的采购中心经销。' }, lead: '犬猫食品、驱虫产品、护理用品与药品。' },
   },
   formats: {
     title: '适合各种用途的瓶装规格',

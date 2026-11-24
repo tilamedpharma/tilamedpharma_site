@@ -3,7 +3,7 @@ import type { ProduitsDict } from './fr';
 const produits: ProduitsDict = {
   ui: { seeRange: 'See the range', docCta: 'Request documentation', contactCta: 'Contact our sales department', inThisRange: 'In this range', categories: 'categories' },
   catalogue: {
-    meta: { title: 'Product catalogue · TILAMED Pharma', description: 'Infusion fluids, injectable and oral medicines, nutritional solutions, medical devices and animal health: the TILAMED Pharma catalogue.' },
+    meta: { title: 'Product catalogue · TILAMED Pharma', description: 'Infusion fluids, injectable and oral medicines, nutritional solutions, medical devices and veterinary products: the TILAMED Pharma catalogue.' },
     lead: 'Search our injectable solutions, our future liquid products and the medical devices we distribute.',
     familiesTitle: 'Five ranges',
     searchTitle: 'The full catalogue',
@@ -14,7 +14,7 @@ const produits: ProduitsDict = {
     medicaments: { meta: { title: 'Medicines · Products · TILAMED Pharma', description: 'Ampoule injectables, medicated solutions, injectable antibiotics, vaccines and sera, oral liquids.' }, lead: 'Ampoule injectables, antibiotics, vaccines and sera, oral liquids: a range rolled out in three production phases.' },
     'solutions-nutritionnelles': { meta: { title: 'Nutritional solutions · Products · TILAMED Pharma', description: 'Concentrated glucose and injectable or oral vitamins for calorie supply and correcting deficiencies.' }, lead: 'Concentrated glucose and vitamins, injectable or oral, for calorie supply and correcting deficiencies.' },
     'dispositifs-medicaux': { meta: { title: 'Medical devices · Products · TILAMED Pharma', description: 'Diagnosis, surgical instruments, sterilisation and equipment: the medical devices distributed by TILAMED Pharma.' }, lead: 'Diagnosis, surgical instruments, sterilisation and equipment: the medical devices we distribute.' },
-    'sante-animale': { meta: { title: 'Animal health · Products · TILAMED Pharma', description: 'Food, parasite control, care and medicines for dogs and cats, distributed by our procurement centre.' }, lead: 'Food, parasite control, care and medicines for dogs and cats.' },
+    'sante-animale': { meta: { title: 'Veterinary products · Products · TILAMED Pharma', description: 'Food, parasite control, care and medicines for dogs and cats, distributed by our procurement centre.' }, lead: 'Food, parasite control, care and medicines for dogs and cats.' },
   },
   formats: {
     title: 'Bottles suited to every use',

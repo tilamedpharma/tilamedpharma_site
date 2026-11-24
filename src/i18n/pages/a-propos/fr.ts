@@ -13,7 +13,7 @@ const aPropos = {
     { value: '1', unit: 'Md FCFA', label: 'de capital social, société anonyme' },
     { value: 'Cotonou', unit: '', label: 'siège social' },
     { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest couverts' },
-    { value: '4', unit: 'métiers', label: 'production, dispositifs médicaux, laboratoire, santé animale' },
+    { value: '4', unit: 'métiers', label: 'production, dispositifs médicaux, laboratoire, produits vétérinaires' },
   ],
   story: {
     eyebrow: 'Notre histoire',

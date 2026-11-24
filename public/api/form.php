@@ -80,7 +80,7 @@ $labels = [
 $countries = [
     'BJ' => 'Bénin', 'BF' => 'Burkina Faso', 'CV' => 'Cap-Vert', 'CI' => 'Côte d\'Ivoire', 'GM' => 'Gambie', 'GH' => 'Ghana',
     'GN' => 'Guinée', 'GW' => 'Guinée-Bissau', 'LR' => 'Liberia', 'ML' => 'Mali', 'NE' => 'Niger', 'NG' => 'Nigeria',
-    'SN' => 'Sénégal', 'SL' => 'Sierra Leone', 'TG' => 'Togo', 'FR' => 'France',
+    'SN' => 'Sénégal', 'SL' => 'Sierra Leone', 'TG' => 'Togo', 'FR' => 'France', 'XX' => 'Autre pays',
 ];
 $langs = ['fr' => 'français', 'en' => 'anglais', 'es' => 'espagnol', 'pt' => 'portugais', 'it' => 'italien', 'zh' => 'chinois', 'ar' => 'arabe'];
 

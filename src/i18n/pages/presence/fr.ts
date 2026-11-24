@@ -17,7 +17,7 @@ const presence = {
     { value: '3', unit: 'bureaux', label: 'au BÉNIN, au BURKINA FASO et en FRANCE' },
   ],
   map: {
-    legend: 'Depuis l\'usine de Sèmè-Podji, nos routes d\'approvisionnement desservent les capitales de la sous-région.',
+    legend: 'Depuis l\'usine de Sèmè-Podji, nos routes d\'approvisionnement desserviront les capitales de la sous-région.',
   },
   sites: {
     eyebrow: 'Nos implantations',

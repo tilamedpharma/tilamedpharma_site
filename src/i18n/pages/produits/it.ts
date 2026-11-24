@@ -14,7 +14,7 @@ const produits: ProduitsDict = {
     medicaments: { meta: { title: 'Farmaci · Prodotti · TILAMED Pharma', description: 'Iniettabili in fiale, soluzioni medicinali, antibiotici iniettabili, vaccini e sieri, soluzioni orali.' }, lead: 'Iniettabili in fiale, antibiotici, vaccini e sieri, soluzioni orali: una gamma sviluppata in tre fasi di produzione.' },
     'solutions-nutritionnelles': { meta: { title: 'Soluzioni nutrizionali · Prodotti · TILAMED Pharma', description: 'Glucosio concentrato e vitamine iniettabili o orali per l\'apporto calorico e la correzione delle carenze.' }, lead: 'Glucosio concentrato e vitamine, iniettabili o orali, per l\'apporto calorico e la correzione delle carenze.' },
     'dispositifs-medicaux': { meta: { title: 'Dispositivi medici · Prodotti · TILAMED Pharma', description: 'Diagnostica, strumenti chirurgici, sterilizzazione e attrezzature: i dispositivi medici distribuiti da TILAMED Pharma.' }, lead: 'Diagnostica, strumenti chirurgici, sterilizzazione e attrezzature: i dispositivi medici che distribuiamo.' },
-    'sante-animale': { meta: { title: 'Salute animale · Prodotti · TILAMED Pharma', description: 'Alimentazione, antiparassitari, cure e farmaci per cani e gatti: la futura gamma veterinaria TILAMED.' }, lead: 'Alimentazione, antiparassitari, cure e farmaci per cani e gatti.' },
+    'sante-animale': { meta: { title: 'Salute animale · Prodotti · TILAMED Pharma', description: 'Alimentazione, antiparassitari, cure e farmaci per cani e gatti, distribuiti dalla nostra centrale d\'acquisto.' }, lead: 'Alimentazione, antiparassitari, cure e farmaci per cani e gatti.' },
   },
   formats: {
     title: 'Flaconi adatti a ogni uso',
@@ -34,10 +34,10 @@ const produits: ProduitsDict = {
   },
   phases: { title: 'Una gamma sviluppata in tre fasi', intro: 'I farmaci entrano in produzione man mano che si aprono le linee e si ottengono le autorizzazioni regolatorie.' },
   devices: {
-    text: 'Forte di una lunga esperienza nella fornitura, installazione e manutenzione di apparecchiature mediche in Africa occidentale, TILAMED Pharma distribuisce una gamma di dispositivi medici di costruttori europei con marcatura CE.',
+    text: 'Forte di una lunga esperienza nella fornitura, installazione e manutenzione di apparecchiature mediche in Africa occidentale, TILAMED Pharma distribuisce una gamma di dispositivi medici di costruttori internazionali riconosciuti, con marcatura CE.',
     cta: 'Per un preventivo, un elenco di referenze o una gara d\'appalto, contatta la nostra direzione commerciale.',
   },
-  vet: { text: 'La nostra gamma veterinaria è in preparazione. I prodotti saranno disponibili a breve.', cta: 'Ricevi l\'avviso del lancio' },
+  vet: { text: 'Prodotti veterinari selezionati e distribuiti dalla nostra centrale d\'acquisto. Saranno disponibili a breve.', cta: 'Ricevi l\'avviso del lancio' },
   doc: {
     meta: { title: 'Richiesta di documentazione · TILAMED Pharma', description: 'Professionisti sanitari e acquirenti: richiedete le informazioni tecniche dei prodotti TILAMED Pharma.' },
     lead: 'Professionisti sanitari e acquirenti: richiedete le informazioni tecniche dei nostri prodotti.',

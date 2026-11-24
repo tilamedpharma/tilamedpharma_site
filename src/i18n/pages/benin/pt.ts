@@ -11,7 +11,7 @@ const benin: BeninDict = {
   },
   facts: [
     { value: '100', unit: '%', label: 'das soluções injetáveis consumidas no BENIM são importadas' },
-    { value: '0', unit: '', label: 'fabricante local de soluções farmacêuticas líquidas antes da TILAMED' },
+    { value: '0', unit: '', label: 'fabricante local de soluções injetáveis antes da TILAMED' },
     { value: '15', unit: 'países', label: 'da África Ocidental a abastecer a partir do BENIM' },
     { value: '400', unit: 'M +', label: 'de habitantes na África Ocidental' },
   ],

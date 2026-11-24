@@ -26,7 +26,7 @@ const centrale = {
       'Notre centrale d\'achat a pour mission l\'approvisionnement, le stockage et la distribution en gros de produits de santé, en veillant à ce qu\'ils soient vendus à des prix accessibles à la population.',
     ],
     duo: [
-      { title: 'Fabriquer', text: 'Des solutions injectables produites dans notre usine de Sèmè-Podji.' },
+      { title: 'Fabriquer', text: 'Des solutions injectables qui seront produites dans notre usine de Sèmè-Podji.' },
       { title: 'Acheter et distribuer', text: 'Des produits de santé sélectionnés auprès de grands fabricants internationaux.' },
     ],
     badge: 'Distributeur agréé de dispositifs médicaux',
@@ -37,7 +37,7 @@ const centrale = {
     title: 'Cinq gammes de produits de santé',
     intro: 'Nous approvisionnons les formations sanitaires publiques et privées, les établissements pharmaceutiques et les services de santé, pour la médecine humaine et animale.',
     items: [
-      { title: 'Médicaments génériques', text: 'Des médicaments essentiels de qualité, dont nos propres solutions injectables.' },
+      { title: 'Médicaments génériques', text: 'Des médicaments essentiels de qualité et, demain, nos propres solutions injectables.' },
       { title: 'Dispositifs médicaux', text: 'Diagnostic, chirurgie, stérilisation et équipements, avec leur installation et leur maintenance.' },
       { title: 'Laboratoire', text: 'Réactifs, consommables et équipements pour les laboratoires d\'analyses.' },
       { title: 'Santé animale', text: 'Intrants vétérinaires, alimentation, antiparasitaires et soins.' },

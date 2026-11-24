@@ -14,7 +14,7 @@ const presence: PresenceDict = {
     { value: '3', unit: 'uffici', label: 'in BENIN, BURKINA FASO e FRANCIA' },
   ],
   map: {
-    legend: 'Dallo stabilimento di Sèmè-Podji, le nostre rotte di approvvigionamento servono le capitali della sottoregione.',
+    legend: 'Dallo stabilimento di Sèmè-Podji, le nostre rotte di approvvigionamento serviranno le capitali della sottoregione.',
   },
   sites: {
     eyebrow: 'Le nostre sedi',

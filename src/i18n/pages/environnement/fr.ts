@@ -25,7 +25,7 @@ const environnement = {
   levers: {
     eyebrow: 'Nos leviers',
     title: 'Six leviers pour réduire notre empreinte',
-    intro: 'Nous visons la certification ISO 14001 pour le management environnemental. Notre site s\'inscrit dans une zone économique spéciale conçue pour répondre à des normes environnementales et sociales élevées.',
+    intro: 'Nous visons la certification ISO 14001 pour le management environnemental de notre usine de Sèmè-Podji.',
   },
   certs: {
     eyebrow: 'Certifications',

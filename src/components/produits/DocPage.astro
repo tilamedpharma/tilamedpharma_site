@@ -47,6 +47,7 @@ const countries = [...coverage.map((x) => x.iso), 'FR'].map((iso) => ({ iso, nam
             <select name="pays" required>
               <option value="">{f.select}</option>
               {countries.map((x) => <option value={x.iso}>{x.name}</option>)}
+              <option value="XX">{t.page.otherCountry}</option>
             </select>
           </label>
         </div>

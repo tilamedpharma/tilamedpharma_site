@@ -2,7 +2,7 @@ import type { Dict } from './fr';
 
 const en: Dict = {
   meta: {
-    title: 'TILAMED Pharma · Pharmaceutical manufacturer in BENIN, built to WHO standards',
+    title: 'TILAMED Pharma · Pharma manufacturer in BENIN, WHO standards',
     description: 'TILAMED PHARMA SA is building a new-generation pharmaceutical plant in Sèmè-Podji, BENIN: infusion fluids, injectable medicines, nutrition, medical devices and animal health, to WHO standards and at affordable prices.',
   },
   a11y: {
@@ -10,7 +10,7 @@ const en: Dict = {
     home: 'TILAMED Pharma home', play: 'Play video', pause: 'Pause video', prev: 'Previous', next: 'Next',
   },
   slogan: 'Plus près, plus sûr pour votre santé',
-  page: { home: 'Home', breadcrumb: 'Breadcrumb', inSection: 'In this section', illustration: 'Illustrative images', step: 'Step', current: 'You are here' },
+  page: { home: 'Home', breadcrumb: 'Breadcrumb', inSection: 'In this section', illustration: 'Illustrative images', step: 'Step', current: 'You are here', otherCountry: 'Other country' },
   header: { cta: 'Contact us', explore: 'Explore this section' },
   nav: {
     sections: {
@@ -54,8 +54,8 @@ const en: Dict = {
   },
   heroNet: {
     eyebrow: 'Our network',
-    title: 'Made in BENIN, supplied to 15 West African countries.',
-    lead: 'From Sèmè-Podji, on the Nigerian border, our injectable solutions reach procurement agencies, distributors and hospitals across the region.',
+    title: 'Soon made in BENIN, for 15 West African countries.',
+    lead: 'From Sèmè-Podji, on the Nigerian border, our injectable solutions will reach procurement agencies, distributors and hospitals across the region.',
     count: 'countries covered',
     tabs: ['Our plant', 'Our network'],
     label: 'Presentation slideshow',
@@ -75,14 +75,14 @@ const en: Dict = {
   },
   chain: {
     eyebrow: 'Our distribution chain', title: 'From Sèmè-Podji to the patient',
-    intro: 'A short, fast and traceable supply chain: made in BENIN, our solutions reach patients in less than a month.',
+    intro: 'A short, fast and traceable supply chain: made in BENIN, our solutions will reach patients across the sub-region in less than a month.',
     label: 'Three-step distribution chain',
     steps: [
       { title: 'Sèmè-Podji plant', text: 'Made and tested in BENIN' },
       { title: 'Purchasing centres, wholesalers and distributors', text: 'Regional public cooperatives, private wholesalers and other distributors' },
       { title: 'Patients', text: 'Treated in less than a month' },
     ],
-    badge: { strong: 'Less than a month', text: 'from our plant to the patient' },
+    badge: { strong: 'Less than a month', text: 'from our plant to patients across the sub-region' },
     cta: 'Discover our distribution',
   },
   impact: {
@@ -92,7 +92,7 @@ const en: Dict = {
     band: [
       { value: '15', plus: '', unit: 'million', text: 'large-volume parenterals' },
       { value: '35', plus: '', unit: 'million', text: 'small-volume parenterals' },
-      { value: '150', plus: '', unit: 'direct jobs', text: '70% technical, 30% administrative' },
+      { value: '150', plus: '', unit: 'direct jobs', text: 'planned · 70% technical, 30% administrative' },
       { value: '2', plus: '', unit: 'hectares', text: 'industrial site in Sèmè-Podji' },
       { value: '15', plus: '', unit: 'countries', text: 'in West Africa' },
       { value: '13', plus: '+', unit: 'years', text: 'of experience in healthcare' },
@@ -104,8 +104,8 @@ const en: Dict = {
       cta: 'Join the team',
     },
     capacity: {
-      title: 'Annual production capacity',
-      sub: 'Injectable solutions made in Sèmè-Podji, per year',
+      title: 'Planned annual production capacity',
+      sub: 'Injectable solutions to be made in Sèmè-Podji, per year',
       items: [
         { value: '15', unit: 'million', code: 'LVP', label: 'Large-volume parenterals: infusion bags and bottles' },
         { value: '35', unit: 'million', code: 'SVP', label: 'Small-volume parenterals: ampoules and vials' },
@@ -175,7 +175,7 @@ const en: Dict = {
     statLabel: 'of the injectable solutions used in BENIN are imported',
     text: 'Hospitals depend on distant imports, with long lead times and a risk of shortages. Producing locally changes everything for patients, caregivers and the economy.',
     items: [
-      { title: 'Stocks close at hand', text: 'Supplying hospitals and purchasing centres within hours, without shortages.' },
+      { title: 'Stocks close at hand', text: 'In BENIN, supplying hospitals and purchasing centres within hours, without shortages.' },
       { title: 'Full traceability', text: 'Every batch tracked from plant to patient, against falsified medicines.' },
       { title: 'Affordable prices', text: 'Less transport and storage, prices designed for local purchasing power.' },
       { title: 'Local skills', text: 'Skilled jobs and a skills-transfer programme for Beninese technicians.' },
@@ -247,8 +247,8 @@ const en: Dict = {
   },
   presence: {
     eyebrow: 'Where we operate',
-    title: 'Made in BENIN, distributed across West Africa',
-    intro: 'From our Sèmè-Podji plant on the Nigerian border, we supply 15 countries in the region, with offices in BENIN, BURKINA FASO and FRANCE.',
+    title: 'Soon made in BENIN, for all of West Africa',
+    intro: 'From our Sèmè-Podji plant on the Nigerian border, we will supply 15 countries in the region, with offices in BENIN, BURKINA FASO and FRANCE.',
     plant: 'TILAMED Pharma plant',
     plantPlace: 'Sèmè-Podji · BENIN',
     legendCovered: 'Countries covered',

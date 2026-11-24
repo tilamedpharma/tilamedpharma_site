@@ -11,9 +11,9 @@ const qualite: QualiteDict = {
       ],
       blocks: [
         { kind: 'cards', title: 'Nuestros referenciales', items: [
+          { title: 'OMS', text: 'Normas y directrices de la Organización Mundial de la Salud.' },
           { title: 'ISO 9001 e ISO 14001', text: 'Certificaciones previstas para la calidad y el medio ambiente.' },
-          { title: 'ABRP', text: 'Dictamen favorable del 16 de mayo de 2023 a la autorización de apertura y explotación.' },
-          { title: 'BPD', text: 'Buenas prácticas de distribución para nuestros almacenes y entregas.' },
+          { title: 'EDGE', text: 'Certificación de edificio verde de la IFC en curso.' },
         ] },
         { kind: 'points', title: 'Un sistema de calidad farmacéutica', items: [
           'Procedimientos escritos, formación del personal y registros en cada etapa.',
@@ -21,6 +21,8 @@ const qualite: QualiteDict = {
           'Control de las materias primas, los materiales de acondicionamiento y los productos terminados.',
           'Liberación de cada lote por el farmacéutico responsable.',
           'Gestión de desviaciones, reclamaciones y retiradas.',
+          'Buenas prácticas de distribución para nuestros almacenes y entregas.',
+          'ABRP: dictamen favorable del 16 de mayo de 2023 a la autorización de apertura y explotación.',
         ] },
       ],
       note: '',

@@ -16,7 +16,7 @@ const etapes: EtapesDict = {
     'traitement-eau': {
       meta: { title: '制药用水处理 · 我们的工厂 · TILAMED Pharma', description: '在塞梅-波吉厂内生产纯化水和注射用水：反渗透、电去离子、蒸馏及不锈钢热循环。' },
       lead: '水是注射液的第一种原料，其纯度受到连续监控。',
-      intro: '输液中 90% 以上是水。我们在厂内生产两种等级的制药用水，符合药典要求。',
+      intro: '输液中 90% 以上是水。我们将在厂内生产两种等级的制药用水，符合药典要求。',
       facts: [
         { value: '> 90', unit: '%', label: '输液中的水含量' },
         { value: '2', unit: '', label: '厂内生产的制药用水等级' },
@@ -79,7 +79,7 @@ const etapes: EtapesDict = {
     },
     inspection: {
       meta: { title: '100% 检查 · 我们的工厂 · TILAMED Pharma', description: '干燥、检漏、灯检、装箱与自动剔除：每一瓶产品出厂前都经过检查。' },
-      lead: '每一瓶产品出厂前都经过检查。',
+      lead: '每一瓶产品出厂前都将经过检查。',
       intro: '',
       facts: [
         { value: '100', unit: '%', label: '的瓶子在出厂前经过检查' },

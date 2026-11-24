@@ -16,7 +16,7 @@ const etapes: EtapesDict = {
     'traitement-eau': {
       meta: { title: 'Water treatment · Our plant · TILAMED Pharma', description: 'Purified water and water for injection produced on site in Sèmè-Podji: reverse osmosis, electrodeionisation, distillation and a hot stainless-steel loop.' },
       lead: 'Water is the first ingredient of an injectable solution. Its purity is monitored continuously.',
-      intro: 'An infusion solution is more than 90% water. We produce two grades of pharmaceutical water on site, meeting pharmacopoeia requirements.',
+      intro: 'An infusion solution is more than 90% water. We will produce two grades of pharmaceutical water on site, meeting pharmacopoeia requirements.',
       facts: [
         { value: '> 90', unit: '%', label: 'water in an infusion solution' },
         { value: '2', unit: '', label: 'grades of pharmaceutical water produced on site' },
@@ -79,7 +79,7 @@ const etapes: EtapesDict = {
     },
     inspection: {
       meta: { title: '100% inspection · Our plant · TILAMED Pharma', description: 'Drying, leak test, visual inspection, boxing and automatic rejection: no bottle leaves the plant without being checked.' },
-      lead: 'No bottle leaves the plant without being checked.',
+      lead: 'No bottle will leave the plant without being checked.',
       intro: '',
       facts: [
         { value: '100', unit: '%', label: 'of bottles checked before leaving the plant' },

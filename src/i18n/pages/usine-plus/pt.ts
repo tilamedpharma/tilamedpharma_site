@@ -2,7 +2,7 @@ import type { Topic } from './fr';
 
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
-    meta: { title: 'O local de Sèmè-Podji · A nossa fábrica · TILAMED Pharma', description: 'Um local industrial de 2 hectares em Sèmè-Podji, perto da fronteira de Kraké, de Cotonou e do seu porto, numa zona económica especial.' },
+    meta: { title: 'O local de Sèmè-Podji · A nossa fábrica · TILAMED Pharma', description: 'Um terreno de 2 hectares na zona industrial de Sèmè-Podji, perto da fronteira de Kraké, de Cotonou e do seu porto.' },
     lead: 'Um local de 2 hectares, logo após a fronteira de Kraké, entre Cotonou e a NIGÉRIA.',
     intro: '',
     facts: [
@@ -13,9 +13,9 @@ const pages: Record<string, Topic> = {
         'No município de Sèmè-Podji, departamento de Ouémé, no sul do BENIM.',
         'Junto à fronteira de Kraké, principal ponto de passagem para a NIGÉRIA.',
         'Perto de Cotonou e do seu porto autónomo, que assegura a maior parte do comércio do país.',
-        'Numa zona económica especial com vantagens aduaneiras e fiscais.',
+        'Na zona industrial de Sèmè-Podji.',
       ] },
-      { kind: 'cards', title: 'A organização do local', text: 'O local separa claramente as zonas limpas das zonas gerais.', items: [
+      { kind: 'cards', title: 'A organização do local', text: 'O local separará claramente as zonas limpas das zonas gerais.', items: [
         { title: 'Edifício de produção', text: 'As linhas de fabrico, em zonas de atmosfera controlada.' },
         { title: 'Receção e quarentena', text: 'As matérias-primas aguardam aqui o seu controlo antes da utilização.' },
         { title: 'Laboratório', text: 'O controlo de qualidade das matérias, das águas e dos lotes.' },
@@ -28,7 +28,7 @@ const pages: Record<string, Topic> = {
   },
   'salles-propres': {
     meta: { title: 'Salas limpas · A nossa fábrica · TILAMED Pharma', description: 'Zonas de grau C e proteção de grau A no ponto de enchimento: filtração HEPA, cascata de pressão, materiais lisos e vigilância contínua.' },
-    lead: 'As etapas críticas decorrem num ambiente de atmosfera controlada.',
+    lead: 'As etapas críticas decorrerão num ambiente de atmosfera controlada.',
     intro: 'O fabrico das soluções injetáveis está protegido em zonas de grau C, com uma proteção de grau A no ponto de enchimento, em conformidade com as boas práticas de fabrico.',
     facts: [
       { value: 'C', unit: '', label: 'Grau das zonas de fabrico' },

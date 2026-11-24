@@ -16,7 +16,7 @@ const etapes: EtapesDict = {
     'traitement-eau': {
       meta: { title: 'Tratamiento del agua · Nuestra planta · TILAMED Pharma', description: 'Agua purificada y agua para inyectables producidas en el sitio de Sèmè-Podji: ósmosis inversa, electrodesionización, destilación y bucle caliente de acero inoxidable.' },
       lead: 'El agua es el primer ingrediente de una solución inyectable. Su pureza se controla de forma continua.',
-      intro: 'Una solución de perfusión contiene más de un 90 % de agua. Producimos en el sitio dos calidades de agua farmacéutica, conformes a las exigencias de las farmacopeas.',
+      intro: 'Una solución de perfusión contiene más de un 90 % de agua. Produciremos en el sitio dos calidades de agua farmacéutica, conformes a las exigencias de las farmacopeas.',
       facts: [
         { value: '> 90', unit: '%', label: 'de agua en una solución de perfusión' },
         { value: '2', unit: '', label: 'calidades de agua farmacéutica producidas en el sitio' },
@@ -79,7 +79,7 @@ const etapes: EtapesDict = {
     },
     inspection: {
       meta: { title: 'Control al 100 % · Nuestra planta · TILAMED Pharma', description: 'Secado, prueba de estanqueidad, inspección visual, encajado y rechazo automático: ningún frasco sale de la planta sin haber sido controlado.' },
-      lead: 'Ningún frasco sale de la planta sin haber sido controlado.',
+      lead: 'Ningún frasco saldrá de la planta sin haber sido controlado.',
       intro: '',
       facts: [
         { value: '100', unit: '%', label: 'de los frascos controlados antes de salir de la planta' },

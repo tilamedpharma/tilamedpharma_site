@@ -32,7 +32,7 @@ const produits = {
       lead: 'Diagnostic, instruments de chirurgie, stérilisation et équipement : les dispositifs médicaux que nous distribuons.',
     },
     'sante-animale': {
-      meta: { title: 'Santé animale · Produits · TILAMED Pharma', description: 'Alimentation, antiparasitaires, soins et médicaments pour chiens et chats : la future gamme vétérinaire TILAMED.' },
+      meta: { title: 'Santé animale · Produits · TILAMED Pharma', description: 'Alimentation, antiparasitaires, soins et médicaments pour chiens et chats, distribués par notre centrale d\'achat.' },
       lead: 'Alimentation, antiparasitaires, soins et médicaments pour chiens et chats.',
     },
   },
@@ -57,11 +57,11 @@ const produits = {
     intro: 'Les médicaments entrent en production au fur et à mesure de l\'ouverture des lignes et des autorisations réglementaires.',
   },
   devices: {
-    text: 'Fort d\'une longue expérience dans la fourniture, l\'installation et la maintenance d\'équipements médicaux en Afrique de l\'Ouest, TILAMED Pharma distribue une gamme de dispositifs médicaux de fabricants européens disposant du marquage CE.',
+    text: 'Fort d\'une longue expérience dans la fourniture, l\'installation et la maintenance d\'équipements médicaux en Afrique de l\'Ouest, TILAMED Pharma distribue une gamme de dispositifs médicaux de fabricants internationaux reconnus, disposant du marquage CE.',
     cta: 'Pour un devis, une liste de références ou une demande d\'appel d\'offres, contactez notre direction commerciale.',
   },
   vet: {
-    text: 'Notre gamme vétérinaire est en préparation. Les produits seront disponibles prochainement.',
+    text: 'Des produits vétérinaires sélectionnés et distribués par notre centrale d\'achat. Ils seront disponibles prochainement.',
     cta: 'Être informé du lancement',
   },
   doc: {

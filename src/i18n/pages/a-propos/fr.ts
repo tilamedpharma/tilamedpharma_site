@@ -11,7 +11,7 @@ const aPropos = {
   facts: [
     { value: '2013', unit: '', label: 'création de SEDIS SARL, devenue TILAMED PHARMA SA en 2023' },
     { value: '1', unit: 'Md FCFA', label: 'de capital social, société anonyme' },
-    { value: 'Cotonou', unit: '', label: 'siège de la filiale Afrique de l\'Ouest' },
+    { value: 'Cotonou', unit: '', label: 'siège social' },
     { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest couverts' },
     { value: '4', unit: 'métiers', label: 'production, dispositifs médicaux, laboratoire, santé animale' },
   ],
@@ -23,7 +23,7 @@ const aPropos = {
       'Née en 2013 sous le nom de SEDIS SARL pour distribuer des dispositifs médicaux en Afrique de l\'Ouest, l\'entreprise devient TILAMED PHARMA SA en 2023 et se consacre désormais à la production industrielle.',
       'Notre première usine, à Sèmè-Podji, produira des solutions injectables de grand volume : solutés de perfusion pour la réhydratation, l\'apport en glucose et l\'administration de médicaments par voie intraveineuse.',
     ],
-    countriesTitle: 'Neuf pays dans notre réseau',
+    countriesTitle: 'Nos liens à l\'international',
     cta: 'Notre parcours',
     imageAlt: 'Scientifique au travail dans un laboratoire pharmaceutique',
   },

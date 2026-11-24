@@ -13,7 +13,7 @@ const vision: VisionDict = {
   motto: {
     eyebrow: 'Nuestro lema',
     translation: 'Más cerca, más seguro para su salud',
-    near: { title: 'Más cerca', text: 'Nuestros productos se fabrican junto a los hospitales que los utilizan: menos plazos, menos roturas de stock.' },
+    near: { title: 'Más cerca', text: 'Nuestros productos se fabricarán junto a los hospitales que los utilizan: menos plazos, menos roturas de stock.' },
     safe: { title: 'Más seguro', text: 'Cada lote se fabrica y controla según las buenas prácticas de fabricación y se rastrea hasta su entrega.' },
   },
   vision: {

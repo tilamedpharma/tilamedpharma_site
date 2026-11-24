@@ -9,7 +9,7 @@ const fin = {
     bodies: [
       [
         'L\'État béninois confie à TILAMED PHARMA SA, par bail emphytéotique, un site industriel de 2 hectares à Sèmè-Podji, juste après la frontière de Kraké avec le NIGÉRIA.',
-        'Situé dans une zone économique spéciale, à proximité de Cotonou et de son port autonome, ce site accueillera l\'usine de solutions injectables de TILAMED Pharma.',
+        'Situé dans la zone industrielle de Sèmè-Podji, à proximité de Cotonou et de son port autonome, ce site accueillera l\'usine de solutions injectables de TILAMED Pharma.',
       ],
       [
         'Le 28 novembre 2024, l\'arrêté ministériel accordé par le Gouvernement de la RÉPUBLIQUE DU BÉNIN vient compléter les agréments obtenus au cours de l\'année.',
@@ -60,10 +60,10 @@ const fin = {
     lead: 'Journalistes : informations clés et contact presse.',
     briefTitle: 'TILAMED Pharma en bref',
     brief: [
-      'Société anonyme au capital de 1 000 000 000 FCFA, filiale Afrique de l\'Ouest basée à Cotonou (BÉNIN).',
+      'Société anonyme au capital de 1 000 000 000 FCFA, siège social à Cotonou (BÉNIN).',
       'Unité de production de solutions pharmaceutiques liquides aux normes de l\'OMS à Sèmè-Podji.',
       'Capacité prévue : 15 millions de solutés de grand volume et 35 millions d\'injectables de petit volume par an.',
-      '150 emplois directs, dont 70 % de postes techniques.',
+      '150 emplois directs prévus, dont 70 % de postes techniques.',
       'Certification green building EDGE en cours d\'obtention.',
       'Devise : « Plus près, plus sûr pour votre santé ».',
     ],
@@ -118,7 +118,7 @@ const fin = {
       lead: 'Informations sur l\'éditeur et l\'hébergement du site.',
       rows: {
         editor: 'Éditeur', capital: 'TILAMED PHARMA SA, société anonyme au capital de 1 000 000 000 FCFA',
-        hq: 'Siège Afrique de l\'Ouest', rccm: 'RCCM', ifu: 'IFU', phone: 'Téléphone', email: 'E-mail',
+        hq: 'Siège social', rccm: 'RCCM', ifu: 'IFU', phone: 'Téléphone', email: 'E-mail',
         director: 'Directeur de la publication', directorValue: 'Le directeur général de TILAMED PHARMA SA',
         host: 'Hébergeur',
       },

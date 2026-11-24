@@ -12,7 +12,7 @@ const aPropos: AProposDict = {
   facts: [
     { value: '2013', unit: '', label: 'SEDIS SARL 成立，2023 年更名为 TILAMED PHARMA SA' },
     { value: '10', unit: '亿西非法郎', label: '注册资本，股份有限公司' },
-    { value: '科托努', unit: '', label: '西非子公司总部' },
+    { value: '科托努', unit: '', label: '公司总部' },
     { value: '15', unit: '个国家', label: '覆盖西非国家' },
     { value: '4', unit: '大业务', label: '药品生产、医疗器械、医学检验、动物保健' },
   ],
@@ -24,7 +24,7 @@ const aPropos: AProposDict = {
       '公司于 2013 年以 SEDIS SARL 之名成立，在西非经销医疗器械；2023 年更名为 TILAMED PHARMA SA，现专注于工业化生产。',
       '我们位于塞梅-波吉的第一座工厂将生产大容量注射液：用于补液、补充葡萄糖和静脉给药的输液。',
     ],
-    countriesTitle: '我们网络中的九个国家',
+    countriesTitle: '我们的国际联系',
     cta: '我们的历程',
     imageAlt: '在制药实验室工作的科研人员',
   },

@@ -12,7 +12,7 @@ export const company = {
 
 export const offices = [
   { id: 'bj', country: 'BJ', city: 'Cotonou', address: ['Haie vive · Les Cocotiers', 'Cotonou'], phone: '+229 01 97 37 44 26', tel: '+2290197374426', hq: true },
-  { id: 'bf', country: 'BF', city: 'Ouagadougou', address: ['01 BP 1347', 'Ouagadougou 01'], phone: '+226 66 81 42 14', tel: '+22666814214' },
+  { id: 'bf', country: 'BF', city: 'Ouagadougou', address: ['Dassasgho, Ouagadougou', '01 BP 1347 Ouagadougou 01'], phone: '+226 66 81 42 14', tel: '+22666814214' },
   { id: 'fr', country: 'FR', city: 'Orgeval', address: ['136 chemin de la Cave', '78630 Orgeval'], phone: '+33 6 40 46 10 98', tel: '+33640461098' },
 ] as const;
 

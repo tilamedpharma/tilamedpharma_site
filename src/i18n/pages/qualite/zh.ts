@@ -11,9 +11,9 @@ const qualite: QualiteDict = {
       ],
       blocks: [
         { kind: 'cards', title: '我们遵循的标准', items: [
+          { title: 'WHO', text: '世界卫生组织的标准与指南。' },
           { title: 'ISO 9001 与 ISO 14001', text: '质量与环境管理体系目标认证。' },
-          { title: 'ABRP', text: '2023 年 5 月 16 日对工厂开办和运营许可出具积极意见。' },
-          { title: 'GDP', text: '仓储与配送遵循药品经营质量管理规范。' },
+          { title: 'EDGE', text: '国际金融公司绿色建筑认证申请中。' },
         ] },
         { kind: 'points', title: '药品质量体系', items: [
           '每个环节均有书面规程、人员培训和记录。',
@@ -21,6 +21,8 @@ const qualite: QualiteDict = {
           '对原料、包装材料和成品进行检验。',
           '每批产品由质量受权药师放行。',
           '偏差、投诉与召回管理。',
+          '仓储与配送遵循药品经营质量管理规范。',
+          'ABRP：2023 年 5 月 16 日对工厂开办和运营许可出具积极意见。',
         ] },
       ],
       note: '',

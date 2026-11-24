@@ -12,9 +12,9 @@ const pages: Record<string, Topic> = {
     ],
     blocks: [
       { kind: 'cards', title: 'Nos référentiels', items: [
+        { title: 'OMS', text: 'Normes et lignes directrices de l\'Organisation mondiale de la santé.' },
         { title: 'ISO 9001 et ISO 14001', text: 'Certifications visées pour la qualité et l\'environnement.' },
-        { title: 'ABRP', text: 'Avis favorable du 16 mai 2023 à l\'autorisation d\'ouverture et d\'exploitation.' },
-        { title: 'BPD', text: 'Bonnes pratiques de distribution pour nos entrepôts et nos livraisons.' },
+        { title: 'EDGE', text: 'Certification green building de l\'IFC en cours d\'obtention.' },
       ] },
       { kind: 'points', title: 'Un système qualité pharmaceutique', items: [
         'Procédures écrites, formation du personnel et enregistrements à chaque étape.',
@@ -22,6 +22,8 @@ const pages: Record<string, Topic> = {
         'Contrôle des matières premières, des articles de conditionnement et des produits finis.',
         'Libération de chaque lot par le pharmacien responsable.',
         'Gestion des écarts, des réclamations et des rappels.',
+        'Bonnes pratiques de distribution pour nos entrepôts et nos livraisons.',
+        'ABRP : avis favorable du 16 mai 2023 à l\'autorisation d\'ouverture et d\'exploitation.',
       ] },
     ],
     note: '',

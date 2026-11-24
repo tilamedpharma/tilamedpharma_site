@@ -12,7 +12,7 @@ const benin = {
   },
   facts: [
     { value: '100', unit: '%', label: 'des solutions injectables consommées au BÉNIN sont importées' },
-    { value: '0', unit: '', label: 'fabricant local de solutions pharmaceutiques liquides avant TILAMED' },
+    { value: '0', unit: '', label: 'fabricant local de solutions injectables avant TILAMED' },
     { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest à approvisionner depuis le BÉNIN' },
     { value: '400', unit: 'M +', label: 'd\'habitants en Afrique de l\'Ouest' },
   ],

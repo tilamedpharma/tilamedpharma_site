@@ -48,7 +48,7 @@ const parcours: ParcoursDict = {
         title: 'The site and the plant',
         items: [
           { date: '9 September 2025', title: 'The Sèmè-Podji site', text: 'The State of BENIN entrusts TILAMED PHARMA SA with a 2-hectare industrial site, under a long-term lease, in the Sèmè-Podji industrial zone on the Nigerian border.', ref: 'Long-term lease No. 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
-          { date: 'Today', title: 'Building the plant', text: 'TILAMED Pharma is preparing its injectable-solutions production unit in the Sèmè-Podji special economic zone.', state: 'now' },
+          { date: 'Today', title: 'Building the plant', text: 'TILAMED Pharma is preparing its injectable-solutions production unit in the Sèmè-Podji industrial zone.', state: 'now' },
           { date: 'Tomorrow', title: 'Commissioning', text: 'Start of production and recruitment of the first teams.', state: 'next' },
         ],
       },

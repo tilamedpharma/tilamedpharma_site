@@ -14,7 +14,7 @@ const presence: PresenceDict = {
     { value: '3', unit: 'escritórios', label: 'no BENIM, no BURKINA FASO e em FRANÇA' },
   ],
   map: {
-    legend: 'A partir da fábrica de Sèmè-Podji, as nossas rotas de abastecimento servem as capitais da sub-região.',
+    legend: 'A partir da fábrica de Sèmè-Podji, as nossas rotas de abastecimento servirão as capitais da sub-região.',
   },
   sites: {
     eyebrow: 'As nossas instalações',

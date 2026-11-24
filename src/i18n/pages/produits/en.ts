@@ -14,7 +14,7 @@ const produits: ProduitsDict = {
     medicaments: { meta: { title: 'Medicines · Products · TILAMED Pharma', description: 'Ampoule injectables, medicated solutions, injectable antibiotics, vaccines and sera, oral liquids.' }, lead: 'Ampoule injectables, antibiotics, vaccines and sera, oral liquids: a range rolled out in three production phases.' },
     'solutions-nutritionnelles': { meta: { title: 'Nutritional solutions · Products · TILAMED Pharma', description: 'Concentrated glucose and injectable or oral vitamins for calorie supply and correcting deficiencies.' }, lead: 'Concentrated glucose and vitamins, injectable or oral, for calorie supply and correcting deficiencies.' },
     'dispositifs-medicaux': { meta: { title: 'Medical devices · Products · TILAMED Pharma', description: 'Diagnosis, surgical instruments, sterilisation and equipment: the medical devices distributed by TILAMED Pharma.' }, lead: 'Diagnosis, surgical instruments, sterilisation and equipment: the medical devices we distribute.' },
-    'sante-animale': { meta: { title: 'Animal health · Products · TILAMED Pharma', description: 'Food, parasite control, care and medicines for dogs and cats: the upcoming TILAMED veterinary range.' }, lead: 'Food, parasite control, care and medicines for dogs and cats.' },
+    'sante-animale': { meta: { title: 'Animal health · Products · TILAMED Pharma', description: 'Food, parasite control, care and medicines for dogs and cats, distributed by our procurement centre.' }, lead: 'Food, parasite control, care and medicines for dogs and cats.' },
   },
   formats: {
     title: 'Bottles suited to every use',
@@ -34,10 +34,10 @@ const produits: ProduitsDict = {
   },
   phases: { title: 'A range rolled out in three phases', intro: 'Medicines enter production as lines open and regulatory authorisations are granted.' },
   devices: {
-    text: 'With long experience in supplying, installing and maintaining medical equipment in West Africa, TILAMED Pharma distributes a range of medical devices from CE-marked European manufacturers.',
+    text: 'With long experience in supplying, installing and maintaining medical equipment in West Africa, TILAMED Pharma distributes a range of CE-marked medical devices from recognised international manufacturers.',
     cta: 'For a quote, a list of references or a tender request, contact our sales department.',
   },
-  vet: { text: 'Our veterinary range is in preparation. The products will be available soon.', cta: 'Be notified of the launch' },
+  vet: { text: 'Veterinary products selected and distributed by our procurement centre. They will be available soon.', cta: 'Be notified of the launch' },
   doc: {
     meta: { title: 'Documentation request · TILAMED Pharma', description: 'Healthcare professionals and buyers: request technical information on TILAMED Pharma products.' },
     lead: 'Healthcare professionals and buyers: request technical information on our products.',

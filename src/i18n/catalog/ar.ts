@@ -28,7 +28,7 @@ const cat: CatalogDict = {
     iv: { badge: 'تشكيلة مقرّرة', note: 'صنع TILAMED · تشكيلة مقرّرة، غير معروضة للبيع' },
     liquids: { badge: 'قريبًا', note: 'صنع TILAMED · تشكيلة قادمة، رهن التراخيص' },
     devices: { badge: 'نوزّعه', note: 'توزيع · اتصلوا بنا' },
-    vet: { badge: 'متوفر قريبًا', note: 'التشكيلة البيطرية من TILAMED · متوفرة قريبًا' },
+    vet: { badge: 'متوفر قريبًا', note: 'توزيع · متوفر قريبًا' },
   },
   cats: {
     standard: 'محاليل أساسية', 'serum-special': 'محاليل خاصة', specific: 'محاليل دوائية', svp: 'حقن في أمبولات',

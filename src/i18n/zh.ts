@@ -10,7 +10,7 @@ const zh: Dict = {
     home: 'TILAMED Pharma 首页', play: '播放视频', pause: '暂停视频', prev: '上一个', next: '下一个',
   },
   slogan: 'Plus près, plus sûr pour votre santé',
-  page: { home: '首页', breadcrumb: '导航路径', inSection: '本栏目内容', illustration: '示意图片', step: '步骤', current: '当前页面' },
+  page: { home: '首页', breadcrumb: '导航路径', inSection: '本栏目内容', illustration: '示意图片', step: '步骤', current: '当前页面', otherCountry: '其他国家' },
   header: { cta: '联系我们', explore: '浏览本栏目' },
   nav: {
     sections: {
@@ -54,8 +54,8 @@ const zh: Dict = {
   },
   heroNet: {
     eyebrow: '我们的网络',
-    title: '贝宁制造，供应西非 15 个国家。',
-    lead: '从紧邻尼日利亚边境的塞梅-波吉出发，我们的注射液送达整个区域的采购中心、经销商和医院。',
+    title: '即将在贝宁生产，供应西非 15 个国家。',
+    lead: '从紧邻尼日利亚边境的塞梅-波吉出发，我们的注射液将送达整个区域的采购中心、经销商和医院。',
     count: '个覆盖国家',
     tabs: ['我们的工厂', '我们的网络'],
     label: '轮播展示',
@@ -75,14 +75,14 @@ const zh: Dict = {
   },
   chain: {
     eyebrow: '我们的分销链', title: '从塞梅-波吉到患者',
-    intro: '短、快、可追溯的供应链：我们的产品在贝宁生产，不到一个月即可送达患者。',
+    intro: '短、快、可追溯的供应链：我们的产品将在贝宁生产，不到一个月即可送达整个次区域的患者。',
     label: '三步分销链',
     steps: [
       { title: '塞梅-波吉工厂', text: '在贝宁生产和检验' },
       { title: '采购中心、批发商和分销商', text: '地区公共合作社、私营批发商及其他分销商' },
       { title: '患者', text: '不到一个月即可获得治疗' },
     ],
-    badge: { strong: '不到一个月', text: '从我们的工厂到患者' },
+    badge: { strong: '不到一个月', text: '从我们的工厂到整个次区域的患者' },
     cta: '了解我们的分销',
   },
   impact: {
@@ -92,7 +92,7 @@ const zh: Dict = {
     band: [
       { value: '1500', plus: '', unit: '万', text: '大容量注射剂' },
       { value: '3500', plus: '', unit: '万', text: '小容量注射剂' },
-      { value: '150', plus: '', unit: '个直接就业岗位', text: '70% 技术岗位，30% 行政岗位' },
+      { value: '150', plus: '', unit: '个直接就业岗位', text: '规划岗位 · 70% 技术岗位，30% 行政岗位' },
       { value: '2', plus: '', unit: '公顷', text: '塞梅-波吉工业用地' },
       { value: '15', plus: '', unit: '个国家', text: '西非国家' },
       { value: '13', plus: '+', unit: '年', text: '医疗健康行业经验' },
@@ -104,8 +104,8 @@ const zh: Dict = {
       cta: '加入我们',
     },
     capacity: {
-      title: '年产能',
-      sub: '塞梅-波吉工厂每年生产的注射剂',
+      title: '规划年产能',
+      sub: '塞梅-波吉工厂计划每年生产的注射剂',
       items: [
         { value: '1500', unit: '万', code: 'LVP', label: '大容量注射剂：输液袋与输液瓶' },
         { value: '3500', unit: '万', code: 'SVP', label: '小容量注射剂：安瓿与西林瓶' },
@@ -175,7 +175,7 @@ const zh: Dict = {
     statLabel: '贝宁使用的注射液全部依赖进口',
     text: '医院依赖远距离进口，交货周期长，断供风险高。本地生产将为患者、医护人员和经济带来根本改变。',
     items: [
-      { title: '库存近在咫尺', text: '数小时内为医院和采购中心供货，杜绝断货。' },
+      { title: '库存近在咫尺', text: '在贝宁，数小时内为医院和采购中心供货，杜绝断货。' },
       { title: '全程可追溯', text: '每一批次从工厂到患者全程追踪，打击假药。' },
       { title: '价格可负担', text: '运输和仓储更少，价格贴合本地购买力。' },
       { title: '本地人才', text: '提供高技能岗位，并为贝宁技术人员开展技能转移。' },
@@ -247,8 +247,8 @@ const zh: Dict = {
   },
   presence: {
     eyebrow: '业务布局',
-    title: '贝宁制造，供应西非',
-    intro: '我们位于尼日利亚边境的塞梅-波吉工厂为区域内十五个国家供货，并在贝宁、布基纳法索和法国设有办事处。',
+    title: '即将在贝宁生产，供应整个西非',
+    intro: '我们位于尼日利亚边境的塞梅-波吉工厂将为区域内十五个国家供货，我们在贝宁、布基纳法索和法国设有办事处。',
     plant: 'TILAMED Pharma 工厂',
     plantPlace: '贝宁 · 塞梅-波吉',
     legendCovered: '覆盖国家',

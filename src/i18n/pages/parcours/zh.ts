@@ -48,7 +48,7 @@ const parcours: ParcoursDict = {
         title: '厂址与工厂',
         items: [
           { date: '2025 年 9 月 9 日', title: '塞梅-波吉厂址', text: '贝宁政府以长期租赁方式将塞梅-波吉工业区内一块 2 公顷的工业用地交予 TILAMED PHARMA SA，紧邻尼日利亚边境。', ref: '长期租赁合同第 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S 号' },
-          { date: '今天', title: '建设工厂', text: 'TILAMED Pharma 正在塞梅-波吉经济特区筹建注射液生产车间。', state: 'now' },
+          { date: '今天', title: '建设工厂', text: 'TILAMED Pharma 正在塞梅-波吉工业区筹建注射液生产车间。', state: 'now' },
           { date: '明天', title: '投产运营', text: '启动生产并招聘首批团队。', state: 'next' },
         ],
       },

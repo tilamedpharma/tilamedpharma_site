@@ -28,7 +28,7 @@ const cat: CatalogDict = {
     iv: { badge: 'Planned range', note: 'Made by TILAMED · planned range, not yet for sale' },
     liquids: { badge: 'Upcoming', note: 'Made by TILAMED · upcoming range, subject to authorisation' },
     devices: { badge: 'Distributed', note: 'Distribution · contact us' },
-    vet: { badge: 'Coming soon', note: 'TILAMED veterinary range · coming soon' },
+    vet: { badge: 'Coming soon', note: 'Distribution · coming soon' },
   },
   cats: {
     standard: 'Basic fluids', 'serum-special': 'Specific solutions', specific: 'Medicated solutions', svp: 'Ampoule injectables',

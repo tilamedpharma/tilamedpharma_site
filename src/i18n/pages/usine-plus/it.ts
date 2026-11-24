@@ -2,7 +2,7 @@ import type { Topic } from './fr';
 
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
-    meta: { title: 'Il sito di Sèmè-Podji · Il nostro stabilimento · TILAMED Pharma', description: 'Un sito industriale di 2 ettari a Sèmè-Podji, vicino alla frontiera di Kraké, a Cotonou e al suo porto, in una zona economica speciale.' },
+    meta: { title: 'Il sito di Sèmè-Podji · Il nostro stabilimento · TILAMED Pharma', description: 'Un sito di 2 ettari nella zona industriale di Sèmè-Podji, vicino alla frontiera di Kraké, a Cotonou e al suo porto.' },
     lead: 'Un sito di 2 ettari, subito dopo la frontiera di Kraké, tra Cotonou e la NIGERIA.',
     intro: '',
     facts: [
@@ -13,9 +13,9 @@ const pages: Record<string, Topic> = {
         'Nel comune di Sèmè-Podji, dipartimento dell\'Ouémé, nel sud del BENIN.',
         'A ridosso della frontiera di Kraké, principale punto di passaggio verso la NIGERIA.',
         'Vicino a Cotonou e al suo porto autonomo, che gestisce la maggior parte degli scambi del paese.',
-        'All\'interno di una zona economica speciale con vantaggi doganali e fiscali.',
+        'Nella zona industriale di Sèmè-Podji.',
       ] },
-      { kind: 'cards', title: 'L\'organizzazione del sito', text: 'Il sito separa chiaramente le zone pulite dalle zone generali.', items: [
+      { kind: 'cards', title: 'L\'organizzazione del sito', text: 'Il sito separerà chiaramente le zone pulite dalle zone generali.', items: [
         { title: 'Edificio di produzione', text: 'Le linee di fabbricazione, in zone ad atmosfera controllata.' },
         { title: 'Ricevimento e quarantena', text: 'Le materie prime attendono qui il controllo prima dell\'uso.' },
         { title: 'Laboratorio', text: 'Il controllo qualità di materie, acque e lotti.' },
@@ -28,7 +28,7 @@ const pages: Record<string, Topic> = {
   },
   'salles-propres': {
     meta: { title: 'Camere bianche · Il nostro stabilimento · TILAMED Pharma', description: 'Zone di grado C e protezione di grado A nel punto di riempimento: filtrazione HEPA, cascata di pressione, materiali lisci e monitoraggio continuo.' },
-    lead: 'Le fasi critiche si svolgono in un ambiente ad atmosfera controllata.',
+    lead: 'Le fasi critiche si svolgeranno in un ambiente ad atmosfera controllata.',
     intro: 'La fabbricazione delle soluzioni iniettabili è protetta in zone di grado C, con una protezione di grado A nel punto di riempimento, in conformità con le buone pratiche di fabbricazione.',
     facts: [
       { value: 'C', unit: '', label: 'Grado delle zone di fabbricazione' },

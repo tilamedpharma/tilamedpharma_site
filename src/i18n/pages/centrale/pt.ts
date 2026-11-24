@@ -24,7 +24,7 @@ const centrale: CentraleDict = {
       'A nossa central de compras tem como missão o abastecimento, o armazenamento e a distribuição por grosso de produtos de saúde, garantindo que são vendidos a preços acessíveis à população.',
     ],
     duo: [
-      { title: 'Fabricar', text: 'Soluções injetáveis produzidas na nossa fábrica de Sèmè-Podji.' },
+      { title: 'Fabricar', text: 'Soluções injetáveis que serão produzidas na nossa fábrica de Sèmè-Podji.' },
       { title: 'Comprar e distribuir', text: 'Produtos de saúde selecionados junto de grandes fabricantes internacionais.' },
     ],
     badge: 'Distribuidor autorizado de dispositivos médicos',
@@ -35,7 +35,7 @@ const centrale: CentraleDict = {
     title: 'Cinco gamas de produtos de saúde',
     intro: 'Abastecemos as unidades de saúde públicas e privadas, os estabelecimentos farmacêuticos e os serviços de saúde, para a medicina humana e veterinária.',
     items: [
-      { title: 'Medicamentos genéricos', text: 'Medicamentos essenciais de qualidade, incluindo as nossas próprias soluções injetáveis.' },
+      { title: 'Medicamentos genéricos', text: 'Medicamentos essenciais de qualidade e, em breve, as nossas próprias soluções injetáveis.' },
       { title: 'Dispositivos médicos', text: 'Diagnóstico, cirurgia, esterilização e equipamentos, com instalação e manutenção.' },
       { title: 'Laboratório', text: 'Reagentes, consumíveis e equipamentos para laboratórios de análises.' },
       { title: 'Saúde animal', text: 'Insumos veterinários, alimentação, antiparasitários e cuidados.' },

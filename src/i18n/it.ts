@@ -2,7 +2,7 @@ import type { Dict } from './fr';
 
 const it: Dict = {
   meta: {
-    title: 'TILAMED Pharma · Laboratorio farmaceutico in BENIN, conforme agli standard OMS',
+    title: 'TILAMED Pharma · Industria farmaceutica in BENIN, standard OMS',
     description: 'TILAMED PHARMA SA costruisce a Sèmè-Podji (BENIN) uno stabilimento farmaceutico di nuova generazione: soluzioni per infusione, farmaci iniettabili, nutrizione, dispositivi medici e salute animale, conformi agli standard OMS e a prezzi accessibili.',
   },
   a11y: {
@@ -10,7 +10,7 @@ const it: Dict = {
     home: 'Home TILAMED Pharma', play: 'Riproduci il video', pause: 'Metti in pausa il video', prev: 'Precedente', next: 'Successivo',
   },
   slogan: 'Plus près, plus sûr pour votre santé',
-  page: { home: 'Home', breadcrumb: 'Percorso di navigazione', inSection: 'In questa sezione', illustration: 'Immagini illustrative', step: 'Fase', current: 'Sei qui' },
+  page: { home: 'Home', breadcrumb: 'Percorso di navigazione', inSection: 'In questa sezione', illustration: 'Immagini illustrative', step: 'Fase', current: 'Sei qui', otherCountry: 'Altro paese' },
   header: { cta: 'Contattaci', explore: 'Esplora la sezione' },
   nav: {
     sections: {
@@ -54,8 +54,8 @@ const it: Dict = {
   },
   heroNet: {
     eyebrow: 'La nostra rete',
-    title: 'Prodotto in BENIN, distribuito in 15 paesi dell\'Africa occidentale.',
-    lead: 'Da Sèmè-Podji, al confine con la NIGERIA, le nostre soluzioni iniettabili raggiungono centrali d\'acquisto, distributori e ospedali di tutta la regione.',
+    title: 'Presto prodotto in BENIN, per 15 paesi dell\'Africa occidentale.',
+    lead: 'Da Sèmè-Podji, al confine con la NIGERIA, le nostre soluzioni iniettabili raggiungeranno centrali d\'acquisto, distributori e ospedali di tutta la regione.',
     count: 'paesi coperti',
     tabs: ['Il nostro stabilimento', 'La nostra rete'],
     label: 'Presentazione',
@@ -75,14 +75,14 @@ const it: Dict = {
   },
   chain: {
     eyebrow: 'La nostra catena distributiva', title: 'Da Sèmè-Podji al paziente',
-    intro: 'Un circuito corto, rapido e tracciabile: prodotte in BENIN, le nostre soluzioni arrivano ai pazienti in meno di un mese.',
+    intro: 'Un circuito corto, rapido e tracciabile: prodotte in BENIN, le nostre soluzioni arriveranno ai pazienti di tutta la sottoregione in meno di un mese.',
     label: 'Catena distributiva in tre fasi',
     steps: [
       { title: 'Stabilimento di Sèmè-Podji', text: 'Prodotto e controllato in BENIN' },
       { title: 'Centrali d\'acquisto, grossisti e distributori', text: 'Cooperative pubbliche regionali, grossisti privati e altri distributori' },
       { title: 'Pazienti', text: 'Curati in meno di un mese' },
     ],
-    badge: { strong: 'Meno di un mese', text: 'dal nostro stabilimento al paziente' },
+    badge: { strong: 'Meno di un mese', text: 'dal nostro stabilimento al paziente, in tutta la sottoregione' },
     cta: 'Scopri la nostra distribuzione',
   },
   impact: {
@@ -92,7 +92,7 @@ const it: Dict = {
     band: [
       { value: '15', plus: '', unit: 'milioni', text: 'di soluzioni di grande volume' },
       { value: '35', plus: '', unit: 'milioni', text: 'di iniettabili di piccolo volume' },
-      { value: '150', plus: '', unit: 'impieghi diretti', text: '70 % tecnici, 30 % amministrativi' },
+      { value: '150', plus: '', unit: 'impieghi diretti', text: 'previsti · 70 % tecnici, 30 % amministrativi' },
       { value: '2', plus: '', unit: 'ettari', text: 'di sito industriale a Sèmè-Podji' },
       { value: '15', plus: '', unit: 'paesi', text: 'dell\'Africa occidentale' },
       { value: '13', plus: '+', unit: 'anni', text: 'di esperienza nella sanità' },
@@ -104,8 +104,8 @@ const it: Dict = {
       cta: 'Unisciti al team',
     },
     capacity: {
-      title: 'Capacità produttiva annua',
-      sub: 'Soluzioni iniettabili prodotte a Sèmè-Podji, all\'anno',
+      title: 'Capacità produttiva annua prevista',
+      sub: 'Soluzioni iniettabili che saranno prodotte a Sèmè-Podji, all\'anno',
       items: [
         { value: '15', unit: 'milioni', code: 'LVP', label: 'Parenterali di grande volume: sacche e flaconi per infusione' },
         { value: '35', unit: 'milioni', code: 'SVP', label: 'Parenterali di piccolo volume: fiale e flaconcini' },
@@ -175,7 +175,7 @@ const it: Dict = {
     statLabel: 'delle soluzioni iniettabili usate in BENIN sono importate',
     text: 'Gli ospedali dipendono da importazioni lontane, con tempi lunghi e rischi di carenza. Produrre sul posto cambia tutto per i pazienti, gli operatori sanitari e l\'economia.',
     items: [
-      { title: 'Scorte a portata di mano', text: 'Rifornire ospedali e centrali d\'acquisto in poche ore, senza carenze.' },
+      { title: 'Scorte a portata di mano', text: 'In BENIN, rifornire ospedali e centrali d\'acquisto in poche ore, senza carenze.' },
       { title: 'Tracciabilità completa', text: 'Ogni lotto seguito dallo stabilimento al paziente, contro i farmaci falsificati.' },
       { title: 'Prezzi accessibili', text: 'Meno trasporto e stoccaggio, prezzi pensati per il potere d\'acquisto locale.' },
       { title: 'Competenze locali', text: 'Posti di lavoro qualificati e un trasferimento di competenze per i tecnici beninesi.' },
@@ -247,8 +247,8 @@ const it: Dict = {
   },
   presence: {
     eyebrow: 'Dove operiamo',
-    title: 'Prodotto in BENIN, distribuito in Africa occidentale',
-    intro: 'Dal nostro stabilimento di Sèmè-Podji, al confine con la NIGERIA, riforniamo quindici paesi della regione, con uffici in BENIN, BURKINA FASO e FRANCIA.',
+    title: 'Presto prodotto in BENIN, per tutta l\'Africa occidentale',
+    intro: 'Dal nostro stabilimento di Sèmè-Podji, al confine con la NIGERIA, riforniremo quindici paesi della regione, con uffici in BENIN, BURKINA FASO e FRANCIA.',
     plant: 'Stabilimento TILAMED Pharma',
     plantPlace: 'Sèmè-Podji · BENIN',
     legendCovered: 'Paesi coperti',

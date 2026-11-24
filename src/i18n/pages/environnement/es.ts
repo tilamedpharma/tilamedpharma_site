@@ -23,7 +23,7 @@ const environnement: EnvDict = {
   levers: {
     eyebrow: 'Nuestras palancas',
     title: 'Seis palancas para reducir nuestra huella',
-    intro: 'Aspiramos a la certificación ISO 14001 de gestión ambiental. Nuestro emplazamiento se ubica en una zona económica especial concebida para cumplir normas ambientales y sociales exigentes.',
+    intro: 'Aspiramos a la certificación ISO 14001 para la gestión ambiental de nuestra planta de Sèmè-Podji.',
   },
   certs: {
     eyebrow: 'Certificaciones',

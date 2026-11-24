@@ -48,7 +48,7 @@ const parcours: ParcoursDict = {
         title: 'O terreno e a fábrica',
         items: [
           { date: '9 de setembro de 2025', title: 'O terreno de Sèmè-Podji', text: 'O Estado beninense confia à TILAMED PHARMA SA um terreno industrial de 2 hectares, por arrendamento enfitêutico, na zona industrial de Sèmè-Podji, na fronteira com a NIGÉRIA.', ref: 'Arrendamento enfitêutico N.º 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
-          { date: 'Hoje', title: 'A construção da fábrica', text: 'A TILAMED Pharma prepara a sua unidade de produção de soluções injetáveis na zona económica especial de Sèmè-Podji.', state: 'now' },
+          { date: 'Hoje', title: 'A construção da fábrica', text: 'A TILAMED Pharma prepara a sua unidade de produção de soluções injetáveis na zona industrial de Sèmè-Podji.', state: 'now' },
           { date: 'Amanhã', title: 'A entrada em funcionamento', text: 'Início da produção e recrutamento das primeiras equipas.', state: 'next' },
         ],
       },

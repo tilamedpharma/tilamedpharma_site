@@ -23,7 +23,7 @@ const environnement: EnvDict = {
   levers: {
     eyebrow: '我们的举措',
     title: '六大举措，减少环境足迹',
-    intro: '我们以获得 ISO 14001 环境管理体系认证为目标。厂址位于经济特区内，该特区按照严格的环境与社会标准规划。',
+    intro: '我们以塞梅-波吉工厂获得 ISO 14001 环境管理体系认证为目标。',
   },
   certs: {
     eyebrow: '认证',

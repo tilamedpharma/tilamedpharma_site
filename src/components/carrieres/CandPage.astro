@@ -32,7 +32,7 @@ const countries = [...coverage.map((x) => x.iso), 'FR'].map((iso) => ({ iso, nam
         <div class="form__row">
           <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="nom" required autocomplete="name" /></label>
           <label class="field"><span>{f.country}</span>
-            <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}</select>
+            <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}<option value="XX">{t.page.otherCountry}</option></select>
           </label>
         </div>
         <div class="form__row">

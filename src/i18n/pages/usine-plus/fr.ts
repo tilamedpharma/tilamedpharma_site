@@ -13,7 +13,7 @@ export type Topic = {
 
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
-    meta: { title: 'Le site de Sèmè-Podji · Notre usine · TILAMED Pharma', description: 'Un site industriel de 2 hectares à Sèmè-Podji, près de la frontière de Kraké, de Cotonou et de son port, dans une zone économique spéciale.' },
+    meta: { title: 'Le site de Sèmè-Podji · Notre usine · TILAMED Pharma', description: 'Un site de 2 hectares dans la zone industrielle de Sèmè-Podji, près de la frontière de Kraké, de Cotonou et de son port.' },
     lead: 'Un site de 2 hectares, juste après la frontière de Kraké, entre Cotonou et le NIGÉRIA.',
     intro: '',
     facts: [
@@ -24,9 +24,9 @@ const pages: Record<string, Topic> = {
         'Dans la commune de Sèmè-Podji, département de l\'Ouémé, au sud du BÉNIN.',
         'À proximité immédiate de la frontière de Kraké, principal point de passage vers le NIGÉRIA.',
         'Près de Cotonou et de son port autonome, qui assure l\'essentiel des échanges commerciaux du pays.',
-        'Au sein d\'une zone économique spéciale offrant des avantages douaniers et fiscaux.',
+        'Dans la zone industrielle de Sèmè-Podji.',
       ] },
-      { kind: 'cards', title: 'L\'organisation du site', text: 'Le site sépare clairement les zones propres des zones générales.', items: [
+      { kind: 'cards', title: 'L\'organisation du site', text: 'Le site séparera clairement les zones propres des zones générales.', items: [
         { title: 'Bâtiment de production', text: 'Les lignes de fabrication, en zones à atmosphère contrôlée.' },
         { title: 'Réception et quarantaine', text: 'Les matières premières y attendent leur contrôle avant utilisation.' },
         { title: 'Laboratoire', text: 'Le contrôle qualité des matières, des eaux et des lots.' },
@@ -39,7 +39,7 @@ const pages: Record<string, Topic> = {
   },
   'salles-propres': {
     meta: { title: 'Salles propres · Notre usine · TILAMED Pharma', description: 'Zones de classe C et protection de classe A au point de remplissage : filtration HEPA, cascade de pression, matériaux lisses et surveillance continue.' },
-    lead: 'Les étapes critiques se déroulent dans un environnement à atmosphère contrôlée.',
+    lead: 'Les étapes critiques se dérouleront dans un environnement à atmosphère contrôlée.',
     intro: 'La fabrication des solutions injectables est protégée dans des zones de classe C, avec une protection de classe A au point de remplissage, conformément aux bonnes pratiques de fabrication.',
     facts: [
       { value: 'C', unit: '', label: 'Classe des zones de fabrication' },

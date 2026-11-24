@@ -48,7 +48,7 @@ const parcours: ParcoursDict = {
         title: 'Il sito e lo stabilimento',
         items: [
           { date: '9 settembre 2025', title: 'Il sito di Sèmè-Podji', text: 'Lo Stato beninese affida a TILAMED PHARMA SA un sito industriale di 2 ettari, in enfiteusi, nella zona industriale di Sèmè-Podji, al confine con la NIGERIA.', ref: 'Contratto di enfiteusi n. 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
-          { date: 'Oggi', title: 'La costruzione dello stabilimento', text: 'TILAMED Pharma prepara la sua unità di produzione di soluzioni iniettabili nella zona economica speciale di Sèmè-Podji.', state: 'now' },
+          { date: 'Oggi', title: 'La costruzione dello stabilimento', text: 'TILAMED Pharma prepara la sua unità di produzione di soluzioni iniettabili nella zona industriale di Sèmè-Podji.', state: 'now' },
           { date: 'Domani', title: 'L\'avvio', text: 'Inizio della produzione e assunzione dei primi team.', state: 'next' },
         ],
       },

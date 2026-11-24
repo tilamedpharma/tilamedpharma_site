@@ -7,7 +7,7 @@ const fin: FinDict = {
     bodies: [
       [
         'O Estado beninense confia à TILAMED PHARMA SA, por arrendamento enfitêutico, um local industrial de 2 hectares em Sèmè-Podji, logo após a fronteira de Kraké com a NIGÉRIA.',
-        'Situado numa zona económica especial, perto de Cotonou e do seu porto autónomo, este local acolherá a fábrica de soluções injetáveis da TILAMED Pharma.',
+        'Situado na zona industrial de Sèmè-Podji, perto de Cotonou e do seu porto autónomo, este local acolherá a fábrica de soluções injetáveis da TILAMED Pharma.',
       ],
       [
         'A 28 de novembro de 2024, o despacho ministerial concedido pelo Governo da REPÚBLICA DO BENIM vem completar as autorizações obtidas ao longo do ano.',
@@ -31,7 +31,7 @@ const fin: FinDict = {
     pressCta: 'Jornalistas: espaço imprensa',
   },
   media: {
-    meta: { title: 'Mediateca · TILAMED Pharma', description: 'Fotos da TILAMED Pharma: visitas a fábricas, equipas, feiras internacionais e imagens ilustrativas do processo.' },
+    meta: { title: 'Galeria multimédia · TILAMED Pharma', description: 'Fotos da TILAMED Pharma: visitas a fábricas, equipas, feiras internacionais e imagens ilustrativas do processo.' },
     lead: 'Fotos e vídeos da TILAMED Pharma.',
     photosTitle: 'As nossas fotos',
     photosIntro: 'Visitas, equipas e feiras internacionais. Mais fotos e vídeos do nosso local serão publicados aqui.',
@@ -58,10 +58,10 @@ const fin: FinDict = {
     lead: 'Jornalistas: informações essenciais e contacto de imprensa.',
     briefTitle: 'A TILAMED Pharma em resumo',
     brief: [
-      'Sociedade anónima com capital de 1 000 000 000 FCFA, filial da África Ocidental sediada em Cotonou (BENIM).',
+      'Sociedade anónima com capital de 1 000 000 000 FCFA, com sede social em Cotonou (BENIM).',
       'Unidade de produção de soluções farmacêuticas líquidas segundo as normas da OMS em Sèmè-Podji.',
       'Capacidade prevista: 15 milhões de soluções de grande volume e 35 milhões de injetáveis de pequeno volume por ano.',
-      '150 empregos diretos, 70 % dos quais técnicos.',
+      '150 empregos diretos previstos, 70 % dos quais técnicos.',
       'Certificação de edifício verde EDGE em curso.',
       'Lema: «Plus près, plus sûr pour votre santé» (Mais perto, mais seguro para a sua saúde).',
     ],
@@ -116,7 +116,7 @@ const fin: FinDict = {
       lead: 'Informações sobre o editor e o alojamento do site.',
       rows: {
         editor: 'Editor', capital: 'TILAMED PHARMA SA, sociedade anónima com capital de 1 000 000 000 FCFA',
-        hq: 'Sede da África Ocidental', rccm: 'RCCM', ifu: 'IFU (número fiscal)', phone: 'Telefone', email: 'E-mail',
+        hq: 'Sede social', rccm: 'RCCM', ifu: 'IFU (número fiscal)', phone: 'Telefone', email: 'E-mail',
         director: 'Diretor da publicação', directorValue: 'O diretor-geral da TILAMED PHARMA SA',
         host: 'Alojamento',
       },
@@ -138,7 +138,7 @@ const fin: FinDict = {
       ],
     },
     cookies: {
-      meta: { title: 'Política de cookies · TILAMED Pharma', description: 'O site TILAMED Pharma não utiliza cookies publicitários nem ferramentas de rastreio.' },
+      meta: { title: 'Política de utilização de cookies · TILAMED Pharma', description: 'O site TILAMED Pharma não utiliza cookies publicitários nem ferramentas de rastreio.' },
       lead: 'Este site não utiliza cookies publicitários nem de rastreio.',
       sections: [
         { title: 'Nenhum rastreador', text: ['Este site não instala nenhum cookie publicitário e não utiliza qualquer ferramenta de medição de audiência. O idioma é escolhido através do endereço da página: nada é guardado no seu navegador para o seguir.', 'Os tipos de letra e as imagens são alojados com o site: nenhum dado é transmitido a serviços de terceiros durante a sua visita.'] },

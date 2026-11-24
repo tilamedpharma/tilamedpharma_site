@@ -28,7 +28,7 @@ const cat: CatalogDict = {
     iv: { badge: '计划产品', note: 'TILAMED 生产 · 计划产品，尚未上市销售' },
     liquids: { badge: '即将推出', note: 'TILAMED 生产 · 后续产品，须经审批' },
     devices: { badge: '代理经销', note: '经销产品 · 欢迎垂询' },
-    vet: { badge: '即将上市', note: 'TILAMED 兽用产品 · 即将上市' },
+    vet: { badge: '即将上市', note: '经销产品 · 即将上市' },
   },
   cats: {
     standard: '基础输液', 'serum-special': '特殊溶液', specific: '含药溶液', svp: '安瓿注射剂',

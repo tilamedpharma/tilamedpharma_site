@@ -89,3 +89,14 @@ Pas de bloc « navigation de rubrique » ni de portail d'aide en bas de page (re
 6. ~~**Carte**~~ ✅ 18/11 : pourquoi-le-benin n'a plus la carte Afrique de l'Ouest → schéma du corridor côtier Abidjan – Lagos (Abidjan, Accra, Lomé, Cotonou · port, Sèmè-Podji · usine, frontière, Lagos ; bande « Océan Atlantique »), horizontal ou vertical selon la largeur (container query). Cartes restantes : presence (carte détaillée, maison), accueil (slider), mini-carte du site (accueil, site-seme-podji, bureaux).
 7. **metiers** : retirer « L'équipe de direction ».
 8. **Qualité** : statut des certifications uniquement sur certifications ; étoffer/fusionner les pages minces.
+
+### Audit du 24/11/2026 (décisions QCM)
+- Usine = **en travaux** : tout ce qui affirme une production actuelle passe au futur / « prévu » (accueil réseau, chaîne, capacité « prévue », 150 emplois « prévus » ; usine, salles propres, site, traitement de l'eau, contrôle à 100 % ; centrale d'achat ; présence ; vision ; presse ; carrières). Le texte « procédé » des étapes reste descriptif.
+- Délais : « quelques heures » = au BÉNIN ; « moins d'un mois » = sous-région.
+- Site de Sèmè-Podji = **zone industrielle** (plus « zone économique spéciale ») ; Cotonou = **siège social** (plus « filiale Afrique de l'Ouest »).
+- Référentiels harmonisés partout : OMS · ISO · EDGE (page Qualité alignée ; ABRP et BPD dans la liste « système qualité »).
+- Santé animale = produits **distribués** par la centrale d'achat (plus « gamme vétérinaire TILAMED »).
+- Dispositifs médicaux : « fabricants internationaux reconnus » (AEONMED n'est pas européen).
+- Pourquoi le BÉNIN : « 0 fabricant local de solutions **injectables** ».
+- À propos : bloc des 9 pays = « Nos liens à l'international » ; Ouagadougou = Dassasgho + BP.
+- Laissés en l'état à la demande de l'utilisateur : logos « Ils nous font déjà confiance » et noms de clients (page Clients), mentions OMS, vaccins/sérums phase 3, formats 250/1000 ml, autorité du certificat environnemental, vidéo d'accueil (poches).

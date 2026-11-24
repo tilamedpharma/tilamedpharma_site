@@ -48,7 +48,7 @@ const parcours: ParcoursDict = {
         title: 'El emplazamiento y la planta',
         items: [
           { date: '9 de septiembre de 2025', title: 'El emplazamiento de Sèmè-Podji', text: 'El Estado beninés confía a TILAMED PHARMA SA un emplazamiento industrial de 2 hectáreas, mediante arrendamiento enfitéutico, en la zona industrial de Sèmè-Podji, en la frontera con NIGERIA.', ref: 'Arrendamiento enfitéutico N.º 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
-          { date: 'Hoy', title: 'La construcción de la planta', text: 'TILAMED Pharma prepara su unidad de producción de soluciones inyectables en la zona económica especial de Sèmè-Podji.', state: 'now' },
+          { date: 'Hoy', title: 'La construcción de la planta', text: 'TILAMED Pharma prepara su unidad de producción de soluciones inyectables en la zona industrial de Sèmè-Podji.', state: 'now' },
           { date: 'Mañana', title: 'La puesta en marcha', text: 'Inicio de la producción y contratación de los primeros equipos.', state: 'next' },
         ],
       },

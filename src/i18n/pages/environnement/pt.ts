@@ -2,7 +2,7 @@ import type { EnvDict } from './fr';
 
 const environnement: EnvDict = {
   meta: {
-    title: 'Ambiente · TILAMED Pharma',
+    title: 'Meio ambiente · TILAMED Pharma',
     description: 'Uma fábrica pensada para limitar o seu impacto: certificação EDGE em curso, ISO 14001 como objetivo, água, energia, materiais, resíduos e transporte.',
   },
   hero: {
@@ -23,7 +23,7 @@ const environnement: EnvDict = {
   levers: {
     eyebrow: 'As nossas alavancas',
     title: 'Seis alavancas para reduzir a nossa pegada',
-    intro: 'Visamos a certificação ISO 14001 de gestão ambiental. O nosso terreno situa-se numa zona económica especial concebida para cumprir normas ambientais e sociais exigentes.',
+    intro: 'Visamos a certificação ISO 14001 para a gestão ambiental da nossa fábrica de Sèmè-Podji.',
   },
   certs: {
     eyebrow: 'Certificações',

@@ -11,7 +11,7 @@ const benin: BeninDict = {
   },
   facts: [
     { value: '100', unit: '%', label: '贝宁使用的注射液依赖进口' },
-    { value: '0', unit: '', label: 'TILAMED 之前的本地液体药品生产商' },
+    { value: '0', unit: '', label: 'TILAMED 之前的本地注射液生产商' },
     { value: '15', unit: '个国家', label: '可从贝宁供应的西非国家' },
     { value: '4', unit: '亿以上', label: '西非人口' },
   ],

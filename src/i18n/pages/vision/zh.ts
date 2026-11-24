@@ -13,7 +13,7 @@ const vision: VisionDict = {
   motto: {
     eyebrow: '我们的座右铭',
     translation: '更近，更安全，守护您的健康',
-    near: { title: '更近', text: '我们的产品在使用它们的医院附近生产：交货更快，断货更少。' },
+    near: { title: '更近', text: '我们的产品将在使用它们的医院附近生产：交货更快，断货更少。' },
     safe: { title: '更安全', text: '每一批产品均按照药品生产质量管理规范生产和检验，并全程追溯至交付。' },
   },
   vision: {

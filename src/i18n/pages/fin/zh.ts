@@ -7,7 +7,7 @@ const fin: FinDict = {
     bodies: [
       [
         '贝宁政府以长期租赁方式，将塞梅-波吉一块 2 公顷的工业用地交由 TILAMED PHARMA SA 使用，该地紧邻与尼日利亚交界的克拉凯口岸。',
-        '该厂址位于经济特区内，靠近科托努及其自治港，将建设 TILAMED Pharma 注射液工厂。',
+        '该厂址位于塞梅-波吉工业区，靠近科托努及其自治港，将建设 TILAMED Pharma 注射液工厂。',
       ],
       [
         '2024 年 11 月 28 日，贝宁共和国政府颁发的部长令补齐了公司年内获得的各项批准。',
@@ -58,10 +58,10 @@ const fin: FinDict = {
     lead: '媒体：关键信息与媒体联络。',
     briefTitle: 'TILAMED Pharma 概况',
     brief: [
-      '股份有限公司，注册资本 10 亿西非法郎，西非子公司总部设在贝宁科托努。',
+      '股份有限公司，注册资本 10 亿西非法郎，总部设在贝宁科托努。',
       '位于塞梅-波吉、按世卫组织标准建设的液体药品生产工厂。',
       '计划产能：每年 1500 万大容量注射液和 3500 万小容量注射剂。',
-      '150 个直接就业岗位，其中 70% 为技术岗位。',
+      '计划创造 150 个直接就业岗位，其中 70% 为技术岗位。',
       'EDGE 绿色建筑认证申请中。',
       '口号：“Plus près, plus sûr pour votre santé”（更近，更安全，守护您的健康）。',
     ],
@@ -116,7 +116,7 @@ const fin: FinDict = {
       lead: '关于网站发布者和托管的信息。',
       rows: {
         editor: '发布者', capital: 'TILAMED PHARMA SA，股份有限公司，注册资本 10 亿西非法郎',
-        hq: '西非总部', rccm: '商业注册号（RCCM）', ifu: '税号（IFU）', phone: '电话', email: '电子邮箱',
+        hq: '总部', rccm: '商业注册号（RCCM）', ifu: '税号（IFU）', phone: '电话', email: '电子邮箱',
         director: '出版负责人', directorValue: 'TILAMED PHARMA SA 总经理',
         host: '托管服务商',
       },

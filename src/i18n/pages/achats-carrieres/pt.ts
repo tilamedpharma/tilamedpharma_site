@@ -3,11 +3,11 @@ import type { AchatsCarrieresDict } from './fr';
 const d: AchatsCarrieresDict = {
   pages: {
     carrieres: {
-      meta: { title: 'Trabalhar na TILAMED · Carreiras · TILAMED Pharma', description: '150 empregos diretos, 70 % de postos técnicos e 5 anos de transferência de competências: junte-se à primeira indústria de soluções injetáveis do BENIM.' },
+      meta: { title: 'Trabalhar na TILAMED · Carreiras · TILAMED Pharma', description: '150 empregos diretos previstos, 70 % de postos técnicos e 5 anos de transferência de competências: junte-se à primeira indústria de soluções injetáveis do BENIM.' },
       lead: 'Junte-se à primeira indústria de soluções injetáveis do BENIM.',
       intro: '',
       facts: [
-        { value: '150', unit: '', label: 'empregos diretos' },
+        { value: '150', unit: '', label: 'empregos diretos previstos' },
         { value: '70', unit: '%', label: 'de postos técnicos' },
         { value: '30', unit: '%', label: 'de postos administrativos' },
         { value: '5', unit: 'anos', label: 'de transferência de competências' },

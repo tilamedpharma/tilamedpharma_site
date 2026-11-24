@@ -2,7 +2,7 @@ import type { Topic } from './fr';
 
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
-    meta: { title: '塞梅-波吉厂址 · 我们的工厂 · TILAMED Pharma', description: '位于塞梅-波吉的 2 公顷工业用地，靠近克拉凯边境、科托努及其港口，地处经济特区。' },
+    meta: { title: '塞梅-波吉厂址 · 我们的工厂 · TILAMED Pharma', description: '位于塞梅-波吉工业区的 2 公顷厂址，靠近克拉凯边境、科托努及其港口。' },
     lead: '2 公顷厂区，紧邻克拉凯边境，位于科托努与尼日利亚之间。',
     intro: '',
     facts: [
@@ -13,9 +13,9 @@ const pages: Record<string, Topic> = {
         '位于贝宁南部韦梅省塞梅-波吉市。',
         '紧邻克拉凯边境，这是通往尼日利亚的主要口岸。',
         '靠近科托努及其自治港，该港承担了全国大部分贸易往来。',
-        '位于享有海关和税收优惠的经济特区内。',
+        '位于塞梅-波吉工业区内。',
       ] },
-      { kind: 'cards', title: '厂区布局', text: '厂区将洁净区与一般区域明确分隔。', items: [
+      { kind: 'cards', title: '厂区布局', text: '厂区将把洁净区与一般区域明确分隔。', items: [
         { title: '生产厂房', text: '生产线位于受控环境区域内。' },
         { title: '接收与待验区', text: '原料在此等待检验，合格后方可使用。' },
         { title: '实验室', text: '对原料、用水和批次进行质量控制。' },
@@ -28,7 +28,7 @@ const pages: Record<string, Topic> = {
   },
   'salles-propres': {
     meta: { title: '洁净室 · 我们的工厂 · TILAMED Pharma', description: 'C 级区域与灌装点 A 级保护：HEPA 过滤、压差梯度、光滑材料与连续监测。' },
-    lead: '关键步骤在受控环境中进行。',
+    lead: '关键步骤将在受控环境中进行。',
     intro: '注射液生产在 C 级区域内进行，灌装点采用 A 级保护，符合药品生产质量管理规范。',
     facts: [
       { value: 'C', unit: '', label: '生产区域洁净级别' },

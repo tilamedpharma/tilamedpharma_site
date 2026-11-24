@@ -24,7 +24,7 @@ const centrale: CentraleDict = {
       'Our purchasing centre sources, stores and distributes health products wholesale, making sure they are sold at prices the population can afford.',
     ],
     duo: [
-      { title: 'Manufacturing', text: 'Injectable solutions produced in our Sèmè-Podji plant.' },
+      { title: 'Manufacturing', text: 'Injectable solutions to be produced in our Sèmè-Podji plant.' },
       { title: 'Purchasing and distribution', text: 'Health products selected from major international manufacturers.' },
     ],
     badge: 'Licensed medical device distributor',
@@ -35,7 +35,7 @@ const centrale: CentraleDict = {
     title: 'Five ranges of health products',
     intro: 'We supply public and private health facilities, pharmaceutical establishments and health services, for human and animal medicine.',
     items: [
-      { title: 'Generic medicines', text: 'Quality essential medicines, including our own injectable solutions.' },
+      { title: 'Generic medicines', text: 'Quality essential medicines and, soon, our own injectable solutions.' },
       { title: 'Medical devices', text: 'Diagnostics, surgery, sterilisation and equipment, with installation and maintenance.' },
       { title: 'Laboratory', text: 'Reagents, consumables and equipment for testing laboratories.' },
       { title: 'Animal health', text: 'Veterinary inputs, pet food, parasite control and care products.' },

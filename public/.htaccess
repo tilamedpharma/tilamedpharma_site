@@ -7,6 +7,16 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # 0) Page demandée sans barre oblique finale ET hors https://www : une seule redirection vers l'adresse définitive
+  #    (sinon deux sauts : www, puis barre oblique).
+  RewriteCond %{HTTP_HOST} ^(www\.)?tilamedpharma\.com$ [NC]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^tilamedpharma\.com$ [NC]
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,5}$
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^ https://www.tilamedpharma.com%{REQUEST_URI}/ [R=301,L]
+
   # 1) Sur le vrai domaine seulement : HTTPS obligatoire + www (l'adresse sans www y renvoie).
   #    L'adresse provisoire de Hostinger (aperçu avant la bascule DNS) n'est pas redirigée.
   RewriteCond %{HTTP_HOST} ^(www\.)?tilamedpharma\.com$ [NC]
@@ -44,6 +54,8 @@ ErrorDocument 404 /404.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # HSTS : le navigateur n'utilise plus que HTTPS pendant 180 jours (sans sous-domaines : la messagerie reste chez OVH)
+  Header always set Strict-Transport-Security "max-age=15552000"
 </IfModule>
 
 # Fichiers à ne jamais servir

@@ -2,7 +2,7 @@ import type { Dict } from './fr';
 
 const pt: Dict = {
   meta: {
-    title: 'TILAMED Pharma · Laboratório farmacêutico no BENIM, conforme as normas da OMS',
+    title: 'TILAMED Pharma · Laboratório farmacêutico no BENIM, normas OMS',
     description: 'A TILAMED PHARMA SA constrói em Sèmè-Podji (BENIM) uma fábrica farmacêutica de nova geração: soros, medicamentos injetáveis, nutrição, dispositivos médicos e saúde animal, conforme as normas da OMS e a preços acessíveis.',
   },
   a11y: {
@@ -10,7 +10,7 @@ const pt: Dict = {
     home: 'Página inicial TILAMED Pharma', play: 'Reproduzir o vídeo', pause: 'Pausar o vídeo', prev: 'Anterior', next: 'Seguinte',
   },
   slogan: 'Plus près, plus sûr pour votre santé',
-  page: { home: 'Início', breadcrumb: 'Caminho de navegação', inSection: 'Nesta secção', illustration: 'Imagens ilustrativas', step: 'Etapa', current: 'Está aqui' },
+  page: { home: 'Início', breadcrumb: 'Caminho de navegação', inSection: 'Nesta secção', illustration: 'Imagens ilustrativas', step: 'Etapa', current: 'Está aqui', otherCountry: 'Outro país' },
   header: { cta: 'Contacte-nos', explore: 'Explorar a secção' },
   nav: {
     sections: {
@@ -54,8 +54,8 @@ const pt: Dict = {
   },
   heroNet: {
     eyebrow: 'A nossa rede',
-    title: 'Fabricado no BENIM, distribuído em 15 países da África Ocidental.',
-    lead: 'A partir de Sèmè-Podji, na fronteira com a NIGÉRIA, as nossas soluções injetáveis chegam às centrais de compras, aos distribuidores e aos hospitais de toda a região.',
+    title: 'Em breve fabricado no BENIM, para 15 países da África Ocidental.',
+    lead: 'A partir de Sèmè-Podji, na fronteira com a NIGÉRIA, as nossas soluções injetáveis chegarão às centrais de compras, aos distribuidores e aos hospitais de toda a região.',
     count: 'países cobertos',
     tabs: ['A nossa fábrica', 'A nossa rede'],
     label: 'Apresentação',
@@ -75,14 +75,14 @@ const pt: Dict = {
   },
   chain: {
     eyebrow: 'A nossa cadeia de distribuição', title: 'De Sèmè-Podji até ao doente',
-    intro: 'Um circuito curto, rápido e rastreável: fabricadas no BENIM, as nossas soluções chegam aos doentes em menos de um mês.',
+    intro: 'Um circuito curto, rápido e rastreável: fabricadas no BENIM, as nossas soluções chegarão aos doentes de toda a sub-região em menos de um mês.',
     label: 'Cadeia de distribuição em três etapas',
     steps: [
       { title: 'Fábrica de Sèmè-Podji', text: 'Fabricado e controlado no BENIM' },
       { title: 'Centrais de compras, grossistas e distribuidores', text: 'Cooperativas públicas regionais, grossistas privados e outros distribuidores' },
       { title: 'Doentes', text: 'Tratados em menos de um mês' },
     ],
-    badge: { strong: 'Menos de um mês', text: 'da nossa fábrica até ao doente' },
+    badge: { strong: 'Menos de um mês', text: 'da nossa fábrica até ao doente, em toda a sub-região' },
     cta: 'Descobrir a nossa distribuição',
   },
   impact: {
@@ -92,7 +92,7 @@ const pt: Dict = {
     band: [
       { value: '15', plus: '', unit: 'milhões', text: 'de soluções de grande volume' },
       { value: '35', plus: '', unit: 'milhões', text: 'de injetáveis de pequeno volume' },
-      { value: '150', plus: '', unit: 'empregos diretos', text: '70 % técnicos, 30 % administrativos' },
+      { value: '150', plus: '', unit: 'empregos diretos', text: 'previstos · 70 % técnicos, 30 % administrativos' },
       { value: '2', plus: '', unit: 'hectares', text: 'de unidade industrial em Sèmè-Podji' },
       { value: '15', plus: '', unit: 'países', text: 'da África Ocidental' },
       { value: '13', plus: '+', unit: 'anos', text: 'de experiência na saúde' },
@@ -104,8 +104,8 @@ const pt: Dict = {
       cta: 'Juntar-se à equipa',
     },
     capacity: {
-      title: 'Capacidade de produção anual',
-      sub: 'Soluções injetáveis fabricadas em Sèmè-Podji, por ano',
+      title: 'Capacidade de produção anual prevista',
+      sub: 'Soluções injetáveis que serão fabricadas em Sèmè-Podji, por ano',
       items: [
         { value: '15', unit: 'milhões', code: 'LVP', label: 'Parentéricos de grande volume: sacos e frascos de perfusão' },
         { value: '35', unit: 'milhões', code: 'SVP', label: 'Parentéricos de pequeno volume: ampolas e frascos' },
@@ -175,7 +175,7 @@ const pt: Dict = {
     statLabel: 'das soluções injetáveis utilizadas no BENIM são importadas',
     text: 'Os hospitais dependem de importações distantes, com prazos longos e riscos de rutura. Produzir localmente muda tudo para os doentes, os profissionais de saúde e a economia.',
     items: [
-      { title: 'Stocks mais próximos', text: 'Abastecer hospitais e centrais de compras em poucas horas, sem ruturas.' },
+      { title: 'Stocks mais próximos', text: 'No BENIM, abastecer hospitais e centrais de compras em poucas horas, sem ruturas.' },
       { title: 'Rastreabilidade total', text: 'Cada lote seguido da fábrica ao doente, contra os medicamentos falsificados.' },
       { title: 'Preços acessíveis', text: 'Menos transporte e armazenamento, preços pensados para o poder de compra local.' },
       { title: 'Competências locais', text: 'Empregos qualificados e uma transferência de competências para os técnicos beninenses.' },
@@ -247,8 +247,8 @@ const pt: Dict = {
   },
   presence: {
     eyebrow: 'Onde operamos',
-    title: 'Fabricado no BENIM, distribuído na África Ocidental',
-    intro: 'A partir da nossa fábrica de Sèmè-Podji, na fronteira com a NIGÉRIA, abastecemos quinze países da região, com escritórios no BENIM, no BURKINA FASO e em FRANÇA.',
+    title: 'Em breve fabricado no BENIM, para toda a África Ocidental',
+    intro: 'A partir da nossa fábrica de Sèmè-Podji, na fronteira com a NIGÉRIA, abasteceremos quinze países da região, com escritórios no BENIM, no BURKINA FASO e em FRANÇA.',
     plant: 'Fábrica TILAMED Pharma',
     plantPlace: 'Sèmè-Podji · BENIM',
     legendCovered: 'Países cobertos',

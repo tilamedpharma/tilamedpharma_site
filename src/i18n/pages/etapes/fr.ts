@@ -31,7 +31,7 @@ const etapes = {
     'traitement-eau': {
       meta: { title: 'Traitement de l\'eau · Notre usine · TILAMED Pharma', description: 'Eau purifiée et eau pour préparations injectables produites sur place à Sèmè-Podji : osmose inverse, électrodéionisation, distillation et boucle chaude en inox.' },
       lead: 'L\'eau est le premier ingrédient d\'une solution injectable. Sa pureté est contrôlée en continu.',
-      intro: 'Une solution de perfusion contient plus de 90 % d\'eau. Nous produisons sur place deux qualités d\'eau pharmaceutique, conformes aux exigences des pharmacopées.',
+      intro: 'Une solution de perfusion contient plus de 90 % d\'eau. Nous produirons sur place deux qualités d\'eau pharmaceutique, conformes aux exigences des pharmacopées.',
       facts: [
         { value: '> 90', unit: '%', label: 'd\'eau dans une solution de perfusion' },
         { value: '2', unit: '', label: 'qualités d\'eau pharmaceutique produites sur place' },
@@ -94,7 +94,7 @@ const etapes = {
     },
     inspection: {
       meta: { title: 'Contrôle à 100 % · Notre usine · TILAMED Pharma', description: 'Séchage, test d\'étanchéité, inspection visuelle, mise en carton et rejet automatique : aucun flacon ne quitte l\'usine sans avoir été contrôlé.' },
-      lead: 'Aucun flacon ne quitte l\'usine sans avoir été contrôlé.',
+      lead: 'Aucun flacon ne quittera l\'usine sans avoir été contrôlé.',
       intro: '',
       facts: [
         { value: '100', unit: '%', label: 'des flacons contrôlés avant leur sortie de l\'usine' },

@@ -4,11 +4,11 @@ import type { Topic } from '../usine-plus/fr';
 
 const pages: Record<string, Topic> = {
   carrieres: {
-    meta: { title: 'Travailler chez TILAMED · Carrières · TILAMED Pharma', description: '150 emplois directs, 70 % de postes techniques et 5 ans de transfert de compétences : rejoignez la première industrie de solutions injectables du BÉNIN.' },
+    meta: { title: 'Travailler chez TILAMED · Carrières · TILAMED Pharma', description: '150 emplois directs prévus, 70 % de postes techniques et 5 ans de transfert de compétences : rejoignez la première industrie de solutions injectables du BÉNIN.' },
     lead: 'Rejoignez la première industrie de solutions injectables du BÉNIN.',
     intro: '',
     facts: [
-      { value: '150', unit: '', label: 'emplois directs' },
+      { value: '150', unit: '', label: 'emplois directs prévus' },
       { value: '70', unit: '%', label: 'de postes techniques' },
       { value: '30', unit: '%', label: 'de postes administratifs' },
       { value: '5', unit: 'ans', label: 'de transfert de compétences' },

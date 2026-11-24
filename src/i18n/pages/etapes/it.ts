@@ -16,7 +16,7 @@ const etapes: EtapesDict = {
     'traitement-eau': {
       meta: { title: 'Trattamento dell\'acqua · Il nostro stabilimento · TILAMED Pharma', description: 'Acqua depurata e acqua per preparazioni iniettabili prodotte in sede a Sèmè-Podji: osmosi inversa, elettrodeionizzazione, distillazione e anello caldo in acciaio inossidabile.' },
       lead: 'L\'acqua è il primo ingrediente di una soluzione iniettabile. La sua purezza è controllata in continuo.',
-      intro: 'Una soluzione per infusione contiene oltre il 90 % di acqua. Produciamo in sede due qualità di acqua farmaceutica, conformi ai requisiti delle farmacopee.',
+      intro: 'Una soluzione per infusione contiene oltre il 90 % di acqua. Produrremo in sede due qualità di acqua farmaceutica, conformi ai requisiti delle farmacopee.',
       facts: [
         { value: '> 90', unit: '%', label: 'di acqua in una soluzione per infusione' },
         { value: '2', unit: '', label: 'qualità di acqua farmaceutica prodotte in sede' },
@@ -79,7 +79,7 @@ const etapes: EtapesDict = {
     },
     inspection: {
       meta: { title: 'Controllo al 100 % · Il nostro stabilimento · TILAMED Pharma', description: 'Asciugatura, prova di tenuta, ispezione visiva, inscatolamento e scarto automatico: nessun flacone lascia lo stabilimento senza essere stato controllato.' },
-      lead: 'Nessun flacone lascia lo stabilimento senza essere stato controllato.',
+      lead: 'Nessun flacone lascerà lo stabilimento senza essere stato controllato.',
       intro: '',
       facts: [
         { value: '100', unit: '%', label: 'dei flaconi controllati prima di lasciare lo stabilimento' },

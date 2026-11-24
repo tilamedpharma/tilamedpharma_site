@@ -1,6 +1,6 @@
 const fr = {
   meta: {
-    title: 'TILAMED Pharma · Laboratoire pharmaceutique au BÉNIN, aux normes de l\'OMS',
+    title: 'TILAMED Pharma · Laboratoire pharmaceutique au BÉNIN, normes OMS',
     description: 'TILAMED PHARMA SA construit à Sèmè-Podji (BÉNIN) une usine pharmaceutique de nouvelle génération : solutés, médicaments injectables, nutrition, dispositifs médicaux et santé animale, aux normes de l\'OMS et à des prix accessibles.',
   },
   a11y: {
@@ -8,7 +8,7 @@ const fr = {
     home: 'Accueil TILAMED Pharma', play: 'Lire la vidéo', pause: 'Mettre la vidéo en pause', prev: 'Précédent', next: 'Suivant',
   },
   slogan: 'Plus près, plus sûr pour votre santé',
-  page: { home: 'Accueil', breadcrumb: 'Fil d\'Ariane', inSection: 'Dans cette rubrique', illustration: 'Images d\'illustration', step: 'Étape', current: 'Vous êtes ici' },
+  page: { home: 'Accueil', breadcrumb: 'Fil d\'Ariane', inSection: 'Dans cette rubrique', illustration: 'Images d\'illustration', step: 'Étape', current: 'Vous êtes ici', otherCountry: 'Autre pays' },
   header: { cta: 'Nous contacter', explore: 'Explorer la rubrique' },
   nav: {
     sections: {
@@ -52,8 +52,8 @@ const fr = {
   },
   heroNet: {
     eyebrow: 'Notre réseau',
-    title: 'Fabriqué au BÉNIN, distribué dans 15 pays d\'Afrique de l\'Ouest.',
-    lead: 'Depuis Sèmè-Podji, à la frontière avec le NIGÉRIA, nos solutions injectables rejoignent les centrales d\'achat, les distributeurs et les hôpitaux de toute la région.',
+    title: 'Bientôt fabriqué au BÉNIN, pour 15 pays d\'Afrique de l\'Ouest.',
+    lead: 'Depuis Sèmè-Podji, à la frontière avec le NIGÉRIA, nos solutions injectables rejoindront les centrales d\'achat, les distributeurs et les hôpitaux de toute la région.',
     count: 'pays couverts',
     tabs: ['Notre usine', 'Notre réseau'],
     label: 'Diaporama de présentation',
@@ -73,14 +73,14 @@ const fr = {
   },
   chain: {
     eyebrow: 'Notre chaîne de distribution', title: 'De Sèmè-Podji jusqu\'au patient',
-    intro: 'Un circuit court, rapide et traçable : fabriquées au BÉNIN, nos solutions arrivent aux patients en moins d\'un mois.',
+    intro: 'Un circuit court, rapide et traçable : fabriquées au BÉNIN, nos solutions arriveront aux patients de toute la sous-région en moins d\'un mois.',
     label: 'Chaîne de distribution en trois étapes',
     steps: [
       { title: 'Usine de Sèmè-Podji', text: 'Fabriqué et contrôlé au BÉNIN' },
       { title: 'Centrales d\'achat, grossistes et distributeurs', text: 'Coopératives publiques régionales, grossistes privés et autres distributeurs' },
       { title: 'Patients', text: 'Soignés en moins d\'un mois' },
     ],
-    badge: { strong: 'Moins d\'un mois', text: 'de notre usine jusqu\'au patient' },
+    badge: { strong: 'Moins d\'un mois', text: 'de notre usine au patient, dans toute la sous-région' },
     cta: 'Découvrir notre distribution',
   },
   impact: {
@@ -90,7 +90,7 @@ const fr = {
     band: [
       { value: '15', plus: '', unit: 'millions', text: 'de solutés de grand volume' },
       { value: '35', plus: '', unit: 'millions', text: 'd\'injectables de petit volume' },
-      { value: '150', plus: '', unit: 'emplois directs', text: '70 % techniques, 30 % administratifs' },
+      { value: '150', plus: '', unit: 'emplois directs', text: 'prévus · 70 % techniques, 30 % administratifs' },
       { value: '2', plus: '', unit: 'hectares', text: 'de site industriel à Sèmè-Podji' },
       { value: '15', plus: '', unit: 'pays', text: 'd\'Afrique de l\'Ouest' },
       { value: '13', plus: '+', unit: 'ans', text: 'd\'expérience dans la santé' },
@@ -102,8 +102,8 @@ const fr = {
       cta: 'Rejoindre l\'équipe',
     },
     capacity: {
-      title: 'Capacité de production annuelle',
-      sub: 'Solutions injectables fabriquées à Sèmè-Podji, par an',
+      title: 'Capacité de production annuelle prévue',
+      sub: 'Solutions injectables qui seront fabriquées à Sèmè-Podji, par an',
       items: [
         { value: '15', unit: 'millions', code: 'LVP', label: 'Solutés de grand volume : poches et flacons de perfusion' },
         { value: '35', unit: 'millions', code: 'SVP', label: 'Injectables de petit volume : ampoules et flacons' },
@@ -173,7 +173,7 @@ const fr = {
     statLabel: 'des solutions injectables utilisées au BÉNIN sont importées',
     text: 'Les hôpitaux dépendent d\'importations lointaines, avec de longs délais et des risques de rupture. Produire sur place change la donne pour les patients, les soignants et l\'économie.',
     items: [
-      { title: 'Des stocks au plus près', text: 'Livrer hôpitaux et centrales d\'achat en quelques heures, sans rupture.' },
+      { title: 'Des stocks au plus près', text: 'Au BÉNIN, livrer hôpitaux et centrales d\'achat en quelques heures, sans rupture.' },
       { title: 'Une traçabilité complète', text: 'Chaque lot suivi de l\'usine au patient, contre les médicaments falsifiés.' },
       { title: 'Des prix accessibles', text: 'Moins de transport et de stockage, des prix pensés pour le pouvoir d\'achat local.' },
       { title: 'Des compétences locales', text: 'Des emplois qualifiés et un transfert de compétences pour les techniciens béninois.' },
@@ -245,8 +245,8 @@ const fr = {
   },
   presence: {
     eyebrow: 'Où nous opérons',
-    title: 'Fabriqué au BÉNIN, distribué en Afrique de l\'Ouest',
-    intro: 'Depuis notre usine de Sèmè-Podji, à la frontière avec le NIGÉRIA, nous approvisionnons quinze pays de la région, avec des bureaux au BÉNIN, au BURKINA FASO et en FRANCE.',
+    title: 'Bientôt fabriqué au BÉNIN, pour toute l\'Afrique de l\'Ouest',
+    intro: 'Depuis notre usine de Sèmè-Podji, à la frontière avec le NIGÉRIA, nous approvisionnerons quinze pays de la région, avec des bureaux au BÉNIN, au BURKINA FASO et en FRANCE.',
     plant: 'Usine TILAMED Pharma',
     plantPlace: 'Sèmè-Podji · BÉNIN',
     legendCovered: 'Pays couverts',

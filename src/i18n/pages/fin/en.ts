@@ -7,7 +7,7 @@ const fin: FinDict = {
     bodies: [
       [
         'The State of BENIN entrusts TILAMED PHARMA SA, under a long-term lease, with a 2-hectare industrial site in Sèmè-Podji, just past the Kraké border with NIGERIA.',
-        'Located in a special economic zone, close to Cotonou and its autonomous port, the site will host TILAMED Pharma\'s injectable solutions plant.',
+        'Located in the Sèmè-Podji industrial zone, close to Cotonou and its autonomous port, the site will host TILAMED Pharma\'s injectable solutions plant.',
       ],
       [
         'On 28 November 2024, the ministerial order granted by the Government of the REPUBLIC OF BENIN completed the approvals obtained during the year.',
@@ -58,10 +58,10 @@ const fin: FinDict = {
     lead: 'Journalists: key information and press contact.',
     briefTitle: 'TILAMED Pharma at a glance',
     brief: [
-      'Public limited company with share capital of 1,000,000,000 FCFA, West Africa subsidiary based in Cotonou (BENIN).',
+      'Public limited company with share capital of 1,000,000,000 FCFA, head office in Cotonou (BENIN).',
       'Production unit for liquid pharmaceutical solutions to WHO standards in Sèmè-Podji.',
       'Planned capacity: 15 million large-volume solutions and 35 million small-volume injectables per year.',
-      '150 direct jobs, 70% of them technical.',
+      '150 planned direct jobs, 70% of them technical.',
       'EDGE green building certification in progress.',
       'Motto: "Plus près, plus sûr pour votre santé" (Closer, safer for your health).',
     ],
@@ -116,7 +116,7 @@ const fin: FinDict = {
       lead: 'Information about the publisher and hosting of the website.',
       rows: {
         editor: 'Publisher', capital: 'TILAMED PHARMA SA, public limited company with share capital of 1,000,000,000 FCFA',
-        hq: 'West Africa head office', rccm: 'RCCM', ifu: 'IFU (tax ID)', phone: 'Phone', email: 'Email',
+        hq: 'Head office', rccm: 'RCCM', ifu: 'IFU (tax ID)', phone: 'Phone', email: 'Email',
         director: 'Publication director', directorValue: 'The managing director of TILAMED PHARMA SA',
         host: 'Host',
       },

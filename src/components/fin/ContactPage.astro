@@ -40,7 +40,7 @@ const wa = socials.find((s) => s.id === 'whatsapp');
           <label class="field"><span>{f.email} <b aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" /></label>
           <label class="field"><span>{f.phone}</span><input type="tel" name="telephone" autocomplete="tel" dir="ltr" /></label>
           <label class="field"><span>{f.country}</span>
-            <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}</select>
+            <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}<option value="XX">{t.page.otherCountry}</option></select>
           </label>
         </div>
         <label class="field"><span>{f.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="6" required></textarea></label>

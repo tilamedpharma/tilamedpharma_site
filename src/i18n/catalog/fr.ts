@@ -27,7 +27,7 @@ const cat = {
     iv: { badge: 'Gamme prévue', note: 'Fabrication TILAMED · gamme prévue, non disponible à la vente' },
     liquids: { badge: 'À venir', note: 'Fabrication TILAMED · gamme à venir, sous réserve des autorisations' },
     devices: { badge: 'Distribué', note: 'Distribution · nous consulter' },
-    vet: { badge: 'Bientôt disponible', note: 'Gamme vétérinaire TILAMED · bientôt disponible' },
+    vet: { badge: 'Bientôt disponible', note: 'Distribution · bientôt disponible' },
   },
   cats: {
     standard: 'Solutés de base', 'serum-special': 'Solutés spécifiques', specific: 'Solutions médicamenteuses', svp: 'Injectables en ampoules',

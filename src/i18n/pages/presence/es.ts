@@ -14,7 +14,7 @@ const presence: PresenceDict = {
     { value: '3', unit: 'oficinas', label: 'en BENÍN, BURKINA FASO y FRANCIA' },
   ],
   map: {
-    legend: 'Desde la fábrica de Sèmè-Podji, nuestras rutas de abastecimiento llegan a las capitales de la subregión.',
+    legend: 'Desde la fábrica de Sèmè-Podji, nuestras rutas de abastecimiento llegarán a las capitales de la subregión.',
   },
   sites: {
     eyebrow: 'Nuestras implantaciones',

@@ -14,7 +14,7 @@ const presence: PresenceDict = {
     { value: '3', unit: '个办事处', label: '位于贝宁、布基纳法索和法国' },
   ],
   map: {
-    legend: '从 Sèmè-Podji 工厂出发，我们的供应路线通达次区域各国首都。',
+    legend: '从 Sèmè-Podji 工厂出发，我们的供应路线将通达次区域各国首都。',
   },
   sites: {
     eyebrow: '我们的布局',

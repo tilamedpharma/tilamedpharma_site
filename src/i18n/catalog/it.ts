@@ -28,7 +28,7 @@ const cat: CatalogDict = {
     iv: { badge: 'Gamma prevista', note: 'Produzione TILAMED · gamma prevista, non ancora in vendita' },
     liquids: { badge: 'In arrivo', note: 'Produzione TILAMED · gamma futura, soggetta ad autorizzazione' },
     devices: { badge: 'Distribuito', note: 'Distribuzione · contattateci' },
-    vet: { badge: 'Presto disponibile', note: 'Gamma veterinaria TILAMED · presto disponibile' },
+    vet: { badge: 'Presto disponibile', note: 'Distribuzione · presto disponibile' },
   },
   cats: {
     standard: 'Soluzioni di base', 'serum-special': 'Soluzioni specifiche', specific: 'Soluzioni medicinali', svp: 'Iniettabili in fiale',

@@ -28,7 +28,7 @@ const cat: CatalogDict = {
     iv: { badge: 'Gama prevista', note: 'Fabricación TILAMED · gama prevista, aún no a la venta' },
     liquids: { badge: 'Próximamente', note: 'Fabricación TILAMED · gama futura, sujeta a autorizaciones' },
     devices: { badge: 'Distribuido', note: 'Distribución · consúltenos' },
-    vet: { badge: 'Próximamente', note: 'Gama veterinaria TILAMED · próximamente' },
+    vet: { badge: 'Próximamente', note: 'Distribución · próximamente' },
   },
   cats: {
     standard: 'Soluciones básicas', 'serum-special': 'Soluciones específicas', specific: 'Soluciones medicamentosas', svp: 'Inyectables en ampollas',

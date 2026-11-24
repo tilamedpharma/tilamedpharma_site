@@ -52,7 +52,7 @@ const parcours = {
         title: 'Le site et l\'usine',
         items: [
           { date: '9 septembre 2025', title: 'Le site de Sèmè-Podji', text: 'L\'État béninois confie à TILAMED PHARMA SA un site industriel de 2 hectares, par bail emphytéotique, dans la zone industrielle de Sèmè-Podji, à la frontière avec le NIGÉRIA.', ref: 'Bail emphytéotique N° 2494/MEF/DC/SGM/ANDF/DAJuF/DGDE/S' },
-          { date: 'Aujourd\'hui', title: 'La construction de l\'usine', text: 'TILAMED Pharma prépare son unité de production de solutions injectables dans la zone économique spéciale de Sèmè-Podji.', state: 'now' },
+          { date: 'Aujourd\'hui', title: 'La construction de l\'usine', text: 'TILAMED Pharma prépare son unité de production de solutions injectables dans la zone industrielle de Sèmè-Podji.', state: 'now' },
           { date: 'Demain', title: 'La mise en service', text: 'Démarrage de la production et recrutement des premières équipes.', state: 'next' },
         ],
       },

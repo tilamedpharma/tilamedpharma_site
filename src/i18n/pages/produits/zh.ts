@@ -14,7 +14,7 @@ const produits: ProduitsDict = {
     medicaments: { meta: { title: '药品 · 产品 · TILAMED Pharma', description: '安瓿注射剂、含药溶液、注射用抗生素、疫苗和血清、口服液。' }, lead: '安瓿注射剂、抗生素、疫苗和血清、口服液：分三个生产阶段推出的产品线。' },
     'solutions-nutritionnelles': { meta: { title: '营养溶液 · 产品 · TILAMED Pharma', description: '高浓度葡萄糖及注射或口服维生素，用于补充热量和纠正缺乏。' }, lead: '高浓度葡萄糖和维生素（注射或口服），用于补充热量和纠正缺乏。' },
     'dispositifs-medicaux': { meta: { title: '医疗器械 · 产品 · TILAMED Pharma', description: '诊断、外科器械、灭菌与设备：TILAMED Pharma 经销的医疗器械。' }, lead: '诊断、外科器械、灭菌与设备：我们经销的医疗器械。' },
-    'sante-animale': { meta: { title: '动物保健 · 产品 · TILAMED Pharma', description: '犬猫食品、驱虫、护理与药品：即将推出的 TILAMED 兽用产品线。' }, lead: '犬猫食品、驱虫产品、护理用品与药品。' },
+    'sante-animale': { meta: { title: '动物保健 · 产品 · TILAMED Pharma', description: '犬猫食品、驱虫、护理与药品，由我们的采购中心经销。' }, lead: '犬猫食品、驱虫产品、护理用品与药品。' },
   },
   formats: {
     title: '适合各种用途的瓶装规格',
@@ -34,10 +34,10 @@ const produits: ProduitsDict = {
   },
   phases: { title: '分三个阶段推出的产品线', intro: '药品将随着生产线投产和监管审批逐步投入生产。' },
   devices: {
-    text: 'TILAMED Pharma 在西非拥有丰富的医疗设备供应、安装和维护经验，经销具有 CE 标志的欧洲制造商医疗器械。',
+    text: 'TILAMED Pharma 在西非拥有丰富的医疗设备供应、安装和维护经验，经销具有 CE 标志的知名国际制造商医疗器械。',
     cta: '如需报价、产品清单或参与招标，请联系我们的商务部。',
   },
-  vet: { text: '我们的兽用产品线正在筹备中，产品即将上市。', cta: '获取上市通知' },
+  vet: { text: '由我们的采购中心精选并经销的兽用产品，即将上市。', cta: '获取上市通知' },
   doc: {
     meta: { title: '资料索取 · TILAMED Pharma', description: '医疗专业人员和采购方：欢迎索取 TILAMED Pharma 产品的技术资料。' },
     lead: '医疗专业人员和采购方：欢迎索取我们产品的技术资料。',

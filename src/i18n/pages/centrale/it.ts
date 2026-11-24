@@ -24,7 +24,7 @@ const centrale: CentraleDict = {
       'La nostra centrale acquisti ha il compito di approvvigionare, immagazzinare e distribuire all\'ingrosso prodotti sanitari, facendo in modo che siano venduti a prezzi accessibili alla popolazione.',
     ],
     duo: [
-      { title: 'Produrre', text: 'Soluzioni iniettabili prodotte nel nostro stabilimento di Sèmè-Podji.' },
+      { title: 'Produrre', text: 'Soluzioni iniettabili che saranno prodotte nel nostro stabilimento di Sèmè-Podji.' },
       { title: 'Acquistare e distribuire', text: 'Prodotti sanitari selezionati presso grandi produttori internazionali.' },
     ],
     badge: 'Distributore autorizzato di dispositivi medici',
@@ -35,7 +35,7 @@ const centrale: CentraleDict = {
     title: 'Cinque gamme di prodotti sanitari',
     intro: 'Riforniamo le strutture sanitarie pubbliche e private, gli stabilimenti farmaceutici e i servizi sanitari, per la medicina umana e veterinaria.',
     items: [
-      { title: 'Farmaci generici', text: 'Farmaci essenziali di qualità, comprese le nostre soluzioni iniettabili.' },
+      { title: 'Farmaci generici', text: 'Farmaci essenziali di qualità e, presto, le nostre soluzioni iniettabili.' },
       { title: 'Dispositivi medici', text: 'Diagnostica, chirurgia, sterilizzazione e attrezzature, con installazione e manutenzione.' },
       { title: 'Laboratorio', text: 'Reagenti, materiali di consumo e attrezzature per i laboratori di analisi.' },
       { title: 'Salute animale', text: 'Prodotti veterinari, alimentazione, antiparassitari e cure.' },

@@ -11,9 +11,9 @@ const qualite: QualiteDict = {
       ],
       blocks: [
         { kind: 'cards', title: 'Our standards', items: [
+          { title: 'WHO', text: 'Standards and guidelines of the World Health Organization.' },
           { title: 'ISO 9001 and ISO 14001', text: 'Certifications targeted for quality and the environment.' },
-          { title: 'ABRP', text: 'Favourable opinion of 16 May 2023 on the authorisation to open and operate.' },
-          { title: 'GDP', text: 'Good distribution practice for our warehouses and deliveries.' },
+          { title: 'EDGE', text: 'IFC green building certification in progress.' },
         ] },
         { kind: 'points', title: 'A pharmaceutical quality system', items: [
           'Written procedures, staff training and records at every step.',
@@ -21,6 +21,8 @@ const qualite: QualiteDict = {
           'Testing of raw materials, packaging components and finished products.',
           'Release of every batch by the responsible pharmacist.',
           'Management of deviations, complaints and recalls.',
+          'Good distribution practice for our warehouses and deliveries.',
+          'ABRP: favourable opinion of 16 May 2023 on the authorisation to open and operate.',
         ] },
       ],
       note: '',

@@ -14,7 +14,7 @@ const vision = {
   motto: {
     eyebrow: 'Notre devise',
     translation: '',
-    near: { title: 'Plus près', text: 'Nos produits sont fabriqués à côté des hôpitaux qui les utilisent : moins de délais, moins de ruptures de stock.' },
+    near: { title: 'Plus près', text: 'Nos produits seront fabriqués à côté des hôpitaux qui les utilisent : moins de délais, moins de ruptures de stock.' },
     safe: { title: 'Plus sûr', text: 'Chaque lot est fabriqué et contrôlé selon les bonnes pratiques de fabrication, puis tracé jusqu\'à sa livraison.' },
   },
   vision: {

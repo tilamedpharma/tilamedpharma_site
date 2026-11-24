@@ -2,7 +2,7 @@ import type { Topic } from './fr';
 
 const pages: Record<string, Topic> = {
   'site-seme-podji': {
-    meta: { title: 'The Sèmè-Podji site · Our plant · TILAMED Pharma', description: 'A 2-hectare industrial site in Sèmè-Podji, close to the Kraké border, Cotonou and its port, in a special economic zone.' },
+    meta: { title: 'The Sèmè-Podji site · Our plant · TILAMED Pharma', description: 'A 2-hectare site in the Sèmè-Podji industrial zone, close to the Kraké border, Cotonou and its port.' },
     lead: 'A 2-hectare site, just past the Kraké border, between Cotonou and NIGERIA.',
     intro: '',
     facts: [
@@ -13,9 +13,9 @@ const pages: Record<string, Topic> = {
         'In the municipality of Sèmè-Podji, Ouémé department, southern BENIN.',
         'Right next to the Kraké border, the main crossing point into NIGERIA.',
         'Close to Cotonou and its autonomous port, which handles most of the country\'s trade.',
-        'Within a special economic zone offering customs and tax advantages.',
+        'In the Sèmè-Podji industrial zone.',
       ] },
-      { kind: 'cards', title: 'How the site is organised', text: 'The site clearly separates clean areas from general areas.', items: [
+      { kind: 'cards', title: 'How the site is organised', text: 'The site will clearly separate clean areas from general areas.', items: [
         { title: 'Production building', text: 'The manufacturing lines, in controlled-atmosphere areas.' },
         { title: 'Receipt and quarantine', text: 'Raw materials wait here for testing before use.' },
         { title: 'Laboratory', text: 'Quality control of materials, water and batches.' },
@@ -28,7 +28,7 @@ const pages: Record<string, Topic> = {
   },
   'salles-propres': {
     meta: { title: 'Clean rooms · Our plant · TILAMED Pharma', description: 'Grade C areas and grade A protection at the filling point: HEPA filtration, pressure cascade, smooth materials and continuous monitoring.' },
-    lead: 'Critical steps take place in a controlled-atmosphere environment.',
+    lead: 'Critical steps will take place in a controlled-atmosphere environment.',
     intro: 'Injectable solutions are manufactured in grade C areas, with grade A protection at the filling point, in line with good manufacturing practice.',
     facts: [
       { value: 'C', unit: '', label: 'Grade of manufacturing areas' },

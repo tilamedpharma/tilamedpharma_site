@@ -14,7 +14,7 @@ const presence: PresenceDict = {
     { value: '3', unit: 'offices', label: 'in BENIN, BURKINA FASO and FRANCE' },
   ],
   map: {
-    legend: 'From the Sèmè-Podji plant, our supply routes serve the capitals of the sub-region.',
+    legend: 'From the Sèmè-Podji plant, our supply routes will serve the capitals of the sub-region.',
   },
   sites: {
     eyebrow: 'Our locations',

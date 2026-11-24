@@ -7,7 +7,7 @@ const fin: FinDict = {
     bodies: [
       [
         'El Estado beninés confía a TILAMED PHARMA SA, mediante arrendamiento enfitéutico, un sitio industrial de 2 hectáreas en Sèmè-Podji, justo después de la frontera de Kraké con NIGERIA.',
-        'Situado en una zona económica especial, cerca de Cotonú y de su puerto autónomo, este sitio acogerá la planta de soluciones inyectables de TILAMED Pharma.',
+        'Situado en la zona industrial de Sèmè-Podji, cerca de Cotonú y de su puerto autónomo, este sitio acogerá la planta de soluciones inyectables de TILAMED Pharma.',
       ],
       [
         'El 28 de noviembre de 2024, el decreto ministerial concedido por el Gobierno de la REPÚBLICA DE BENÍN completa las autorizaciones obtenidas durante el año.',
@@ -58,10 +58,10 @@ const fin: FinDict = {
     lead: 'Periodistas: información clave y contacto de prensa.',
     briefTitle: 'TILAMED Pharma en breve',
     brief: [
-      'Sociedad anónima con un capital de 1.000.000.000 FCFA, filial de África Occidental con sede en Cotonú (BENÍN).',
+      'Sociedad anónima con un capital de 1.000.000.000 FCFA, con sede social en Cotonú (BENÍN).',
       'Unidad de producción de soluciones farmacéuticas líquidas según las normas de la OMS en Sèmè-Podji.',
       'Capacidad prevista: 15 millones de soluciones de gran volumen y 35 millones de inyectables de pequeño volumen al año.',
-      '150 empleos directos, de los cuales el 70 % son puestos técnicos.',
+      '150 empleos directos previstos, de los cuales el 70 % son puestos técnicos.',
       'Certificación de edificio verde EDGE en curso.',
       'Lema: «Plus près, plus sûr pour votre santé» (Más cerca, más seguro para su salud).',
     ],
@@ -116,7 +116,7 @@ const fin: FinDict = {
       lead: 'Información sobre el editor y el alojamiento del sitio.',
       rows: {
         editor: 'Editor', capital: 'TILAMED PHARMA SA, sociedad anónima con un capital de 1.000.000.000 FCFA',
-        hq: 'Sede de África Occidental', rccm: 'RCCM', ifu: 'IFU (identificación fiscal)', phone: 'Teléfono', email: 'Correo electrónico',
+        hq: 'Sede social', rccm: 'RCCM', ifu: 'IFU (identificación fiscal)', phone: 'Teléfono', email: 'Correo electrónico',
         director: 'Director de la publicación', directorValue: 'El director general de TILAMED PHARMA SA',
         host: 'Alojamiento',
       },

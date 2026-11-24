@@ -12,10 +12,10 @@ const usine: UsineDict = {
     cta2: 'The Sèmè-Podji site',
   },
   facts: [
-    { value: '15', unit: 'M', code: 'LVP', label: 'large-volume solutions per year' },
-    { value: '35', unit: 'M', code: 'SVP', label: 'small-volume injectables per year' },
-    { value: '2', unit: 'ha', code: '', label: 'industrial site in Sèmè-Podji' },
-    { value: '100–1000', unit: 'ml', code: '', label: 'infusion bottle formats' },
+    { value: '15', unit: 'million', code: 'LVP', label: 'large-volume solutions per year' },
+    { value: '35', unit: 'million', code: 'SVP', label: 'small-volume injectables per year' },
+    { value: '2', unit: 'hectares', code: '', label: 'industrial site in Sèmè-Podji' },
+    { value: '100–1000', unit: 'millilitres', code: '', label: 'infusion bottle formats' },
   ],
   site: {
     eyebrow: 'An integrated site',

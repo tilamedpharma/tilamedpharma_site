@@ -55,6 +55,13 @@
 [dir='rtl'] .ufacts__num { justify-content: flex-end; }
 .ufacts__num small { font-size: .45em; font-weight: 700; letter-spacing: 0; color: var(--blue); }
 .ufacts__label { margin-top: 10px; font-size: .9375rem; line-height: 1.4; color: var(--muted); }
+/* Variante « chiffres de l'accueil » (page Usine) : centré, unité en capitales, trait vert, puis le texte */
+.ufacts--kpi .ufacts__list li { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.ufacts--kpi .ufacts__num { justify-content: center; font-size: clamp(2.4rem, 1.6rem + 2vw, 3.4rem); color: var(--navy); }
+.ufacts--kpi .ufacts__unit { margin-top: 12px; font-family: var(--font-head); font-weight: 800; font-size: .9375rem; letter-spacing: .06em; text-transform: uppercase; line-height: 1.3; color: var(--blue); }
+.ufacts--kpi .ufacts__unit::after { content: ''; display: block; width: 28px; height: 3px; margin: 12px auto 0; background: var(--green); border-radius: 2px; }
+.ufacts--kpi .ufacts__label { margin-top: 12px; font-size: 1rem; color: var(--text); text-wrap: balance; }
+@media (max-width: 640px) { .ufacts--kpi .ufacts__unit { font-size: .8125rem; letter-spacing: .02em; } }
 
 /* Un site intégré */
 .usite__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(40px, 6vw, 96px); align-items: center; }

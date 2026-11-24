@@ -44,13 +44,15 @@ const explore = [
 </PageHero>
 
 <!-- CHIFFRES (maison de la capacité de production) -->
-<section class="ufacts pfacts" aria-label={u.hero.title}>
+<section class="ufacts pfacts ufacts--kpi" aria-label={u.hero.title}>
   <div class="wrap">
     <ul class="ufacts__list">
       {u.facts.map((f, i) => (
         <li data-reveal style={`--d:${i}`}>
           {f.code ? <span class:list={['ufacts__code', { 'is-green': f.code === 'SVP' }]}>{f.code}</span> : <span class="ufacts__code ufacts__code--blank" aria-hidden="true"></span>}
-          <p class="ufacts__num" dir="ltr">{f.value}{f.unit && <small>{f.unit}</small>}</p>
+          {/* Même présentation que le bandeau de chiffres de l'accueil : chiffre, unité en capitales, trait vert, texte */}
+          <p class="ufacts__num" dir="ltr">{f.value}</p>
+          {f.unit && <p class="ufacts__unit">{f.unit}</p>}
           <p class="ufacts__label">{f.label}</p>
         </li>
       ))}

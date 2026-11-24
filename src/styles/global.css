@@ -67,6 +67,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
 .section { padding-block: var(--section); }
+/* Section collée à une section de même fond (classe posée par site.ts) : une seule marge entre les deux */
+.is-joined { padding-top: 0 !important; }
 .nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .skip { position: absolute; inset-inline-start: 12px; top: -60px; z-index: 200; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: var(--radius); }

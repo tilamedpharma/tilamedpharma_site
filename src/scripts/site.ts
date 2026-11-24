@@ -9,6 +9,23 @@ const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
+/* ---------- Sections consécutives de même fond : pas de double marge (24/11) ----------
+   Sinon la marge basse de l'une + la marge haute de l'autre forment un grand vide sans séparation visible. */
+try {
+  const bgOf = (el: Element | null): string => {
+    for (let e = el; e; e = e.parentElement) {
+      const c = getComputedStyle(e).backgroundColor;
+      if (c && c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent') return c;
+    }
+    return 'rgb(255, 255, 255)';
+  };
+  const blocks = $$('main > *').filter((el) => el.getBoundingClientRect().height > 30);
+  for (let i = 1; i < blocks.length; i++) {
+    const prev = blocks[i - 1], cur = blocks[i];
+    if (parseFloat(getComputedStyle(prev).paddingBottom) > 0 && bgOf(prev) === bgOf(cur)) cur.classList.add('is-joined');
+  }
+} catch { /* purement visuel : ne doit jamais bloquer le reste du script */ }
+
 /* ---------- Méga-menu ---------- */
 const triggers = $$<HTMLButtonElement>('[data-mega-trigger]');
 let openKey: string | null = null;

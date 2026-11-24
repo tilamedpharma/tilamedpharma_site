@@ -15,7 +15,7 @@ const usine: UsineDict = {
     { value: '15', unit: 'مليون', code: 'LVP', label: 'محلول كبير الحجم سنويًا' },
     { value: '35', unit: 'مليون', code: 'SVP', label: 'مستحضر حقن صغير الحجم سنويًا' },
     { value: '2', unit: 'هكتار', code: '', label: 'مساحة الموقع الصناعي في سيمي-بودجي' },
-    { value: '100–1000', unit: 'ml', code: '', label: 'أحجام قوارير التسريب' },
+    { value: '100–1000', unit: 'مليلتر', code: '', label: 'أحجام قوارير التسريب' },
   ],
   site: {
     eyebrow: 'موقع متكامل',

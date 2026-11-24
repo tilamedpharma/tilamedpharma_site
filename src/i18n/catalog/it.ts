@@ -25,8 +25,8 @@ const cat: CatalogDict = {
     vet: { label: 'Salute animale', blurb: 'Alimentazione, antiparassitari e cure per cani e gatti.' },
   },
   status: {
-    iv: { badge: 'Gamma prevista', note: 'Produzione TILAMED · gamma prevista, non ancora in vendita' },
-    liquids: { badge: 'In arrivo', note: 'Produzione TILAMED · gamma futura, soggetta ad autorizzazione' },
+    iv: { badge: 'Non ancora disponibile', note: 'Produzione TILAMED · gamma prevista, non ancora in vendita' },
+    liquids: { badge: 'Non ancora disponibile', note: 'Produzione TILAMED · gamma futura, soggetta ad autorizzazione' },
     devices: { badge: 'Distribuito', note: 'Distribuzione · contattateci' },
     vet: { badge: 'Presto disponibile', note: 'Distribuzione · presto disponibile' },
   },

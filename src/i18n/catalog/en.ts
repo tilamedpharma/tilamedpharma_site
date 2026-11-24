@@ -25,8 +25,8 @@ const cat: CatalogDict = {
     vet: { label: 'Animal health', blurb: 'Food, parasite control and care for dogs and cats.' },
   },
   status: {
-    iv: { badge: 'Planned range', note: 'Made by TILAMED · planned range, not yet for sale' },
-    liquids: { badge: 'Upcoming', note: 'Made by TILAMED · upcoming range, subject to authorisation' },
+    iv: { badge: 'Not yet available', note: 'Made by TILAMED · planned range, not yet for sale' },
+    liquids: { badge: 'Not yet available', note: 'Made by TILAMED · upcoming range, subject to authorisation' },
     devices: { badge: 'Distributed', note: 'Distribution · contact us' },
     vet: { badge: 'Coming soon', note: 'Distribution · coming soon' },
   },

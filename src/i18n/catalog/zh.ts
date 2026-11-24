@@ -25,8 +25,8 @@ const cat: CatalogDict = {
     vet: { label: '动物保健', blurb: '犬猫食品、驱虫产品与护理用品。' },
   },
   status: {
-    iv: { badge: '计划产品', note: 'TILAMED 生产 · 计划产品，尚未上市销售' },
-    liquids: { badge: '即将推出', note: 'TILAMED 生产 · 后续产品，须经审批' },
+    iv: { badge: '尚未上市', note: 'TILAMED 生产 · 计划产品，尚未上市销售' },
+    liquids: { badge: '尚未上市', note: 'TILAMED 生产 · 后续产品，须经审批' },
     devices: { badge: '代理经销', note: '经销产品 · 欢迎垂询' },
     vet: { badge: '即将上市', note: '经销产品 · 即将上市' },
   },

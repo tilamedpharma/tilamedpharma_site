@@ -24,8 +24,8 @@ const cat = {
     vet: { label: 'Santé animale', blurb: 'Alimentation, antiparasitaires et soins pour chiens et chats.' },
   },
   status: {
-    iv: { badge: 'Gamme prévue', note: 'Fabrication TILAMED · gamme prévue, non disponible à la vente' },
-    liquids: { badge: 'À venir', note: 'Fabrication TILAMED · gamme à venir, sous réserve des autorisations' },
+    iv: { badge: 'Non encore disponible', note: 'Fabrication TILAMED · gamme prévue, non disponible à la vente' },
+    liquids: { badge: 'Non encore disponible', note: 'Fabrication TILAMED · gamme à venir, sous réserve des autorisations' },
     devices: { badge: 'Distribué', note: 'Distribution · nous consulter' },
     vet: { badge: 'Bientôt disponible', note: 'Distribution · bientôt disponible' },
   },

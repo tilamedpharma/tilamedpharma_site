@@ -67,6 +67,266 @@ const usine = {
     cta: 'Le site de Sèmè-Podji',
     directions: 'Itinéraire',
   },
+  lines: {
+    "eyebrow": "Deux lignes de production",
+    "title": "Grands et petits volumes, deux lignes complémentaires",
+    "intro": "L'usine comptera deux lignes distinctes, ouvertes dès le démarrage : l'une pour les solutés de perfusion, l'autre pour les injectables en ampoules.",
+    "labels": {
+      "container": "Contenant",
+      "volumes": "Volumes",
+      "capacity": "Capacité prévue",
+      "uses": "À l'hôpital"
+    },
+    "start": "Dès le démarrage",
+    "items": [
+      {
+        "code": "LVP",
+        "name": "Grands volumes",
+        "sub": "Solutés de perfusion",
+        "container": "Flacons plastiques formés, remplis et scellés sur place",
+        "volumes": "100 à 1000 mL",
+        "capacity": "15 millions par an",
+        "uses": "Perfusion, réhydratation, dilution de médicaments",
+        "link": "soufflage-remplissage-scellage",
+        "cta": "Le procédé de soufflage-remplissage"
+      },
+      {
+        "code": "SVP",
+        "name": "Petits volumes",
+        "sub": "Injectables en ampoules",
+        "container": "Ampoules unidoses",
+        "volumes": "1 à 20 mL",
+        "capacity": "35 millions par an",
+        "uses": "Injection directe : urgences, maternité, paludisme grave, soins courants",
+        "link": "medicaments",
+        "cta": "Les médicaments prévus"
+      }
+    ]
+  },
+  flows: {
+    "eyebrow": "Circulation dans l'usine",
+    "title": "Quatre flux qui ne se croisent pas",
+    "intro": "L'usine suit le principe de la marche en avant : matières, produits, personnes et déchets ont chacun leur chemin, pour que ce qui est propre ne croise jamais ce qui ne l'est pas.",
+    "zones": {
+      "g": "Zone générale",
+      "c": "Zone propre · classe C",
+      "a": "Protection de classe A"
+    },
+    "all": "Tous les flux",
+    "show": "Afficher le flux",
+    "items": [
+      {
+        "key": "mat",
+        "icon": "box",
+        "title": "Matières premières",
+        "steps": [
+          {
+            "t": "Réception",
+            "z": "g"
+          },
+          {
+            "t": "Quarantaine",
+            "z": "g"
+          },
+          {
+            "t": "Analyse au laboratoire",
+            "z": "g"
+          },
+          {
+            "t": "Pesée",
+            "z": "c"
+          },
+          {
+            "t": "Préparation",
+            "z": "c"
+          }
+        ]
+      },
+      {
+        "key": "prod",
+        "icon": "drop",
+        "title": "Produits",
+        "steps": [
+          {
+            "t": "Remplissage",
+            "z": "a"
+          },
+          {
+            "t": "Stérilisation",
+            "z": "g"
+          },
+          {
+            "t": "Inspection à 100 %",
+            "z": "g"
+          },
+          {
+            "t": "Libération du lot",
+            "z": "g"
+          },
+          {
+            "t": "Expédition",
+            "z": "g"
+          }
+        ]
+      },
+      {
+        "key": "pers",
+        "icon": "users",
+        "title": "Personnel",
+        "steps": [
+          {
+            "t": "Vestiaire",
+            "z": "g"
+          },
+          {
+            "t": "Sas d'habillage",
+            "z": "c"
+          },
+          {
+            "t": "Zone propre",
+            "z": "c"
+          },
+          {
+            "t": "Sas de sortie",
+            "z": "g"
+          }
+        ]
+      },
+      {
+        "key": "waste",
+        "icon": "recycle",
+        "title": "Déchets",
+        "steps": [
+          {
+            "t": "Collecte",
+            "z": "c"
+          },
+          {
+            "t": "Sortie dédiée",
+            "z": "g"
+          },
+          {
+            "t": "Tri",
+            "z": "g"
+          },
+          {
+            "t": "Élimination agréée",
+            "z": "g"
+          }
+        ]
+      }
+    ],
+    "note": "Schéma de principe. L'organisation des bâtiments est décrite sur la page du site de Sèmè-Podji.",
+    "cta": "L'organisation du site"
+  },
+  products: {
+    "eyebrow": "Nos futurs produits",
+    "title": "Ce qui sortira de nos lignes",
+    "intro": "Trois gammes seront fabriquées à Sèmè-Podji. Elles entreront en production au fil de l'ouverture des lignes et des autorisations.",
+    "badge": "Non encore disponible",
+    "items": [
+      {
+        "slug": "serums",
+        "icon": "drop",
+        "tag": "Ligne LVP · démarrage",
+        "text": "Solutés de base et solutés spécifiques pour la perfusion et la réhydratation.",
+        "examples": [
+          "Chlorure de sodium 0,9 %",
+          "Glucose 5 %",
+          "Ringer lactate"
+        ]
+      },
+      {
+        "slug": "medicaments",
+        "icon": "vial",
+        "tag": "Ligne SVP · trois phases",
+        "text": "Injectables en ampoules dès le démarrage, puis antibiotiques injectables, vaccins et sérums, solutions buvables.",
+        "examples": [
+          "Ocytocine 10 UI",
+          "Quinine injectable",
+          "Ceftriaxone 1 g"
+        ]
+      },
+      {
+        "slug": "solutions-nutritionnelles",
+        "icon": "flask",
+        "tag": "Lignes LVP et SVP · démarrage",
+        "text": "Glucose concentré et vitamines pour l'apport calorique et la correction des carences.",
+        "examples": [
+          "Glucose 10 %",
+          "Glucose 30 %",
+          "Vitamines du complexe B"
+        ]
+      }
+    ],
+    "more": "Voir la gamme",
+    "cta": "Tout le catalogue",
+    "doc": "Être informé de la disponibilité"
+  },
+  jobs: {
+    "eyebrow": "Les équipes",
+    "title": "Les métiers de l'usine",
+    "text": "Faire tourner une usine pharmaceutique demande des compétences pointues. Nous recruterons localement et formerons nos équipes, avec un transfert de compétences sur cinq ans.",
+    "value": "150",
+    "unit": "emplois directs prévus",
+    "split": [
+      {
+        "v": 70,
+        "l": "postes techniques"
+      },
+      {
+        "v": 30,
+        "l": "postes administratifs"
+      }
+    ],
+    "familiesTitle": "Six familles de métiers",
+    "cta1": "Découvrir nos métiers",
+    "cta2": "Candidature spontanée"
+  },
+  faq: {
+    "eyebrow": "Questions fréquentes",
+    "title": "L'usine en questions",
+    "more": "En savoir plus",
+    "items": [
+      {
+        "q": "Quand l'usine démarrera-t-elle ?",
+        "a": "L'usine est en construction. La production démarrera après l'installation et la qualification des équipements, la validation des premiers lots et l'obtention des autorisations. Nous annoncerons chaque étape dans nos actualités.",
+        "link": "actualites"
+      },
+      {
+        "q": "La capacité pourra-t-elle augmenter ?",
+        "a": "Oui. L'usine est conçue pour augmenter sa capacité, et de nouvelles productions sont prévues : antibiotiques injectables, puis vaccins, sérums et solutions buvables.",
+        "link": "medicaments"
+      },
+      {
+        "q": "Pourquoi des flacons en plastique plutôt qu'en verre ?",
+        "a": "Le flacon plastique est léger et incassable, et il se vide sans prise d'air, ce qui limite les risques de contamination. Il est fabriqué au moment même du remplissage, sans contact humain.",
+        "link": "soufflage-remplissage-scellage"
+      },
+      {
+        "q": "Comment la stérilité sera-t-elle garantie ?",
+        "a": "Remplissage sous protection de classe A, stérilisation de chaque flacon dans son emballage final, contrôle de 100 % des flacons et analyses au laboratoire : aucun lot ne sera libéré sans l'accord du pharmacien responsable.",
+        "link": "sterilisation"
+      },
+      {
+        "q": "Peut-on visiter l'usine ?",
+        "a": "Oui, sur rendez-vous. Les visites sont proposées aux partenaires, investisseurs, autorités et professionnels de santé, dans le respect des règles d'accès aux zones propres.",
+        "link": "contact"
+      },
+      {
+        "q": "Comment devenir fournisseur de l'usine ?",
+        "a": "Matières premières, emballages, équipements, services : présentez votre entreprise depuis la page Fournisseurs. Notre service achats étudiera votre offre selon nos critères de qualité.",
+        "link": "fournisseurs"
+      }
+    ]
+  },
+  visit: {
+    "badge": "Visites sur rendez-vous",
+    "title": "Venez voir l'usine prendre forme",
+    "text": "Investisseurs, autorités de santé, partenaires techniques ou futurs clients : organisons une visite du site de Sèmè-Podji ou une rencontre avec notre équipe.",
+    "cta1": "Demander une visite",
+    "cta2": "Devenir distributeur"
+  },
 };
 export default usine;
 export type UsineDict = typeof usine;

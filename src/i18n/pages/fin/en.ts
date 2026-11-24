@@ -80,7 +80,7 @@ const fin: FinDict = {
       message: 'Your message', consent: 'I agree that TILAMED Pharma may use this information to answer my request.',
       submit: 'Send message', required: 'Required field', select: 'Choose…',
     },
-    subjects: ['Order or tender', 'Become a distributor', 'Product documentation', 'Press', 'Job application', 'Supplier', 'Other'],
+    subjects: ['Order or tender', 'Become a distributor', 'Product documentation', 'Press', 'Job application', 'Supplier', 'Site visit or partnership', 'Other'],
     directTitle: 'Reach us directly',
     whatsapp: 'Message us on WhatsApp',
     officesTitle: 'Our offices',

@@ -82,7 +82,7 @@ const fin = {
       message: 'Votre message', consent: 'J\'accepte que TILAMED Pharma utilise ces informations pour répondre à ma demande.',
       submit: 'Envoyer le message', required: 'Champ obligatoire', select: 'Choisir…',
     },
-    subjects: ['Commande ou appel d\'offres', 'Devenir distributeur', 'Documentation produit', 'Presse', 'Candidature', 'Fournisseur', 'Autre'],
+    subjects: ['Commande ou appel d\'offres', 'Devenir distributeur', 'Documentation produit', 'Presse', 'Candidature', 'Fournisseur', 'Visite du site ou partenariat', 'Autre'],
     directTitle: 'Nous joindre directement',
     whatsapp: 'Écrire sur WhatsApp',
     officesTitle: 'Nos bureaux',

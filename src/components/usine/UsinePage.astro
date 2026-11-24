@@ -37,6 +37,14 @@ const explore = [
   { slug: 'transfert-technologie', icon: 'users', img: imgExTransfert },
   { slug: 'site-seme-podji', icon: 'pin', img: imgExSite },
 ].map((x) => ({ ...x, lead: getTopic(lang, x.slug).lead }));
+
+// Métiers : les six familles viennent de la page « Nos métiers » (maison), ici en simple sommaire.
+const jobBlock = getTopic(lang, 'metiers').blocks.find((b) => b.kind === 'cards') as { items: { title: string }[] } | undefined;
+const jobIcons = ['factory', 'shield', 'flask', 'wrench', 'truck', 'users'];
+const jobFamilies = (jobBlock?.items ?? []).map((x, i) => ({ title: x.title, icon: jobIcons[i] ?? 'users' }));
+const visitHref = `${L('contact')}?objet=visite`;
+const faqLink = (slug: string) => (slug === 'contact' ? visitHref : L(slug));
+const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: u.faq.items.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) };
 ---
 <PageHero lang={lang} section="usine" slug="usine" title={u.hero.title} lead={u.hero.lead} video="ligne-remplissage">
   <a class="btn" href="#procede">{u.hero.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
@@ -73,6 +81,54 @@ const explore = [
       <Picture src={imgSite} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 44vw" alt={u.site.imageAlt} loading="lazy" />
       <figcaption><Icon name="sparkle" size={20} />{u.site.badge}</figcaption>
     </figure>
+  </div>
+</section>
+
+<!-- DEUX LIGNES : grands volumes (LVP) et petits volumes (SVP) -->
+<section class="section ulines" aria-labelledby="ulines-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow eyebrow--light" data-reveal><Icon name="layers" size={16} class="eyebrow__ic" /><span>{u.lines.eyebrow}</span></p>
+        <h2 class="h2" id="ulines-title" data-reveal>{u.lines.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{u.lines.intro}</p>
+    </div>
+    <ul class="ulines__grid">
+      {u.lines.items.map((x, i) => (
+        <li class="ulines__card" data-reveal style={`--d:${i}`}>
+          <div class="ulines__top">
+            <div>
+              <span class="ufacts__code">{x.code}</span>
+              <span class="ulines__start"><Icon name="check" size={14} />{u.lines.start}</span>
+              <h3 class="ulines__name">{x.name}</h3>
+              <p class="ulines__sub">{x.sub}</p>
+            </div>
+            {i === 0 ? (
+              <svg class="ulines__art" viewBox="0 0 80 120" aria-hidden="true">
+                <path class="ulines__glass" d="M30 6h20v8l-4 6v6l14 10v68a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10V36l14-10v-6l-4-6z" />
+                <path class="ulines__liquid" d="M22 60c8-4 14 4 22 0s12-4 14 0v44a8 8 0 0 1-8 8H30a8 8 0 0 1-8-8z" />
+                <path class="ulines__mark" d="M28 50h10M28 70h10M28 90h10" />
+              </svg>
+            ) : (
+              <svg class="ulines__art ulines__art--amp" viewBox="0 0 80 120" aria-hidden="true">
+                <path class="ulines__glass" d="M36 4h8l2 18c0 6-6 8-6 14s10 8 10 16v54a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8V52c0-8 10-10 10-16s-6-8-6-14z" />
+                <path class="ulines__liquid" d="M32 74c4-2 8 2 12 0s4-2 4 0v32a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6z" />
+                <path class="ulines__mark" d="M33 40h14" />
+              </svg>
+            )}
+          </div>
+          <dl class="ulines__rows">
+            <div><dt>{u.lines.labels.container}</dt><dd>{x.container}</dd></div>
+            <div><dt>{u.lines.labels.volumes}</dt><dd dir="auto">{x.volumes}</dd></div>
+            <div><dt>{u.lines.labels.capacity}</dt><dd>{x.capacity}</dd></div>
+            <div><dt>{u.lines.labels.uses}</dt><dd>{x.uses}</dd></div>
+          </dl>
+          <a class="link-arrow ulines__link" href={L(x.link)}>{x.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
@@ -120,6 +176,47 @@ const explore = [
   </div>
 </section>
 
+<!-- SCHÉMA ANIMÉ DES FLUX (marche en avant) -->
+<section class="section uflow" aria-labelledby="uflow-title" data-uflow data-active="all">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="route" size={16} class="eyebrow__ic" /><span>{u.flows.eyebrow}</span></p>
+        <h2 class="h2" id="uflow-title" data-reveal>{u.flows.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{u.flows.intro}</p>
+    </div>
+    <div class="uflow__bar" data-reveal>
+      <div class="uflow__tabs" role="group" aria-label={u.flows.show}>
+        <button type="button" class="uflow__tab" data-flow-btn="all" aria-pressed="true">{u.flows.all}</button>
+        {u.flows.items.map((f) => (
+          <button type="button" class:list={['uflow__tab', `is-${f.key}`]} data-flow-btn={f.key} aria-pressed="false"><Icon name={f.icon} size={16} />{f.title}</button>
+        ))}
+      </div>
+      <ul class="uflow__legend">
+        {(['g', 'c', 'a'] as const).map((z) => <li><span class={`uflow__sw z-${z}`} aria-hidden="true"></span>{u.flows.zones[z]}</li>)}
+      </ul>
+    </div>
+    <ol class="uflow__lanes" data-reveal>
+      {u.flows.items.map((f, i) => (
+        <li class:list={['uflow__lane', `is-${f.key}`]} data-flow={f.key} style={`--n:${f.steps.length};--i:${i}`}>
+          <p class="uflow__head"><span class="uflow__ic"><Icon name={f.icon} size={20} /></span>{f.title}</p>
+          <div class="uflow__track">
+            <span class="uflow__pulse" aria-hidden="true"></span>
+            <ol class="uflow__steps">
+              {f.steps.map((s) => (
+                <li class={`uflow__st z-${s.z}`}><span>{s.t}</span><span class="sr-only"> · {u.flows.zones[s.z as 'g' | 'c' | 'a']}</span></li>
+              ))}
+            </ol>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="uflow__note" data-reveal>{u.flows.note} <a class="link-arrow" href={L('site-seme-podji')}>{u.flows.cta}<Icon name="arrow" size={16} class="flip-rtl" /></a></p>
+  </div>
+</section>
+
 <!-- AUTOUR DE LA PRODUCTION : renvois vers les pages détaillées -->
 <section class="section vcom" aria-labelledby="uexp-title">
   <div class="wrap">
@@ -149,6 +246,70 @@ const explore = [
   </div>
 </section>
 
+<!-- CE QUI SORTIRA DE NOS LIGNES (renvois vers les gammes fabriquées) -->
+<section class="section uprod" aria-labelledby="uprod-title">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-reveal><Icon name="vial" size={16} class="eyebrow__ic" /><span>{u.products.eyebrow}</span></p>
+        <h2 class="h2" id="uprod-title" data-reveal>{u.products.title}</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <p class="lead" data-reveal>{u.products.intro}</p>
+    </div>
+    <ul class="uprod__grid">
+      {u.products.items.map((x, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="uprod__card" href={L(x.slug)}>
+            <span class="uprod__top">
+              <span class="uprod__ic"><Icon name={x.icon} size={24} /></span>
+              <span class="uprod__badge"><Icon name="clock" size={14} />{u.products.badge}</span>
+            </span>
+            <span class="uprod__tag">{x.tag}</span>
+            <span class="uprod__t">{pages[x.slug]}</span>
+            <span class="uprod__d">{x.text}</span>
+            <span class="uprod__ex">{x.examples.map((e) => <span>{e}</span>)}</span>
+            <span class="link-arrow">{u.products.more}<Icon name="arrow" size={16} class="flip-rtl" /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="uprod__actions" data-reveal>
+      <a class="btn" href={L('produits')}>{u.products.cta}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+      <a class="btn btn--ghost" href={L('documentation')}>{u.products.doc}</a>
+    </div>
+  </div>
+</section>
+
+<!-- LES MÉTIERS DE L'USINE (sommaire ; maison = page Nos métiers) -->
+<section class="section ujobs" aria-labelledby="ujobs-title">
+  <div class="wrap ujobs__grid">
+    <div>
+      <p class="eyebrow" data-reveal><Icon name="users" size={16} class="eyebrow__ic" /><span>{u.jobs.eyebrow}</span></p>
+      <h2 class="h2" id="ujobs-title" data-reveal>{u.jobs.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="lead ujobs__text" data-reveal>{u.jobs.text}</p>
+      <div class="ujobs__ctas" data-reveal>
+        <a class="btn" href={L('metiers')}>{u.jobs.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+        <a class="btn btn--ghost" href={L('candidature')}>{u.jobs.cta2}</a>
+      </div>
+    </div>
+    <div class="ujobs__panel" data-reveal="scale">
+      <p class="ujobs__num"><b dir="ltr">{u.jobs.value}</b><span>{u.jobs.unit}</span></p>
+      <div class="ujobs__bar" aria-hidden="true">
+        {u.jobs.split.map((s, i) => <span class={`is-${i}`} style={`--w:${s.v}%`}></span>)}
+      </div>
+      <ul class="ujobs__split">
+        {u.jobs.split.map((s, i) => <li class={`is-${i}`}><b dir="ltr">{s.v} %</b>{s.l}</li>)}
+      </ul>
+      <p class="ujobs__ft">{u.jobs.familiesTitle}</p>
+      <ul class="ujobs__fams">
+        {jobFamilies.map((x) => <li><Icon name={x.icon} size={18} />{x.title}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- USINE VERTE (renvoi vers Environnement) -->
 <section class="ugreen" aria-labelledby="ugreen-title">
   <div class="wrap">
@@ -165,3 +326,55 @@ const explore = [
     </div>
   </div>
 </section>
+
+<!-- FAQ DE L'USINE -->
+<section class="section ufaq" aria-labelledby="ufaq-title">
+  <div class="wrap ufaq__grid">
+    <div class="ufaq__head">
+      <p class="eyebrow" data-reveal><Icon name="book" size={16} class="eyebrow__ic" /><span>{u.faq.eyebrow}</span></p>
+      <h2 class="h2" id="ufaq-title" data-reveal>{u.faq.title}</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+      <p class="ufaq__all" data-reveal><a class="link-arrow" href={L('faq')}>{pages['faq']}<Icon name="arrow" size={16} class="flip-rtl" /></a></p>
+    </div>
+    <div class="mfaq__list ufaq__list">
+      {u.faq.items.map((x, i) => (
+        <details class="mfaq__item" data-reveal style={`--d:${i % 3}`} open={i === 0}>
+          <summary><span>{x.q}</span><Icon name="plus" size={20} class="mfaq__plus" /></summary>
+          <div class="mfaq__a">
+            <p>{x.a}</p>
+            <a class="link-arrow" href={faqLink(x.link)}>{u.faq.more}<Icon name="arrow" size={16} class="flip-rtl" /></a>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+</section>
+
+<!-- VISITER / S'ASSOCIER -->
+<section class="section uvisit" aria-labelledby="uvisit-title">
+  <div class="wrap">
+    <div class="uvisit__card" data-reveal>
+      <div class="uvisit__body">
+        <span class="ugreen__badge"><Icon name="pin" size={16} />{u.visit.badge}</span>
+        <h2 class="ugreen__title" id="uvisit-title">{u.visit.title}</h2>
+        <p>{u.visit.text}</p>
+      </div>
+      <div class="uvisit__ctas">
+        <a class="btn btn--light" href={visitHref}>{u.visit.cta1}<Icon name="arrow" size={18} class="flip-rtl" /></a>
+        <a class="btn btn--outline-light" href={L('distributeurs')}>{u.visit.cta2}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Schéma des flux : un bouton met un flux en avant (les autres s'estompent).
+  document.querySelectorAll<HTMLElement>('[data-uflow]').forEach((root) => {
+    const btns = root.querySelectorAll<HTMLButtonElement>('[data-flow-btn]');
+    btns.forEach((b) => b.addEventListener('click', () => {
+      root.dataset.active = b.dataset.flowBtn;
+      btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    }));
+  });
+</script>

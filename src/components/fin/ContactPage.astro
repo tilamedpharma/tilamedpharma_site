@@ -30,7 +30,7 @@ const wa = socials.find((s) => s.id === 'whatsapp');
         <input type="hidden" name="langue" value={lang} />
         <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
         <label class="field"><span>{f.subject} <b aria-hidden="true">*</b></span>
-          <select name="objet" required><option value="">{f.select}</option>{c.subjects.map((x) => <option>{x}</option>)}</select>
+          <select name="objet" required><option value="">{f.select}</option>{c.subjects.map((x, i) => <option data-k={i === c.subjects.length - 2 ? 'visite' : undefined}>{x}</option>)}</select>
         </label>
         <div class="form__row">
           <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="nom" required autocomplete="name" /></label>
@@ -73,3 +73,10 @@ const wa = socials.find((s) => s.id === 'whatsapp');
   </div>
 </section>
 
+
+<script>
+  // Objet présélectionné depuis un lien (ex. page Usine : /contact/?objet=visite).
+  const key = new URLSearchParams(location.search).get('objet');
+  const opt = key ? document.querySelector<HTMLOptionElement>(`select[name="objet"] option[data-k="${CSS.escape(key)}"]`) : null;
+  if (opt) opt.selected = true;
+</script>

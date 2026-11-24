@@ -67,5 +67,265 @@ const usine: UsineDict = {
     cta: 'Il sito di Sèmè-Podji',
     directions: 'Indicazioni',
   },
+  lines: {
+    "eyebrow": "Due linee di produzione",
+    "title": "Grandi e piccoli volumi, due linee complementari",
+    "intro": "Lo stabilimento avrà due linee distinte, attive fin dall'avvio: una per le soluzioni per infusione, l'altra per gli iniettabili in fiale.",
+    "labels": {
+      "container": "Contenitore",
+      "volumes": "Volumi",
+      "capacity": "Capacità prevista",
+      "uses": "In ospedale"
+    },
+    "start": "Fin dall'avvio",
+    "items": [
+      {
+        "code": "LVP",
+        "name": "Grandi volumi",
+        "sub": "Soluzioni per infusione",
+        "container": "Flaconi di plastica formati, riempiti e sigillati in loco",
+        "volumes": "Da 100 a 1000 mL",
+        "capacity": "15 milioni l'anno",
+        "uses": "Infusione, reidratazione, diluizione di farmaci",
+        "link": "soufflage-remplissage-scellage",
+        "cta": "Il processo di soffiaggio-riempimento-sigillatura"
+      },
+      {
+        "code": "SVP",
+        "name": "Piccoli volumi",
+        "sub": "Iniettabili in fiale",
+        "container": "Fiale monodose",
+        "volumes": "Da 1 a 20 mL",
+        "capacity": "35 milioni l'anno",
+        "uses": "Iniezione diretta: urgenze, maternità, malaria grave, cure correnti",
+        "link": "medicaments",
+        "cta": "I farmaci previsti"
+      }
+    ]
+  },
+  flows: {
+    "eyebrow": "Circolazione nello stabilimento",
+    "title": "Quattro flussi che non si incrociano",
+    "intro": "Lo stabilimento segue il principio della marcia in avanti: materiali, prodotti, persone e rifiuti hanno ciascuno il proprio percorso, perché ciò che è pulito non incroci mai ciò che non lo è.",
+    "zones": {
+      "g": "Zona generale",
+      "c": "Zona pulita · grado C",
+      "a": "Protezione di grado A"
+    },
+    "all": "Tutti i flussi",
+    "show": "Mostra il flusso",
+    "items": [
+      {
+        "key": "mat",
+        "icon": "box",
+        "title": "Materie prime",
+        "steps": [
+          {
+            "t": "Ricevimento",
+            "z": "g"
+          },
+          {
+            "t": "Quarantena",
+            "z": "g"
+          },
+          {
+            "t": "Analisi in laboratorio",
+            "z": "g"
+          },
+          {
+            "t": "Pesatura",
+            "z": "c"
+          },
+          {
+            "t": "Preparazione",
+            "z": "c"
+          }
+        ]
+      },
+      {
+        "key": "prod",
+        "icon": "drop",
+        "title": "Prodotti",
+        "steps": [
+          {
+            "t": "Riempimento",
+            "z": "a"
+          },
+          {
+            "t": "Sterilizzazione",
+            "z": "g"
+          },
+          {
+            "t": "Ispezione al 100%",
+            "z": "g"
+          },
+          {
+            "t": "Rilascio del lotto",
+            "z": "g"
+          },
+          {
+            "t": "Spedizione",
+            "z": "g"
+          }
+        ]
+      },
+      {
+        "key": "pers",
+        "icon": "users",
+        "title": "Personale",
+        "steps": [
+          {
+            "t": "Spogliatoio",
+            "z": "g"
+          },
+          {
+            "t": "Sas di vestizione",
+            "z": "c"
+          },
+          {
+            "t": "Zona pulita",
+            "z": "c"
+          },
+          {
+            "t": "Sas di uscita",
+            "z": "g"
+          }
+        ]
+      },
+      {
+        "key": "waste",
+        "icon": "recycle",
+        "title": "Rifiuti",
+        "steps": [
+          {
+            "t": "Raccolta",
+            "z": "c"
+          },
+          {
+            "t": "Uscita dedicata",
+            "z": "g"
+          },
+          {
+            "t": "Cernita",
+            "z": "g"
+          },
+          {
+            "t": "Smaltimento autorizzato",
+            "z": "g"
+          }
+        ]
+      }
+    ],
+    "note": "Schema di principio. L'organizzazione degli edifici è descritta nella pagina del sito di Sèmè-Podji.",
+    "cta": "L'organizzazione del sito"
+  },
+  products: {
+    "eyebrow": "I nostri futuri prodotti",
+    "title": "Ciò che uscirà dalle nostre linee",
+    "intro": "A Sèmè-Podji saranno fabbricate tre gamme. Entreranno in produzione man mano che si apriranno le linee e saranno ottenute le autorizzazioni.",
+    "badge": "Non ancora disponibile",
+    "items": [
+      {
+        "slug": "serums",
+        "icon": "drop",
+        "tag": "Linea LVP · avvio",
+        "text": "Soluzioni di base e specifiche per l'infusione e la reidratazione.",
+        "examples": [
+          "Sodio cloruro 0,9%",
+          "Glucosio 5%",
+          "Ringer lattato"
+        ]
+      },
+      {
+        "slug": "medicaments",
+        "icon": "vial",
+        "tag": "Linea SVP · tre fasi",
+        "text": "Iniettabili in fiale fin dall'avvio, poi antibiotici iniettabili, vaccini e sieri, soluzioni orali.",
+        "examples": [
+          "Ossitocina 10 UI",
+          "Chinino iniettabile",
+          "Ceftriaxone 1 g"
+        ]
+      },
+      {
+        "slug": "solutions-nutritionnelles",
+        "icon": "flask",
+        "tag": "Linee LVP e SVP · avvio",
+        "text": "Glucosio concentrato e vitamine per l'apporto calorico e la correzione delle carenze.",
+        "examples": [
+          "Glucosio 10%",
+          "Glucosio 30%",
+          "Vitamine del complesso B"
+        ]
+      }
+    ],
+    "more": "Vedi la gamma",
+    "cta": "Tutto il catalogo",
+    "doc": "Essere informati sulla disponibilità"
+  },
+  jobs: {
+    "eyebrow": "I team",
+    "title": "I mestieri dello stabilimento",
+    "text": "Far funzionare uno stabilimento farmaceutico richiede competenze specialistiche. Assumeremo localmente e formeremo i nostri team, con un trasferimento di competenze in cinque anni.",
+    "value": "150",
+    "unit": "posti di lavoro diretti previsti",
+    "split": [
+      {
+        "v": 70,
+        "l": "posti tecnici"
+      },
+      {
+        "v": 30,
+        "l": "posti amministrativi"
+      }
+    ],
+    "familiesTitle": "Sei famiglie di mestieri",
+    "cta1": "Scopri i nostri mestieri",
+    "cta2": "Candidatura spontanea"
+  },
+  faq: {
+    "eyebrow": "Domande frequenti",
+    "title": "Lo stabilimento in domande",
+    "more": "Per saperne di più",
+    "items": [
+      {
+        "q": "Quando partirà lo stabilimento?",
+        "a": "Lo stabilimento è in costruzione. La produzione partirà dopo l'installazione e la qualifica delle apparecchiature, la convalida dei primi lotti e l'ottenimento delle autorizzazioni. Annunceremo ogni tappa nelle nostre notizie.",
+        "link": "actualites"
+      },
+      {
+        "q": "La capacità potrà aumentare?",
+        "a": "Sì. Lo stabilimento è progettato per aumentare la propria capacità e sono previste nuove produzioni: antibiotici iniettabili, poi vaccini, sieri e soluzioni orali.",
+        "link": "medicaments"
+      },
+      {
+        "q": "Perché flaconi di plastica e non di vetro?",
+        "a": "Il flacone di plastica è leggero e infrangibile, e si svuota senza ingresso d'aria, il che limita i rischi di contaminazione. Viene fabbricato nel momento stesso del riempimento, senza contatto umano.",
+        "link": "soufflage-remplissage-scellage"
+      },
+      {
+        "q": "Come sarà garantita la sterilità?",
+        "a": "Riempimento sotto protezione di grado A, sterilizzazione di ogni flacone nel suo imballaggio finale, controllo del 100% dei flaconi e analisi in laboratorio: nessun lotto sarà rilasciato senza l'approvazione del farmacista responsabile.",
+        "link": "sterilisation"
+      },
+      {
+        "q": "È possibile visitare lo stabilimento?",
+        "a": "Sì, su appuntamento. Le visite sono proposte a partner, investitori, autorità e professionisti sanitari, nel rispetto delle regole di accesso alle zone pulite.",
+        "link": "contact"
+      },
+      {
+        "q": "Come diventare fornitore dello stabilimento?",
+        "a": "Materie prime, imballaggi, apparecchiature, servizi: presenti la sua azienda dalla pagina Fornitori. Il nostro ufficio acquisti esaminerà la sua offerta secondo i nostri criteri di qualità.",
+        "link": "fournisseurs"
+      }
+    ]
+  },
+  visit: {
+    "badge": "Visite su appuntamento",
+    "title": "Venite a vedere lo stabilimento prendere forma",
+    "text": "Investitori, autorità sanitarie, partner tecnici o futuri clienti: organizziamo una visita al sito di Sèmè-Podji o un incontro con il nostro team.",
+    "cta1": "Richiedi una visita",
+    "cta2": "Diventa distributore"
+  },
 };
 export default usine;

@@ -718,7 +718,7 @@
 .pfam__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
 .pfam__card:hover .pfam__img img { transform: scale(1.05); }
 .pfam__body { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 20px; }
-.pfam__ic { display: grid; place-items: center; width: 38px; height: 38px; margin-top: -40px; border: 3px solid #fff; border-radius: var(--radius); background: var(--blue); color: #fff; }
+.pfam__ic { position: relative; z-index: 1; display: grid; place-items: center; width: 38px; height: 38px; margin-top: -40px; border: 3px solid #fff; border-radius: var(--radius); background: var(--blue); color: #fff; }
 .pfam__grid li:nth-child(even) .pfam__ic { background: var(--green); }
 .pfam__t { font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; color: var(--navy); line-height: 1.25; }
 .pfam__d { flex: 1; font-size: .875rem; line-height: 1.45; color: var(--muted); }
@@ -1371,9 +1371,6 @@
 }
 
 /* Usine : panneau numéroté des étapes (sans vidéo, 19/11) */
-.ustep__media--icon { display: grid; place-items: center; background: var(--blue); color: #fff; }
-.ustep__media--icon .ustep__big { opacity: .9; }
-@media (max-width: 640px) { .ustep__media--icon { aspect-ratio: 16 / 7; } }
 
 /* Marchés : visuels (19/11, une image = un seul endroit) */
 .mcli__list > li { padding: 0; overflow: hidden; gap: 0; align-items: stretch; }

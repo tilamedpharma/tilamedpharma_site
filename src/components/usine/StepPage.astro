@@ -8,6 +8,13 @@ import { useUsine } from '../../i18n/pages/usine';
 import { useEtapes } from '../../i18n/pages/etapes';
 import { localizePath, type Locale } from '../../i18n/config';
 import { processSteps } from '../../data/site';
+import imgEau from '../../assets/images/stock/etape-eau-filtres.jpg';
+import imgCuve from '../../assets/images/stock/etape-cuve-manometre.jpg';
+import imgLigne from '../../assets/images/stock/etape-ligne-flacons.jpg';
+import imgSter from '../../assets/images/stock/etape-sterilisation-inox.jpg';
+import imgFlacons from '../../assets/images/stock/etape-flacons-plateau.jpg';
+import imgLabo from '../../assets/images/stock/labo-microscope-femme.jpg';
+import imgEntrepot from '../../assets/images/stock/etape-entrepot-cartons.jpg';
 
 interface Props { lang: Locale; slug: string }
 const { lang, slug } = Astro.props;
@@ -26,8 +33,13 @@ const prev = idx > 0 ? processSteps[idx - 1] : null;
 const next = idx < total - 1 ? processSteps[idx + 1] : null;
 const stepLabel = `${e.ui.step} ${pad(idx + 1)} ${e.ui.of} ${pad(total)}`;
 const cardIcons = ['flask', 'eye', 'clock', 'shield'];
+// En-tête en photo : les vidéos du procédé sont sur la page Usine (une image ou vidéo = un seul endroit, 24/11)
+const heroImages: Record<string, ImageMetadata> = {
+  'traitement-eau': imgEau, 'preparation-solutions': imgCuve, 'soufflage-remplissage-scellage': imgLigne,
+  sterilisation: imgSter, inspection: imgFlacons, laboratoire: imgLabo, 'conditionnement-logistique': imgEntrepot,
+};
 ---
-<PageHero lang={lang} section="usine" slug={slug} title={pages[slug]} lead={s.lead} video={cur.video}>
+<PageHero lang={lang} section="usine" slug={slug} title={pages[slug]} lead={s.lead} image={heroImages[slug]}>
   <span class="phero__step"><Icon name="route" size={16} />{stepLabel}</span>
 </PageHero>
 

@@ -29,7 +29,7 @@ const pages = t.nav.pages as Record<string, string>;
 const stepSlugs = processSteps.map((s) => s.slug);
 // Les vidéos des étapes ne sont qu'en en-tête de leur page (une image = un seul endroit, 19/11/2026) :
 // ici, chaque étape a un panneau numéroté avec une icône.
-const stepIcons = ['drop', 'flask', 'vial', 'flame', 'eye', 'shield', 'box'];
+const stepVideos = processSteps.map((s) => s.video);
 // Renvois : titre = nom de la page, texte = chapô de la page cible, visuel propre à la carte (pas l'en-tête de la cible).
 const explore = [
   { slug: 'salles-propres', icon: 'filter', img: imgExSalles },
@@ -91,8 +91,10 @@ const explore = [
       {u.process.steps.map((s, i) => (
         <li class="ustep" data-reveal style={`--d:${i % 2}`}>
           <a class="ustep__link" href={L(stepSlugs[i])}>
-            <span class="ustep__media ustep__media--icon" aria-hidden="true">
-              <Icon name={stepIcons[i]} size={56} class="ustep__big" />
+            <span class="ustep__media" data-hover-play>
+              <video muted loop playsinline preload="none" poster={`/media/video/${stepVideos[i]}.jpg`} aria-hidden="true">
+                <source src={`/media/video/${stepVideos[i]}.mp4`} type="video/mp4" />
+              </video>
               <span class="ustep__n"><small>{t.page.step}</small>{pad(i + 1)}</span>
             </span>
             <span class="ustep__body">

@@ -127,3 +127,9 @@ Règle (client, 18/11/2026) : pas de photos de personnes blanches sur le site ; 
 | affaires-bureau-echange.jpg | Deux collègues échangeant dans un bureau moderne | https://www.pexels.com/photo/9301299/ |
 | pharmacienne-medicaments.jpg | Pharmacienne tenant des boîtes de médicaments | https://www.pexels.com/photo/38774686/ |
 | logistique-employe-cartons.jpg | Jeune employé rangeant des cartons d'expédition | https://www.pexels.com/photo/6169158/ |
+| etape-eau-filtres.jpg | Colonnes de filtration d'une station de traitement d'eau (en-tête Traitement de l'eau) | https://www.pexels.com/photo/12726229/ |
+| etape-cuve-manometre.jpg | Manomètre sur cuve en acier inoxydable (en-tête Préparation des solutions) | https://www.pexels.com/photo/36826987/ |
+| etape-ligne-flacons.jpg | Flacon plastique sur une ligne de remplissage (en-tête Soufflage, remplissage, scellage) | https://www.pexels.com/photo/18631423/ |
+| etape-sterilisation-inox.jpg | Équipement inox de laboratoire (en-tête Stérilisation) | https://www.pexels.com/photo/18471472/ |
+| etape-flacons-plateau.jpg | Flacons en verre alignés dans un plateau (en-tête Contrôle à 100 %) | https://www.pexels.com/photo/9259963/ |
+| etape-entrepot-cartons.jpg | Entrepôt de cartons empilés (en-tête Conditionnement et livraison) | https://www.pexels.com/photo/34221998/ |

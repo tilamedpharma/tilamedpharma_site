@@ -84,7 +84,7 @@ const safetyIcons = ['shield', 'download', 'route'];
               <Picture src={gamImgs[i]} formats={['avif', 'webp']} widths={[360, 560, 760]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 23vw" alt="" loading="lazy" />
             </div>
             <div class="vcom__body">
-              <span class:list={['vcom__ic', { 'is-green': i === families.length - 1 }]}><Icon name={f.icon} size={24} /></span>
+              <span class="vcom__ic"><Icon name={f.icon} size={24} /></span>
               <h3>{c.groups[f.group].label}</h3>
               <ul class="hgam__ex">{x.range.items[i].map((p) => <li>{p}</li>)}</ul>
               <span class="link-arrow">{pages[f.slug]}<Icon name="arrow" size={14} class="flip-rtl" /></span>

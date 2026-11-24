@@ -61,7 +61,7 @@ const journeyIcons = ['search', 'accessible', 'book', 'shield'];
             <Picture src={pillarImgs[i]} formats={['avif', 'webp']} widths={[480, 760, 1040]} sizes="(max-width: 900px) 92vw, 46vw" alt="" loading="lazy" />
           </div>
           <div class="epil__body">
-            <span class:list={['vcom__ic', { 'is-green': i === 1 }]}><Icon name={pillarIcons[i]} size={22} /></span>
+            <span class="vcom__ic"><Icon name={pillarIcons[i]} size={22} /></span>
             <h3>{it.title}</h3>
             <p>{it.text}</p>
             <ul>
@@ -85,7 +85,7 @@ const journeyIcons = ['search', 'accessible', 'book', 'shield'];
     <ol class="ejr">
       {e.journey.items.map((it, i) => (
         <li data-reveal style={`--d:${i}`}>
-          <span class:list={['ejr__dot', { 'is-green': i === e.journey.items.length - 1 }]}><Icon name={journeyIcons[i]} size={24} /></span>
+          <span class="ejr__dot"><Icon name={journeyIcons[i]} size={24} /></span>
           <span class="ejr__n">{pad(i + 1)}</span>
           <h3>{it.title}</h3>
           <p>{it.text}</p>

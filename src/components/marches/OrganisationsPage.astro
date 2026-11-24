@@ -84,7 +84,7 @@ const goalIcons = ['users', 'accessible', 'leaf'];
           <>
             <div class="vcom__img"><Picture src={bringImgs[i]} formats={['avif', 'webp']} widths={[360, 560, 800]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 23vw" alt="" loading="lazy" /></div>
             <div class="vcom__body">
-              <span class:list={['vcom__ic', { 'is-green': i === 3 }]}><Icon name={bringIcons[i]} size={22} /></span>
+              <span class="vcom__ic"><Icon name={bringIcons[i]} size={22} /></span>
               <h3>{it.title}</h3>
               <p>{it.text}</p>
               {href && <span class="link-arrow">{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></span>}

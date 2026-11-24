@@ -125,7 +125,7 @@ const wave = (dy: number) => 'M0 ' + (3 + dy / 2) + Array.from({ length: 50 }, (
       <ul class="bpos__list">
         {b.position.items.map((it, i) => (
           <li data-reveal style={`--d:${i}`}>
-            <span class:list={['bpos__ic', { 'is-green': i === 2 }]}><Icon name={posIcons[i]} size={22} /></span>
+            <span class="bpos__ic"><Icon name={posIcons[i]} size={22} /></span>
             <div><h3>{it.title}</h3><p>{it.text}</p></div>
           </li>
         ))}

@@ -23,7 +23,7 @@ const aPropos = {
       'Née en 2013 sous le nom de SEDIS SARL pour distribuer des dispositifs médicaux en Afrique de l\'Ouest, l\'entreprise devient TILAMED PHARMA SA en 2023 et se consacre désormais à la production industrielle.',
       'Notre première usine, à Sèmè-Podji, produira des solutions injectables de grand volume : solutés de perfusion pour la réhydratation, l\'apport en glucose et l\'administration de médicaments par voie intraveineuse.',
     ],
-    countriesTitle: 'Nos liens à l\'international',
+    countriesTitle: 'Les 15 pays de la CEDEAO',
     cta: 'Notre parcours',
     imageAlt: 'Scientifique au travail dans un laboratoire pharmaceutique',
   },

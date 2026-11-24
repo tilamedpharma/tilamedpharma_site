@@ -6,6 +6,7 @@ import PageHero from '../page/PageHero.astro';
 import { useDict, countryName } from '../../i18n';
 import { useAPropos } from '../../i18n/pages/a-propos';
 import { localizePath, type Locale } from '../../i18n/config';
+import { coverage } from '../../data/site';
 
 import imgHero from '../../assets/images/stock/affaires-equipe-femmes.jpg';
 import imgStory from '../../assets/images/stock/labo-scientifique-flacon.jpg';
@@ -23,7 +24,8 @@ const L = (s: string) => localizePath(lang, s);
 const pad = (n: number) => String(n).padStart(2, '0');
 const pages = t.nav.pages as Record<string, string>;
 
-const countries = ['BJ', 'BF', 'CI', 'ML', 'NE', 'NG', 'IN', 'FR', 'IT'];
+// Les 15 pays de la CEDEAO (demande client 24/11), triés par nom dans la langue de la page
+const countries = coverage.map((x) => x.iso).sort((a, b) => countryName(lang, a).localeCompare(countryName(lang, b), lang));
 const actImgs = [imgAct1, imgAct2, imgAct3, imgAct4];
 const actIcons = ['factory', 'stetho', 'flask', 'paw'];
 const actLinks = ['usine', 'dispositifs-medicaux', 'laboratoire', 'sante-animale'];

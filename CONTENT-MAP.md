@@ -98,5 +98,5 @@ Pas de bloc « navigation de rubrique » ni de portail d'aide en bas de page (re
 - Santé animale = produits **distribués** par la centrale d'achat (plus « gamme vétérinaire TILAMED »).
 - Dispositifs médicaux : « fabricants internationaux reconnus » (AEONMED n'est pas européen).
 - Pourquoi le BÉNIN : « 0 fabricant local de solutions **injectables** ».
-- À propos : bloc des 9 pays = « Nos liens à l'international » ; Ouagadougou = Dassasgho + BP.
+- À propos : le bloc des 9 pays (BJ, BF, CI, ML, NE, NG, IN, FR, IT) est remplacé par « Les 15 pays de la CEDEAO » (liste `coverage` de src/data/site.ts, triée par nom) ; Ouagadougou = Dassasgho + BP.
 - Laissés en l'état à la demande de l'utilisateur : logos « Ils nous font déjà confiance » et noms de clients (page Clients), mentions OMS, vaccins/sérums phase 3, formats 250/1000 ml, autorité du certificat environnemental, vidéo d'accueil (poches).

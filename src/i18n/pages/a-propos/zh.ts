@@ -24,7 +24,7 @@ const aPropos: AProposDict = {
       '公司于 2013 年以 SEDIS SARL 之名成立，在西非经销医疗器械；2023 年更名为 TILAMED PHARMA SA，现专注于工业化生产。',
       '我们位于塞梅-波吉的第一座工厂将生产大容量注射液：用于补液、补充葡萄糖和静脉给药的输液。',
     ],
-    countriesTitle: '我们的国际联系',
+    countriesTitle: '西非国家经济共同体 15 个成员国',
     cta: '我们的历程',
     imageAlt: '在制药实验室工作的科研人员',
   },

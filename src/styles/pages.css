@@ -1110,6 +1110,13 @@
 .cgam__list .vval__card:last-child .vval__n { color: var(--blue); }
 .cgam__list .vval__card p { margin-bottom: 18px; }
 .cgam__more { margin-top: 40px; text-align: center; }
+/* Cartes des gammes : toutes identiques ; quand une page existe, la carte entière est cliquable (lien du titre étendu) */
+.cgam__card { position: relative; }
+.cgam__link { color: inherit; }
+.cgam__link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.cgam__card:has(.cgam__link:hover) h3 { color: var(--blue); }
+.cgam__card:has(.cgam__link:focus-visible) { outline: 3px solid var(--blue); outline-offset: 3px; }
+.cgam__link:focus-visible { outline: none; }
 
 /* Savoir-faire + salons */
 .cxp__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }

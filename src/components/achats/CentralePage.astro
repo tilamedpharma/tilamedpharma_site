@@ -95,14 +95,14 @@ const audIcons = ['building', 'stetho', 'globe', 'truck'];
       {c.ranges.items.map((it, i) => {
         const href = rangeLinks[i];
         return (
-          <li class="vval__card" data-reveal style={`--d:${i}`}>
+          <li class="vval__card cgam__card" data-reveal style={`--d:${i}`}>
             <div class="vval__top">
               <span class="vval__n">{pad(i + 1)}</span>
               <span class="vval__ic"><Icon name={rangeIcons[i]} size={24} /></span>
             </div>
-            <h3>{it.title}</h3>
+            {/* Carte entière cliquable quand la gamme a une page : le lien du titre couvre la carte */}
+            <h3>{href ? <a class="cgam__link" href={L(href)}>{it.title}</a> : it.title}</h3>
             <p>{it.text}</p>
-            {href && <a class="link-arrow" href={L(href)}>{pages[href]}<Icon name="arrow" size={14} class="flip-rtl" /></a>}
           </li>
         );
       })}

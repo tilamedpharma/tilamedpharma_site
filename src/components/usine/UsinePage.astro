@@ -14,8 +14,8 @@ import { processSteps } from '../../data/site';
 import imgSite from '../../assets/images/stock/equipement-inox-usine.jpg';
 import imgGreen from '../../assets/images/stock/green-usine-solaire-champs.jpg';
 import imgExSalles from '../../assets/images/stock/salle-propre-couloir-chariot.jpg';
-import imgExUtil from '../../assets/images/stock/ingenieur-poste-electrique.jpg';
-import imgExTransfert from '../../assets/images/stock/formation-classe-nigeria.jpg';
+import imgExUtil from '../../assets/images/stock/utilites-compresseurs.jpg';
+import imgExTransfert from '../../assets/images/stock/transfert-technicien-machine.jpg';
 import imgExSite from '../../assets/images/stock/route-camion-verdure.jpg';
 
 interface Props { lang: Locale }
@@ -137,7 +137,7 @@ const explore = [
           <a class="vcom__card" href={L(x.slug)}>
             <div class="vcom__img"><Picture src={x.img} formats={['avif', 'webp']} widths={[400, 640, 900]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 24vw" alt="" loading="lazy" /></div>
             <div class="vcom__body">
-              <span class:list={['vcom__ic', { 'is-green': i === 3 }]}><Icon name={x.icon} size={22} /></span>
+              <span class="vcom__ic"><Icon name={x.icon} size={22} /></span>
               <h3>{pages[x.slug]}</h3>
               <p>{x.lead}</p>
               <span class="link-arrow">{u.explore.more}<Icon name="arrow" size={16} class="flip-rtl" /></span>

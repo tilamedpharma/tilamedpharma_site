@@ -133,3 +133,5 @@ Règle (client, 18/11/2026) : pas de photos de personnes blanches sur le site ; 
 | etape-sterilisation-inox.jpg | Équipement inox de laboratoire (en-tête Stérilisation) | https://www.pexels.com/photo/18471472/ |
 | etape-flacons-plateau.jpg | Flacons en verre alignés dans un plateau (en-tête Contrôle à 100 %) | https://www.pexels.com/photo/9259963/ |
 | etape-entrepot-cartons.jpg | Entrepôt de cartons empilés (en-tête Conditionnement et livraison) | https://www.pexels.com/photo/34221998/ |
+| utilites-compresseurs.jpg | Salle de compresseurs d'air industriels (carte Utilités, page Usine) | https://www.pexels.com/photo/31257317/ |
+| transfert-technicien-machine.jpg | Jeune technicien à lunettes sur une machine d'atelier (carte Transfert de technologie, page Usine) | https://www.pexels.com/photo/9242287/ |

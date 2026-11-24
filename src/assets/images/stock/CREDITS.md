@@ -135,3 +135,4 @@ Règle (client, 18/11/2026) : pas de photos de personnes blanches sur le site ; 
 | etape-entrepot-cartons.jpg | Entrepôt de cartons empilés (en-tête Conditionnement et livraison) | https://www.pexels.com/photo/34221998/ |
 | utilites-compresseurs.jpg | Salle de compresseurs d'air industriels (carte Utilités, page Usine) | https://www.pexels.com/photo/31257317/ |
 | transfert-technicien-machine.jpg | Jeune technicien à lunettes sur une machine d'atelier (carte Transfert de technologie, page Usine) | https://www.pexels.com/photo/9242287/ |
+| public/media/video/labo-technicien-microscope.mp4 (+ .jpg) | Vidéo : technicien en tenue de protection au microscope (étape 06 Laboratoire, page Usine) ; remplace labo-paire | https://www.pexels.com/video/5752545/ |

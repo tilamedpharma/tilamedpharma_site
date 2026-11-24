@@ -86,7 +86,7 @@ export const processSteps = [
   { slug: 'soufflage-remplissage-scellage', video: 'tetes-remplissage' },
   { slug: 'sterilisation', video: 'autoclave' },
   { slug: 'inspection', video: 'inspection-lumiere' },
-  { slug: 'laboratoire', video: 'labo-paire' },
+  { slug: 'laboratoire', video: 'labo-technicien-microscope' },
   { slug: 'conditionnement-logistique', video: 'palette-filmee' },
 ] as const;
 

@@ -16,7 +16,6 @@ const usine: UsineDict = {
     { value: '35', unit: 'M', code: 'SVP', label: 'inyectables de pequeño volumen al año' },
     { value: '2', unit: 'ha', code: '', label: 'de sitio industrial en Sèmè-Podji' },
     { value: '100–1000', unit: 'ml', code: '', label: 'formatos de frascos de perfusión' },
-    { value: 'C + A', unit: '', code: '', label: 'grados de limpieza de las zonas críticas' },
   ],
   site: {
     eyebrow: 'Un sitio integrado',

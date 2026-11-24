@@ -16,7 +16,7 @@ const fr = {
       achats: { label: 'Centrale d\'achat', blurb: 'Nos achats, nos fournisseurs et notre chaîne de distribution.' },
       usine: { label: 'Usine', blurb: 'Le site de Sèmè-Podji et chaque étape de fabrication.' },
       produits: { label: 'Produits', blurb: 'Sérums, médicaments, nutrition, dispositifs médicaux et santé animale.' },
-      qualite: { label: 'Qualité', blurb: 'Agréments, contrôle de chaque lot et traçabilité.' },
+      qualite: { label: 'Normes', blurb: 'Agréments, contrôle de chaque lot et traçabilité.' },
       marches: { label: 'Marchés', blurb: 'Centrales d\'achat, hôpitaux, distributeurs et organisations de santé.' },
       carrieres: { label: 'Carrières', blurb: 'Pourquoi nous rejoindre, nos métiers et les candidatures.' },
       medias: { label: 'Médias', blurb: 'Actualités, médiathèque et espace presse.' },

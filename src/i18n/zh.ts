@@ -18,7 +18,7 @@ const zh: Dict = {
       achats: { label: '采购中心', blurb: '我们的采购、供应商与分销链。' },
       usine: { label: '工厂', blurb: '塞梅-波吉厂区与每一道生产工序。' },
       produits: { label: '产品', blurb: '输液、药品、营养制剂、医疗器械与动物保健。' },
-      qualite: { label: '质量', blurb: '许可批准、逐批检验与可追溯性。' },
+      qualite: { label: '标准', blurb: '许可批准、逐批检验与可追溯性。' },
       marches: { label: '市场', blurb: '采购中心、医院、经销商与卫生组织。' },
       carrieres: { label: '招聘', blurb: '加入我们的理由、岗位类别与申请方式。' },
       medias: { label: '媒体', blurb: '新闻、媒体库与新闻中心。' },

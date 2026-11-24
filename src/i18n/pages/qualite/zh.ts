@@ -28,7 +28,7 @@ const qualite: QualiteDict = {
       note: '',
     },
     agrements: {
-      meta: { title: '批准与许可 · 质量 · TILAMED Pharma', description: 'ABRP 及贝宁各部委的许可、环境与技术证书、部长令：TILAMED PHARMA SA 的各项批准。' },
+      meta: { title: '批准与许可 · 标准 · TILAMED Pharma', description: 'ABRP 及贝宁各部委的许可、环境与技术证书、部长令：TILAMED PHARMA SA 的各项批准。' },
       lead: '在贝宁，药品由贝宁药品监管局（ABRP）监管。',
       intro: '',
       facts: [
@@ -51,7 +51,7 @@ const qualite: QualiteDict = {
       note: '',
     },
     'controle-qualite': {
-      meta: { title: '质量控制 · 质量 · TILAMED Pharma', description: '从原料接收到质量受权药师放行：每批产品如何接受检验。' },
+      meta: { title: '质量控制 · 标准 · TILAMED Pharma', description: '从原料接收到质量受权药师放行：每批产品如何接受检验。' },
       lead: '所有结果核查无误后，批次方可放行。',
       intro: '',
       facts: [],
@@ -67,7 +67,7 @@ const qualite: QualiteDict = {
       note: '每批产品均留样，以便日后复检。',
     },
     tracabilite: {
-      meta: { title: '可追溯性 · 质量 · TILAMED Pharma', description: '批号、发货记录与召回程序：以短供应链打击假药。' },
+      meta: { title: '可追溯性 · 标准 · TILAMED Pharma', description: '批号、发货记录与召回程序：以短供应链打击假药。' },
       lead: '从工厂到患者的短供应链，保障用药安全。',
       intro: '假药和非法市场在西非危及生命。本地生产缩短了供应链，使其更易于管控。',
       facts: [],
@@ -81,7 +81,7 @@ const qualite: QualiteDict = {
       note: '贝宁大力打击假药：参与国际刑警组织“盘古”国际行动，批准欧洲委员会《MEDICRIME 公约》，并于 2021 年颁布新的药事活动法。',
     },
     certifications: {
-      meta: { title: '认证 · 质量 · TILAMED Pharma', description: 'ABRP、ISO 9001、ISO 14001、GDP 与 EDGE：我们在质量与环境方面的认证目标。' },
+      meta: { title: '认证 · 标准 · TILAMED Pharma', description: 'ABRP、ISO 9001、ISO 14001、GDP 与 EDGE：我们在质量与环境方面的认证目标。' },
       lead: '我们在质量与环境方面的认证目标。',
       intro: '',
       facts: [],
@@ -98,7 +98,7 @@ const qualite: QualiteDict = {
     },
   },
   pv: {
-    meta: { title: '药物警戒 · 质量 · TILAMED Pharma', description: '向 TILAMED Pharma 报告与我们产品相关的任何不良反应或质量问题。' },
+    meta: { title: '药物警戒 · 标准 · TILAMED Pharma', description: '向 TILAMED Pharma 报告与我们产品相关的任何不良反应或质量问题。' },
     lead: '请向我们报告与我们产品相关的任何不良反应或质量问题。',
     emergency: '如遇医疗紧急情况，请立即联系医生或急救服务。',
     intro: '药物警戒用于监测药品上市后的安全性。所有报告均保密处理，必要时将转交卫生主管部门。',

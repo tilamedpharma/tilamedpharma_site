@@ -16,7 +16,6 @@ const usine = {
     { value: '35', unit: 'M', code: 'SVP', label: 'injectables de petit volume par an' },
     { value: '2', unit: 'ha', code: '', label: 'de site industriel à Sèmè-Podji' },
     { value: '100–1000', unit: 'ml', code: '', label: 'formats de flacons de perfusion' },
-    { value: 'C + A', unit: '', code: '', label: 'classes de propreté des zones critiques' },
   ],
   site: {
     eyebrow: 'Un site intégré',

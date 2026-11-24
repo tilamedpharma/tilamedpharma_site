@@ -18,7 +18,7 @@ const it: Dict = {
       achats: { label: 'Centrale acquisti', blurb: 'I nostri acquisti, i nostri fornitori e la nostra catena di distribuzione.' },
       usine: { label: 'Stabilimento', blurb: 'Il sito di Sèmè-Podji e ogni fase di produzione.' },
       produits: { label: 'Prodotti', blurb: 'Soluzioni per infusione, farmaci, nutrizione, dispositivi medici e salute animale.' },
-      qualite: { label: 'Qualità', blurb: 'Autorizzazioni, controllo di ogni lotto e tracciabilità.' },
+      qualite: { label: 'Norme', blurb: 'Autorizzazioni, controllo di ogni lotto e tracciabilità.' },
       marches: { label: 'Mercati', blurb: 'Centrali d\'acquisto, ospedali, distributori e organizzazioni sanitarie.' },
       carrieres: { label: 'Carriere', blurb: 'Perché lavorare con noi, i nostri mestieri e le candidature.' },
       medias: { label: 'Media', blurb: 'Notizie, mediateca e area stampa.' },

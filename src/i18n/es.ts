@@ -18,7 +18,7 @@ const es: Dict = {
       achats: { label: 'Central de compras', blurb: 'Nuestras compras, nuestros proveedores y nuestra cadena de distribución.' },
       usine: { label: 'Planta', blurb: 'El sitio de Sèmè-Podji y cada etapa de fabricación.' },
       produits: { label: 'Productos', blurb: 'Sueros, medicamentos, nutrición, dispositivos médicos y salud animal.' },
-      qualite: { label: 'Calidad', blurb: 'Autorizaciones, control de cada lote y trazabilidad.' },
+      qualite: { label: 'Normas', blurb: 'Autorizaciones, control de cada lote y trazabilidad.' },
       marches: { label: 'Mercados', blurb: 'Centrales de compras, hospitales, distribuidores y organizaciones de salud.' },
       carrieres: { label: 'Empleo', blurb: 'Por qué unirse a nosotros, nuestros oficios y las candidaturas.' },
       medias: { label: 'Medios', blurb: 'Noticias, mediateca y sala de prensa.' },

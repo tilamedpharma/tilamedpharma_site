@@ -28,7 +28,7 @@ const qualite: QualiteDict = {
       note: '',
     },
     agrements: {
-      meta: { title: 'Approvals and authorisations · Quality · TILAMED Pharma', description: 'Authorisations from ABRP and Beninese ministries, environmental and technical certificates, ministerial order: TILAMED PHARMA SA\'s approvals.' },
+      meta: { title: 'Approvals and authorisations · Standards · TILAMED Pharma', description: 'Authorisations from ABRP and Beninese ministries, environmental and technical certificates, ministerial order: TILAMED PHARMA SA\'s approvals.' },
       lead: 'In BENIN, pharmaceutical products fall under the BENIN Pharmaceutical Regulatory Agency (ABRP).',
       intro: '',
       facts: [
@@ -51,7 +51,7 @@ const qualite: QualiteDict = {
       note: '',
     },
     'controle-qualite': {
-      meta: { title: 'Quality control · Quality · TILAMED Pharma', description: 'From receipt of raw materials to release by the responsible pharmacist: how every batch is tested.' },
+      meta: { title: 'Quality control · Standards · TILAMED Pharma', description: 'From receipt of raw materials to release by the responsible pharmacist: how every batch is tested.' },
       lead: 'A batch is released only after all its results have been checked.',
       intro: '',
       facts: [],
@@ -67,7 +67,7 @@ const qualite: QualiteDict = {
       note: 'Samples of every batch are retained to allow later testing.',
     },
     tracabilite: {
-      meta: { title: 'Traceability · Quality · TILAMED Pharma', description: 'Batch number, shipment records and recall procedure: a short supply chain against falsified medicines.' },
+      meta: { title: 'Traceability · Standards · TILAMED Pharma', description: 'Batch number, shipment records and recall procedure: a short supply chain against falsified medicines.' },
       lead: 'A short chain, from plant to patient, for safe medicines.',
       intro: 'Falsified medicines and the illicit market put lives at risk in West Africa. Local production shortens the supply chain and makes it easier to control.',
       facts: [],
@@ -81,7 +81,7 @@ const qualite: QualiteDict = {
       note: 'BENIN is strongly committed against fake medicines: participation in INTERPOL\'s international operation PANGEA, ratification of the Council of Europe\'s MEDICRIME convention and a new law on pharmaceutical activities in 2021.',
     },
     certifications: {
-      meta: { title: 'Certifications · Quality · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, GDP and EDGE: our certification goals for quality and the environment.' },
+      meta: { title: 'Certifications · Standards · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, GDP and EDGE: our certification goals for quality and the environment.' },
       lead: 'Our certification goals for quality and the environment.',
       intro: '',
       facts: [],
@@ -98,7 +98,7 @@ const qualite: QualiteDict = {
     },
   },
   pv: {
-    meta: { title: 'Pharmacovigilance · Quality · TILAMED Pharma', description: 'Report to TILAMED Pharma any adverse effect or quality problem related to one of our products.' },
+    meta: { title: 'Pharmacovigilance · Standards · TILAMED Pharma', description: 'Report to TILAMED Pharma any adverse effect or quality problem related to one of our products.' },
     lead: 'Report to us any adverse effect or quality problem related to one of our products.',
     emergency: 'In a medical emergency, contact a doctor or the emergency services immediately.',
     intro: 'Pharmacovigilance monitors the safety of medicines once they are on the market. Every report is handled confidentially and, if necessary, passed on to the health authorities.',

@@ -16,7 +16,6 @@ const usine: UsineDict = {
     { value: '3500', unit: '万', code: 'SVP', label: '小容量注射剂 / 年' },
     { value: '2', unit: '公顷', code: '', label: '塞梅-波吉工业用地' },
     { value: '100–1000', unit: 'ml', code: '', label: '输液瓶规格' },
-    { value: 'C + A', unit: '', code: '', label: '关键区域洁净级别' },
   ],
   site: {
     eyebrow: '一体化厂区',

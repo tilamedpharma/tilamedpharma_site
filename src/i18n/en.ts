@@ -18,7 +18,7 @@ const en: Dict = {
       achats: { label: 'Procurement', blurb: 'Our purchasing, our suppliers and our distribution chain.' },
       usine: { label: 'Plant', blurb: 'The Sèmè-Podji site and every manufacturing step.' },
       produits: { label: 'Products', blurb: 'Infusion fluids, medicines, nutrition, medical devices and animal health.' },
-      qualite: { label: 'Quality', blurb: 'Approvals, testing of every batch and traceability.' },
+      qualite: { label: 'Standards', blurb: 'Approvals, testing of every batch and traceability.' },
       marches: { label: 'Markets', blurb: 'Purchasing centres, hospitals, distributors and health organisations.' },
       carrieres: { label: 'Careers', blurb: 'Why join us, our professions and how to apply.' },
       medias: { label: 'Media', blurb: 'News, media library and press area.' },

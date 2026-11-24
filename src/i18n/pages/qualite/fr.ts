@@ -29,7 +29,7 @@ const pages: Record<string, Topic> = {
     note: '',
   },
   agrements: {
-    meta: { title: 'Agréments et autorisations · Qualité · TILAMED Pharma', description: 'Autorisations de l\'ABRP et des ministères béninois, certificats environnemental et technique, arrêté ministériel : les agréments de TILAMED PHARMA SA.' },
+    meta: { title: 'Agréments et autorisations · Normes · TILAMED Pharma', description: 'Autorisations de l\'ABRP et des ministères béninois, certificats environnemental et technique, arrêté ministériel : les agréments de TILAMED PHARMA SA.' },
     lead: 'Au BÉNIN, les produits pharmaceutiques relèvent de l\'Agence béninoise de régulation pharmaceutique (ABRP).',
     intro: '',
     facts: [
@@ -52,7 +52,7 @@ const pages: Record<string, Topic> = {
     note: '',
   },
   'controle-qualite': {
-    meta: { title: 'Contrôle qualité · Qualité · TILAMED Pharma', description: 'De la réception des matières premières à la libération par le pharmacien responsable : comment chaque lot est contrôlé.' },
+    meta: { title: 'Contrôle qualité · Normes · TILAMED Pharma', description: 'De la réception des matières premières à la libération par le pharmacien responsable : comment chaque lot est contrôlé.' },
     lead: 'Un lot n\'est libéré qu\'après la vérification de tous ses résultats.',
     intro: '',
     facts: [],
@@ -68,7 +68,7 @@ const pages: Record<string, Topic> = {
     note: 'Des échantillons de chaque lot sont conservés pour permettre des contrôles ultérieurs.',
   },
   tracabilite: {
-    meta: { title: 'Traçabilité · Qualité · TILAMED Pharma', description: 'Numéro de lot, enregistrement des expéditions et procédure de rappel : un circuit court contre les médicaments falsifiés.' },
+    meta: { title: 'Traçabilité · Normes · TILAMED Pharma', description: 'Numéro de lot, enregistrement des expéditions et procédure de rappel : un circuit court contre les médicaments falsifiés.' },
     lead: 'Un circuit court, de l\'usine au patient, pour des médicaments sûrs.',
     intro: 'Les médicaments falsifiés et le marché illicite mettent des vies en danger en Afrique de l\'Ouest. La production locale raccourcit la chaîne d\'approvisionnement et la rend plus facile à contrôler.',
     facts: [],
@@ -82,7 +82,7 @@ const pages: Record<string, Topic> = {
     note: 'Le BÉNIN s\'est fortement engagé contre les faux médicaments : participation à l\'opération internationale PANGEA d\'INTERPOL, ratification de la convention MEDICRIME du Conseil de l\'Europe et nouvelle loi sur les activités pharmaceutiques en 2021.',
   },
   certifications: {
-    meta: { title: 'Certifications · Qualité · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, BPD et EDGE : nos objectifs de certification pour la qualité et l\'environnement.' },
+    meta: { title: 'Certifications · Normes · TILAMED Pharma', description: 'ABRP, ISO 9001, ISO 14001, BPD et EDGE : nos objectifs de certification pour la qualité et l\'environnement.' },
     lead: 'Nos objectifs de certification pour la qualité et l\'environnement.',
     intro: '',
     facts: [],
@@ -100,7 +100,7 @@ const pages: Record<string, Topic> = {
 };
 
 const pv = {
-  meta: { title: 'Pharmacovigilance · Qualité · TILAMED Pharma', description: 'Signalez à TILAMED Pharma tout effet indésirable ou problème de qualité lié à l\'un de nos produits.' },
+  meta: { title: 'Pharmacovigilance · Normes · TILAMED Pharma', description: 'Signalez à TILAMED Pharma tout effet indésirable ou problème de qualité lié à l\'un de nos produits.' },
   lead: 'Signalez-nous tout effet indésirable ou problème de qualité lié à l\'un de nos produits.',
   emergency: 'En cas d\'urgence médicale, contactez immédiatement un médecin ou les services d\'urgence.',
   intro: 'La pharmacovigilance permet de surveiller la sécurité des médicaments après leur mise sur le marché. Tout signalement est traité de façon confidentielle et transmis, si nécessaire, aux autorités de santé.',

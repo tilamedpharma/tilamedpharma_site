@@ -9,7 +9,7 @@ const organisations: OrganisationsDict = {
     cta1: '联系我们',
   },
   facts: [
-    { value: '15', unit: '个国家', label: '覆盖西共体全部成员国' },
+    { value: '15', unit: '个国家', label: '覆盖西非 15 国' },
     { value: '2013', unit: '', label: '年起服务卫生项目和卫生部' },
     { value: '6', unit: '项', label: '在贝宁获得的许可与批准' },
   ],

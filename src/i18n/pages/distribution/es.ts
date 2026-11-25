@@ -11,7 +11,7 @@ const distribution: DistributionDict = {
     cta1: 'Nuestro circuito',
   },
   facts: [
-    { value: '< 1', unit: 'mes', label: 'de nuestra planta de Sèmè-Podji al paciente' },
+    { value: '< 1', unit: 'mes', label: 'objetivo, de nuestra futura planta al paciente' },
     { value: '15', unit: 'países', label: 'de África Occidental en nuestra zona de distribución' },
     { value: '2', unit: 'orígenes', label: 'lo que fabricamos y lo que compramos, en un mismo circuito' },
   ],
@@ -33,7 +33,7 @@ const distribution: DistributionDict = {
     title: 'Las etapas, una a una',
     imageAlt: 'Clientes eligiendo un medicamento en una farmacia',
     items: [
-      { title: 'La planta y nuestros proveedores', text: 'Cada lote fabricado es controlado por nuestro laboratorio y liberado por el farmacéutico responsable. Cada producto comprado se verifica a la recepción: documentos, etiquetado, estado de los bultos.' },
+      { title: 'La planta y nuestros proveedores', text: 'Cada lote fabricado será controlado por nuestro laboratorio y liberado por el farmacéutico responsable. Cada producto comprado se verifica a la recepción: documentos, etiquetado, estado de los bultos.' },
       { title: 'Nuestro almacén', text: 'Los productos se almacenan en condiciones controladas, con seguimiento por lote y fecha de caducidad: los primeros en caducar son los primeros en salir.' },
       { title: 'Centrales de compras y distribuidores', text: 'Entregamos a las centrales de compras públicas, las organizaciones de salud y nuestros distribuidores autorizados en BENÍN y en la subregión.' },
       { title: 'Hospitales, clínicas y farmacias', text: 'Los centros sanitarios reciben productos disponibles más rápido, en la cantidad adaptada a su consumo real.' },

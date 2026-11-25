@@ -9,7 +9,7 @@ const organisations: OrganisationsDict = {
     cta1: 'Escreva-nos',
   },
   facts: [
-    { value: '15', unit: 'países', label: 'do espaço CEDEAO cobertos' },
+    { value: '15', unit: 'países', label: 'da África Ocidental cobertos' },
     { value: '2013', unit: '', label: 'ano desde o qual servimos programas e ministérios da saúde' },
     { value: '6', unit: 'autorizações', label: 'e homologações obtidas no BENIM' },
   ],

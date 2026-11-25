@@ -14,7 +14,7 @@ const vision: VisionDict = {
     eyebrow: 'Nuestro lema',
     translation: 'Más cerca, más seguro para su salud',
     near: { title: 'Más cerca', text: 'Nuestros productos se fabricarán junto a los hospitales que los utilizan: menos plazos, menos roturas de stock.' },
-    safe: { title: 'Más seguro', text: 'Cada lote se fabrica y controla según las buenas prácticas de fabricación y se rastrea hasta su entrega.' },
+    safe: { title: 'Más seguro', text: 'Cada lote se fabricará y controlará según las buenas prácticas de fabricación y se rastreará hasta su entrega.' },
   },
   vision: {
     eyebrow: 'Nuestra visión',
@@ -27,7 +27,7 @@ const vision: VisionDict = {
     eyebrow: 'Nuestra misión',
     keys: [
       { title: 'En cantidad', text: 'Una capacidad industrial pensada para las necesidades de los hospitales de BENÍN y de la subregión.' },
-      { title: 'De calidad', text: 'Productos fabricados según las normas de la OMS y controlados lote a lote por nuestro laboratorio.' },
+      { title: 'De calidad', text: 'Productos que se fabricarán según las normas de la OMS y se controlarán lote a lote en nuestro laboratorio.' },
       { title: 'A un precio accesible', text: 'Una producción local que reduce el flete, el almacenamiento y las pérdidas de cambio.' },
     ],
   },
@@ -37,8 +37,8 @@ const vision: VisionDict = {
     intro: 'Se aplican a cada gesto, desde la elección de las materias primas hasta la entrega al paciente.',
     items: [
       { title: 'Rigor', text: 'Procedimientos escritos, seguidos y verificados en cada etapa, desde la elección de las materias primas hasta el paciente.' },
-      { title: 'Excelencia', text: 'Un alto nivel de exigencia en calidad, controlado de forma permanente por nuestro laboratorio.' },
-      { title: 'Respeto de las normas más exigentes', text: 'Una planta autorizada por la Agencia Beninesa de Regulación Farmacéutica, con lotes controlados y liberados por el farmacéutico responsable.' },
+      { title: 'Excelencia', text: 'Un alto nivel de exigencia en calidad, que nuestro laboratorio controlará de forma permanente.' },
+      { title: 'Respeto de las normas más exigentes', text: 'Una planta autorizada por la Agencia Beninesa de Regulación Farmacéutica, donde cada lote será controlado y liberado por el farmacéutico responsable.' },
       { title: 'Fiabilidad', text: 'Productos disponibles cuando el personal sanitario los necesita, entregas cumplidas y lotes rastreados de principio a fin.' },
     ],
   },

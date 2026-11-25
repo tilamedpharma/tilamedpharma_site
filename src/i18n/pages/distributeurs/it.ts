@@ -6,7 +6,7 @@ const distributeurs: DistributeursDict = {
   facts: [
     { value: '15', unit: 'paesi', label: 'dell\'Africa occidentale nella nostra area di distribuzione' },
     { value: '2', unit: 'fonti', label: 'il nostro stabilimento in BENIN e grandi produttori internazionali' },
-    { value: '< 1', unit: 'mese', label: 'dal nostro stabilimento di Sèmè-Podji al paziente' },
+    { value: '< 1', unit: 'mese', label: 'obiettivo, dal nostro futuro stabilimento al paziente' },
     { value: '5', unit: 'famiglie', label: 'di prodotti, da un unico fornitore' },
   ],
   why: {
@@ -14,7 +14,7 @@ const distributeurs: DistributeursDict = {
     title: 'Perché distribuire TILAMED Pharma?',
     items: [
       { title: 'Un fornitore locale', text: 'Uno stabilimento in BENIN, a poche ore di strada e non a settimane di mare: ordini più frequenti, meno scorte immobilizzate, meno carenze.' },
-      { title: 'Una qualità controllata', text: 'Ogni lotto è controllato dal nostro laboratorio e rilasciato dal farmacista responsabile, sotto la vigilanza dell\'ABRP.' },
+      { title: 'Una qualità controllata', text: 'Ogni lotto sarà controllato dal nostro laboratorio e rilasciato dal farmacista responsabile, sotto la vigilanza dell\'ABRP.' },
       { title: 'Una gamma completa', text: 'Soluzioni infusionali, farmaci iniettabili, soluzioni nutrizionali, dispositivi medici e prodotti veterinari.' },
       { title: 'Affiancamento', text: 'La documentazione tecnica e regolatoria dei nostri prodotti, e un supporto per le sue risposte alle gare.' },
     ],
@@ -24,7 +24,7 @@ const distributeurs: DistributeursDict = {
     title: 'Impegni da entrambe le parti',
     giveTitle: 'Cosa le offriamo',
     give: [
-      'Prodotti fabbricati in BENIN e prodotti di grandi produttori internazionali, consegnati dal nostro magazzino.',
+      'I prodotti del nostro futuro stabilimento in BENIN e quelli di grandi produttori internazionali, consegnati dal nostro magazzino.',
       'Una documentazione completa per ogni prodotto: schede tecniche e certificati di analisi.',
       'Consegne pianificate in base alle sue esigenze reali.',
       'Un dialogo regolare sulle sue vendite, le sue scorte e le esigenze del suo mercato.',
@@ -43,7 +43,7 @@ const distributeurs: DistributeursDict = {
   coverage: {
     eyebrow: 'Area coperta',
     title: '15 paesi dell\'Africa occidentale',
-    text: 'Cerchiamo partner in ciascuno dei 15 paesi della CEDEAO, per i canali pubblici come per quelli privati.',
+    text: 'Cerchiamo partner in ciascuno dei 15 paesi dell\'Africa occidentale, per i canali pubblici come per quelli privati.',
   },
   contact: 'Preferisce scriverci?',
   formLead: 'Bastano poche informazioni sulla sua azienda per iniziare: la ricontatteremo per parlarne.',

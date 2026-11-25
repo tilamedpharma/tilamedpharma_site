@@ -45,12 +45,12 @@ const direction: DirectionDict = {
       { title: 'Direzione della produzione', text: 'Fabbricazione, manutenzione e servizi dello stabilimento.' },
     ],
     badge: 'Garante della conformità',
-    note: 'Il farmacista responsabile vigila sul rispetto delle buone pratiche di fabbricazione e rilascia ogni lotto prima che sia messo a disposizione dei pazienti.',
+    note: 'Il farmacista responsabile vigilerà sul rispetto delle buone pratiche di fabbricazione e rilascerà ogni lotto prima che sia messo a disposizione dei pazienti.',
   },
   cta: {
     eyebrow: 'Carriere',
     title: 'Unitevi a una squadra in costruzione',
-    text: 'Lo stabilimento di Sèmè-Podji sta formando i suoi team tecnici e amministrativi. Scoprite i nostri mestieri e inviateci la vostra candidatura.',
+    text: 'Lo stabilimento di Sèmè-Podji formerà i suoi team tecnici e amministrativi. Scoprite i nostri mestieri e inviateci la vostra candidatura.',
   },
 };
 export default direction;

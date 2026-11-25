@@ -6,7 +6,7 @@ const distributeurs: DistributeursDict = {
   facts: [
     { value: '15', unit: 'países', label: 'de África Occidental en nuestra zona de distribución' },
     { value: '2', unit: 'fuentes', label: 'nuestra fábrica en BENÍN y grandes fabricantes internacionales' },
-    { value: '< 1', unit: 'mes', label: 'de nuestra planta de Sèmè-Podji al paciente' },
+    { value: '< 1', unit: 'mes', label: 'objetivo, de nuestra futura planta al paciente' },
     { value: '5', unit: 'familias', label: 'de productos, con un solo proveedor' },
   ],
   why: {
@@ -14,7 +14,7 @@ const distributeurs: DistributeursDict = {
     title: '¿Por qué distribuir TILAMED Pharma?',
     items: [
       { title: 'Un proveedor local', text: 'Una planta en BENÍN, a pocas horas por carretera y no a semanas por mar: pedidos más frecuentes, menos existencias inmovilizadas, menos rupturas.' },
-      { title: 'Una calidad controlada', text: 'Cada lote es controlado por nuestro laboratorio y liberado por el farmacéutico responsable, bajo la supervisión de la ABRP.' },
+      { title: 'Una calidad controlada', text: 'Cada lote será controlado por nuestro laboratorio y liberado por el farmacéutico responsable, bajo la supervisión de la ABRP.' },
       { title: 'Una gama completa', text: 'Sueros, medicamentos inyectables, soluciones nutricionales, dispositivos médicos y productos veterinarios.' },
       { title: 'Acompañamiento', text: 'La documentación técnica y reglamentaria de nuestros productos, y apoyo para sus respuestas a licitaciones.' },
     ],
@@ -24,7 +24,7 @@ const distributeurs: DistributeursDict = {
     title: 'Compromisos por ambas partes',
     giveTitle: 'Lo que le aportamos',
     give: [
-      'Productos fabricados en BENÍN y productos de grandes fabricantes internacionales, entregados desde nuestro almacén.',
+      'Los productos de nuestra futura planta en BENÍN y los de grandes fabricantes internacionales, entregados desde nuestro almacén.',
       'Una documentación completa para cada producto: fichas técnicas y certificados de análisis.',
       'Entregas planificadas según sus necesidades reales.',
       'Un diálogo regular sobre sus ventas, sus existencias y las necesidades de su mercado.',
@@ -43,7 +43,7 @@ const distributeurs: DistributeursDict = {
   coverage: {
     eyebrow: 'Zona cubierta',
     title: '15 países de África Occidental',
-    text: 'Buscamos socios en cada uno de los 15 países de la CEDEAO, tanto para los circuitos públicos como privados.',
+    text: 'Buscamos socios en cada uno de los 15 países de África Occidental, tanto para los circuitos públicos como privados.',
   },
   contact: '¿Prefiere escribirnos?',
   formLead: 'Bastan algunos datos sobre su empresa para empezar: nos pondremos en contacto con usted para hablarlo.',

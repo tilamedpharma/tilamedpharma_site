@@ -10,7 +10,7 @@ const clients: ClientsDict = {
   },
   facts: [
     { value: '5', unit: 'groups', label: 'of customers, public and private' },
-    { value: '15', unit: 'countries', label: 'served across the ECOWAS region' },
+    { value: '15', unit: 'countries', label: 'served across West Africa' },
     { value: '3', unit: 'channels', label: 'direct sales, tenders, distributors' },
     { value: '1', unit: 'contact', label: 'our sales department, for every sale' },
   ],
@@ -19,10 +19,10 @@ const clients: ClientsDict = {
     title: 'They buy our products',
     text: 'From public tenders to the pharmacy counter, our products reach five groups of customers. For each one, we have adapted the way we work.',
     items: [
-      { title: 'Public procurement agencies of the ECOWAS region', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Complete responses to their tenders and deliveries planned around actual consumption.' },
+      { title: 'Public procurement agencies in West Africa', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Complete responses to their tenders and deliveries planned around actual consumption.' },
       { title: 'International private wholesale distributors', examples: ['UBIPHARM', 'UBPHAR', 'GAPOB'], text: 'A supplier within the region: more frequent orders and less tied-up stock.' },
       { title: 'Regional organisations', examples: ['WAHO', 'Centre MURAZ', 'CIRDES'], text: 'A local partner for the sub-region\'s health programmes.' },
-      { title: 'International organisations', examples: ['GIZ', 'AFD', 'WHO'], text: 'Complete quality files and the capacity to deliver to all 15 ECOWAS countries.' },
+      { title: 'International organisations', examples: ['GIZ', 'AFD', 'WHO'], text: 'Complete quality files and the capacity to deliver to all 15 West African countries.' },
       { title: 'Private pharmacies and clinics', examples: ['Throughout West Africa'], text: 'Essential health products available close to them, through our approved distributors.' },
     ],
     more: 'Find out more',

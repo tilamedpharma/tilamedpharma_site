@@ -45,7 +45,7 @@ const en: Dict = {
   },
   hero: {
     eyebrow: 'Pharmaceutical manufacturer · Sèmè-Podji, BENIN',
-    title: 'Pharmaceutical excellence, made in the heart of West Africa.',
+    title: 'Pharmaceutical excellence, soon made in the heart of West Africa.',
     lead: 'TILAMED PHARMA SA is building a new-generation plant in BENIN to produce high-quality medicines, compliant with World Health Organization standards, at prices everyone can afford.',
     cta1: 'Discover our plant', cta2: 'Contact us',
     proofs: ['WHO standards', 'Made in the REPUBLIC OF BENIN', 'Green building · EDGE in progress', 'Inclusive plant'],
@@ -162,9 +162,9 @@ const en: Dict = {
     title: 'Four businesses serving health',
     intro: 'From manufacturing to distribution, we cover the whole chain of essential health products for West Africa.',
     items: [
-      { title: 'Finished pharmaceutical products', text: 'Infusion fluids, injectables and oral solutions, made and tested in our Sèmè-Podji plant.', alt: 'Operator checking bottles on a production line' },
+      { title: 'Finished pharmaceutical products', text: 'Infusion fluids, injectables and oral solutions, to be made and tested in our Sèmè-Podji plant.', alt: 'Operator checking bottles on a production line' },
       { title: 'Medical devices', text: 'Approved distributor: diagnostics, surgery, sterilisation and hospital equipment.', alt: 'Blood pressure monitor and medical equipment' },
-      { title: 'Medical laboratory', text: 'Analyses and quality control performed to international standards.', alt: 'Laboratory technician performing an analysis' },
+      { title: 'Medical laboratory', text: 'Analyses and quality control, to be performed to international standards.', alt: 'Laboratory technician performing an analysis' },
       { title: 'Veterinary products', text: 'Food, parasite control and care for dogs and cats.', alt: 'Veterinarian examining a dog' },
     ],
   },
@@ -269,7 +269,7 @@ const en: Dict = {
     eyebrow: 'Who we serve',
     title: 'Our customers',
     items: [
-      { title: 'Public purchasing centres in the ECOWAS region', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
+      { title: 'Public purchasing centres in West Africa', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
       { title: 'International private wholesalers', examples: 'UBIPHARM, UBPHAR, GAPOB…' },
       { title: 'Regional organisations', examples: 'WAHO, Centre MURAZ, CIRDES…' },
       { title: 'International organisations', examples: 'GIZ, AFD, WHO…' },

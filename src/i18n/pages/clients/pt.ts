@@ -10,7 +10,7 @@ const clients: ClientsDict = {
   },
   facts: [
     { value: '5', unit: 'famílias', label: 'de clientes, públicos e privados' },
-    { value: '15', unit: 'países', label: 'do espaço CEDEAO servidos' },
+    { value: '15', unit: 'países', label: 'da África Ocidental servidos' },
     { value: '3', unit: 'canais', label: 'vendas diretas, concursos, distribuidores' },
     { value: '1', unit: 'interlocutor', label: 'a nossa direção comercial, para todas as vendas' },
   ],
@@ -19,10 +19,10 @@ const clients: ClientsDict = {
     title: 'Eles compram os nossos produtos',
     text: 'Do mercado público ao balcão da farmácia, os nossos produtos chegam a cinco famílias de clientes. Para cada uma, adaptámos a nossa forma de trabalhar.',
     items: [
-      { title: 'Centrais de compras públicas do espaço CEDEAO', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Respostas completas aos seus concursos e entregas planeadas de acordo com o consumo real.' },
+      { title: 'Centrais de compras públicas da África Ocidental', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Respostas completas aos seus concursos e entregas planeadas de acordo com o consumo real.' },
       { title: 'Grossistas distribuidores privados internacionais', examples: ['UBIPHARM', 'UBPHAR', 'GAPOB'], text: 'Um fornecedor na região: encomendas mais frequentes e menos stock imobilizado.' },
       { title: 'Organizações regionais', examples: ['OOAS', 'Centre MURAZ', 'CIRDES'], text: 'Um parceiro local para os programas de saúde da sub-região.' },
-      { title: 'Organizações internacionais', examples: ['GIZ', 'AFD', 'OMS'], text: 'Dossiers de qualidade completos e capacidade de entrega nos 15 países da CEDEAO.' },
+      { title: 'Organizações internacionais', examples: ['GIZ', 'AFD', 'OMS'], text: 'Dossiers de qualidade completos e capacidade de entrega nos 15 países da África Ocidental.' },
       { title: 'Farmácias e clínicas privadas', examples: ['Em toda a África Ocidental'], text: 'Produtos de saúde essenciais disponíveis perto delas, através dos nossos distribuidores autorizados.' },
     ],
     more: 'Saber mais',

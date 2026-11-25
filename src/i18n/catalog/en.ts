@@ -15,7 +15,7 @@ const cat: CatalogDict = {
     pack: 'Packaging',
     refs: 'references',
     request: 'Request information',
-    legal: ['TILAMED products in preparation · not yet for sale.', 'Information intended for healthcare professionals.'],
+    legal: ['Products made by TILAMED: in preparation, not yet for sale.', 'Information intended for healthcare professionals.'],
   },
   groups: {
     serum: { label: 'Infusion fluids', blurb: 'Basic infusion fluids and specific solutions.' },
@@ -52,7 +52,7 @@ const cat: CatalogDict = {
   fiche: {
     eyebrow: 'Product sheet',
     techTitle: 'Technical data sheet',
-    techIntro: 'Product characteristics, as provided by TILAMED Pharma.',
+    techIntro: 'Key characteristics of this product.',
     download: 'Download the technical data sheet',
     pdf: 'PDF',
     docsTitle: 'Documents to download',

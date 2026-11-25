@@ -11,7 +11,7 @@ const distribution: DistributionDict = {
     cta1: 'O nosso circuito',
   },
   facts: [
-    { value: '< 1', unit: 'mês', label: 'da nossa fábrica de Sèmè-Podji até ao doente' },
+    { value: '< 1', unit: 'mês', label: 'objetivo, da nossa futura fábrica até ao doente' },
     { value: '15', unit: 'países', label: 'da África Ocidental na nossa zona de distribuição' },
     { value: '2', unit: 'origens', label: 'o que fabricamos e o que compramos, num mesmo circuito' },
   ],
@@ -33,7 +33,7 @@ const distribution: DistributionDict = {
     title: 'As etapas, uma a uma',
     imageAlt: 'Clientes a escolher um medicamento numa farmácia',
     items: [
-      { title: 'A fábrica e os nossos fornecedores', text: 'Cada lote fabricado é controlado pelo nosso laboratório e libertado pelo farmacêutico responsável. Cada produto comprado é verificado à receção: documentos, rotulagem, estado das embalagens.' },
+      { title: 'A fábrica e os nossos fornecedores', text: 'Cada lote fabricado será controlado pelo nosso laboratório e libertado pelo farmacêutico responsável. Cada produto comprado é verificado à receção: documentos, rotulagem, estado das embalagens.' },
       { title: 'O nosso armazém', text: 'Os produtos são armazenados em condições controladas, com seguimento por lote e por prazo de validade: os primeiros a expirar são os primeiros a sair.' },
       { title: 'Centrais de compras e distribuidores', text: 'Entregamos às centrais de compras públicas, às organizações de saúde e aos nossos distribuidores autorizados no BENIM e na sub-região.' },
       { title: 'Hospitais, clínicas e farmácias', text: 'As unidades de saúde recebem produtos disponíveis mais depressa, em quantidade adaptada ao seu consumo real.' },

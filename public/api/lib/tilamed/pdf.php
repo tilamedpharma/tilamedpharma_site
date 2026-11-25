@@ -192,7 +192,8 @@ function fiche_pdf(array $p, string $lang): string
         . '<div class="cv" dir="ltr" style="text-align:' . $start . '">' . h($c['email']) . '<br>' . h($o['phone']) . '<br>' . h($c['web']) . '</div></td>'
         . '<td style="background:#39A845"><div class="ct" style="color:#EBF6ED">' . h(mb_strtoupper($f['web'])) . '</div>'
         . '<div class="cv" dir="ltr" style="font-size:8.5pt;text-align:' . $start . '"><a href="' . h($url) . '" style="color:#FFFFFF;text-decoration:none">' . h(str_replace('https://', '', $url)) . '</a></div></td></tr></table>';
-    $html .= '<div class="disc">' . h($f['disclaimer']) . ' ' . h($t['ui']['legal'][0] ?? '') . '</div></div>';
+    $made = in_array($p['kind'], ['iv', 'liquids'], true); // mention « en préparation » : produits fabriqués par TILAMED seulement
+    $html .= '<div class="disc">' . h($f['disclaimer']) . ($made ? ' ' . h($t['ui']['legal'][0] ?? '') : '') . '</div></div>';
 
     $mpdf->WriteHTML($ls($html));
     $part = $file . '.' . bin2hex(random_bytes(4)) . '.tmp';

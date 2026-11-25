@@ -64,7 +64,7 @@ const qualite: QualiteDict = {
           { title: 'Rilascio', text: 'Decisione del farmacista responsabile.' },
         ] },
       ],
-      note: 'Campioni di ogni lotto vengono conservati per consentire controlli successivi.',
+      note: 'Campioni di ogni lotto saranno conservati per consentire controlli successivi.',
     },
     tracabilite: {
       meta: { title: 'Tracciabilità · Norme · TILAMED Pharma', description: 'Numero di lotto, registrazione delle spedizioni e procedura di richiamo: un circuito corto contro i farmaci falsificati.' },
@@ -75,7 +75,7 @@ const qualite: QualiteDict = {
         { kind: 'points', title: 'Ogni lotto tracciato', items: [
           'Numero di lotto e data di scadenza su ogni flacone e ogni cartone.',
           'Registrazione delle spedizioni per cliente e per lotto.',
-          'Procedura di richiamo collaudata, in collegamento con le autorità.',
+          'Procedura di richiamo prevista, in collegamento con le autorità.',
         ] },
       ],
       note: 'Il BENIN si è fortemente impegnato contro i farmaci contraffatti: partecipazione all\'operazione internazionale PANGEA dell\'INTERPOL, ratifica della convenzione MEDICRIME del Consiglio d\'Europa e nuova legge sulle attività farmaceutiche nel 2021.',

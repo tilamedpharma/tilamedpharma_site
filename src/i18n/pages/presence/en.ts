@@ -2,13 +2,13 @@ import type { PresenceDict } from './fr';
 const presence: PresenceDict = {
   meta: {
     title: 'Regional presence · Markets · TILAMED Pharma',
-    description: 'A plant in BENIN, all 15 ECOWAS countries covered and offices in BENIN, BURKINA FASO and FRANCE.',
+    description: 'A plant in BENIN, 15 West African countries covered and offices in BENIN, BURKINA FASO and FRANCE.',
   },
   hero: {
     lead: 'A plant in BENIN, 15 West African countries covered and an international presence.',
   },
   facts: [
-    { value: '15', unit: 'countries', label: 'covered across the ECOWAS region' },
+    { value: '15', unit: 'countries', label: 'covered across West Africa' },
     { value: '400', unit: 'M +', label: 'people in West Africa' },
     { value: '1', unit: 'plant', label: 'in Sèmè-Podji, on the border with NIGERIA' },
     { value: '3', unit: 'offices', label: 'in BENIN, BURKINA FASO and FRANCE' },

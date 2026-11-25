@@ -2,13 +2,13 @@ import type { PresenceDict } from './fr';
 const presence: PresenceDict = {
   meta: {
     title: 'Presença regional · Mercados · TILAMED Pharma',
-    description: 'Uma fábrica no BENIM, os 15 países da CEDEAO cobertos e escritórios no BENIM, no BURKINA FASO e em FRANÇA.',
+    description: 'Uma fábrica no BENIM, 15 países da África Ocidental cobertos e escritórios no BENIM, no BURKINA FASO e em FRANÇA.',
   },
   hero: {
     lead: 'Uma fábrica no BENIM, 15 países da África Ocidental cobertos e uma presença internacional.',
   },
   facts: [
-    { value: '15', unit: 'países', label: 'do espaço CEDEAO cobertos' },
+    { value: '15', unit: 'países', label: 'da África Ocidental cobertos' },
     { value: '400', unit: 'M +', label: 'de habitantes na África Ocidental' },
     { value: '1', unit: 'fábrica', label: 'em Sèmè-Podji, na fronteira com a NIGÉRIA' },
     { value: '3', unit: 'escritórios', label: 'no BENIM, no BURKINA FASO e em FRANÇA' },

@@ -2,13 +2,13 @@ import type { PresenceDict } from './fr';
 const presence: PresenceDict = {
   meta: {
     title: '区域布局 · 市场 · TILAMED Pharma',
-    description: '工厂位于贝宁，覆盖西共体全部 15 个成员国，并在贝宁、布基纳法索和法国设有办事处。',
+    description: '工厂位于贝宁，覆盖西非 15 国，并在贝宁、布基纳法索和法国设有办事处。',
   },
   hero: {
     lead: '工厂位于贝宁，覆盖 15 个西非国家，并具有国际布局。',
   },
   facts: [
-    { value: '15', unit: '个国家', label: '覆盖西共体全部成员国' },
+    { value: '15', unit: '个国家', label: '覆盖西非 15 国' },
     { value: '4', unit: '亿以上', label: '西非人口' },
     { value: '1', unit: '座工厂', label: '位于 Sèmè-Podji，毗邻尼日利亚边境' },
     { value: '3', unit: '个办事处', label: '位于贝宁、布基纳法索和法国' },

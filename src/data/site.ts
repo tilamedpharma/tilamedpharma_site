@@ -24,7 +24,7 @@ export const socials = [
   { id: 'x', label: 'X', url: 'https://x.com/tilamedpharma' },
 ] as const;
 
-/** Pays de couverture : les 15 pays de la CEDEAO — codes ISO alpha-2 et numériques (pour la carte). */
+/** Pays de couverture : 15 pays d'Afrique de l'Ouest (CEDEAO + AES ; ne pas écrire « 15 pays de la CEDEAO » : 12 membres depuis le 29/01/2025) — codes ISO alpha-2 et numériques (pour la carte). */
 export const coverage = [
   { iso: 'BJ', num: '204' }, { iso: 'BF', num: '854' }, { iso: 'CV', num: '132' }, { iso: 'CI', num: '384' },
   { iso: 'GN', num: '324' }, { iso: 'LR', num: '430' }, { iso: 'ML', num: '466' }, { iso: 'NE', num: '562' },

@@ -24,7 +24,7 @@ const L = (s: string) => localizePath(lang, s);
 const pad = (n: number) => String(n).padStart(2, '0');
 const pages = t.nav.pages as Record<string, string>;
 
-// Les 15 pays de la CEDEAO (demande client 24/11), triés par nom dans la langue de la page
+// Les 15 pays d'Afrique de l'Ouest couverts : CEDEAO (12) + AES (BURKINA FASO, MALI, NIGER, sortis de la CEDEAO le 29/01/2025), triés par nom dans la langue de la page
 const countries = coverage.map((x) => x.iso).sort((a, b) => countryName(lang, a).localeCompare(countryName(lang, b), lang));
 const actImgs = [imgAct1, imgAct2, imgAct3, imgAct4];
 const actIcons = ['factory', 'stetho', 'flask', 'paw'];

@@ -16,7 +16,7 @@ const hopitaux = {
     title: 'Disponibles chaque jour, dans tous les services',
     text: [
       'Les solutés de perfusion sont utilisés chaque jour dans tous les services. Leur disponibilité est vitale : une rupture, et ce sont des soins qui s\'arrêtent.',
-      'Fabriquées à Sèmè-Podji, nos solutions ne dépendent plus de plusieurs semaines de transport maritime. Votre pharmacie peut commander plus souvent, en quantités plus justes.',
+      'Une fois fabriquées à Sèmè-Podji, nos solutions ne dépendront plus de plusieurs semaines de transport maritime. Votre pharmacie pourra commander plus souvent, en quantités plus justes.',
     ],
     services: ['Urgences', 'Chirurgie', 'Médecine', 'Pédiatrie', 'Maternité'],
     badge: 'Fabriqué au BÉNIN',
@@ -42,7 +42,7 @@ const hopitaux = {
       { title: 'Incassable', text: 'Pas de verre brisé, ni pendant le transport, ni dans le service.' },
       { title: 'Léger', text: 'Plus facile à porter, à ranger et à stocker en pharmacie.' },
       { title: 'Formé, rempli et scellé d\'un seul geste', text: 'En une seule opération automatique, sans contact humain avec la solution.' },
-      { title: 'Contrôlé', text: 'Chaque flacon est inspecté, chaque lot analysé avant sa libération.' },
+      { title: 'Contrôlé', text: 'Chaque flacon sera inspecté, chaque lot analysé avant sa libération.' },
     ],
     imageAlt: 'Ampoules en plastique, formées et scellées en une seule opération',
   },
@@ -62,7 +62,7 @@ const hopitaux = {
     items: [
       { text: 'Signalez un effet indésirable ou un défaut de qualité.' },
       { text: 'Fiches techniques et certificats d\'analyse de nos produits.' },
-      { text: 'Chaque flacon porte son numéro de lot, de l\'usine au patient.' },
+      { text: 'Chaque flacon portera son numéro de lot, de l\'usine au patient.' },
     ],
   },
 };

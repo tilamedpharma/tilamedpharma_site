@@ -45,12 +45,12 @@ const direction: DirectionDict = {
       { title: 'Direção de produção', text: 'Fabrico, manutenção e utilidades da fábrica.' },
     ],
     badge: 'Garante da conformidade',
-    note: 'O farmacêutico responsável zela pelo cumprimento das boas práticas de fabrico e liberta cada lote antes da sua disponibilização aos doentes.',
+    note: 'O farmacêutico responsável zelará pelo cumprimento das boas práticas de fabrico e libertará cada lote antes da sua disponibilização aos doentes.',
   },
   cta: {
     eyebrow: 'Carreiras',
     title: 'Junte-se a uma equipa em construção',
-    text: 'A fábrica de Sèmè-Podji está a constituir as suas equipas técnicas e administrativas. Descubra as nossas profissões e envie a sua candidatura.',
+    text: 'A fábrica de Sèmè-Podji vai constituir as suas equipas técnicas e administrativas. Descubra as nossas profissões e envie a sua candidatura.',
   },
 };
 export default direction;

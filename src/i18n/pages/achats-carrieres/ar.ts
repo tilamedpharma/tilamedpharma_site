@@ -3,8 +3,8 @@ import type { AchatsCarrieresDict } from './fr';
 const d: AchatsCarrieresDict = {
   pages: {
     carrieres: {
-      meta: { title: 'العمل في TILAMED · الوظائف · TILAMED Pharma', description: '150 وظيفة مباشرة مرتقبة و70 % وظائف تقنية و5 سنوات من نقل الكفاءات: انضموا إلى أول صناعة لمحاليل الحقن في بنين.' },
-      lead: 'انضموا إلى أول صناعة لمحاليل الحقن في بنين.',
+      meta: { title: 'العمل في TILAMED · الوظائف · TILAMED Pharma', description: '150 وظيفة مباشرة مرتقبة و70 % وظائف تقنية و5 سنوات من نقل الكفاءات: شاركوا في إنشاء أول مصنع لمحاليل الحقن في بنين.' },
+      lead: 'شاركوا في إنشاء أول مصنع لمحاليل الحقن في بنين.',
       intro: '',
       facts: [
         { value: '150', unit: '', label: 'وظيفة مباشرة مرتقبة' },

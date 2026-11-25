@@ -13,7 +13,7 @@ const hopitaux: HopitauxDict = {
     title: 'Disponíveis todos os dias, em todos os serviços',
     text: [
       'Os soros de perfusão são utilizados todos os dias em todos os serviços. A sua disponibilidade é vital: uma rutura, e os cuidados param.',
-      'Fabricadas em Sèmè-Podji, as nossas soluções já não dependem de várias semanas de transporte marítimo. A sua farmácia pode encomendar mais vezes, em quantidades mais ajustadas.',
+      'Uma vez fabricadas em Sèmè-Podji, as nossas soluções deixarão de depender de várias semanas de transporte marítimo. A sua farmácia poderá encomendar mais vezes, em quantidades mais ajustadas.',
     ],
     services: ['Urgência', 'Cirurgia', 'Medicina', 'Pediatria', 'Maternidade'],
     badge: 'Fabricado no BENIM',
@@ -39,7 +39,7 @@ const hopitaux: HopitauxDict = {
       { title: 'Inquebrável', text: 'Sem vidro partido, nem durante o transporte nem no serviço.' },
       { title: 'Leve', text: 'Mais fácil de transportar, arrumar e armazenar na farmácia.' },
       { title: 'Formado, cheio e selado de uma só vez', text: 'Numa única operação automática, sem contacto humano com a solução.' },
-      { title: 'Controlado', text: 'Cada frasco é inspecionado e cada lote analisado antes da libertação.' },
+      { title: 'Controlado', text: 'Cada frasco será inspecionado e cada lote analisado antes da libertação.' },
     ],
     imageAlt: 'Ampolas de plástico, formadas e seladas numa única operação',
   },
@@ -59,7 +59,7 @@ const hopitaux: HopitauxDict = {
     items: [
       { text: 'Notifique um efeito adverso ou um defeito de qualidade.' },
       { text: 'Fichas técnicas e certificados de análise dos nossos produtos.' },
-      { text: 'Cada frasco tem o seu número de lote, da fábrica ao doente.' },
+      { text: 'Cada frasco terá o seu número de lote, da fábrica ao doente.' },
     ],
   },
 };

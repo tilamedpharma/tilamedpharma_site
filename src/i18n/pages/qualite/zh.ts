@@ -64,7 +64,7 @@ const qualite: QualiteDict = {
           { title: '放行', text: '由质量受权药师决定。' },
         ] },
       ],
-      note: '每批产品均留样，以便日后复检。',
+      note: '每批产品都将留样，以便日后复检。',
     },
     tracabilite: {
       meta: { title: '可追溯性 · 标准 · TILAMED Pharma', description: '批号、发货记录与召回程序：以短供应链打击假药。' },
@@ -75,7 +75,7 @@ const qualite: QualiteDict = {
         { kind: 'points', title: '每批产品全程追踪', items: [
           '每个瓶子和每个纸箱上均标有批号和有效期。',
           '按客户和批次记录发货。',
-          '经过演练的召回程序，并与主管部门联动。',
+          '将建立召回程序，并与主管部门联动。',
         ] },
       ],
       note: '贝宁大力打击假药：参与国际刑警组织“盘古”国际行动，批准欧洲委员会《MEDICRIME 公约》，并于 2021 年颁布新的药事活动法。',

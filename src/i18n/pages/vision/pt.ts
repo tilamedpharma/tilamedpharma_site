@@ -14,7 +14,7 @@ const vision: VisionDict = {
     eyebrow: 'O nosso lema',
     translation: 'Mais perto, mais seguro para a sua saúde',
     near: { title: 'Mais perto', text: 'Os nossos produtos serão fabricados junto dos hospitais que os utilizam: menos prazos, menos ruturas de stock.' },
-    safe: { title: 'Mais seguro', text: 'Cada lote é fabricado e controlado segundo as boas práticas de fabrico e rastreado até à sua entrega.' },
+    safe: { title: 'Mais seguro', text: 'Cada lote será fabricado e controlado segundo as boas práticas de fabrico e rastreado até à sua entrega.' },
   },
   vision: {
     eyebrow: 'A nossa visão',
@@ -27,7 +27,7 @@ const vision: VisionDict = {
     eyebrow: 'A nossa missão',
     keys: [
       { title: 'Em quantidade', text: 'Uma capacidade industrial pensada para as necessidades dos hospitais do BENIM e da sub-região.' },
-      { title: 'De qualidade', text: 'Produtos fabricados segundo as normas da OMS e controlados lote a lote pelo nosso laboratório.' },
+      { title: 'De qualidade', text: 'Produtos que serão fabricados segundo as normas da OMS e controlados lote a lote pelo nosso laboratório.' },
       { title: 'A um preço acessível', text: 'Uma produção local que reduz o frete, o armazenamento e as perdas cambiais.' },
     ],
   },
@@ -37,8 +37,8 @@ const vision: VisionDict = {
     intro: 'Aplicam-se a cada gesto, desde a escolha das matérias-primas até à entrega ao doente.',
     items: [
       { title: 'Rigor', text: 'Procedimentos escritos, seguidos e verificados em cada etapa, desde a escolha das matérias-primas até ao doente.' },
-      { title: 'Excelência', text: 'Um elevado nível de exigência em qualidade, controlado permanentemente pelo nosso laboratório.' },
-      { title: 'Respeito pelas normas mais exigentes', text: 'Uma fábrica autorizada pela Agência Beninense de Regulação Farmacêutica, com lotes controlados e libertados pelo farmacêutico responsável.' },
+      { title: 'Excelência', text: 'Um elevado nível de exigência em qualidade, que o nosso laboratório controlará permanentemente.' },
+      { title: 'Respeito pelas normas mais exigentes', text: 'Uma fábrica autorizada pela Agência Beninense de Regulação Farmacêutica, onde cada lote será controlado e libertado pelo farmacêutico responsável.' },
       { title: 'Fiabilidade', text: 'Produtos disponíveis quando os profissionais de saúde precisam, entregas cumpridas e lotes rastreados de ponta a ponta.' },
     ],
   },

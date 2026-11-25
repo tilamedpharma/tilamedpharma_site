@@ -11,7 +11,7 @@ const distribution: DistributionDict = {
     cta1: 'Our supply chain',
   },
   facts: [
-    { value: '< 1', unit: 'month', label: 'from our Sèmè-Podji plant to the patient' },
+    { value: '< 1', unit: 'month', label: 'target, from our future plant to the patient' },
     { value: '15', unit: 'countries', label: 'in West Africa within our distribution area' },
     { value: '2', unit: 'sources', label: 'what we make and what we buy, in a single supply chain' },
   ],
@@ -33,7 +33,7 @@ const distribution: DistributionDict = {
     title: 'The stages, one by one',
     imageAlt: 'Customers choosing a medicine in a pharmacy',
     items: [
-      { title: 'Our plant and our suppliers', text: 'Every batch we make is tested by our laboratory and released by the qualified pharmacist. Every product we buy is checked on receipt: documents, labelling, condition of the parcels.' },
+      { title: 'Our plant and our suppliers', text: 'Every batch we make will be tested by our laboratory and released by the qualified pharmacist. Every product we buy is checked on receipt: documents, labelling, condition of the parcels.' },
       { title: 'Our warehouse', text: 'Products are stored under controlled conditions and tracked by batch and expiry date: the first to expire are the first to leave.' },
       { title: 'Purchasing centres and distributors', text: 'We deliver to public purchasing centres, health organisations and our licensed distributors in BENIN and across the sub-region.' },
       { title: 'Hospitals, clinics and pharmacies', text: 'Health facilities receive products faster, in quantities matched to what they actually use.' },

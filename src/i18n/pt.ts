@@ -45,7 +45,7 @@ const pt: Dict = {
   },
   hero: {
     eyebrow: 'Laboratório farmacêutico · Sèmè-Podji, BENIM',
-    title: 'A excelência farmacêutica, fabricada no coração da África Ocidental.',
+    title: 'A excelência farmacêutica, em breve fabricada no coração da África Ocidental.',
     lead: 'A TILAMED PHARMA SA constrói no BENIM uma fábrica de nova geração para produzir medicamentos de alta qualidade, conformes às normas da Organização Mundial da Saúde, a preços acessíveis a todos.',
     cta1: 'Descobrir a nossa fábrica', cta2: 'Contacte-nos',
     proofs: ['Normas OMS', 'Fabricado na REPÚBLICA DO BENIM', 'Edifício verde · EDGE em curso', 'Fábrica inclusiva'],
@@ -162,9 +162,9 @@ const pt: Dict = {
     title: 'Quatro profissões ao serviço da saúde',
     intro: 'Do fabrico à distribuição, cobrimos toda a cadeia dos produtos de saúde essenciais para a África Ocidental.',
     items: [
-      { title: 'Produtos farmacêuticos acabados', text: 'Soros de perfusão, injetáveis e soluções orais, fabricados e controlados na nossa fábrica de Sèmè-Podji.', alt: 'Operadora a controlar garrafas numa linha de produção' },
+      { title: 'Produtos farmacêuticos acabados', text: 'Soros de perfusão, injetáveis e soluções orais, que serão fabricados e controlados na nossa fábrica de Sèmè-Podji.', alt: 'Operadora a controlar garrafas numa linha de produção' },
       { title: 'Dispositivos médicos', text: 'Distribuidor autorizado: diagnóstico, cirurgia, esterilização e equipamento hospitalar.', alt: 'Tensiómetro e material médico' },
-      { title: 'Laboratório médico', text: 'Análises e controlo de qualidade segundo as normas internacionais.', alt: 'Técnica de laboratório a realizar uma análise' },
+      { title: 'Laboratório médico', text: 'Análises e controlo de qualidade, que serão realizados segundo as normas internacionais.', alt: 'Técnica de laboratório a realizar uma análise' },
       { title: 'Produtos veterinários', text: 'Alimentação, antiparasitários e cuidados para cães e gatos.', alt: 'Veterinário a examinar um cão' },
     ],
   },
@@ -269,7 +269,7 @@ const pt: Dict = {
     eyebrow: 'A quem nos dirigimos',
     title: 'Os nossos clientes',
     items: [
-      { title: 'Centrais públicas de compras do espaço CEDEAO', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
+      { title: 'Centrais públicas de compras da África Ocidental', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
       { title: 'Grossistas distribuidores privados internacionais', examples: 'UBIPHARM, UBPHAR, GAPOB…' },
       { title: 'Organizações regionais', examples: 'OOAS, Centre MURAZ, CIRDES…' },
       { title: 'Organizações internacionais', examples: 'GIZ, AFD, OMS…' },

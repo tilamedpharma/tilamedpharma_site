@@ -14,7 +14,7 @@ const vision: VisionDict = {
     eyebrow: 'Il nostro motto',
     translation: 'Più vicino, più sicuro per la vostra salute',
     near: { title: 'Più vicino', text: 'I nostri prodotti saranno fabbricati accanto agli ospedali che li utilizzano: tempi più brevi, meno rotture di stock.' },
-    safe: { title: 'Più sicuro', text: 'Ogni lotto è fabbricato e controllato secondo le buone pratiche di fabbricazione, poi tracciato fino alla consegna.' },
+    safe: { title: 'Più sicuro', text: 'Ogni lotto sarà fabbricato e controllato secondo le buone pratiche di fabbricazione, poi tracciato fino alla consegna.' },
   },
   vision: {
     eyebrow: 'La nostra visione',
@@ -27,7 +27,7 @@ const vision: VisionDict = {
     eyebrow: 'La nostra missione',
     keys: [
       { title: 'In quantità', text: 'Una capacità industriale pensata per le esigenze degli ospedali del BENIN e della sottoregione.' },
-      { title: 'Di qualità', text: 'Prodotti fabbricati secondo le norme dell\'OMS e controllati lotto per lotto dal nostro laboratorio.' },
+      { title: 'Di qualità', text: 'Prodotti che saranno fabbricati secondo le norme dell\'OMS e controllati lotto per lotto dal nostro laboratorio.' },
       { title: 'A un prezzo accessibile', text: 'Una produzione locale che riduce trasporto, stoccaggio e perdite di cambio.' },
     ],
   },
@@ -37,8 +37,8 @@ const vision: VisionDict = {
     intro: 'Si applicano a ogni gesto, dalla scelta delle materie prime fino alla consegna al paziente.',
     items: [
       { title: 'Rigore', text: 'Procedure scritte, seguite e verificate a ogni fase, dalla scelta delle materie prime fino al paziente.' },
-      { title: 'Eccellenza', text: 'Un alto livello di esigenza sulla qualità, controllato costantemente dal nostro laboratorio.' },
-      { title: 'Rispetto delle norme più esigenti', text: 'Uno stabilimento autorizzato dall\'Agenzia beninese di regolamentazione farmaceutica, con lotti controllati e rilasciati dal farmacista responsabile.' },
+      { title: 'Eccellenza', text: 'Un alto livello di esigenza sulla qualità, che il nostro laboratorio controllerà costantemente.' },
+      { title: 'Rispetto delle norme più esigenti', text: 'Uno stabilimento autorizzato dall\'Agenzia beninese di regolamentazione farmaceutica, dove ogni lotto sarà controllato e rilasciato dal farmacista responsabile.' },
       { title: 'Affidabilità', text: 'Prodotti disponibili quando gli operatori sanitari ne hanno bisogno, consegne rispettate e lotti tracciati dall\'inizio alla fine.' },
     ],
   },

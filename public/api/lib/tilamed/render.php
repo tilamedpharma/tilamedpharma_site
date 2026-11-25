@@ -252,7 +252,9 @@ function render_product(string $html, array $p, string $lang, bool $preview): st
     }
     if ($sections !== '') { $o .= '<div class="pftext">' . $sections . '</div>'; }
     $o .= '<p class="pfsheet__disc">' . h($f['disclaimer']) . '</p>';
-    $o .= '<ul class="pcat__legal">' . implode('', array_map(fn ($x) => '<li>' . h($x) . '</li>', $t['ui']['legal'])) . '</ul>';
+    // « Produits fabriqués par TILAMED : en préparation » ne concerne que la fabrication (iv, liquids), pas les produits distribués.
+    $legal = in_array($p['kind'], ['iv', 'liquids'], true) ? $t['ui']['legal'] : array_slice($t['ui']['legal'], 1);
+    $o .= '<ul class="pcat__legal">' . implode('', array_map(fn ($x) => '<li>' . h($x) . '</li>', $legal)) . '</ul>';
     $o .= '</div><aside class="stepc__aside">';
     $o .= '<a class="sdoc" href="' . h($pdf) . '" download data-reveal>' . icon('download', 24) . '<span class="sdoc__t">' . h($f['techTitle']) . '</span><span class="sdoc__d">'
         . h($name) . ' · ' . h($f['pdf']) . ' · ' . h(site()['locales'][$lang]['name']) . '</span><span class="link-arrow">' . h($f['download']) . icon('arrow', 16, 'flip-rtl') . '</span></a>';

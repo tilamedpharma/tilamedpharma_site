@@ -15,7 +15,7 @@ const vision = {
     eyebrow: 'Notre devise',
     translation: '',
     near: { title: 'Plus près', text: 'Nos produits seront fabriqués à côté des hôpitaux qui les utilisent : moins de délais, moins de ruptures de stock.' },
-    safe: { title: 'Plus sûr', text: 'Chaque lot est fabriqué et contrôlé selon les bonnes pratiques de fabrication, puis tracé jusqu\'à sa livraison.' },
+    safe: { title: 'Plus sûr', text: 'Chaque lot sera fabriqué et contrôlé selon les bonnes pratiques de fabrication, puis tracé jusqu\'à sa livraison.' },
   },
   vision: {
     eyebrow: 'Notre vision',
@@ -28,7 +28,7 @@ const vision = {
     eyebrow: 'Notre mission',
     keys: [
       { title: 'En quantité', text: 'Une capacité industrielle pensée pour les besoins des hôpitaux du BÉNIN et de la sous-région.' },
-      { title: 'De qualité', text: 'Des produits fabriqués selon les normes de l\'OMS et contrôlés lot par lot par notre laboratoire.' },
+      { title: 'De qualité', text: 'Des produits qui seront fabriqués selon les normes de l\'OMS et contrôlés lot par lot par notre laboratoire.' },
       { title: 'À un prix accessible', text: 'Une production locale qui réduit le fret, le stockage et les pertes de change.' },
     ],
   },
@@ -38,8 +38,8 @@ const vision = {
     intro: 'Elles s\'appliquent à chaque geste, du choix des matières premières jusqu\'à la livraison au patient.',
     items: [
       { title: 'Rigueur', text: 'Des procédures écrites, suivies et vérifiées à chaque étape, du choix des matières premières jusqu\'au patient.' },
-      { title: 'Excellence', text: 'Un haut niveau d\'exigence sur la qualité, contrôlé en permanence par notre laboratoire.' },
-      { title: 'Respect des normes les plus exigeantes', text: 'Une usine autorisée par l\'Agence béninoise de régulation pharmaceutique, et des lots contrôlés puis libérés par le pharmacien responsable.' },
+      { title: 'Excellence', text: 'Un haut niveau d\'exigence sur la qualité, qui sera contrôlé en permanence par notre laboratoire.' },
+      { title: 'Respect des normes les plus exigeantes', text: 'Une usine autorisée par l\'Agence béninoise de régulation pharmaceutique, dont chaque lot sera contrôlé puis libéré par le pharmacien responsable.' },
       { title: 'Fiabilité', text: 'Des produits disponibles quand les soignants en ont besoin, des livraisons tenues et des lots tracés de bout en bout.' },
     ],
   },

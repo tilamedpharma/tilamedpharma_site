@@ -45,12 +45,12 @@ const direction: DirectionDict = {
       { title: 'Production', text: 'Manufacturing, maintenance and plant utilities.' },
     ],
     badge: 'Compliance guarantor',
-    note: 'The responsible pharmacist ensures compliance with good manufacturing practice and releases each batch before it is made available to patients.',
+    note: 'The responsible pharmacist will ensure compliance with good manufacturing practice and release each batch before it is made available to patients.',
   },
   cta: {
     eyebrow: 'Careers',
     title: 'Join a team in the making',
-    text: 'The Sèmè-Podji plant is building its technical and administrative teams. Discover our professions and send us your application.',
+    text: 'The Sèmè-Podji plant will build its technical and administrative teams. Discover our professions and send us your application.',
   },
 };
 export default direction;

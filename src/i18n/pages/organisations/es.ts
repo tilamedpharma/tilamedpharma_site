@@ -9,7 +9,7 @@ const organisations: OrganisationsDict = {
     cta1: 'Escríbanos',
   },
   facts: [
-    { value: '15', unit: 'países', label: 'del espacio CEDEAO cubiertos' },
+    { value: '15', unit: 'países', label: 'de África Occidental cubiertos' },
     { value: '2013', unit: '', label: 'año desde el que servimos a programas y ministerios de salud' },
     { value: '6', unit: 'autorizaciones', label: 'y homologaciones obtenidas en BENÍN' },
   ],

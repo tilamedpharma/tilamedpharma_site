@@ -13,7 +13,7 @@ const distribution = {
     cta1: 'Notre circuit',
   },
   facts: [
-    { value: '< 1', unit: 'mois', label: 'de notre usine de Sèmè-Podji jusqu\'au patient' },
+    { value: '< 1', unit: 'mois', label: 'visé, de notre future usine jusqu\'au patient' },
     { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest dans notre zone de distribution' },
     { value: '2', unit: 'sources', label: 'nos fabrications et nos achats, réunis dans un même circuit' },
   ],
@@ -35,7 +35,7 @@ const distribution = {
     title: 'Les étapes, une à une',
     imageAlt: 'Clients choisissant un médicament dans une pharmacie',
     items: [
-      { title: 'L\'usine et nos fournisseurs', text: 'Chaque lot fabriqué est contrôlé par notre laboratoire et libéré par le pharmacien responsable. Chaque produit acheté est vérifié à réception : documents, étiquetage, état des colis.' },
+      { title: 'L\'usine et nos fournisseurs', text: 'Chaque lot fabriqué sera contrôlé par notre laboratoire et libéré par le pharmacien responsable. Chaque produit acheté est vérifié à réception : documents, étiquetage, état des colis.' },
       { title: 'Notre entrepôt', text: 'Les produits sont stockés dans des conditions maîtrisées, avec un suivi par lot et par date de péremption : les premiers produits à expirer sont les premiers à sortir.' },
       { title: 'Centrales d\'achat et distributeurs', text: 'Nous livrons les centrales d\'achat publiques, les organisations de santé et nos distributeurs agréés au BÉNIN et dans la sous-région.' },
       { title: 'Hôpitaux, cliniques et pharmacies', text: 'Les établissements de santé reçoivent des produits disponibles plus vite, en quantité adaptée à leur consommation réelle.' },

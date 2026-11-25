@@ -10,7 +10,7 @@ const clients: ClientsDict = {
   },
   facts: [
     { value: '5', unit: 'famiglie', label: 'di clienti, pubblici e privati' },
-    { value: '15', unit: 'paesi', label: 'dell\'area CEDEAO serviti' },
+    { value: '15', unit: 'paesi', label: 'dell\'Africa occidentale serviti' },
     { value: '3', unit: 'canali', label: 'vendite dirette, gare d\'appalto, distributori' },
     { value: '1', unit: 'interlocutore', label: 'la nostra direzione commerciale, per tutte le vendite' },
   ],
@@ -19,10 +19,10 @@ const clients: ClientsDict = {
     title: 'Loro acquistano i nostri prodotti',
     text: 'Dall\'appalto pubblico al banco della farmacia, i nostri prodotti raggiungono cinque famiglie di clienti. Per ciascuna abbiamo adattato il nostro modo di lavorare.',
     items: [
-      { title: 'Centrali d\'acquisto pubbliche dell\'area CEDEAO', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Risposte complete alle loro gare e consegne pianificate in base al consumo reale.' },
+      { title: 'Centrali d\'acquisto pubbliche dell\'Africa occidentale', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Risposte complete alle loro gare e consegne pianificate in base al consumo reale.' },
       { title: 'Grossisti distributori privati internazionali', examples: ['UBIPHARM', 'UBPHAR', 'GAPOB'], text: 'Un fornitore nella regione: ordini più frequenti e meno scorte immobilizzate.' },
       { title: 'Organizzazioni regionali', examples: ['OOAS', 'Centre MURAZ', 'CIRDES'], text: 'Un partner locale per i programmi sanitari della sottoregione.' },
-      { title: 'Organizzazioni internazionali', examples: ['GIZ', 'AFD', 'OMS'], text: 'Dossier di qualità completi e capacità di consegna nei 15 paesi della CEDEAO.' },
+      { title: 'Organizzazioni internazionali', examples: ['GIZ', 'AFD', 'OMS'], text: 'Dossier di qualità completi e capacità di consegna nei 15 paesi dell\'Africa occidentale.' },
       { title: 'Farmacie e cliniche private', examples: ['In tutta l\'Africa occidentale'], text: 'Prodotti sanitari essenziali disponibili vicino a loro, tramite i nostri distributori autorizzati.' },
     ],
     more: 'Per saperne di più',

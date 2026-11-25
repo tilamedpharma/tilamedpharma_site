@@ -15,7 +15,7 @@ const cat: CatalogDict = {
     pack: '包装',
     refs: '个品种',
     request: '索取信息',
-    legal: ['TILAMED 产品筹备中 · 尚未上市销售。', '本信息面向医疗专业人员。'],
+    legal: ['TILAMED 自产产品：筹备中，尚未上市销售。', '本信息面向医疗专业人员。'],
   },
   groups: {
     serum: { label: '输液', blurb: '基础输液及特殊溶液。' },
@@ -52,7 +52,7 @@ const cat: CatalogDict = {
   fiche: {
     eyebrow: '产品资料',
     techTitle: '技术资料',
-    techIntro: '产品特性，由 TILAMED Pharma 提供。',
+    techIntro: '本产品的主要特性。',
     download: '下载技术资料',
     pdf: 'PDF',
     docsTitle: '可下载文件',

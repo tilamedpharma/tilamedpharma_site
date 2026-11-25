@@ -13,7 +13,7 @@ const organisations = {
     cta1: 'Nous écrire',
   },
   facts: [
-    { value: '15', unit: 'pays', label: 'de l\'espace CEDEAO couverts' },
+    { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest couverts' },
     { value: '2013', unit: '', label: 'au service des programmes et des ministères de la santé' },
     { value: '6', unit: 'agréments', label: 'et autorisations obtenus au BÉNIN' },
   ],

@@ -46,12 +46,12 @@ const direction = {
       { title: 'Direction de la production', text: 'Fabrication, maintenance et utilités de l\'usine.' },
     ],
     badge: 'Garant de la conformité',
-    note: 'Le pharmacien responsable veille au respect des bonnes pratiques de fabrication et libère chaque lot avant sa mise à disposition des patients.',
+    note: 'Le pharmacien responsable veillera au respect des bonnes pratiques de fabrication et libérera chaque lot avant sa mise à disposition des patients.',
   },
   cta: {
     eyebrow: 'Carrières',
     title: 'Rejoignez une équipe en construction',
-    text: 'L\'usine de Sèmè-Podji recrute ses équipes techniques et administratives. Découvrez nos métiers et proposez votre candidature.',
+    text: 'L\'usine de Sèmè-Podji constituera ses équipes techniques et administratives. Découvrez nos métiers et proposez votre candidature.',
   },
 };
 export default direction;

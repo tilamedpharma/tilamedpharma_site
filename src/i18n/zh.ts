@@ -45,7 +45,7 @@ const zh: Dict = {
   },
   hero: {
     eyebrow: '制药企业 · 贝宁塞梅-波吉',
-    title: '卓越制药，诞生于西非腹地。',
+    title: '卓越制药，即将诞生于西非腹地。',
     lead: 'TILAMED PHARMA SA 正在贝宁建设新一代工厂，生产符合世界卫生组织标准的高质量药品，让人人都能负担得起。',
     cta1: '了解我们的工厂', cta2: '联系我们',
     proofs: ['世卫组织标准', '贝宁共和国制造', '绿色建筑 · EDGE 认证中', '包容性工厂'],
@@ -162,9 +162,9 @@ const zh: Dict = {
     title: '服务健康的四大业务',
     intro: '从生产到分销，我们覆盖西非基本医疗产品的完整链条。',
     items: [
-      { title: '成品药', text: '输液、注射剂和口服液，均在塞梅-波吉工厂生产和检验。', alt: '操作员在生产线上检查瓶子' },
+      { title: '成品药', text: '输液、注射剂和口服液，将在塞梅-波吉工厂生产和检验。', alt: '操作员在生产线上检查瓶子' },
       { title: '医疗器械', text: '授权经销商：诊断、外科、灭菌及医院设备。', alt: '血压计与医疗器材' },
-      { title: '医学实验室', text: '按国际标准开展检测与质量控制。', alt: '实验室技术人员进行分析' },
+      { title: '医学实验室', text: '将按国际标准开展检测与质量控制。', alt: '实验室技术人员进行分析' },
       { title: '兽用产品', text: '犬猫食品、驱虫产品与护理用品。', alt: '兽医为狗检查' },
     ],
   },
@@ -269,7 +269,7 @@ const zh: Dict = {
     eyebrow: '服务对象',
     title: '我们的客户',
     items: [
-      { title: '西共体地区公共采购中心', examples: 'SOBAPS、CAMEG、ONPPC、SONIPHARM…' },
+      { title: '西非公共采购中心', examples: 'SOBAPS、CAMEG、ONPPC、SONIPHARM…' },
       { title: '国际私营批发分销商', examples: 'UBIPHARM、UBPHAR、GAPOB…' },
       { title: '区域组织', examples: '西非卫生组织、Centre MURAZ、CIRDES…' },
       { title: '国际组织', examples: 'GIZ、AFD、世卫组织…' },

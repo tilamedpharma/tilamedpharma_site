@@ -15,7 +15,7 @@ const cat: CatalogDict = {
     pack: 'Acondicionamento',
     refs: 'referências',
     request: 'Pedir informações',
-    legal: ['Produtos TILAMED em preparação · ainda não à venda.', 'Informação destinada aos profissionais de saúde.'],
+    legal: ['Produtos fabricados pela TILAMED: em preparação, ainda não à venda.', 'Informação destinada aos profissionais de saúde.'],
   },
   groups: {
     serum: { label: 'Soros', blurb: 'Soluções de perfusão de base e soluções específicas.' },
@@ -52,7 +52,7 @@ const cat: CatalogDict = {
   fiche: {
     eyebrow: 'Ficha de produto',
     techTitle: 'Ficha técnica',
-    techIntro: 'Características do produto, tal como comunicadas pela TILAMED Pharma.',
+    techIntro: 'As principais características deste produto.',
     download: 'Descarregar a ficha técnica',
     pdf: 'PDF',
     docsTitle: 'Documentos para descarregar',

@@ -10,7 +10,7 @@ const distributeurs = {
   facts: [
     { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest dans notre zone de distribution' },
     { value: '2', unit: 'sources', label: 'notre usine au BÉNIN et de grands fabricants internationaux' },
-    { value: '< 1', unit: 'mois', label: 'de notre usine de Sèmè-Podji jusqu\'au patient' },
+    { value: '< 1', unit: 'mois', label: 'visé, de notre future usine jusqu\'au patient' },
     { value: '5', unit: 'familles', label: 'de produits, chez un seul fournisseur' },
   ],
   why: {
@@ -18,7 +18,7 @@ const distributeurs = {
     title: 'Pourquoi distribuer TILAMED Pharma ?',
     items: [
       { title: 'Un fournisseur local', text: 'Une usine au BÉNIN, à quelques heures de route plutôt qu\'à plusieurs semaines de mer : des commandes plus fréquentes, moins de stock immobilisé, moins de ruptures.' },
-      { title: 'Une qualité contrôlée', text: 'Chaque lot est contrôlé par notre laboratoire puis libéré par le pharmacien responsable, sous le contrôle de l\'ABRP.' },
+      { title: 'Une qualité contrôlée', text: 'Chaque lot sera contrôlé par notre laboratoire puis libéré par le pharmacien responsable, sous le contrôle de l\'ABRP.' },
       { title: 'Une gamme complète', text: 'Sérums, médicaments injectables, solutions nutritionnelles, dispositifs médicaux et produits vétérinaires.' },
       { title: 'Un accompagnement', text: 'La documentation technique et réglementaire de nos produits, et un appui pour vos réponses aux appels d\'offres.' },
     ],
@@ -28,7 +28,7 @@ const distributeurs = {
     title: 'Des engagements des deux côtés',
     giveTitle: 'Ce que nous vous apportons',
     give: [
-      'Des produits fabriqués au BÉNIN et des produits de grands fabricants internationaux, livrés depuis notre entrepôt.',
+      'Les produits de notre future usine au BÉNIN et ceux de grands fabricants internationaux, livrés depuis notre entrepôt.',
       'Une documentation complète pour chaque produit : fiches techniques et certificats d\'analyse.',
       'Des livraisons planifiées selon vos besoins réels.',
       'Un dialogue régulier sur vos ventes, vos stocks et les besoins de votre marché.',
@@ -47,7 +47,7 @@ const distributeurs = {
   coverage: {
     eyebrow: 'Zone couverte',
     title: '15 pays d\'Afrique de l\'Ouest',
-    text: 'Nous recherchons des partenaires dans chacun des 15 pays de la CEDEAO, pour les circuits publics comme privés.',
+    text: 'Nous recherchons des partenaires dans chacun des 15 pays d\'Afrique de l\'Ouest, pour les circuits publics comme privés.',
   },
   contact: 'Vous préférez nous écrire ?',
   formLead: 'Quelques informations sur votre société suffisent pour commencer : nous revenons vers vous pour en parler.',

@@ -13,7 +13,7 @@ const clients = {
   },
   facts: [
     { value: '5', unit: 'familles', label: 'de clients, publics et privés' },
-    { value: '15', unit: 'pays', label: 'de l\'espace CEDEAO desservis' },
+    { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest desservis' },
     { value: '3', unit: 'canaux', label: 'ventes directes, appels d\'offres, distributeurs' },
     { value: '1', unit: 'interlocuteur', label: 'notre direction commerciale, pour toutes les ventes' },
   ],
@@ -22,10 +22,10 @@ const clients = {
     title: 'Ils achètent nos produits',
     text: 'Du marché public au comptoir de la pharmacie, nos produits passent par cinq familles de clients. Pour chacune, nous avons adapté notre façon de travailler.',
     items: [
-      { title: 'Centrales d\'achat publiques de l\'espace CEDEAO', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Des réponses complètes à leurs appels d\'offres et des livraisons planifiées selon la consommation réelle.' },
+      { title: 'Centrales d\'achat publiques d\'Afrique de l\'Ouest', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Des réponses complètes à leurs appels d\'offres et des livraisons planifiées selon la consommation réelle.' },
       { title: 'Grossistes répartiteurs privés internationaux', examples: ['UBIPHARM', 'UBPHAR', 'GAPOB'], text: 'Un fournisseur dans la région : des commandes plus fréquentes et moins de stock immobilisé.' },
       { title: 'Organisations régionales', examples: ['OOAS', 'Centre MURAZ', 'CIRDES'], text: 'Un partenaire local pour les programmes de santé de la sous-région.' },
-      { title: 'Organisations internationales', examples: ['GIZ', 'AFD', 'OMS'], text: 'Des dossiers qualité complets et une capacité de livraison dans les 15 pays de la CEDEAO.' },
+      { title: 'Organisations internationales', examples: ['GIZ', 'AFD', 'OMS'], text: 'Des dossiers qualité complets et une capacité de livraison dans les 15 pays d\'Afrique de l\'Ouest.' },
       { title: 'Pharmacies et cliniques privées', examples: ['Dans toute l\'Afrique de l\'Ouest'], text: 'Des produits de santé essentiels disponibles près de chez elles, par nos distributeurs agréés.' },
     ],
     more: 'En savoir plus',

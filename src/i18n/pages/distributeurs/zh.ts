@@ -6,7 +6,7 @@ const distributeurs: DistributeursDict = {
   facts: [
     { value: '15', unit: '国', label: '西非国家在我们的分销范围内' },
     { value: '2', unit: '个来源', label: '我们在贝宁的工厂与国际知名制造商' },
-    { value: '< 1', unit: '个月', label: '从塞梅-波吉工厂到患者手中' },
+    { value: '< 1', unit: '个月', label: '目标：从未来工厂到患者手中' },
     { value: '5', unit: '大类', label: '产品，一个供应商全部提供' },
   ],
   why: {
@@ -14,7 +14,7 @@ const distributeurs: DistributeursDict = {
     title: '为何经销 TILAMED Pharma 产品？',
     items: [
       { title: '本地供应商', text: '工厂位于贝宁，公路几小时可达，而非海运数周：下单更频繁，库存占用更少，断货更少。' },
-      { title: '质量受控', text: '每批产品均由我们的实验室检验，并在 ABRP 监管下由质量受权药师放行。' },
+      { title: '质量受控', text: '每批产品都将由我们的实验室检验，并在 ABRP 监管下由质量受权药师放行。' },
       { title: '完整的产品线', text: '大输液、注射药品、营养液、医疗器械和兽用产品产品。' },
       { title: '全程支持', text: '提供产品的技术和注册文件，并协助您参与招标。' },
     ],
@@ -24,7 +24,7 @@ const distributeurs: DistributeursDict = {
     title: '双方共同承诺',
     giveTitle: '我们为您提供',
     give: [
-      '贝宁制造的产品以及国际大型制造商的产品，从我们的仓库发货。',
+      '我们未来贝宁工厂的产品以及国际大型制造商的产品，从我们的仓库发货。',
       '每个产品的完整文件：技术资料和分析证书。',
       '按您的实际需求计划配送。',
       '就您的销售、库存和市场需求保持定期沟通。',
@@ -43,7 +43,7 @@ const distributeurs: DistributeursDict = {
   coverage: {
     eyebrow: '覆盖区域',
     title: '西非 15 国',
-    text: '我们正在西共体全部 15 个成员国寻找合作伙伴，涵盖公立和私营渠道。',
+    text: '我们正在西非 15 国逐一寻找合作伙伴，涵盖公立和私营渠道。',
   },
   contact: '更想直接来信？',
   formLead: '只需提供贵公司的基本信息即可开始：我们会尽快与您联系详谈。',

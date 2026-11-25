@@ -118,7 +118,7 @@ const isVet = fam.group === 'vet';
 <section class="section prange" id="gamme" aria-label={p.ui.inThisRange}>
   <div class="wrap">
     <Live k="fam:range" />
-    <ul class="pcat__legal">{c.ui.legal.map((x) => <li>{x}</li>)}</ul>
+    <ul class="pcat__legal">{(isDevices || isVet ? c.ui.legal.slice(1) : c.ui.legal).map((x) => <li>{x}</li>)}</ul>
   </div>
 </section>
 

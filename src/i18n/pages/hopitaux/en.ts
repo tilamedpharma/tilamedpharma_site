@@ -13,7 +13,7 @@ const hopitaux: HopitauxDict = {
     title: 'Available every day, in every department',
     text: [
       'Infusion fluids are used every day in every department. Their availability is vital: one stock-out, and care comes to a halt.',
-      'Made in Sèmè-Podji, our solutions no longer depend on several weeks of sea freight. Your pharmacy can order more often, in quantities that fit its needs.',
+      'Once made in Sèmè-Podji, our solutions will no longer depend on several weeks of sea freight. Your pharmacy will be able to order more often, in quantities that fit its needs.',
     ],
     services: ['Emergency', 'Surgery', 'Medicine', 'Paediatrics', 'Maternity'],
     badge: 'Made in BENIN',
@@ -39,7 +39,7 @@ const hopitaux: HopitauxDict = {
       { title: 'Unbreakable', text: 'No broken glass, neither during transport nor on the ward.' },
       { title: 'Light', text: 'Easier to carry, put away and store in the pharmacy.' },
       { title: 'Formed, filled and sealed in one step', text: 'In a single automatic operation, with no human contact with the solution.' },
-      { title: 'Inspected', text: 'Every bottle is inspected and every batch analysed before release.' },
+      { title: 'Inspected', text: 'Every bottle will be inspected and every batch analysed before release.' },
     ],
     imageAlt: 'Plastic ampoules, formed and sealed in a single operation',
   },
@@ -59,7 +59,7 @@ const hopitaux: HopitauxDict = {
     items: [
       { text: 'Report an adverse effect or a quality defect.' },
       { text: 'Technical data sheets and certificates of analysis for our products.' },
-      { text: 'Every bottle carries its batch number, from the plant to the patient.' },
+      { text: 'Every bottle will carry its batch number, from the plant to the patient.' },
     ],
   },
 };

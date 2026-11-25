@@ -24,7 +24,7 @@ const aPropos: AProposDict = {
       'Founded in 2013 as SEDIS SARL to distribute medical devices in West Africa, the company became TILAMED PHARMA SA in 2023 and now focuses on industrial production.',
       'Our first plant, in Sèmè-Podji, will produce large-volume injectable solutions: infusion fluids for rehydration, glucose supply and intravenous drug administration.',
     ],
-    countriesTitle: 'The 15 ECOWAS countries',
+    countriesTitle: '15 West African countries · ECOWAS and AES',
     cta: 'Our journey',
     imageAlt: 'Scientist at work in a pharmaceutical laboratory',
   },

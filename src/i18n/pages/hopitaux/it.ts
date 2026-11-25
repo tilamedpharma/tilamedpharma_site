@@ -13,7 +13,7 @@ const hopitaux: HopitauxDict = {
     title: 'Disponibili ogni giorno, in tutti i reparti',
     text: [
       'Le soluzioni per infusione si usano ogni giorno in tutti i reparti. La loro disponibilità è vitale: una carenza, e le cure si fermano.',
-      'Prodotte a Sèmè-Podji, le nostre soluzioni non dipendono più da diverse settimane di trasporto marittimo. La vostra farmacia può ordinare più spesso, in quantità più giuste.',
+      'Una volta prodotte a Sèmè-Podji, le nostre soluzioni non dipenderanno più da diverse settimane di trasporto marittimo. La vostra farmacia potrà ordinare più spesso, in quantità più giuste.',
     ],
     services: ['Pronto soccorso', 'Chirurgia', 'Medicina', 'Pediatria', 'Maternità'],
     badge: 'Prodotto in BENIN',
@@ -39,7 +39,7 @@ const hopitaux: HopitauxDict = {
       { title: 'Infrangibile', text: 'Niente vetro rotto, né durante il trasporto né in reparto.' },
       { title: 'Leggero', text: 'Più facile da trasportare, riporre e stoccare in farmacia.' },
       { title: 'Formato, riempito e sigillato in un solo gesto', text: 'In un\'unica operazione automatica, senza contatto umano con la soluzione.' },
-      { title: 'Controllato', text: 'Ogni flacone è ispezionato e ogni lotto analizzato prima del rilascio.' },
+      { title: 'Controllato', text: 'Ogni flacone sarà ispezionato e ogni lotto analizzato prima del rilascio.' },
     ],
     imageAlt: 'Fiale di plastica, formate e sigillate in un\'unica operazione',
   },
@@ -59,7 +59,7 @@ const hopitaux: HopitauxDict = {
     items: [
       { text: 'Segnalate un effetto indesiderato o un difetto di qualità.' },
       { text: 'Schede tecniche e certificati di analisi dei nostri prodotti.' },
-      { text: 'Ogni flacone riporta il numero di lotto, dallo stabilimento al paziente.' },
+      { text: 'Ogni flacone riporterà il numero di lotto, dallo stabilimento al paziente.' },
     ],
   },
 };

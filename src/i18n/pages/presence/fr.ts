@@ -1,17 +1,17 @@
-// Page « Présence régionale » · français (référence). Maison de la carte et des 15 pays (CEDEAO).
+// Page « Présence régionale » · français (référence). Maison de la carte et des 15 pays (CEDEAO + AES).
 // Sources : ancien site (chapô, note sur les défis de santé), PROFIL TILAMED FR 2026 (sites, bureaux),
 // accueil (rôles des sites : t.presenceSites). Textes « Pourquoi toute la sous-région » et « Comment nous servons
 // chaque pays » rédigés pour le site à partir de la note de l'ancien site : à valider par le client.
 const presence = {
   meta: {
     title: 'Présence régionale · Marchés · TILAMED Pharma',
-    description: 'Une usine au BÉNIN, les 15 pays de la CEDEAO couverts et des bureaux au BÉNIN, au BURKINA FASO et en FRANCE.',
+    description: 'Une usine au BÉNIN, 15 pays d\'Afrique de l\'Ouest couverts et des bureaux au BÉNIN, au BURKINA FASO et en FRANCE.',
   },
   hero: {
     lead: 'Une usine au BÉNIN, 15 pays d\'Afrique de l\'Ouest couverts et une présence internationale.',
   },
   facts: [
-    { value: '15', unit: 'pays', label: 'de l\'espace CEDEAO couverts' },
+    { value: '15', unit: 'pays', label: 'd\'Afrique de l\'Ouest couverts' },
     { value: '400', unit: 'M +', label: 'd\'habitants en Afrique de l\'Ouest' },
     { value: '1', unit: 'usine', label: 'à Sèmè-Podji, à la frontière avec le NIGÉRIA' },
     { value: '3', unit: 'bureaux', label: 'au BÉNIN, au BURKINA FASO et en FRANCE' },

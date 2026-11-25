@@ -13,7 +13,7 @@ const hopitaux: HopitauxDict = {
     title: 'Disponibles cada día, en todos los servicios',
     text: [
       'Los sueros de perfusión se utilizan cada día en todos los servicios. Su disponibilidad es vital: una ruptura, y se detienen los cuidados.',
-      'Fabricadas en Sèmè-Podji, nuestras soluciones ya no dependen de varias semanas de transporte marítimo. Su farmacia puede pedir con más frecuencia, en cantidades más ajustadas.',
+      'Una vez fabricadas en Sèmè-Podji, nuestras soluciones ya no dependerán de varias semanas de transporte marítimo. Su farmacia podrá pedir con más frecuencia, en cantidades más ajustadas.',
     ],
     services: ['Urgencias', 'Cirugía', 'Medicina', 'Pediatría', 'Maternidad'],
     badge: 'Fabricado en BENÍN',
@@ -39,7 +39,7 @@ const hopitaux: HopitauxDict = {
       { title: 'Irrompible', text: 'Sin vidrio roto, ni durante el transporte ni en el servicio.' },
       { title: 'Ligero', text: 'Más fácil de llevar, ordenar y almacenar en la farmacia.' },
       { title: 'Formado, llenado y sellado de una vez', text: 'En una sola operación automática, sin contacto humano con la solución.' },
-      { title: 'Controlado', text: 'Cada frasco se inspecciona y cada lote se analiza antes de su liberación.' },
+      { title: 'Controlado', text: 'Cada frasco se inspeccionará y cada lote se analizará antes de su liberación.' },
     ],
     imageAlt: 'Ampollas de plástico, formadas y selladas en una sola operación',
   },
@@ -59,7 +59,7 @@ const hopitaux: HopitauxDict = {
     items: [
       { text: 'Notifique un efecto adverso o un defecto de calidad.' },
       { text: 'Fichas técnicas y certificados de análisis de nuestros productos.' },
-      { text: 'Cada frasco lleva su número de lote, de la fábrica al paciente.' },
+      { text: 'Cada frasco llevará su número de lote, de la fábrica al paciente.' },
     ],
   },
 };

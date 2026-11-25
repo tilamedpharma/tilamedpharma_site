@@ -24,7 +24,7 @@ const aPropos: AProposDict = {
       'Nata nel 2013 con il nome di SEDIS SARL per distribuire dispositivi medici in Africa occidentale, l\'azienda diventa TILAMED PHARMA SA nel 2023 e si dedica ora alla produzione industriale.',
       'Il nostro primo stabilimento, a Sèmè-Podji, produrrà soluzioni iniettabili di grande volume: soluzioni per infusione per la reidratazione, l\'apporto di glucosio e la somministrazione di farmaci per via endovenosa.',
     ],
-    countriesTitle: 'I 15 paesi dell\'ECOWAS',
+    countriesTitle: '15 paesi dell\'Africa occidentale · ECOWAS e AES',
     cta: 'Il nostro percorso',
     imageAlt: 'Scienziata al lavoro in un laboratorio farmaceutico',
   },

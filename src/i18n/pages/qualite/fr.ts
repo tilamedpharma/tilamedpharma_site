@@ -65,7 +65,7 @@ const pages: Record<string, Topic> = {
         { title: 'Libération', text: 'Décision du pharmacien responsable.' },
       ] },
     ],
-    note: 'Des échantillons de chaque lot sont conservés pour permettre des contrôles ultérieurs.',
+    note: 'Des échantillons de chaque lot seront conservés pour permettre des contrôles ultérieurs.',
   },
   tracabilite: {
     meta: { title: 'Traçabilité · Normes · TILAMED Pharma', description: 'Numéro de lot, enregistrement des expéditions et procédure de rappel : un circuit court contre les médicaments falsifiés.' },
@@ -76,7 +76,7 @@ const pages: Record<string, Topic> = {
       { kind: 'points', title: 'Chaque lot suivi', items: [
         'Numéro de lot et date de péremption sur chaque flacon et chaque carton.',
         'Enregistrement des expéditions par client et par lot.',
-        'Procédure de rappel testée, en lien avec les autorités.',
+        'Procédure de rappel prévue, en lien avec les autorités.',
       ] },
     ],
     note: 'Le BÉNIN s\'est fortement engagé contre les faux médicaments : participation à l\'opération internationale PANGEA d\'INTERPOL, ratification de la convention MEDICRIME du Conseil de l\'Europe et nouvelle loi sur les activités pharmaceutiques en 2021.',

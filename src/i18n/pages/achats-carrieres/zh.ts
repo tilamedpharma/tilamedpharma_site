@@ -3,8 +3,8 @@ import type { AchatsCarrieresDict } from './fr';
 const d: AchatsCarrieresDict = {
   pages: {
     carrieres: {
-      meta: { title: '加入 TILAMED · 招聘 · TILAMED Pharma', description: '计划创造 150 个直接就业岗位，70% 为技术岗位，5 年技能转让：加入贝宁首家注射液企业。' },
-      lead: '加入贝宁首家注射液生产企业。',
+      meta: { title: '加入 TILAMED · 招聘 · TILAMED Pharma', description: '计划创造 150 个直接就业岗位，70% 为技术岗位，5 年技能转让：参与创建贝宁首家注射液工厂。' },
+      lead: '参与创建贝宁首家注射液工厂。',
       intro: '',
       facts: [
         { value: '150', unit: '', label: '个规划直接就业岗位' },

@@ -10,7 +10,7 @@ const clients: ClientsDict = {
   },
   facts: [
     { value: '5', unit: 'familias', label: 'de clientes, públicos y privados' },
-    { value: '15', unit: 'países', label: 'del espacio CEDEAO atendidos' },
+    { value: '15', unit: 'países', label: 'de África Occidental atendidos' },
     { value: '3', unit: 'canales', label: 'ventas directas, licitaciones, distribuidores' },
     { value: '1', unit: 'interlocutor', label: 'nuestra dirección comercial, para todas las ventas' },
   ],
@@ -19,10 +19,10 @@ const clients: ClientsDict = {
     title: 'Ellos compran nuestros productos',
     text: 'Del mercado público al mostrador de la farmacia, nuestros productos llegan a cinco familias de clientes. Para cada una hemos adaptado nuestra forma de trabajar.',
     items: [
-      { title: 'Centrales de compras públicas del espacio CEDEAO', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Respuestas completas a sus licitaciones y entregas planificadas según el consumo real.' },
+      { title: 'Centrales de compras públicas de África Occidental', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: 'Respuestas completas a sus licitaciones y entregas planificadas según el consumo real.' },
       { title: 'Mayoristas distribuidores privados internacionales', examples: ['UBIPHARM', 'UBPHAR', 'GAPOB'], text: 'Un proveedor en la región: pedidos más frecuentes y menos existencias inmovilizadas.' },
       { title: 'Organizaciones regionales', examples: ['OOAS', 'Centre MURAZ', 'CIRDES'], text: 'Un socio local para los programas de salud de la subregión.' },
-      { title: 'Organizaciones internacionales', examples: ['GIZ', 'AFD', 'OMS'], text: 'Expedientes de calidad completos y capacidad de entrega en los 15 países de la CEDEAO.' },
+      { title: 'Organizaciones internacionales', examples: ['GIZ', 'AFD', 'OMS'], text: 'Expedientes de calidad completos y capacidad de entrega en los 15 países de África Occidental.' },
       { title: 'Farmacias y clínicas privadas', examples: ['En toda África Occidental'], text: 'Productos de salud esenciales disponibles cerca de ellas, a través de nuestros distribuidores autorizados.' },
     ],
     more: 'Más información',

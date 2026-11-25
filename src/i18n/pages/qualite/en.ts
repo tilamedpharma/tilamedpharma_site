@@ -64,7 +64,7 @@ const qualite: QualiteDict = {
           { title: 'Release', text: 'Decision by the responsible pharmacist.' },
         ] },
       ],
-      note: 'Samples of every batch are retained to allow later testing.',
+      note: 'Samples of every batch will be retained to allow later testing.',
     },
     tracabilite: {
       meta: { title: 'Traceability · Standards · TILAMED Pharma', description: 'Batch number, shipment records and recall procedure: a short supply chain against falsified medicines.' },
@@ -75,7 +75,7 @@ const qualite: QualiteDict = {
         { kind: 'points', title: 'Every batch tracked', items: [
           'Batch number and expiry date on every bottle and every carton.',
           'Shipments recorded by customer and by batch.',
-          'Tested recall procedure, in liaison with the authorities.',
+          'Recall procedure planned, in liaison with the authorities.',
         ] },
       ],
       note: 'BENIN is strongly committed against fake medicines: participation in INTERPOL\'s international operation PANGEA, ratification of the Council of Europe\'s MEDICRIME convention and a new law on pharmaceutical activities in 2021.',

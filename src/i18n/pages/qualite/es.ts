@@ -64,7 +64,7 @@ const qualite: QualiteDict = {
           { title: 'Liberación', text: 'Decisión del farmacéutico responsable.' },
         ] },
       ],
-      note: 'Se conservan muestras de cada lote para permitir controles posteriores.',
+      note: 'Se conservarán muestras de cada lote para permitir controles posteriores.',
     },
     tracabilite: {
       meta: { title: 'Trazabilidad · Normas · TILAMED Pharma', description: 'Número de lote, registro de los envíos y procedimiento de retirada: un circuito corto contra los medicamentos falsificados.' },
@@ -75,7 +75,7 @@ const qualite: QualiteDict = {
         { kind: 'points', title: 'Cada lote bajo seguimiento', items: [
           'Número de lote y fecha de caducidad en cada frasco y cada caja.',
           'Registro de los envíos por cliente y por lote.',
-          'Procedimiento de retirada probado, en relación con las autoridades.',
+          'Procedimiento de retirada previsto, en relación con las autoridades.',
         ] },
       ],
       note: 'BENÍN se ha comprometido firmemente contra los medicamentos falsificados: participación en la operación internacional PANGEA de INTERPOL, ratificación del convenio MEDICRIME del Consejo de Europa y nueva ley sobre las actividades farmacéuticas en 2021.',

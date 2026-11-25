@@ -43,7 +43,7 @@ const fr = {
   },
   hero: {
     eyebrow: 'Laboratoire pharmaceutique · Sèmè-Podji, BÉNIN',
-    title: 'L\'excellence pharmaceutique, fabriquée au cœur de l\'Afrique de l\'Ouest.',
+    title: 'L\'excellence pharmaceutique, bientôt fabriquée au cœur de l\'Afrique de l\'Ouest.',
     lead: 'TILAMED PHARMA SA construit au BÉNIN une usine de nouvelle génération pour produire des médicaments de haute qualité, conformes aux normes de l\'Organisation mondiale de la santé, à des prix accessibles à tous.',
     cta1: 'Découvrir notre usine', cta2: 'Nous contacter',
     proofs: ['Normes OMS', 'Fabriqué en RÉPUBLIQUE DU BÉNIN', 'Bâtiment vert · EDGE en cours', 'Usine inclusive'],
@@ -160,9 +160,9 @@ const fr = {
     title: 'Quatre métiers au service de la santé',
     intro: 'De la fabrication à la distribution, nous couvrons toute la chaîne des produits de santé essentiels pour l\'Afrique de l\'Ouest.',
     items: [
-      { title: 'Produits pharmaceutiques finis', text: 'Solutés de perfusion, injectables et solutions buvables, fabriqués et contrôlés dans notre usine de Sèmè-Podji.', alt: 'Opératrice contrôlant des bouteilles sur une ligne de production' },
+      { title: 'Produits pharmaceutiques finis', text: 'Solutés de perfusion, injectables et solutions buvables, qui seront fabriqués et contrôlés dans notre usine de Sèmè-Podji.', alt: 'Opératrice contrôlant des bouteilles sur une ligne de production' },
       { title: 'Dispositifs médicaux', text: 'Distributeur agréé : diagnostic, chirurgie, stérilisation et équipement hospitalier.', alt: 'Tensiomètre et matériel médical' },
-      { title: 'Laboratoire médical', text: 'Analyses et contrôle qualité réalisés selon les standards internationaux.', alt: 'Technicienne de laboratoire réalisant une analyse' },
+      { title: 'Laboratoire médical', text: 'Analyses et contrôle qualité, qui seront réalisés selon les standards internationaux.', alt: 'Technicienne de laboratoire réalisant une analyse' },
       { title: 'Produits vétérinaires', text: 'Alimentation, antiparasitaires et soins pour chiens et chats.', alt: 'Vétérinaire examinant un chien' },
     ],
   },
@@ -267,7 +267,7 @@ const fr = {
     eyebrow: 'À qui nous nous adressons',
     title: 'Nos clients',
     items: [
-      { title: 'Centrales d\'achat publiques de l\'espace CEDEAO', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
+      { title: 'Centrales d\'achat publiques d\'Afrique de l\'Ouest', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
       { title: 'Grossistes répartiteurs privés internationaux', examples: 'UBIPHARM, UBPHAR, GAPOB…' },
       { title: 'Organisations régionales', examples: 'OOAS, Centre MURAZ, CIRDES…' },
       { title: 'Organisations internationales', examples: 'GIZ, AFD, OMS…' },

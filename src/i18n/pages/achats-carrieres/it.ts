@@ -3,8 +3,8 @@ import type { AchatsCarrieresDict } from './fr';
 const d: AchatsCarrieresDict = {
   pages: {
     carrieres: {
-      meta: { title: 'Lavorare in TILAMED · Carriere · TILAMED Pharma', description: '150 posti di lavoro diretti previsti, 70 % di posti tecnici e 5 anni di trasferimento di competenze: entrate nella prima industria di soluzioni iniettabili del BENIN.' },
-      lead: 'Entrate nella prima industria di soluzioni iniettabili del BENIN.',
+      meta: { title: 'Lavorare in TILAMED · Carriere · TILAMED Pharma', description: '150 posti di lavoro diretti previsti, 70 % di posti tecnici e 5 anni di trasferimento di competenze: partecipate alla nascita del primo stabilimento di soluzioni iniettabili del BENIN.' },
+      lead: 'Partecipate alla nascita del primo stabilimento di soluzioni iniettabili del BENIN.',
       intro: '',
       facts: [
         { value: '150', unit: '', label: 'posti di lavoro diretti previsti' },

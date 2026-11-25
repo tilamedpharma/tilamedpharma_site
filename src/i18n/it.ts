@@ -45,7 +45,7 @@ const it: Dict = {
   },
   hero: {
     eyebrow: 'Laboratorio farmaceutico · Sèmè-Podji, BENIN',
-    title: 'L\'eccellenza farmaceutica, prodotta nel cuore dell\'Africa occidentale.',
+    title: 'L\'eccellenza farmaceutica, presto prodotta nel cuore dell\'Africa occidentale.',
     lead: 'TILAMED PHARMA SA costruisce in BENIN uno stabilimento di nuova generazione per produrre farmaci di alta qualità, conformi agli standard dell\'Organizzazione mondiale della sanità, a prezzi accessibili a tutti.',
     cta1: 'Scopri il nostro stabilimento', cta2: 'Contattaci',
     proofs: ['Standard OMS', 'Prodotto nella REPUBBLICA DEL BENIN', 'Edificio verde · EDGE in corso', 'Stabilimento inclusivo'],
@@ -162,9 +162,9 @@ const it: Dict = {
     title: 'Quattro mestieri al servizio della salute',
     intro: 'Dalla produzione alla distribuzione, copriamo tutta la filiera dei prodotti sanitari essenziali per l\'Africa occidentale.',
     items: [
-      { title: 'Prodotti farmaceutici finiti', text: 'Soluzioni per infusione, iniettabili e soluzioni orali, prodotti e controllati nel nostro stabilimento di Sèmè-Podji.', alt: 'Operatrice che controlla bottiglie su una linea di produzione' },
+      { title: 'Prodotti farmaceutici finiti', text: 'Soluzioni per infusione, iniettabili e soluzioni orali, che saranno prodotti e controllati nel nostro stabilimento di Sèmè-Podji.', alt: 'Operatrice che controlla bottiglie su una linea di produzione' },
       { title: 'Dispositivi medici', text: 'Distributore autorizzato: diagnostica, chirurgia, sterilizzazione e attrezzature ospedaliere.', alt: 'Misuratore di pressione e materiale medico' },
-      { title: 'Laboratorio medico', text: 'Analisi e controllo qualità eseguiti secondo gli standard internazionali.', alt: 'Tecnica di laboratorio che esegue un\'analisi' },
+      { title: 'Laboratorio medico', text: 'Analisi e controllo qualità, che saranno eseguiti secondo gli standard internazionali.', alt: 'Tecnica di laboratorio che esegue un\'analisi' },
       { title: 'Prodotti veterinari', text: 'Alimentazione, antiparassitari e cure per cani e gatti.', alt: 'Veterinario che visita un cane' },
     ],
   },
@@ -269,7 +269,7 @@ const it: Dict = {
     eyebrow: 'A chi ci rivolgiamo',
     title: 'I nostri clienti',
     items: [
-      { title: 'Centrali d\'acquisto pubbliche dell\'area ECOWAS', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
+      { title: 'Centrali d\'acquisto pubbliche dell\'Africa occidentale', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
       { title: 'Grossisti distributori privati internazionali', examples: 'UBIPHARM, UBPHAR, GAPOB…' },
       { title: 'Organizzazioni regionali', examples: 'OOAS, Centre MURAZ, CIRDES…' },
       { title: 'Organizzazioni internazionali', examples: 'GIZ, AFD, OMS…' },

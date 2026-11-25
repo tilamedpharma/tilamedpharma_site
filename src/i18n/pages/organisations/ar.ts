@@ -9,7 +9,7 @@ const organisations: OrganisationsDict = {
     cta1: 'راسلونا',
   },
   facts: [
-    { value: '15', unit: 'دولة', label: 'من دول الإيكواس مشمولة' },
+    { value: '15', unit: 'دولة', label: 'من دول غرب أفريقيا مشمولة' },
     { value: '2013', unit: '', label: 'سنة بدء خدمتنا للبرامج الصحية ووزارات الصحة' },
     { value: '6', unit: 'تراخيص', label: 'واعتمادات حصلنا عليها في بنين' },
   ],

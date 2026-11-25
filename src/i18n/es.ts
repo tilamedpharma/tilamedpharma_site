@@ -45,7 +45,7 @@ const es: Dict = {
   },
   hero: {
     eyebrow: 'Laboratorio farmacéutico · Sèmè-Podji, BENÍN',
-    title: 'La excelencia farmacéutica, fabricada en el corazón de África Occidental.',
+    title: 'La excelencia farmacéutica, pronto fabricada en el corazón de África Occidental.',
     lead: 'TILAMED PHARMA SA construye en BENÍN una planta de nueva generación para producir medicamentos de alta calidad, conformes a las normas de la Organización Mundial de la Salud, a precios accesibles para todos.',
     cta1: 'Descubrir nuestra planta', cta2: 'Contáctenos',
     proofs: ['Normas OMS', 'Fabricado en la REPÚBLICA DE BENÍN', 'Edificio verde · EDGE en curso', 'Planta inclusiva'],
@@ -162,9 +162,9 @@ const es: Dict = {
     title: 'Cuatro oficios al servicio de la salud',
     intro: 'De la fabricación a la distribución, cubrimos toda la cadena de productos de salud esenciales para África Occidental.',
     items: [
-      { title: 'Productos farmacéuticos terminados', text: 'Sueros de perfusión, inyectables y soluciones orales, fabricados y controlados en nuestra planta de Sèmè-Podji.', alt: 'Operaria controlando botellas en una línea de producción' },
+      { title: 'Productos farmacéuticos terminados', text: 'Sueros de perfusión, inyectables y soluciones orales, que se fabricarán y controlarán en nuestra planta de Sèmè-Podji.', alt: 'Operaria controlando botellas en una línea de producción' },
       { title: 'Dispositivos médicos', text: 'Distribuidor autorizado: diagnóstico, cirugía, esterilización y equipamiento hospitalario.', alt: 'Tensiómetro y material médico' },
-      { title: 'Laboratorio médico', text: 'Análisis y control de calidad según los estándares internacionales.', alt: 'Técnica de laboratorio realizando un análisis' },
+      { title: 'Laboratorio médico', text: 'Análisis y control de calidad, que se realizarán según los estándares internacionales.', alt: 'Técnica de laboratorio realizando un análisis' },
       { title: 'Productos veterinarios', text: 'Alimentación, antiparasitarios y cuidados para perros y gatos.', alt: 'Veterinario examinando a un perro' },
     ],
   },
@@ -269,7 +269,7 @@ const es: Dict = {
     eyebrow: 'A quién nos dirigimos',
     title: 'Nuestros clientes',
     items: [
-      { title: 'Centrales públicas de compras del espacio CEDEAO', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
+      { title: 'Centrales públicas de compras de África Occidental', examples: 'SOBAPS, CAMEG, ONPPC, SONIPHARM…' },
       { title: 'Mayoristas distribuidores privados internacionales', examples: 'UBIPHARM, UBPHAR, GAPOB…' },
       { title: 'Organizaciones regionales', examples: 'OOAS, Centre MURAZ, CIRDES…' },
       { title: 'Organizaciones internacionales', examples: 'GIZ, AFD, OMS…' },

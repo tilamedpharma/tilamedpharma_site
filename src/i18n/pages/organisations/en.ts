@@ -9,7 +9,7 @@ const organisations: OrganisationsDict = {
     cta1: 'Write to us',
   },
   facts: [
-    { value: '15', unit: 'countries', label: 'covered across the ECOWAS region' },
+    { value: '15', unit: 'countries', label: 'covered across West Africa' },
     { value: '2013', unit: '', label: 'the year we began serving health programmes and ministries of health' },
     { value: '6', unit: 'approvals', label: 'and authorisations obtained in BENIN' },
   ],

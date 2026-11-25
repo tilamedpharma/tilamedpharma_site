@@ -15,7 +15,7 @@ const cat: CatalogDict = {
     pack: 'Confezionamento',
     refs: 'referenze',
     request: 'Richiedi informazioni',
-    legal: ['Prodotti TILAMED in preparazione · non ancora in vendita.', 'Informazioni destinate ai professionisti sanitari.'],
+    legal: ['Prodotti fabbricati da TILAMED: in preparazione, non ancora in vendita.', 'Informazioni destinate ai professionisti sanitari.'],
   },
   groups: {
     serum: { label: 'Soluzioni per infusione', blurb: 'Soluzioni per infusione di base e soluzioni specifiche.' },
@@ -52,7 +52,7 @@ const cat: CatalogDict = {
   fiche: {
     eyebrow: 'Scheda prodotto',
     techTitle: 'Scheda tecnica',
-    techIntro: 'Caratteristiche del prodotto, come comunicate da TILAMED Pharma.',
+    techIntro: 'Le principali caratteristiche di questo prodotto.',
     download: 'Scarica la scheda tecnica',
     pdf: 'PDF',
     docsTitle: 'Documenti da scaricare',

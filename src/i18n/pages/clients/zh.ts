@@ -10,7 +10,7 @@ const clients: ClientsDict = {
   },
   facts: [
     { value: '5', unit: '类', label: '公立与私营客户' },
-    { value: '15', unit: '个国家', label: '覆盖西共体全部成员国' },
+    { value: '15', unit: '个国家', label: '服务西非 15 国' },
     { value: '3', unit: '种渠道', label: '直销、招标、经销商' },
     { value: '1', unit: '个窗口', label: '由销售部统一负责全部销售' },
   ],
@@ -19,10 +19,10 @@ const clients: ClientsDict = {
     title: '谁在采购我们的产品',
     text: '从公共采购到药店柜台，我们的产品面向五类客户。针对每一类客户，我们都调整了合作方式。',
     items: [
-      { title: '西共体国家公立采购中心', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: '完整响应其招标，并按实际消耗计划交货。' },
+      { title: '西非国家公立采购中心', examples: ['SOBAPS', 'CAMEG', 'ONPPC', 'SONIPHARM'], text: '完整响应其招标，并按实际消耗计划交货。' },
       { title: '国际私营批发分销商', examples: ['UBIPHARM', 'UBPHAR', 'GAPOB'], text: '区域内的供应商：订货更频繁，库存占用更少。' },
       { title: '区域组织', examples: ['西非卫生组织', 'Centre MURAZ', 'CIRDES'], text: '次区域卫生项目的本地合作伙伴。' },
-      { title: '国际组织', examples: ['GIZ', 'AFD', '世卫组织'], text: '完整的质量档案，可向西共体 15 国交货。' },
+      { title: '国际组织', examples: ['GIZ', 'AFD', '世卫组织'], text: '完整的质量档案，可向西非 15 国交货。' },
       { title: '私营药店和诊所', examples: ['遍及西非'], text: '通过我们的授权经销商，就近获得基本医疗产品。' },
     ],
     more: '了解更多',

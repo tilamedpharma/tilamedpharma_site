@@ -3,8 +3,8 @@ import type { AchatsCarrieresDict } from './fr';
 const d: AchatsCarrieresDict = {
   pages: {
     carrieres: {
-      meta: { title: 'Working at TILAMED · Careers · TILAMED Pharma', description: '150 planned direct jobs, 70% technical positions and 5 years of skills transfer: join BENIN\'s first injectable solutions industry.' },
-      lead: 'Join BENIN\'s first injectable solutions industry.',
+      meta: { title: 'Working at TILAMED · Careers · TILAMED Pharma', description: '150 planned direct jobs, 70% technical positions and 5 years of skills transfer: help build BENIN\'s first injectable solutions plant.' },
+      lead: 'Help build BENIN\'s first injectable solutions plant.',
       intro: '',
       facts: [
         { value: '150', unit: '', label: 'planned direct jobs' },

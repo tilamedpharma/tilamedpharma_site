@@ -29,7 +29,7 @@ const isVet = fam.group === 'vet';
 </PageHero>
 
 <section class="section pintro" aria-labelledby="pintro-title">
-  <div class="wrap stepc__grid">
+  <div class="wrap">
     <div>
       <p class="eyebrow" data-reveal><Icon name={fam.icon} size={16} class="eyebrow__ic" /><span>{pages['produits']}</span></p>
       <h2 class="h2" id="pintro-title" data-reveal>{c.groups[fam.group].label}</h2>
@@ -39,35 +39,6 @@ const isVet = fam.group === 'vet';
       {isVet && <p class="tprose" data-reveal>{p.vet.text}</p>}
       <ul class="pintro__status" data-reveal><Live k="fam:status" /></ul>
     </div>
-    <aside class="stepc__aside">
-      <div class="sfacts" data-reveal>
-        <p class="sfacts__h">{p.ui.inThisRange}</p>
-        <ul class="sfacts__list">
-          <li><p class="sfacts__num"><Live k="fam:n" /></p><p class="sfacts__l">{c.ui.refs}</p></li>
-          <li><p class="sfacts__num"><Live k="fam:ncats" /></p><p class="sfacts__l">{p.ui.categories}</p></li>
-        </ul>
-      </div>
-      {isDevices ? (
-        <a class="sdoc" href={L('contact')} data-reveal>
-          <Icon name="mail" size={24} />
-          <span class="sdoc__d">{p.devices.cta}</span>
-          <span class="link-arrow">{p.ui.contactCta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
-        </a>
-      ) : isVet ? (
-        <a class="sdoc" href={L('contact')} data-reveal>
-          <Icon name="mail" size={24} />
-          <span class="sdoc__t">{p.vet.cta}</span>
-          <span class="link-arrow">{t.header.cta}<Icon name="arrow" size={16} class="flip-rtl" /></span>
-        </a>
-      ) : (
-        <a class="sdoc" href={L('documentation')} data-reveal>
-          <Icon name="download" size={24} />
-          <span class="sdoc__t">{p.ui.docCta}</span>
-          <span class="sdoc__d">{p.doc.lead}</span>
-          <span class="link-arrow">{c.ui.request}<Icon name="arrow" size={16} class="flip-rtl" /></span>
-        </a>
-      )}
-    </aside>
   </div>
 </section>
 

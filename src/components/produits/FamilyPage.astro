@@ -28,21 +28,7 @@ const isVet = fam.group === 'vet';
   <a class="btn btn--outline-light" href={L(isDevices ? 'contact' : 'documentation')}>{isDevices ? p.ui.contactCta : p.ui.docCta}</a>
 </PageHero>
 
-<section class="section pintro" aria-labelledby="pintro-title">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow" data-reveal><Icon name={fam.icon} size={16} class="eyebrow__ic" /><span>{pages['produits']}</span></p>
-      <h2 class="h2" id="pintro-title" data-reveal>{c.groups[fam.group].label}</h2>
-      <span class="title-rule" aria-hidden="true"></span>
-      <p class="lead stepc__intro" data-reveal>{c.groups[fam.group].blurb}</p>
-      {isDevices && <p class="tprose" data-reveal>{p.devices.text}</p>}
-      {isVet && <p class="tprose" data-reveal>{p.vet.text}</p>}
-      <ul class="pintro__status" data-reveal><Live k="fam:status" /></ul>
-    </div>
-  </div>
-</section>
-
-<!-- Produits juste après l'introduction : toute la gamme est visible d'emblée, les filtres sont facultatifs. -->
+<!-- Produits juste après l'en-tête : toute la gamme est visible d'emblée, les filtres sont facultatifs. -->
 <section class="section prange" id="gamme" aria-label={p.ui.inThisRange} data-fam-filter>
   <div class="wrap">
     <div class="pcat__chips prange__filters" role="group" aria-label={p.ui.inThisRange}><Live k="fam:filters" /></div>

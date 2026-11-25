@@ -112,14 +112,20 @@ function render_family(string $html, string $lang, string $slug): string
     foreach ($kinds as $k) {
         $status .= '<li class="pst pst--' . h($k) . '">' . icon($k === 'devices' ? 'truck' : ($k === 'vet' ? 'clock' : 'factory'), 16) . h($t['status'][$k]['note'] ?? '') . '</li>';
     }
-    $nav = '';
+    // Filtres au-dessus des produits : toute la gamme est affichée d'emblée (« Tout »), l'internaute affine s'il le souhaite.
+    $filters = '';
+    if (count($byCat) > 1) {
+        $filters = '<button type="button" class="pcat__chip" aria-pressed="true" data-fam-c="">' . h($t['ui']['all'] ?? 'Tout') . ' <span>' . count($items) . '</span></button>';
+    }
     $range = '';
     $i = 0;
     foreach ($byCat as $cat => $list) {
         $i++;
         $label = cat_label((string) $cat, $lang);
-        $nav .= '<a href="#cat-' . h((string) $cat) . '">' . h($label) . ' <span>' . count($list) . '</span></a>';
-        $range .= '<div class="prange__cat" id="cat-' . h((string) $cat) . '"><h2 class="prange__h" data-reveal><span>' . str_pad((string) $i, 2, '0', STR_PAD_LEFT) . '</span>'
+        if (count($byCat) > 1) {
+            $filters .= '<button type="button" class="pcat__chip" aria-pressed="false" data-fam-c="' . h((string) $cat) . '">' . h($label) . ' <span>' . count($list) . '</span></button>';
+        }
+        $range .= '<div class="prange__cat" id="cat-' . h((string) $cat) . '" data-cat="' . h((string) $cat) . '"><h2 class="prange__h" data-reveal><span>' . str_pad((string) $i, 2, '0', STR_PAD_LEFT) . '</span>'
             . h($label) . '<small>' . count($list) . '</small></h2><ul class="pcards">' . implode('', array_map(fn ($p) => card($p, $lang), $list)) . '</ul></div>';
     }
     $phases = '';
@@ -133,7 +139,7 @@ function render_family(string $html, string $lang, string $slug): string
             . '</ul><p class="pphases__c">' . count($ph) . ' ' . h($t['ui']['refs']) . '</p></li>';
     }
     return fill($html, [
-        'fam:status' => $status, 'fam:cats' => $nav, 'fam:n' => (string) count($items), 'fam:ncats' => (string) count($byCat),
+        'fam:status' => $status, 'fam:filters' => $filters, 'fam:n' => (string) count($items), 'fam:ncats' => (string) count($byCat),
         'fam:phases' => $phases, 'fam:range' => $range,
     ]);
 }

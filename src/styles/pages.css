@@ -899,10 +899,6 @@
 .pst { display: flex; align-items: center; gap: 10px; font-size: .9375rem; color: var(--navy); }
 .pst .icon { color: var(--blue); }
 .pst--devices .icon { color: var(--green-deep); }
-.pintro__cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-.pintro__cats a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; font-family: var(--font-head); font-weight: 700; font-size: .8125rem; color: var(--navy); transition: border-color .25s, color .25s; }
-.pintro__cats a:hover { border-color: var(--blue); color: var(--blue); }
-.pintro__cats span { color: var(--muted); font-weight: 600; }
 
 .pformats, .pphases { background: var(--navy); color: rgba(255, 255, 255, .84); }
 .pformats .h2, .pphases .h2 { color: #fff; }
@@ -930,7 +926,10 @@
 .pphases__c { margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, .14); font-family: var(--font-head); font-weight: 700; font-size: .8125rem; letter-spacing: .08em; text-transform: uppercase; color: var(--sky); }
 
 .prange { background: var(--mist); }
-.prange__cat + .prange__cat { margin-top: 56px; }
+/* Filtres facultatifs au-dessus des produits (pages des gammes) */
+.prange__filters { margin-bottom: 40px; }
+.prange__filters:empty { display: none; }
+.prange__cat:not([hidden]) ~ .prange__cat:not([hidden]) { margin-top: 56px; }
 .prange__h { display: flex; align-items: baseline; gap: 14px; font-size: clamp(1.3rem, 1.1rem + .6vw, 1.6rem); }
 .prange__h span { font-size: .8125rem; color: var(--blue); letter-spacing: .08em; }
 .prange__h small { font-family: var(--font-body); font-weight: 400; font-size: .9375rem; color: var(--muted); }

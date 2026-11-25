@@ -38,7 +38,6 @@ const isVet = fam.group === 'vet';
       {isDevices && <p class="tprose" data-reveal>{p.devices.text}</p>}
       {isVet && <p class="tprose" data-reveal>{p.vet.text}</p>}
       <ul class="pintro__status" data-reveal><Live k="fam:status" /></ul>
-      <nav class="pintro__cats" aria-label={p.ui.inThisRange} data-reveal><Live k="fam:cats" /></nav>
     </div>
     <aside class="stepc__aside">
       <div class="sfacts" data-reveal>
@@ -69,6 +68,15 @@ const isVet = fam.group === 'vet';
         </a>
       )}
     </aside>
+  </div>
+</section>
+
+<!-- Produits juste après l'introduction : toute la gamme est visible d'emblée, les filtres sont facultatifs. -->
+<section class="section prange" id="gamme" aria-label={p.ui.inThisRange} data-fam-filter>
+  <div class="wrap">
+    <div class="pcat__chips prange__filters" role="group" aria-label={p.ui.inThisRange}><Live k="fam:filters" /></div>
+    <Live k="fam:range" />
+    <ul class="pcat__legal">{(isDevices || isVet ? c.ui.legal.slice(1) : c.ui.legal).map((x) => <li>{x}</li>)}</ul>
   </div>
 </section>
 
@@ -115,10 +123,4 @@ const isVet = fam.group === 'vet';
   </section>
 )}
 
-<section class="section prange" id="gamme" aria-label={p.ui.inThisRange}>
-  <div class="wrap">
-    <Live k="fam:range" />
-    <ul class="pcat__legal">{(isDevices || isVet ? c.ui.legal.slice(1) : c.ui.legal).map((x) => <li>{x}</li>)}</ul>
-  </div>
-</section>
 

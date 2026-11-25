@@ -321,6 +321,17 @@ if (railCur && railList && railList.scrollWidth > railList.clientWidth) {
   if (r.top >= 0 && r.bottom <= window.innerHeight) railCur.scrollIntoView({ block: 'nearest', inline: 'center' });
 }
 
+/* ---------- Page d'une gamme : toute la gamme visible, filtre facultatif par catégorie ---------- */
+$$('[data-fam-filter]').forEach((root) => {
+  const chips = $$<HTMLButtonElement>('[data-fam-c]', root);
+  const cats = $$<HTMLElement>('.prange__cat', root);
+  chips.forEach((b) => b.addEventListener('click', () => {
+    const c = b.dataset.famC ?? '';
+    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    cats.forEach((d) => { d.hidden = c !== '' && d.dataset.cat !== c; });
+  }));
+});
+
 /* ---------- Catalogue produits : recherche + filtre par gamme ---------- */
 $$('[data-catalog]').forEach((root) => {
   const q = $<HTMLInputElement>('[data-cat-q]', root);

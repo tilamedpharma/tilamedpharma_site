@@ -73,6 +73,8 @@ const cat: CatalogDict = {
   phases: { 1: '第一阶段 · 工厂投产', 2: '第二阶段 · 注射用抗生素', 3: '第三阶段 · 新产品线' },
   /** Page produit et fiche technique PDF (rendues par PHP, voir public/api/lib/tilamed). */
   fiche: {
+    quote: '索取报价',
+    requestFile: '索取完整资料',
     eyebrow: '产品资料',
     techTitle: '技术资料',
     techIntro: '本产品的主要特性。',

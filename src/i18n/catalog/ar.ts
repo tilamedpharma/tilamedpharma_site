@@ -73,6 +73,8 @@ const cat: CatalogDict = {
   phases: { 1: 'المرحلة 1 · انطلاق المصنع', 2: 'المرحلة 2 · مضادات حيوية بالحقن', 3: 'المرحلة 3 · تشكيلات جديدة' },
   /** Page produit et fiche technique PDF (rendues par PHP, voir public/api/lib/tilamed). */
   fiche: {
+    quote: 'طلب عرض سعر',
+    requestFile: 'طلب الملف الكامل',
     eyebrow: 'بطاقة المنتج',
     techTitle: 'البطاقة الفنية',
     techIntro: 'الخصائص الرئيسية لهذا المنتج.',

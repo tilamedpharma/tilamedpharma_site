@@ -80,7 +80,9 @@ const fin: FinDict = {
       message: 'Your message', consent: 'I agree that TILAMED Pharma may use this information to answer my request.',
       submit: 'Send message', required: 'Required field', select: 'Choose…',
     },
-    subjects: ['Order or tender', 'Become a distributor', 'Product documentation', 'Press', 'Job application', 'Supplier', 'Site visit or partnership', 'Other'],
+    subjects: ['Quotation request', 'Order or tender', 'Become a distributor', 'Product documentation', 'Press', 'Job application', 'Supplier', 'Site visit or partnership', 'Other'],
+    /** Message pré-rempli depuis une fiche produit (/contact/?objet=cotation&produit=…). */
+    prefill: { product: 'Product', qty: 'Quantity required', country: 'Delivery country', docs: 'Documents required' },
     directTitle: 'Reach us directly',
     whatsapp: 'Message us on WhatsApp',
     officesTitle: 'Our offices',

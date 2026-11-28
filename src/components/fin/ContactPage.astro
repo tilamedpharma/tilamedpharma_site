@@ -16,6 +16,8 @@ const f = c.fields;
 const pages = t.nav.pages as Record<string, string>;
 const countries = [...coverage.map((x) => x.iso), 'FR'].map((iso) => ({ iso, name: countryName(lang, iso) })).sort((a, b) => a.name.localeCompare(b.name, lang));
 const wa = socials.find((s) => s.id === 'whatsapp');
+// Clés des objets présélectionnables par lien (?objet=…) : 1er = cotation, 4e = documentation produit, avant-dernier = visite
+const subjectKeys = c.subjects.map((_, i) => (i === 0 ? 'cotation' : i === 3 ? 'doc' : i === c.subjects.length - 2 ? 'visite' : undefined));
 ---
 <PageHero lang={lang} section="contact" slug="contact" title={pages['contact']} lead={c.lead} image={imgContact} />
 
@@ -30,7 +32,7 @@ const wa = socials.find((s) => s.id === 'whatsapp');
         <input type="hidden" name="langue" value={lang} />
         <p hidden><label>Ne pas remplir <input name="bot-field" /></label></p>
         <label class="field"><span>{f.subject} <b aria-hidden="true">*</b></span>
-          <select name="objet" required><option value="">{f.select}</option>{c.subjects.map((x, i) => <option data-k={i === c.subjects.length - 2 ? 'visite' : undefined}>{x}</option>)}</select>
+          <select name="objet" required><option value="">{f.select}</option>{c.subjects.map((x, i) => <option data-k={subjectKeys[i]}>{x}</option>)}</select>
         </label>
         <div class="form__row">
           <label class="field"><span>{f.name} <b aria-hidden="true">*</b></span><input name="nom" required autocomplete="name" /></label>
@@ -43,7 +45,7 @@ const wa = socials.find((s) => s.id === 'whatsapp');
             <select name="pays"><option value="">{f.select}</option>{countries.map((x) => <option value={x.iso}>{x.name}</option>)}<option value="XX">{t.page.otherCountry}</option></select>
           </label>
         </div>
-        <label class="field"><span>{f.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="6" required></textarea></label>
+        <label class="field"><span>{f.message} <b aria-hidden="true">*</b></span><textarea name="message" rows="6" required data-prefill={JSON.stringify(c.prefill)}></textarea></label>
         <label class="check check--consent"><input type="checkbox" name="consentement" required /><span>{f.consent}</span></label>
         <button class="btn" type="submit">{f.submit}<Icon name="arrow" size={18} class="flip-rtl" /></button>
         <p class="form__status" role="status" aria-live="polite" hidden></p>
@@ -75,8 +77,21 @@ const wa = socials.find((s) => s.id === 'whatsapp');
 
 
 <script>
-  // Objet présélectionné depuis un lien (ex. page Usine : /contact/?objet=visite).
-  const key = new URLSearchParams(location.search).get('objet');
+  // Objet présélectionné depuis un lien (ex. page Usine : /contact/?objet=visite ; fiche produit : ?objet=cotation&produit=…).
+  const params = new URLSearchParams(location.search);
+  const key = params.get('objet');
   const opt = key ? document.querySelector<HTMLOptionElement>(`select[name="objet"] option[data-k="${CSS.escape(key)}"]`) : null;
   if (opt) opt.selected = true;
+  // Message pré-rempli avec le produit (fiche produit), sans écraser ce que le visiteur aurait déjà saisi.
+  const product = (params.get('produit') ?? '').slice(0, 160);
+  const msg = document.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
+  if (product && msg && !msg.value) {
+    const l = JSON.parse(msg.dataset.prefill ?? '{}') as Record<string, string>;
+    const lang = document.documentElement.lang;
+    const sep = lang.startsWith('fr') ? ' : ' : lang.startsWith('zh') ? '：' : ': ';
+    const lines = [`${l.product}${sep}${product}`];
+    if (key === 'cotation') lines.push(`${l.qty}${sep}`, `${l.country}${sep}`);
+    else if (key === 'doc') lines.push(`${l.docs}${sep}`);
+    msg.value = lines.join('\n') + '\n\n';
+  }
 </script>

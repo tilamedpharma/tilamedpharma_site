@@ -73,6 +73,8 @@ const cat: CatalogDict = {
   phases: { 1: 'Fase 1 · arranque da fábrica', 2: 'Fase 2 · antibióticos injetáveis', 3: 'Fase 3 · novas gamas' },
   /** Page produit et fiche technique PDF (rendues par PHP, voir public/api/lib/tilamed). */
   fiche: {
+    quote: 'Pedir uma cotação',
+    requestFile: 'Pedir o dossiê',
     eyebrow: 'Ficha de produto',
     techTitle: 'Ficha técnica',
     techIntro: 'As principais características deste produto.',

@@ -72,6 +72,8 @@ const cat = {
   phases: { 1: 'Phase 1 · démarrage de l\'usine', 2: 'Phase 2 · antibiotiques injectables', 3: 'Phase 3 · nouvelles gammes' } as Record<number, string>,
   /** Page produit et fiche technique PDF (rendues par PHP, voir public/api/lib/tilamed). */
   fiche: {
+    quote: 'Demander une cotation',
+    requestFile: 'Demander le dossier',
     eyebrow: 'Fiche produit',
     techTitle: 'Fiche technique',
     techIntro: 'Les principales caractéristiques de ce produit.',

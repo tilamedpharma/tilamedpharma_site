@@ -1,0 +1,539 @@
+---
+// PLANCHE DE TRAVAIL (non destinée à la mise en ligne) : 3 propositions pour la page « fiche produit » (/produits/{slug}/).
+// 3 produits types × 2 états (fiche actuelle sans textes / fiche remplie avec textes d'EXEMPLE).
+// À déplacer dans src/pages/_planches/ (exclu du build) avant toute mise en ligne.
+import '@fontsource/montserrat/latin-500.css';
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '@fontsource/carlito/latin-400.css';
+import '@fontsource/carlito/latin-700.css';
+import '../../styles/global.css';
+import '../../styles/pages.css';
+import Icon from '../../components/Icon.astro';
+import { catalog } from '../../data/catalog';
+import { useCatalog, routeLabel, formatLabel } from '../../i18n/catalog';
+import { packshot } from '../../components/produits/packshot';
+
+const c = useCatalog('fr');
+const f = c.fiche;
+const vis = (x: (typeof catalog)[number]) => {
+  const formats = (x.formats ?? []).map((s) => formatLabel('fr', s));
+  const made = x.family === 'iv' || x.family === 'liquids';
+  return packshot({ group: x.group, cat: x.cat, name: x.name.fr, formats, route: x.route ? routeLabel('fr', x.route) : '', line: x.line, pack: x.pack, made, packLabel: x.pack ? c.packs[x.pack] : '' });
+};
+const illu = (cat: string) => `/media/categories/${cat}.svg`;
+
+// Textes d'EXEMPLE (planche uniquement) : ce que le client pourra saisir dans le back office.
+const samples: Record<string, { k: keyof typeof f.fields; v: string }[]> = {
+  haloperidol: [
+    { k: 'composition', v: 'Halopéridol 5 mg\nAcide lactique, eau pour préparations injectables q.s.p. 1 ml' },
+    { k: 'form', v: 'Solution injectable limpide, en ampoule de verre de 1 ml.' },
+    { k: 'indications', v: 'Agitation et agressivité au cours des états psychotiques aigus.' },
+    { k: 'dosage', v: 'Voie intramusculaire. Posologie établie par le médecin selon l’état du patient.' },
+    { k: 'contraindications', v: '- Hypersensibilité à l’halopéridol\n- États comateux\n- Maladie de Parkinson' },
+    { k: 'storage', v: 'À conserver à une température ne dépassant pas 25 °C, dans l’emballage d’origine, à l’abri de la lumière.' },
+    { k: 'shelfLife', v: '3 ans.' },
+  ],
+  'vet-croquettes-chiot': [
+    { k: 'composition', v: 'Viandes et sous-produits animaux (dont poulet 26 %), céréales, huiles et graisses, minéraux, vitamines.' },
+    { k: 'indications', v: 'Aliment complet pour chiots de 2 à 12 mois.' },
+    { k: 'dosage', v: 'Ration journalière selon le poids adulte attendu ; eau fraîche à volonté.' },
+    { k: 'storage', v: 'Conserver le sac refermé, dans un endroit frais et sec.' },
+  ],
+  stethoscope: [
+    { k: 'specs', v: '- Double pavillon en acier inoxydable\n- Membrane double fréquence\n- Tubulure en Y sans latex\n- Embouts auriculaires souples' },
+    { k: 'regulatory', v: 'Dispositif médical de classe I, marquage CE.' },
+  ],
+};
+const docs = [{ t: 'Notice', d: 'PDF · 240 Ko · Français' }, { t: 'Certificat d’analyse', d: 'PDF · 180 Ko · Toutes langues' }];
+
+const ids = ['haloperidol', 'vet-croquettes-chiot', 'stethoscope'];
+const products = ids.map((id) => {
+  const x = catalog.find((p) => p.id === id)!;
+  const formats = (x.formats ?? []).map((s) => formatLabel('fr', s));
+  const made = x.family === 'iv' || x.family === 'liquids';
+  const sameCat = catalog.filter((p) => p.cat === x.cat && p.group === x.group);
+  const i = sameCat.findIndex((p) => p.id === id);
+  const st = c.status[x.family];
+  const speciesTxt = x.species ? f.speciesList[x.species as keyof typeof f.speciesList] : '';
+  const facts = [
+    { icon: 'vial', l: c.ui.formats, v: formats.join(' · ') || 'Sur demande' },
+    x.route ? { icon: 'route', l: c.ui.route, v: routeLabel('fr', x.route) } : speciesTxt ? { icon: 'paw', l: f.species, v: speciesTxt } : { icon: 'tag', l: f.category, v: c.cats[x.cat] },
+    { icon: 'box', l: c.ui.pack, v: x.pack ? c.packs[x.pack] : 'Sur demande' },
+    made ? { icon: 'factory', l: c.ui.line, v: c.lines[x.line ?? ''] ?? '' } : { icon: 'truck', l: 'Origine', v: 'Distribué par TILAMED' },
+  ];
+  const specs: [string, string][] = [
+    [f.range, c.groups[x.group].label], [f.category, c.cats[x.cat]], [f.status, st.note],
+    ...(formats.length ? [[c.ui.formats, formats.join(' · ')] as [string, string]] : []),
+    ...(x.route ? [[c.ui.route, routeLabel('fr', x.route)] as [string, string]] : []),
+    ...(x.line ? [[c.ui.line, c.lines[x.line]] as [string, string]] : []),
+    ...(x.pack ? [[c.ui.pack, c.packs[x.pack]] as [string, string]] : []),
+    ...(x.phase ? [[f.phase, c.phases[x.phase]] as [string, string]] : []),
+    ...(speciesTxt ? [[f.species, speciesTxt] as [string, string]] : []),
+  ];
+  return {
+    id, x, made, formats, st, facts, specs,
+    name: x.name.fr, use: x.use.fr, group: c.groups[x.group].label, cat: c.cats[x.cat],
+    pk: vis(x), illu: illu(x.cat),
+    texts: (samples[id] ?? []).map((s) => ({ ...s, label: f.fields[s.k] })),
+    related: sameCat.filter((p) => p.id !== id).slice(0, 8).map((p) => ({ name: p.name.fr, f: (p.formats ?? []).map((s) => formatLabel('fr', s)).join(' · '), pk: vis(p), illu: illu(p.cat), badge: c.status[p.family].badge, kind: p.family })),
+    prev: i > 0 ? sameCat[i - 1].name.fr : '', next: i < sameCat.length - 1 ? sameCat[i + 1].name.fr : '',
+    pos: `${i + 1} / ${sameCat.length}`,
+  };
+});
+type P = (typeof products)[number];
+const rich = (s: string) => {
+  const lines = s.split('\n').filter(Boolean);
+  return lines.every((l) => l.startsWith('- ')) ? `<ul>${lines.map((l) => `<li>${l.slice(2)}</li>`).join('')}</ul>` : lines.map((l) => `<p>${l}</p>`).join('');
+};
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Planche · Fiche produit · 3 propositions</title>
+</head>
+<body data-p="haloperidol" class="">
+
+<header class="pl-bar">
+  <div class="pl-bar__in">
+    <p class="pl-bar__t"><strong>Planche · Fiche produit</strong></p>
+    <nav class="pl-bar__nav"><a href="#prop-a">A · Laboratoire</a><a href="#prop-b">B · Dossier</a><a href="#prop-c">C · Vitrine</a></nav>
+    <div class="pl-bar__grp" role="group" aria-label="Produit">
+      <span>Produit :</span>
+      {products.map((p, i) => <button type="button" data-set-p={p.id} aria-pressed={String(i === 0)}>{p.name.replace(' (comprimés)', '')}</button>)}
+    </div>
+    <div class="pl-bar__grp" role="group" aria-label="État">
+      <span>Fiche :</span>
+      <button type="button" data-set-full="0" aria-pressed="true">Actuelle (sans textes)</button>
+      <button type="button" data-set-full="1" aria-pressed="false">Remplie (exemple)</button>
+    </div>
+  </div>
+</header>
+
+<!-- ====================================================================== A -->
+<section class="pl-intro" id="prop-a">
+  <div class="wrap">
+    <p class="pl-intro__k">Proposition A <em>Recommandée</em></p>
+    <h2>Laboratoire · grand visuel, « En bref », onglets</h2>
+    <div class="pl-intro__cols">
+      <p>Le modèle des fiches des grands laboratoires et des sites e-commerce haut de gamme. En-tête clair : grand visuel à gauche, à droite le nom, l'usage, le statut, 4 informations clés en pictogrammes et les deux actions (fiche PDF, cotation). Une barre d'onglets fixe mène aux rubriques. Elle ne montre que celles qui sont remplies, donc pas de rubriques vides aujourd'hui.</p>
+      <ul>
+        <li><strong>Sans textes :</strong> un encadré « Dossier technique complet sur demande » remplace les rubriques vides.</li>
+        <li><strong>Navigation :</strong> produit précédent / suivant de la même catégorie, en haut à droite.</li>
+        <li><strong>Produits similaires :</strong> rail compact qui défile (cartes plus petites).</li>
+        <li><strong>Supprime</strong> les doublons actuels (bouton PDF en double, statut et catégorie répétés).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{products.map((p: P) => (
+  <div class="fa" data-prod={p.id}>
+    <div class="fa-top">
+      <div class="wrap fa-top__in">
+        <p class="crumbs-pl">Accueil <span>/</span> Catalogue <span>/</span> {p.group} <span>/</span> <b>{p.name}</b></p>
+        <p class="fa-pn">
+          {p.prev && <a href="#" onclick="return false"><Icon name="arrow" size={14} class="fa-back" />Précédent</a>}
+          <span>{p.pos} · {p.cat}</span>
+          {p.next && <a href="#" onclick="return false">Suivant<Icon name="arrow" size={14} /></a>}
+        </p>
+      </div>
+    </div>
+    <div class="fa-hero">
+      <div class="wrap fa-hero__in">
+        <div class="fa-stage">
+          {p.pk ? <span class="fa-stage__v" set:html={p.pk} /> : <img class="fa-stage__i" src={p.illu} alt="" />}
+          <span class={`pcard__st pcard__st--${p.x.family}`}>{p.st.badge}</span>
+        </div>
+        <div class="fa-info">
+          <p class="fa-eyebrow"><a href="#" onclick="return false">{p.group}</a> · <a href="#" onclick="return false">{p.cat}</a></p>
+          <h1 class="fa-title">{p.name}</h1>
+          <p class="fa-lead">{p.use}</p>
+          <p class="fa-note"><span class={`fa-dot fa-dot--${p.x.family}`}></span>{p.st.note}</p>
+          <ul class="fa-facts">
+            {p.facts.map((k) => <li><span class="fa-facts__ic"><Icon name={k.icon} size={20} /></span><span><small>{k.l}</small><b>{k.v}</b></span></li>)}
+          </ul>
+          <div class="fa-ctas">
+            <a class="btn" href="#" onclick="return false"><Icon name="download" size={18} />{f.download}<small class="fa-pdf">PDF</small></a>
+            <a class="btn btn--ghost" href="#" onclick="return false">Demander une cotation</a>
+          </div>
+          <p class="fa-pro"><Icon name="shield" size={16} />Information destinée aux professionnels de santé</p>
+        </div>
+      </div>
+    </div>
+    <nav class="fa-tabs" aria-label="Rubriques">
+      <div class="wrap fa-tabs__in">
+        <a href="#" class="is-on" onclick="return false">{f.characteristics}</a>
+        {p.texts.map((t) => <a href="#" onclick="return false" data-full-only>{t.label}</a>)}
+        <a href="#" onclick="return false" data-full-only>Documents <span>2</span></a>
+        <a href="#" onclick="return false" class="fa-tabs__pdf"><Icon name="download" size={16} />PDF</a>
+      </div>
+    </nav>
+    <div class="fa-body">
+      <div class="wrap">
+        <h2 class="fa-h">{f.characteristics}</h2>
+        <dl class="fa-spec">{p.specs.map(([l, v]) => <div><dt>{l}</dt><dd>{v}</dd></div>)}</dl>
+        <div data-full-only>
+          <div class="fa-texts">
+            {p.texts.map((t) => <section class="fa-text"><h3>{t.label}</h3><div set:html={rich(t.v)} /></section>)}
+          </div>
+          <h2 class="fa-h">Documents à télécharger</h2>
+          <ul class="fa-docs">{docs.map((d) => <li><a href="#" onclick="return false"><span class="fa-docs__ic"><Icon name="download" size={20} /></span><span><b>{d.t}</b><small>{d.d}</small></span><Icon name="arrow" size={16} /></a></li>)}</ul>
+        </div>
+        <div class="fa-req" data-empty-only>
+          <span class="fa-req__ic"><Icon name="book" size={26} /></span>
+          <div><p class="fa-req__t">{f.onRequestTitle}</p><p>{f.onRequest}</p></div>
+          <a class="btn" href="#" onclick="return false">Demander le dossier</a>
+        </div>
+        <p class="fa-disc">{f.disclaimer}</p>
+      </div>
+    </div>
+    <div class="fa-rel">
+      <div class="wrap">
+        <div class="fa-rel__h"><h2 class="fa-h">{f.related}</h2><a href="#" class="link-arrow" onclick="return false">{f.backRange}<Icon name="arrow" size={16} /></a></div>
+        <ul class="fa-rail">
+          {p.related.map((r) => <li><a href="#" onclick="return false"><span class="fa-rail__v">{r.pk ? <Fragment set:html={r.pk} /> : <img src={r.illu} alt="" />}</span><b>{r.name}</b><small>{r.f || r.badge}</small></a></li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+))}
+
+<!-- ====================================================================== B -->
+<section class="pl-intro" id="prop-b">
+  <div class="wrap">
+    <p class="pl-intro__k">Proposition B</p>
+    <h2>Dossier · rubriques numérotées comme la fiche PDF, carte produit fixe</h2>
+    <div class="pl-intro__cols">
+      <p>Pensée comme un dossier technique en ligne, cohérente avec la fiche PDF qui a déjà des rubriques numérotées. L'en-tête bleu nuit reste court, comme sur le reste du site. À gauche, les rubriques numérotées 01, 02, 03… avec un sommaire en pastilles. À droite, une carte produit qui reste visible au défilement : visuel, statut, informations clés, bouton PDF et cotation.</p>
+      <ul>
+        <li><strong>Points forts :</strong> très lisible pour les acheteurs et les pharmaciens, l'action (PDF / cotation) est toujours à portée.</li>
+        <li><strong>Produits similaires :</strong> liste compacte en 2 colonnes (vignette, nom, présentation).</li>
+        <li><strong>Limite :</strong> visuel plus petit, rendu moins « vitrine ».</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{products.map((p: P) => (
+  <div class="fb" data-prod={p.id}>
+    <div class="fb-hero">
+      <div class="wrap">
+        <p class="crumbs-pl crumbs-pl--light">Accueil <span>/</span> Catalogue <span>/</span> {p.group} <span>/</span> <b>{p.name}</b></p>
+        <p class="fb-eyebrow">{f.eyebrow} · {p.group}</p>
+        <h1 class="fb-title">{p.name}</h1>
+        <p class="fb-lead">{p.use}</p>
+      </div>
+    </div>
+    <div class="wrap fb-grid">
+      <div class="fb-main">
+        <ol class="fb-toc">
+          <li><a href="#" onclick="return false"><span>01</span>{f.characteristics}</a></li>
+          {p.texts.map((t, i) => <li data-full-only><a href="#" onclick="return false"><span>{String(i + 2).padStart(2, '0')}</span>{t.label}</a></li>)}
+          <li data-full-only><a href="#" onclick="return false"><span>{String(p.texts.length + 2).padStart(2, '0')}</span>Documents</a></li>
+        </ol>
+        <section class="fb-sec">
+          <h2><span>01</span>{f.characteristics}</h2>
+          <dl class="fb-spec">{p.specs.map(([l, v]) => <div><dt>{l}</dt><dd>{v}</dd></div>)}</dl>
+        </section>
+        {p.texts.map((t, i) => <section class="fb-sec" data-full-only><h2><span>{String(i + 2).padStart(2, '0')}</span>{t.label}</h2><div class="fb-txt" set:html={rich(t.v)} /></section>)}
+        <section class="fb-sec" data-full-only>
+          <h2><span>{String(p.texts.length + 2).padStart(2, '0')}</span>Documents à télécharger</h2>
+          <ul class="fa-docs fa-docs--1">{docs.map((d) => <li><a href="#" onclick="return false"><span class="fa-docs__ic"><Icon name="download" size={20} /></span><span><b>{d.t}</b><small>{d.d}</small></span><Icon name="arrow" size={16} /></a></li>)}</ul>
+        </section>
+        <section class="fb-sec fb-req" data-empty-only>
+          <h2><span>02</span>{f.onRequestTitle}</h2>
+          <p>{f.onRequest}</p>
+          <a class="link-arrow" href="#" onclick="return false">Demander le dossier complet<Icon name="arrow" size={16} /></a>
+        </section>
+        <p class="fa-disc">{f.disclaimer}</p>
+      </div>
+      <aside class="fb-card">
+        <div class="fb-card__v">{p.pk ? <Fragment set:html={p.pk} /> : <img src={p.illu} alt="" />}</div>
+        <div class="fb-card__b">
+          <p class="fa-note"><span class={`fa-dot fa-dot--${p.x.family}`}></span>{p.st.badge}</p>
+          <dl class="fb-card__facts">{p.facts.map((k) => <div><dt>{k.l}</dt><dd>{k.v}</dd></div>)}</dl>
+          <a class="btn fb-card__btn" href="#" onclick="return false"><Icon name="download" size={18} />{f.download}</a>
+          <a class="btn btn--ghost fb-card__btn" href="#" onclick="return false">Demander une cotation</a>
+        </div>
+      </aside>
+    </div>
+    <div class="fb-rel">
+      <div class="wrap">
+        <div class="fa-rel__h"><h2 class="fa-h">{f.related}</h2><a href="#" class="link-arrow" onclick="return false">{f.backRange}<Icon name="arrow" size={16} /></a></div>
+        <ul class="fb-list">
+          {p.related.slice(0, 6).map((r) => <li><a href="#" onclick="return false"><span class="fb-list__v">{r.pk ? <Fragment set:html={r.pk} /> : <img src={r.illu} alt="" />}</span><span><b>{r.name}</b><small>{r.f || r.badge}</small></span><Icon name="arrow" size={16} /></a></li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+))}
+
+<!-- ====================================================================== C -->
+<section class="pl-intro" id="prop-c">
+  <div class="wrap">
+    <p class="pl-intro__k">Proposition C</p>
+    <h2>Vitrine · produit mis en scène, rubriques en accordéon</h2>
+    <div class="pl-intro__cols">
+      <p>La plus spectaculaire. Le produit est mis en scène au centre d'un grand plateau clair, avec le nom en très grand. Ses informations clés flottent autour du visuel en étiquettes. Suit une bande bleu nuit « En bref » avec 4 chiffres, puis les rubriques en accordéon (la première ouverte) et un bandeau d'appel « Une question sur ce produit ? ».</p>
+      <ul>
+        <li><strong>Points forts :</strong> effet « produit phare », idéal pour les produits TILAMED quand les vraies photos arriveront.</li>
+        <li><strong>Produits similaires :</strong> grille de 4 cartes compactes.</li>
+        <li><strong>Limite :</strong> plus long à parcourir. Le grand plateau convient moins aux dispositifs médicaux, qui n'ont qu'une illustration.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{products.map((p: P) => (
+  <div class="fc" data-prod={p.id}>
+    <div class="fc-stage">
+      <div class="wrap">
+        <p class="crumbs-pl">Accueil <span>/</span> Catalogue <span>/</span> {p.group} <span>/</span> <b>{p.name}</b></p>
+        <p class="fc-eyebrow">{p.group} · {p.cat}</p>
+        <h1 class="fc-title">{p.name}</h1>
+        <p class="fc-lead">{p.use}</p>
+        <div class="fc-scene">
+          <ul class="fc-tags fc-tags--l">{p.facts.slice(0, 2).map((k) => <li><Icon name={k.icon} size={18} /><span><small>{k.l}</small>{k.v}</span></li>)}</ul>
+          <div class="fc-v">{p.pk ? <Fragment set:html={p.pk} /> : <img src={p.illu} alt="" />}</div>
+          <ul class="fc-tags fc-tags--r">{p.facts.slice(2, 4).map((k) => <li><Icon name={k.icon} size={18} /><span><small>{k.l}</small>{k.v}</span></li>)}</ul>
+        </div>
+        <div class="fc-ctas">
+          <a class="btn" href="#" onclick="return false"><Icon name="download" size={18} />{f.download}</a>
+          <a class="btn btn--ghost" href="#" onclick="return false">Demander une cotation</a>
+        </div>
+      </div>
+    </div>
+    <div class="fc-band">
+      <div class="wrap">
+        <p class="fc-band__h">{f.keyFacts}</p>
+        <ul>
+          <li><b>{p.formats[0]?.split(' · ')[0] ?? '—'}</b><span>{c.ui.formats}</span></li>
+          <li><b>{p.x.route ?? (p.x.species ? f.speciesList[p.x.species as 'dog'] : p.cat)}</b><span>{p.x.route ? c.ui.route : p.x.species ? f.species : f.category}</span></li>
+          <li><b>{p.x.pack ? c.packs[p.x.pack].replace(/^(Boîte|Carton) de /, '') : p.formats.length || '—'}</b><span>{p.x.pack ? c.ui.pack : 'Présentations'}</span></li>
+          <li><b>{p.made ? `Phase ${p.x.phase ?? 1}` : 'Distribué'}</b><span>{p.made ? 'Production à Sèmè-Podji' : 'par TILAMED'}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fc-body">
+      <div class="wrap fc-body__in">
+        <details class="fc-acc" open><summary>{f.characteristics}<Icon name="chevron" size={20} /></summary><dl class="fa-spec">{p.specs.map(([l, v]) => <div><dt>{l}</dt><dd>{v}</dd></div>)}</dl></details>
+        {p.texts.map((t) => <details class="fc-acc" data-full-only><summary>{t.label}<Icon name="chevron" size={20} /></summary><div class="fc-acc__b" set:html={rich(t.v)} /></details>)}
+        <details class="fc-acc" data-full-only><summary>Documents à télécharger<Icon name="chevron" size={20} /></summary><ul class="fa-docs">{docs.map((d) => <li><a href="#" onclick="return false"><span class="fa-docs__ic"><Icon name="download" size={20} /></span><span><b>{d.t}</b><small>{d.d}</small></span><Icon name="arrow" size={16} /></a></li>)}</ul></details>
+        <div class="fc-acc fc-acc--req" data-empty-only><p><b>{f.onRequestTitle}</b>{f.onRequest}</p></div>
+        <p class="fa-disc">{f.disclaimer}</p>
+      </div>
+    </div>
+    <div class="fc-cta">
+      <div class="wrap fc-cta__in">
+        <div><p class="fc-cta__t">{f.askTitle}</p><p>{f.askText}</p></div>
+        <a class="btn btn--light" href="#" onclick="return false">Nous contacter</a>
+      </div>
+    </div>
+    <div class="fc-rel">
+      <div class="wrap">
+        <div class="fa-rel__h"><h2 class="fa-h">{f.related}</h2><a href="#" class="link-arrow" onclick="return false">{f.backRange}<Icon name="arrow" size={16} /></a></div>
+        <ul class="fc-grid">
+          {p.related.slice(0, 4).map((r) => <li><a href="#" onclick="return false"><span class="fc-grid__v">{r.pk ? <Fragment set:html={r.pk} /> : <img src={r.illu} alt="" />}</span><b>{r.name}</b><small>{r.f || r.badge}</small></a></li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+))}
+
+<footer class="pl-end"><div class="wrap">Fin de la planche · textes « remplis » = exemples pour la maquette, pas des données du client.</div></footer>
+
+<style is:global>
+  body { background: #fff; }
+  [data-prod] { display: none; }
+  body[data-p='haloperidol'] [data-prod='haloperidol'], body[data-p='vet-croquettes-chiot'] [data-prod='vet-croquettes-chiot'], body[data-p='stethoscope'] [data-prod='stethoscope'] { display: block; }
+  body:not(.is-full) [data-full-only], body.is-full [data-empty-only] { display: none !important; }
+  .pk text { font-family: var(--font-head); }
+  .pl-bar { position: sticky; top: 0; z-index: 50; background: var(--navy-900); color: #cfe0f5; font-family: var(--font-head); font-size: .8125rem; }
+  .pl-bar__in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; max-width: 1440px; margin: 0 auto; padding: 10px 24px; }
+  .pl-bar__t strong { color: #fff; }
+  .pl-bar__nav, .pl-bar__grp { display: flex; align-items: center; gap: 6px; }
+  .pl-bar__nav a { padding: 6px 12px; border-radius: 99px; background: rgba(255,255,255,.08); color: #fff; font-weight: 700; }
+  .pl-bar__grp button { padding: 6px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,.2); color: #fff; font-weight: 700; font-size: .75rem; }
+  .pl-bar__grp button[aria-pressed='true'] { background: var(--green); border-color: var(--green); }
+  .pl-intro { padding: 64px 0 36px; background: #fffbea; border-top: 6px solid var(--navy); scroll-margin-top: 50px; }
+  .pl-intro__k { font-family: var(--font-head); font-weight: 800; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+  .pl-intro__k em { margin-left: 8px; padding: 3px 9px; border-radius: 99px; background: var(--green); color: #fff; font-style: normal; }
+  .pl-intro h2 { margin-top: 8px; font-size: 1.8rem; color: var(--navy); }
+  .pl-intro__cols { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; margin-top: 16px; line-height: 1.55; }
+  .pl-intro__cols li { margin-bottom: 6px; padding-left: 14px; position: relative; }
+  .pl-intro__cols li::before { content: ''; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .pl-end { padding: 40px 0; background: var(--navy-900); color: #cfe0f5; font-family: var(--font-head); font-size: .875rem; }
+  .crumbs-pl { font-family: var(--font-head); font-size: .78rem; font-weight: 600; color: var(--muted); }
+  .crumbs-pl span { margin: 0 6px; opacity: .5; } .crumbs-pl b { color: var(--navy); }
+  .crumbs-pl--light { color: #9fb6d6; } .crumbs-pl--light b { color: #fff; }
+  .fa-h { font-size: clamp(1.4rem, 1.2rem + .8vw, 1.9rem); color: var(--navy); }
+  .fa-disc { margin-top: 28px; padding: 14px 18px; border-inline-start: 3px solid var(--blue); background: var(--blue-50); font-size: .9rem; color: var(--text); border-radius: 0 8px 8px 0; }
+  .fa-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #c58a1d; box-shadow: 0 0 0 3px #fbf1dc; margin-inline-end: 10px; vertical-align: 1px; }
+  .fa-dot--devices { background: var(--green); box-shadow: 0 0 0 3px var(--green-50); } .fa-dot--vet { background: var(--blue); box-shadow: 0 0 0 3px var(--blue-50); }
+  .link-arrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-head); font-weight: 700; color: var(--blue); }
+
+  /* ---------- A ---------- */
+  .fa-top { border-bottom: 1px solid var(--line); }
+  .fa-top__in { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 14px; }
+  .fa-pn { display: flex; align-items: center; gap: 14px; font-family: var(--font-head); font-size: .78rem; font-weight: 600; color: var(--muted); }
+  .fa-pn a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 99px; color: var(--navy); font-weight: 700; }
+  .fa-pn a:hover { border-color: var(--blue); color: var(--blue); }
+  .fa-back { transform: rotate(180deg); }
+  .fa-hero { background: linear-gradient(180deg, #fff 0, var(--mist) 100%); }
+  .fa-hero__in { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: 40px 56px; }
+  .fa-stage { position: relative; aspect-ratio: 4 / 3; border-radius: 22px; background: radial-gradient(circle at 50% 40%, #fff 0, #fff 32%, #e3ecf7 100%); border: 1px solid #e6edf5; overflow: hidden; box-shadow: 0 40px 80px -50px rgba(18,48,90,.5); }
+  .fa-stage__v, .fa-stage__v svg, .fa-stage__i { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .fa-stage .pcard__st { top: 18px; inset-inline-start: 18px; font-size: .75rem; padding: 7px 12px; }
+  .fa-eyebrow { font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+  .fa-eyebrow a:hover { text-decoration: underline; }
+  .fa-title { margin-top: 10px; font-size: clamp(2rem, 1.4rem + 2.2vw, 3.1rem); line-height: 1.08; color: var(--navy); }
+  .fa-lead { margin-top: 12px; font-size: 1.2rem; line-height: 1.45; color: var(--text); }
+  .fa-note { margin-top: 14px; font-family: var(--font-head); font-weight: 600; font-size: .85rem; color: var(--navy); }
+  .fa-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+  .fa-facts li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+  .fa-facts__ic { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--blue-50); color: var(--blue); }
+  .fa-facts li:nth-child(4) .fa-facts__ic { background: var(--green-50); color: var(--green-deep); }
+  .fa-facts small { display: block; font-family: var(--font-head); font-weight: 600; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .fa-facts b { display: block; font-family: var(--font-head); font-size: .9rem; line-height: 1.3; color: var(--navy); }
+  .fa-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .fa-pdf { margin-inline-start: 4px; padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,.2); font-size: .7rem; }
+  .fa-pro { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: .85rem; color: var(--muted); }
+  .fa-pro .icon { color: var(--green-deep); }
+  .fa-tabs { position: sticky; top: 38px; z-index: 5; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 8px 20px -18px rgba(18,48,90,.4); }
+  .fa-tabs__in { display: flex; gap: 4px; overflow-x: auto; }
+  .fa-tabs a { display: inline-flex; align-items: center; gap: 6px; padding: 16px 14px 14px; border-bottom: 3px solid transparent; font-family: var(--font-head); font-weight: 700; font-size: .875rem; color: var(--muted); white-space: nowrap; }
+  .fa-tabs a.is-on { color: var(--blue); border-color: var(--blue); }
+  .fa-tabs a span { padding: 0 7px; border-radius: 99px; background: var(--mist); font-size: .7rem; }
+  .fa-tabs__pdf { margin-inline-start: auto; color: var(--blue) !important; }
+  .fa-body { padding-block: 48px 64px; }
+  .fa-spec { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; margin-top: 20px; }
+  .fa-spec div { display: grid; grid-template-columns: 42% 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .fa-spec dt { font-size: .92rem; color: var(--muted); }
+  .fa-spec dd { margin: 0; font-family: var(--font-head); font-weight: 700; font-size: .92rem; color: var(--navy); }
+  .fa-texts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+  .fa-text { padding: 24px; border: 1px solid var(--line); border-radius: 14px; }
+  .fa-text h3 { font-size: 1.05rem; color: var(--navy); }
+  .fa-text div, .fb-txt, .fc-acc__b { margin-top: 10px; line-height: 1.6; color: var(--text); }
+  .fa-text ul, .fb-txt ul, .fc-acc__b ul { display: grid; gap: 4px; }
+  .fa-text li, .fb-txt li, .fc-acc__b li { padding-inline-start: 16px; position: relative; }
+  .fa-text li::before, .fb-txt li::before, .fc-acc__b li::before { content: ''; position: absolute; inset-inline-start: 0; top: .65em; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .fa-docs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+  .fa-docs--1 { grid-template-columns: 1fr; }
+  .fa-docs a { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .fa-docs a:hover { border-color: var(--blue); }
+  .fa-docs a > .icon { margin-inline-start: auto; color: var(--blue); }
+  .fa-docs__ic { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--blue); color: #fff; }
+  .fa-docs b { display: block; font-family: var(--font-head); color: var(--navy); } .fa-docs small { color: var(--muted); }
+  .fa-req { display: flex; align-items: center; gap: 20px; margin-top: 36px; padding: 26px 28px; border-radius: 16px; background: var(--navy); color: #cfe0f5; }
+  .fa-req__ic { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,.1); color: #fff; }
+  .fa-req__t { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; color: #fff; }
+  .fa-req .btn { flex: none; margin-inline-start: auto; }
+  .fa-rel { padding-block: 56px 72px; background: var(--mist); }
+  .fa-rel__h { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+  .fa-rail { display: grid; grid-auto-flow: column; grid-auto-columns: 220px; gap: 14px; margin-top: 22px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+  .fa-rail a { display: flex; flex-direction: column; gap: 4px; padding: 10px 10px 14px; border-radius: 14px; background: #fff; border: 1px solid var(--line); scroll-snap-align: start; transition: border-color .2s, transform .3s var(--ease); }
+  .fa-rail a:hover { border-color: var(--blue); transform: translateY(-3px); }
+  .fa-rail__v { display: block; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; background: radial-gradient(circle at 50% 42%, #fff 0, #fff 30%, #eaf1f8 100%); margin-bottom: 6px; }
+  .fa-rail__v svg, .fa-rail__v img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .fa-rail b, .fc-grid b { font-family: var(--font-head); font-size: .9rem; line-height: 1.3; color: var(--navy); padding: 0 4px; }
+  .fa-rail small, .fc-grid small { font-family: var(--font-head); font-weight: 600; font-size: .72rem; color: var(--muted); padding: 0 4px; }
+
+  /* ---------- B ---------- */
+  .fb-hero { padding-block: 28px 48px; background: var(--navy-900); color: #fff; position: relative; }
+  .fb-hero::after { content: ''; position: absolute; inset: auto 0 0; height: 6px; background: linear-gradient(90deg, var(--blue) 70%, var(--green) 70%); }
+  .fb-eyebrow { margin-top: 26px; font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); }
+  .fb-title { margin-top: 8px; font-size: clamp(2rem, 1.4rem + 2vw, 3rem); color: #fff; }
+  .fb-lead { margin-top: 10px; max-width: 640px; font-size: 1.15rem; color: #cfe0f5; }
+  .fb-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 56px; align-items: start; padding-block: 0 64px; }
+  .fb-main { padding-top: 40px; }
+  .fb-toc { display: flex; flex-wrap: wrap; gap: 8px; }
+  .fb-toc a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border: 1px solid var(--line); border-radius: 99px; font-family: var(--font-head); font-weight: 700; font-size: .8rem; color: var(--navy); }
+  .fb-toc a span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: #fff; font-size: .7rem; }
+  .fb-toc a:hover { border-color: var(--blue); }
+  .fb-sec { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .fb-sec h2 { display: flex; align-items: center; gap: 14px; font-size: 1.35rem; color: var(--navy); }
+  .fb-sec h2 span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: var(--blue); color: #fff; font-size: .85rem; }
+  .fb-spec { margin-top: 18px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .fb-spec div { display: grid; grid-template-columns: 38% 1fr; }
+  .fb-spec div:nth-child(odd) { background: var(--mist); }
+  .fb-spec dt, .fb-spec dd { margin: 0; padding: 12px 16px; font-size: .92rem; }
+  .fb-spec dt { color: var(--muted); } .fb-spec dd { font-family: var(--font-head); font-weight: 700; color: var(--navy); }
+  .fb-req p { margin-top: 12px; line-height: 1.55; } .fb-req .link-arrow { margin-top: 12px; }
+  .fb-card { position: sticky; top: 60px; margin-top: -40px; border-radius: 18px; background: #fff; border: 1px solid var(--line); box-shadow: 0 30px 60px -36px rgba(18,48,90,.45); overflow: hidden; }
+  .fb-card__v { aspect-ratio: 4/3; background: radial-gradient(circle at 50% 40%, #fff 0, #fff 30%, #e5edf7 100%); border-bottom: 1px solid var(--line); }
+  .fb-card__v svg, .fb-card__v img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .fb-card__b { padding: 20px 22px 24px; }
+  .fb-card__facts { margin-top: 14px; }
+  .fb-card__facts div { display: flex; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: .88rem; }
+  .fb-card__facts dt { color: var(--muted); } .fb-card__facts dd { margin: 0; font-family: var(--font-head); font-weight: 700; color: var(--navy); text-align: end; }
+  .fb-card__btn { width: 100%; justify-content: center; margin-top: 12px; }
+  .fb-card__btn:first-of-type { margin-top: 20px; }
+  .fb-rel { padding-block: 56px 72px; background: var(--mist); }
+  .fb-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+  .fb-list a { display: flex; align-items: center; gap: 16px; padding: 10px 18px 10px 10px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
+  .fb-list a:hover { border-color: var(--blue); }
+  .fb-list__v { flex: none; width: 96px; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: radial-gradient(circle at 50% 42%, #fff 0, #fff 30%, #eaf1f8 100%); }
+  .fb-list__v svg, .fb-list__v img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .fb-list b { display: block; font-family: var(--font-head); font-size: .95rem; color: var(--navy); } .fb-list small { font-size: .85rem; color: var(--muted); }
+  .fb-list a > .icon { margin-inline-start: auto; color: var(--blue); flex: none; }
+
+  /* ---------- C ---------- */
+  .fc-stage { padding-block: 22px 56px; background: radial-gradient(ellipse at 50% 70%, #fff 0, #fff 25%, #e4edf7 75%); text-align: center; }
+  .fc-stage .crumbs-pl { text-align: start; }
+  .fc-eyebrow { margin-top: 36px; font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
+  .fc-title { margin-top: 10px; font-size: clamp(2.4rem, 1.6rem + 3vw, 4.2rem); line-height: 1.05; color: var(--navy); }
+  .fc-lead { margin: 12px auto 0; max-width: 620px; font-size: 1.2rem; color: var(--text); }
+  .fc-scene { display: grid; grid-template-columns: 1fr minmax(0, 560px) 1fr; align-items: center; gap: 24px; margin-top: 18px; }
+  .fc-v { aspect-ratio: 4/3; }
+  .fc-v svg, .fc-v img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .fc-tags { display: grid; gap: 14px; }
+  .fc-tags--l { justify-items: end; } .fc-tags--r { justify-items: start; }
+  .fc-tags li { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 14px; background: rgba(255,255,255,.92); box-shadow: 0 14px 30px -18px rgba(18,48,90,.45); text-align: start; max-width: 280px; }
+  .fc-tags .icon { flex: none; color: var(--blue); }
+  .fc-tags small { display: block; font-family: var(--font-head); font-weight: 600; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .fc-tags span { font-family: var(--font-head); font-weight: 700; font-size: .9rem; color: var(--navy); }
+  .fc-ctas { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+  .fc-band { padding-block: 40px; background: var(--navy); color: #fff; }
+  .fc-band__h { font-family: var(--font-head); font-weight: 700; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--sky); }
+  .fc-band ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 18px; }
+  .fc-band li { padding: 4px 24px; border-inline-start: 1px solid rgba(255,255,255,.15); }
+  .fc-band b { display: block; font-family: var(--font-head); font-weight: 800; font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem); line-height: 1.15; }
+  .fc-band span { display: block; margin-top: 6px; font-size: .9rem; color: #cfe0f5; }
+  .fc-body { padding-block: 48px 56px; }
+  .fc-body__in { max-width: 920px; }
+  .fc-acc { border-bottom: 1px solid var(--line); }
+  .fc-acc summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; cursor: pointer; list-style: none; font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; color: var(--navy); }
+  .fc-acc summary::-webkit-details-marker { display: none; }
+  .fc-acc summary .icon { color: var(--blue); transition: transform .3s; }
+  .fc-acc[open] summary .icon { transform: rotate(180deg); }
+  .fc-acc > dl, .fc-acc > div, .fc-acc > ul { margin: 0 0 24px; }
+  .fc-acc--req { padding: 24px; border: 0; border-radius: 14px; background: var(--blue-50); margin-top: 24px; line-height: 1.55; }
+  .fc-acc--req b { display: block; font-family: var(--font-head); color: var(--navy); margin-bottom: 4px; }
+  .fc-cta { background: var(--blue); color: #fff; }
+  .fc-cta__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 36px; }
+  .fc-cta__t { font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
+  .fc-cta p + p { margin-top: 4px; color: #dbe8f8; max-width: 640px; }
+  .fc-rel { padding-block: 56px 72px; background: var(--mist); }
+  .fc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 22px; }
+  .fc-grid a { display: flex; flex-direction: column; gap: 4px; padding: 10px 10px 14px; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+  .fc-grid a:hover { border-color: var(--blue); }
+  .fc-grid__v { display: block; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; background: radial-gradient(circle at 50% 42%, #fff 0, #fff 30%, #eaf1f8 100%); margin-bottom: 6px; }
+  .fc-grid__v svg, .fc-grid__v img { display: block; width: 100%; height: 100%; object-fit: cover; }
+</style>
+<script is:inline>
+  document.querySelectorAll('[data-set-p]').forEach((b) => b.addEventListener('click', () => {
+    document.body.dataset.p = b.dataset.setP;
+    document.querySelectorAll('[data-set-p]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+  document.querySelectorAll('[data-set-full]').forEach((b) => b.addEventListener('click', () => {
+    document.body.classList.toggle('is-full', b.dataset.setFull === '1');
+    document.querySelectorAll('[data-set-full]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+  const q = new URLSearchParams(location.search);
+  if (q.get('p')) document.querySelector(`[data-set-p="${q.get('p')}"]`)?.click();
+  if (q.get('full') === '1') document.querySelector('[data-set-full="1"]')?.click();
+</script>
+</body>
+</html>

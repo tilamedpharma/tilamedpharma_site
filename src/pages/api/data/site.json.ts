@@ -26,6 +26,7 @@ export const GET: APIRoute = () => {
       pages: Object.fromEntries(['produits', 'documentation', 'contact', ...productFamilies.map((f) => f.slug)].map((s) => [s, pages[s]])),
       ui: { ...ui, results1: results(1), resultsMany: results(999) },
       groups: c.groups,
+      browse: c.browse,
       status: c.status,
       lines: c.lines,
       packs: c.packs,

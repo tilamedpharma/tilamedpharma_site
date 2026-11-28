@@ -82,7 +82,9 @@ const fin = {
       message: 'Votre message', consent: 'J\'accepte que TILAMED Pharma utilise ces informations pour répondre à ma demande.',
       submit: 'Envoyer le message', required: 'Champ obligatoire', select: 'Choisir…',
     },
-    subjects: ['Commande ou appel d\'offres', 'Devenir distributeur', 'Documentation produit', 'Presse', 'Candidature', 'Fournisseur', 'Visite du site ou partenariat', 'Autre'],
+    subjects: ['Demande de cotation', 'Commande ou appel d\'offres', 'Devenir distributeur', 'Documentation produit', 'Presse', 'Candidature', 'Fournisseur', 'Visite du site ou partenariat', 'Autre'],
+    /** Message pré-rempli depuis une fiche produit (/contact/?objet=cotation&produit=…). */
+    prefill: { product: 'Produit', qty: 'Quantité souhaitée', country: 'Pays de livraison', docs: 'Documents souhaités' },
     directTitle: 'Nous joindre directement',
     whatsapp: 'Écrire sur WhatsApp',
     officesTitle: 'Nos bureaux',

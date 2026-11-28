@@ -81,6 +81,21 @@ function card(array $p, string $lang, bool $catalog = false): string
     return $out . '</span></a></li>';
 }
 
+/**
+ * Visuel d'un produit : photo du back office > visuel « étiquette » (packshot.php) > illustration de la catégorie.
+ * $alt : texte alternatif d'une photo (les visuels générés et les illustrations sont décoratifs).
+ */
+function product_visual(array $p, string $lang, string $alt = '', bool $eager = false): string
+{
+    $vis = visual($p);
+    if ($vis['photo']) {
+        return '<img class="pv pv--photo" src="' . h($vis['url']) . '" alt="' . h($alt) . '" width="480" height="360" loading="' . ($eager ? 'eager' : 'lazy') . '" decoding="async">';
+    }
+    $pk = packshot($p, $lang);
+    if ($pk !== '') { return $pk; }
+    return $vis['url'] !== '' ? '<img class="pv" src="' . h($vis['url']) . '" alt="" width="480" height="360" loading="' . ($eager ? 'eager' : 'lazy') . '" decoding="async">' : '';
+}
+
 /* ---------- Page « Catalogue » ---------- */
 
 function render_catalog(string $html, string $lang): string
@@ -227,88 +242,140 @@ function render_product(string $html, array $p, string $lang, bool $preview): st
         $ld['itemListElement'][] = ['@type' => 'ListItem', 'position' => $i + 1, 'name' => $label, 'item' => site_url() . ($href ?? product_url($p, $lang))];
     }
 
+    // Mise en page « Vitrine » (validée le 28/11/2026, planche src/pages/_planches/fiche.astro, proposition C) :
+    // plateau (visuel + étiquettes), bande « En bref », rubriques en accordéon, bandeau contact, produits similaires.
     $o = '';
     if ($preview) {
         $o .= '<div class="pfpreview"><div class="wrap">' . icon('eye', 18) . '<span>' . h($f['preview']) . '</span><a href="/admin/produits/' . $p['id'] . '">Modifier dans le back office</a></div></div>';
     }
-    $o .= '<section class="phero phero--product" aria-labelledby="phero-title"><div class="wrap phero__body pfhero"><div class="pfhero__main">';
-    $o .= '<nav class="crumbs" aria-label="' . h($t['breadcrumb']) . '"><ol>';
+    $b = $t['browse'] ?? [];
+    $catLabel = cat_label($p['cat'], $lang);
+    $made = in_array($p['kind'], ['iv', 'liquids'], true);
+    // Liens vers le formulaire de contact, objet et produit pré-remplis (voir ContactPage.astro)
+    $contact = fn (string $objet = '') => lang_path($lang, 'contact') . '?' . http_build_query(array_filter(['objet' => $objet, 'produit' => $name]));
+
+    // Précédent / suivant dans la même catégorie (ordre du catalogue)
+    $siblings = array_values(array_filter(products(['published'], $p['grp']), fn ($x) => $x['cat'] === $p['cat']));
+    $idx = array_search($p['id'], array_column($siblings, 'id'), true);
+    $prev = ($idx !== false && $idx > 0) ? $siblings[$idx - 1] : null;
+    $next = ($idx !== false && $idx < count($siblings) - 1) ? $siblings[$idx + 1] : null;
+
+    // Informations clés : étiquettes autour du visuel
+    $formats = array_map(fn ($x) => format_label($lang, (string) $x), $p['formats']);
+    $species = $p['species'] !== '' ? (string) ($f['speciesList'][$p['species']] ?? '') : '';
+    $facts = [];
+    if ($formats) { $facts[] = ['vial', $t['ui']['formats'], implode(' · ', $formats)]; }
+    if ($p['route'] !== '') { $facts[] = ['route', $t['ui']['route'], route_label($lang, $p['route'])]; }
+    elseif ($species !== '') { $facts[] = ['paw', $f['species'], $species]; }
+    if ($p['pack'] !== '' && isset($t['packs'][$p['pack']])) { $facts[] = ['box', $t['ui']['pack'], $t['packs'][$p['pack']]]; }
+    if ($p['line'] !== '' && isset($t['lines'][$p['line']])) { $facts[] = ['factory', $t['ui']['line'], $t['lines'][$p['line']]]; }
+    $facts = array_slice($facts, 0, 4);
+    $tag = fn (array $k) => '<li>' . icon($k[0], 18) . '<span><small>' . h($k[1]) . '</small><bdi>' . h($k[2]) . '</bdi></span></li>';
+    $half = (int) ceil(count($facts) / 2);
+
+    // Plateau
+    $o .= '<section class="pfc" aria-labelledby="phero-title"><div class="wrap">';
+    $o .= '<div class="pfc-top"><nav class="crumbs crumbs--dark" aria-label="' . h($t['breadcrumb']) . '"><ol>';
     foreach ($crumbs as [$label, $href]) {
         $o .= '<li>' . ($href ? '<a href="' . h($href) . '">' . h($label) . '</a>' : '<span aria-current="page">' . h($label) . '</span>') . '</li>';
     }
     $o .= '</ol></nav>';
-    $o .= '<p class="phero__eyebrow"><span class="hero__dot" aria-hidden="true"></span>' . h($f['eyebrow']) . ' · ' . h($groupLabel) . '</p>';
-    $o .= '<h1 class="phero__title" id="phero-title"' . lang_attr($nl, $lang) . '>' . h($name) . '</h1>';
-    if ($use !== '') { $o .= '<p class="phero__lead"' . lang_attr($ul, $lang) . '>' . h($use) . '</p>'; }
-    $o .= '<ul class="pfhero__tags"><li class="pfhero__badge pfhero__badge--' . h($p['kind']) . '">' . h($st['badge']) . '</li><li>' . h(cat_label($p['cat'], $lang)) . '</li>';
-    if ($p['phase']) { $o .= '<li>P' . (int) $p['phase'] . '</li>'; }
-    $o .= '</ul><div class="phero__ctas">';
-    $o .= '<a class="btn" href="' . h($pdf) . '" download>' . icon('download', 18) . h($f['download']) . ' <small class="pfhero__pdf">' . h($f['pdf']) . '</small></a>';
-    $isDevices = $p['grp'] === 'devices';
-    $o .= '<a class="btn btn--outline-light" href="' . h(lang_path($lang, $isDevices || $p['grp'] === 'vet' ? 'contact' : 'documentation')) . '">' . h($isDevices || $p['grp'] === 'vet' ? $t['produits']['contactCta'] : $t['produits']['docCta']) . '</a>';
-    $vis = visual($p);
-    $pk = $vis['photo'] ? '' : packshot($p, $lang);
-    $o .= '</div></div><div class="pfhero__media' . ($vis['photo'] ? ' pfhero__media--photo' : '') . ($pk !== '' ? ' pfhero__media--pk' : '') . '">';
-    if ($pk !== '') {
-        $o .= $pk; // visuel « étiquette » (décoratif : le nom est dans le titre)
-    } elseif ($vis['url'] !== '') {
-        // Illustration de catégorie : décorative (alt vide) ; photo du produit : alt = nom.
-        $o .= '<img src="' . h($vis['url']) . '" alt="' . ($vis['photo'] ? h($name) : '') . '" width="480" height="360" loading="eager" decoding="async">';    } else {
-        $o .= '<span class="pfhero__ic" aria-hidden="true">' . icon($fam['icon'] ?? 'vial', 72) . '</span><span class="pfhero__brand" aria-hidden="true">TILAMED <b>Pharma</b></span>';
+    if ($prev || $next) {
+        $o .= '<nav class="pfc-pn" aria-label="' . h($catLabel) . '">';
+        if ($prev) {
+            [$pn] = ptext($prev, $lang, 'name');
+            $o .= '<a href="' . h(product_url($prev, $lang)) . '" rel="prev" title="' . h($pn) . '">' . icon('arrow', 14, 'flip-rtl pfc-pn__back') . '<span>' . h($b['prev'] ?? '') . '</span></a>';
+        }
+        $o .= '<span class="pfc-pn__pos" dir="ltr">' . ($idx + 1) . ' / ' . count($siblings) . '</span>';
+        if ($next) {
+            [$nn] = ptext($next, $lang, 'name');
+            $o .= '<a href="' . h(product_url($next, $lang)) . '" rel="next" title="' . h($nn) . '"><span>' . h($b['next'] ?? '') . '</span>' . icon('arrow', 14, 'flip-rtl') . '</a>';
+        }
+        $o .= '</nav>';
     }
-    $o .= '</div></div><div class="duo-rule duo-rule--thick" aria-hidden="true"><span></span><span></span></div>';
+    $o .= '</div>';
+    $o .= '<p class="pfc-eyebrow"><a href="' . h($famUrl) . '">' . h($groupLabel) . '</a> · <a href="' . h(lang_path($lang, 'produits') . '?c=' . rawurlencode($p['cat'])) . '">' . h($catLabel) . '</a></p>';
+    $o .= '<h1 class="pfc-title" id="phero-title"' . lang_attr($nl, $lang) . '>' . h($name) . '</h1>';
+    if ($use !== '') { $o .= '<p class="pfc-lead"' . lang_attr($ul, $lang) . '>' . h($use) . '</p>'; }
+    $o .= '<p class="pfc-st pfc-st--' . h($p['kind']) . '">' . h($st['badge']) . '</p>';
+    $o .= '<div class="pfc-scene' . ($facts ? '' : ' pfc-scene--solo') . '">';
+    if ($facts) { $o .= '<ul class="pfc-tags pfc-tags--s">' . implode('', array_map($tag, array_slice($facts, 0, $half))) . '</ul>'; }
+    $o .= '<div class="pfc-v">' . product_visual($p, $lang, $name, true) . '</div>';
+    if ($facts) { $o .= '<ul class="pfc-tags pfc-tags--e">' . implode('', array_map($tag, array_slice($facts, $half))) . '</ul>'; }
+    $o .= '</div><div class="pfc-ctas">';
+    $o .= '<a class="btn" href="' . h($pdf) . '" download>' . icon('download', 18) . h($f['download']) . ' <small class="pfc-pdf">' . h($f['pdf']) . '</small></a>';
+    $o .= '<a class="btn btn--ghost" href="' . h($contact('cotation')) . '">' . h($f['quote'] ?? '') . '</a>';
+    $o .= '</div></div>';
     $o .= '<script type="application/ld+json">' . json_encode($ld, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) . '</script></section>';
 
-    // Fiche technique
-    $o .= '<section class="section pfsheet" aria-labelledby="pfsheet-title"><div class="wrap stepc__grid"><div>';
-    $o .= '<p class="eyebrow" data-reveal>' . icon('book', 16, 'eyebrow__ic') . '<span>' . h($f['eyebrow']) . '</span></p>';
-    $o .= '<h2 class="h2" id="pfsheet-title" data-reveal>' . h($f['techTitle']) . '</h2><span class="title-rule" aria-hidden="true"></span>';
-    $o .= '<p class="lead stepc__intro" data-reveal>' . h($f['techIntro']) . '</p>';
-    $o .= '<dl class="pfspec" data-reveal>';
-    foreach (spec_rows($p, $lang) as [$label, $value, $dir]) {
-        $o .= '<div><dt>' . h($label) . '</dt><dd' . ($dir !== '' ? ' dir="' . $dir . '"' : '') . '>' . h($value) . '</dd></div>';
+    // Bande « En bref » : identité du produit (les étiquettes ci-dessus donnent déjà présentation, voie, conditionnement, ligne)
+    $band = [[$groupLabel, $f['range']], [$catLabel, $f['category']]];
+    if ($made && $p['phase'] && isset($t['phases'][(string) $p['phase']])) {
+        $ph = explode(' · ', (string) $t['phases'][(string) $p['phase']], 2);
+        $band[] = [$ph[0], $ph[1] ?? $f['phase']];
+    } else {
+        $nt = explode(' · ', (string) $st['note'], 2);
+        $band[] = [$nt[0], $nt[1] ?? ''];
     }
-    $o .= '</dl>';
-    $sections = '';
+    if ($p['atc'] !== '') { $band[] = [$p['atc'], $f['atc']]; }
+    $o .= '<section class="pfc-band" aria-label="' . h($f['keyFacts']) . '"><div class="wrap"><p class="pfc-band__h">' . h($f['keyFacts']) . '</p><ul>';
+    foreach ($band as [$v, $l]) { $o .= '<li><b><bdi>' . h($v) . '</bdi></b>' . ($l !== '' ? '<span>' . h($l) . '</span>' : '') . '</li>'; }
+    $o .= '</ul></div></section>';
+
+    // Rubriques en accordéon (seules celles qui sont remplies), documents
+    $acc = '';
     foreach (FICHE_FIELDS as $field => $key) {
         [$v, $vl] = ptext($p, $lang, $field);
         if ($v === '') { continue; }
         if ($vl !== $lang) { $fallbacks[] = $vl; }
-        $sections .= '<section class="pftext__item" data-reveal><h3>' . h($f['fields'][$key] ?? $field) . '</h3><div class="pftext__body"' . lang_attr($vl, $lang) . '>' . rich_text($v) . '</div></section>';
+        $acc .= '<details class="pfc-acc"' . ($acc === '' ? ' open' : '') . '><summary><h2>' . h($f['fields'][$key] ?? $field) . '</h2>' . icon('chevron', 20) . '</summary><div class="pfc-acc__b"' . lang_attr($vl, $lang) . '>' . rich_text($v) . '</div></details>';
     }
-    if ($fallbacks) {
-        $fl = reset($fallbacks);
-        $o .= '<p class="note pfsheet__note">' . icon('globe', 18) . h(str_replace('{lang}', site()['locales'][$fl]['name'] ?? $fl, $f['langNote'])) . '</p>';
-    }
-    if ($sections !== '') { $o .= '<div class="pftext">' . $sections . '</div>'; }
-    $o .= '<p class="pfsheet__disc">' . h($f['disclaimer']) . '</p>';
-    // « Produits fabriqués par TILAMED : en préparation » ne concerne que la fabrication (iv, liquids), pas les produits distribués.
-    $legal = in_array($p['kind'], ['iv', 'liquids'], true) ? $t['ui']['legal'] : array_slice($t['ui']['legal'], 1);
-    $o .= '<ul class="pcat__legal">' . implode('', array_map(fn ($x) => '<li>' . h($x) . '</li>', $legal)) . '</ul>';
-    $o .= '</div><aside class="stepc__aside">';
-    $o .= '<a class="sdoc" href="' . h($pdf) . '" download data-reveal>' . icon('download', 24) . '<span class="sdoc__t">' . h($f['techTitle']) . '</span><span class="sdoc__d">'
-        . h($name) . ' · ' . h($f['pdf']) . ' · ' . h(site()['locales'][$lang]['name']) . '</span><span class="link-arrow">' . h($f['download']) . icon('arrow', 16, 'flip-rtl') . '</span></a>';
     $docs = documents($p['id']);
     if ($docs) {
-        $o .= '<div class="sfacts" data-reveal><p class="sfacts__h">' . h($f['docsTitle']) . '</p><ul class="pfdocs">';
+        $acc .= '<details class="pfc-acc"' . ($acc === '' ? ' open' : '') . '><summary><h2>' . h($f['docsTitle']) . '</h2>' . icon('chevron', 20) . '</summary><ul class="pfc-docs">';
         foreach ($docs as $d) {
             $dl = $d['lang'] === '' ? $f['allLangs'] : (site()['locales'][$d['lang']]['name'] ?? $d['lang']);
-            $o .= '<li><a href="' . h(document_url($p, $d, $lang)) . '" target="_blank" rel="noopener">' . icon('download', 18) . '<span><b>' . h($d['title']) . '</b><small>PDF · ' . h(human_size((int) $d['size'])) . ' · ' . h($dl) . '</small></span></a></li>';
+            $o_d = '<li><a href="' . h(document_url($p, $d, $lang)) . '" target="_blank" rel="noopener"><span class="pfc-docs__ic">' . icon('download', 20) . '</span><span><b>' . h($d['title']) . '</b><small>PDF · ' . h(human_size((int) $d['size'])) . ' · ' . h($dl) . '</small></span>' . icon('arrow', 16, 'flip-rtl') . '</a></li>';
+            $acc .= $o_d;
         }
-        $o .= '</ul></div>';
+        $acc .= '</ul></details>';
     }
-    $o .= '<div class="sfacts pfask" data-reveal><p class="sfacts__h">' . h($f['askTitle']) . '</p><p class="pfask__t">' . h($f['askText']) . '</p><a class="link-arrow" href="' . h(lang_path($lang, 'contact')) . '">'
-        . h($t['headerCta']) . icon('arrow', 16, 'flip-rtl') . '</a></div>';
-    $o .= '</aside></div></section>';
+    $o .= '<section class="pfc-body"><div class="wrap pfc-body__in">';
+    if ($fallbacks) {
+        $fl = reset($fallbacks);
+        $o .= '<p class="note pfc-note">' . icon('globe', 18) . h(str_replace('{lang}', site()['locales'][$fl]['name'] ?? $fl, $f['langNote'])) . '</p>';
+    }
+    if ($acc !== '') {
+        $o .= $acc;
+    } else {
+        // Fiche sans textes détaillés : le dossier complet est communiqué sur demande
+        $o .= '<div class="pfc-req"><span class="pfc-req__ic">' . icon('book', 26) . '</span><div><h2 class="pfc-req__t">' . h($f['onRequestTitle']) . '</h2><p>' . h($f['onRequest']) . '</p></div>'
+            . '<a class="btn" href="' . h($contact('doc')) . '">' . h($f['requestFile'] ?? '') . '</a></div>';
+    }
+    $o .= '<p class="pfc-disc">' . h($f['disclaimer']) . '</p>';
+    // « Produits fabriqués par TILAMED : en préparation » ne concerne que la fabrication (iv, liquids), pas les produits distribués.
+    $legal = $made ? $t['ui']['legal'] : array_slice($t['ui']['legal'], 1);
+    $o .= '<ul class="pcat__legal">' . implode('', array_map(fn ($x) => '<li>' . h($x) . '</li>', $legal)) . '</ul>';
+    $o .= '</div></section>';
 
-    // Produits de la même catégorie
-    $related = array_values(array_filter(products(['published'], $p['grp']), fn ($x) => $x['cat'] === $p['cat'] && $x['id'] !== $p['id']));
+    // Bandeau contact
+    $o .= '<section class="pfc-cta"><div class="wrap pfc-cta__in"><div><h2 class="pfc-cta__t">' . h($f['askTitle']) . '</h2><p>' . h($f['askText']) . '</p></div>'
+        . '<a class="btn btn--light" href="' . h($contact()) . '">' . h($t['headerCta']) . icon('arrow', 18, 'flip-rtl') . '</a></div></section>';
+
+    // Produits similaires : même catégorie d'abord, puis même gamme (4 au plus)
+    $others = array_values(array_filter(products(['published'], $p['grp']), fn ($x) => $x['id'] !== $p['id']));
+    usort($others, fn ($a, $c) => ($a['cat'] === $p['cat'] ? 0 : 1) <=> ($c['cat'] === $p['cat'] ? 0 : 1));
+    $related = array_slice($others, 0, 4);
     if ($related) {
-        $o .= '<section class="section prange pfrel" aria-labelledby="pfrel-title"><div class="wrap"><div class="sec-head sec-head--action"><div>'
-            . '<p class="eyebrow" data-reveal>' . icon($fam['icon'] ?? 'vial', 16, 'eyebrow__ic') . '<span>' . h($groupLabel) . '</span></p>'
-            . '<h2 class="h2" id="pfrel-title" data-reveal>' . h($f['related']) . '</h2><span class="title-rule" aria-hidden="true"></span></div>'
-            . '<a class="link-arrow" href="' . h($famUrl) . '" data-reveal>' . h($f['backRange']) . icon('arrow', 16, 'flip-rtl') . '</a></div>'
-            . '<ul class="pcards">' . implode('', array_map(fn ($x) => card($x, $lang), array_slice($related, 0, 6))) . '</ul></div></section>';
+        $o .= '<section class="section pfc-rel" aria-labelledby="pfrel-title"><div class="wrap"><div class="pfc-rel__h"><h2 class="h2" id="pfrel-title">' . h($f['related']) . '</h2>'
+            . '<a class="link-arrow" href="' . h($famUrl) . '">' . h($f['backRange']) . icon('arrow', 16, 'flip-rtl') . '</a></div><ul class="pfc-grid">';
+        foreach ($related as $x) {
+            [$xn, $xl] = ptext($x, $lang, 'name');
+            $xf = implode(' · ', array_map(fn ($v) => format_label($lang, (string) $v), $x['formats']));
+            $xs = $t['status'][$x['kind']]['badge'] ?? '';
+            $o .= '<li><a href="' . h(product_url($x, $lang)) . '"><span class="pfc-grid__v">' . product_visual($x, $lang, '', false) . '</span><b' . lang_attr($xl, $lang) . '>' . h($xn) . '</b><small dir="auto">' . h($xf !== '' ? $xf : $xs) . '</small></a></li>';
+        }
+        $o .= '</ul></div></section>';
     }
 
     // Gabarit : titre, description, adresse, image de partage

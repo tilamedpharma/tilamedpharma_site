@@ -1,0 +1,40 @@
+---
+// PLANCHE DE TRAVAIL (non destinée à la mise en ligne) : les 120 visuels « étiquette » générés, d'un coup d'œil.
+import '@fontsource/montserrat/latin-600.css';
+import '@fontsource/montserrat/latin-700.css';
+import '@fontsource/montserrat/latin-800.css';
+import '../../styles/global.css';
+import { catalog } from '../../data/catalog';
+import { useCatalog, routeLabel, formatLabel } from '../../i18n/catalog';
+import { packshot } from '../../components/produits/packshot';
+
+const c = useCatalog('fr');
+const items = catalog.map((x) => {
+  const formats = (x.formats ?? []).map((f) => formatLabel('fr', f));
+  const made = x.family === 'iv' || x.family === 'liquids';
+  return {
+    name: x.name.fr, cat: c.cats[x.cat], illu: `/media/categories/${x.cat}.svg`,
+    pk: packshot({ group: x.group, cat: x.cat, name: x.name.fr, formats, route: x.route ? routeLabel('fr', x.route) : '', line: x.line, pack: x.pack, made, packLabel: x.pack ? c.packs[x.pack] : '' }),
+  };
+});
+---
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8" /><meta name="robots" content="noindex" /><title>Planche · visuels produits</title></head>
+<body>
+  <main class="wrap" style="padding:40px 0">
+    <h1 style="font-size:1.8rem;color:var(--navy)">Visuels « étiquette » générés · {items.length} produits</h1>
+    <p style="margin:8px 0 28px;color:var(--muted)">Dispositifs médicaux : illustration de la catégorie conservée (pas d'étiquette sur un instrument).</p>
+    <ul class="g">
+      {items.map((x) => <li><span class="v">{x.pk ? <Fragment set:html={x.pk} /> : <img src={x.illu} alt="" />}</span><b>{x.name}</b><small>{x.cat}</small></li>)}
+    </ul>
+  </main>
+  <style is:global>
+    .g { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .g li { display: flex; flex-direction: column; gap: 4px; font-family: var(--font-head); }
+    .g .v { display: block; aspect-ratio: 4/3; border-radius: 10px; overflow: hidden; background: radial-gradient(circle at 50% 42%, #fff 0, #fff 30%, #eaf1f8 100%); border: 1px solid var(--line); }
+    .g .v svg, .g .v img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .g b { font-size: .8rem; color: var(--navy); line-height: 1.25; }
+    .g small { font-size: .7rem; color: var(--muted); }
+    .pk text { font-family: var(--font-head); }
+  </style>
+</body></html>

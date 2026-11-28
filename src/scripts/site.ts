@@ -332,50 +332,184 @@ $$('[data-fam-filter]').forEach((root) => {
   }));
 });
 
-/* ---------- Catalogue produits : recherche + filtre par gamme ---------- */
-$$('[data-catalog]').forEach((root) => {
-  const q = $<HTMLInputElement>('[data-cat-q]', root);
-  const chips = $$<HTMLButtonElement>('[data-cat-g]', root);
-  const cards = $$('.pcard', root);
-  const groups = $$('[data-cat-group]', root);
-  const none = $('[data-cat-none]', root);
-  const count = $('[data-cat-count]', root);
-  const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
-  let group = '';
-  const apply = () => {
-    const words = norm(q?.value ?? '').split(/\s+/).filter(Boolean);
-    let n = 0;
-    cards.forEach((c) => {
-      const ok = (!group || c.dataset.g === group) && words.every((w) => (c.dataset.s ?? '').includes(w));
-      c.hidden = !ok;
-      if (ok) n++;
-    });
-    groups.forEach((g) => { g.hidden = !$$('.pcard', g).some((c) => !c.hidden); });
-    if (none) none.hidden = n > 0;
-    if (count) count.textContent = (n === 1 ? count.dataset.one : count.dataset.many?.replace('999', String(n))) ?? String(n);
+/* ---------- Rails horizontaux (gammes du catalogue) : flèches seulement quand le contenu déborde ---------- */
+$$('[data-rail]').forEach((rail) => {
+  const track = $('[data-rail-track]', rail);
+  const prev = $<HTMLButtonElement>('[data-rail-prev]', rail);
+  const next = $<HTMLButtonElement>('[data-rail-next]', rail);
+  if (!track || !prev || !next) return;
+  const update = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    const pos = Math.abs(track.scrollLeft); // négatif en arabe (rtl)
+    const over = max > 4;
+    prev.hidden = !over || pos <= 4;
+    next.hidden = !over || pos >= max - 4;
+    rail.classList.toggle('has-prev', !prev.hidden);
+    rail.classList.toggle('has-next', !next.hidden);
   };
-  q?.addEventListener('input', apply);
-  chips.forEach((b) => b.addEventListener('click', () => {
-    group = b.dataset.catG ?? '';
-    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    apply();
-  }));
-  $('[data-cat-reset]', root)?.addEventListener('click', () => {
-    if (q) q.value = '';
-    group = '';
-    chips.forEach((x, i) => x.setAttribute('aria-pressed', String(i === 0)));
-    apply();
-    q?.focus();
+  const go = (dir: number) => {
+    const rtl = getComputedStyle(track).direction === 'rtl';
+    track.scrollBy({ left: dir * track.clientWidth * 0.8 * (rtl ? -1 : 1), behavior: reduced ? 'auto' : 'smooth' });
+  };
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', update, { passive: true });
+  track.addEventListener('scrollend', update);
+  prev.addEventListener('click', () => window.setTimeout(update, 500));
+  next.addEventListener('click', () => window.setTimeout(update, 500));
+  if ('ResizeObserver' in window) new ResizeObserver(update).observe(track);
+  window.addEventListener('load', update);
+  update();
+});
+
+/* ---------- Catalogue produits : gammes (vignettes), catégories, recherche, tri, pagination ---------- */
+// Tous les produits sont dans la page ; on n'en montre qu'une page à la fois. Adresse partageable : ?g=&c=&q=&tri=&n=&page=
+$$('[data-catalog]').forEach((root) => {
+  const list = $('[data-cat-list]', root);
+  if (!list) return;
+  const cards = $$<HTMLElement>('.pcard', list);
+  cards.forEach((c, i) => (c.dataset.i = String(i)));
+  const q = $<HTMLInputElement>('[data-cat-q]', root);
+  const sortSel = $<HTMLSelectElement>('[data-cat-sort]', root);
+  const perSel = $<HTMLSelectElement>('[data-cat-per]', root);
+  const none = $('[data-cat-none]', root);
+  const pag = $('[data-cat-pag]', root);
+  const top = $('[data-cat-top]', root);
+  const panel = $('[data-cat-panel]', root);
+  const toggle = $<HTMLButtonElement>('[data-cat-toggle]', root);
+  const d = root.dataset;
+  const lang = document.documentElement.lang || 'fr';
+  const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  const fmt = (s: string, o: Record<string, number>) => s.replace(/\{(\w)\}/g, (_, k) => String(o[k] ?? ''));
+  const perDefault = Number(d.per) || 12;
+  const st = { g: '', c: '', q: '', sort: '', per: perDefault, page: 1 };
+  const arrowL = '<svg class="icon flip-rtl" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
+  const arrowR = '<svg class="icon flip-rtl" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  // Numéros affichés : 1 … 4 5 6 … 10
+  const seq = (cur: number, n: number): (number | 0)[] => {
+    if (n <= 7) return Array.from({ length: n }, (_, i) => i + 1);
+    const s = new Set([1, n, cur - 1, cur, cur + 1]);
+    if (cur <= 3) [2, 3, 4].forEach((x) => s.add(x));
+    if (cur >= n - 2) [n - 1, n - 2, n - 3].forEach((x) => s.add(x));
+    const a = [...s].filter((x) => x >= 1 && x <= n).sort((x, y) => x - y);
+    const out: (number | 0)[] = [];
+    a.forEach((x, i) => { if (i && x - a[i - 1] > 1) out.push(0); out.push(x); });
+    return out;
+  };
+
+  const filtered = () => {
+    const words = norm(st.q).split(/\s+/).filter(Boolean);
+    const r = cards.filter((c) => (!st.g || c.dataset.g === st.g) && (!st.c || c.dataset.c === st.c) && words.every((w) => (c.dataset.s ?? '').includes(w)));
+    const coll = new Intl.Collator(lang, { sensitivity: 'base', numeric: true });
+    if (st.sort === 'az') r.sort((a, b) => coll.compare(a.dataset.n ?? '', b.dataset.n ?? ''));
+    else if (st.sort === 'za') r.sort((a, b) => coll.compare(b.dataset.n ?? '', a.dataset.n ?? ''));
+    else r.sort((a, b) => Number(a.dataset.i) - Number(b.dataset.i));
+    return r;
+  };
+
+  const pageBtn = (label: string, page: number, cls: string, opts: { cur?: boolean; dis?: boolean; aria?: string } = {}) =>
+    `<button type="button" class="${cls}" data-cat-go="${page}"${opts.cur ? ' aria-current="page"' : ''}${opts.dis ? ' disabled' : ''} aria-label="${opts.aria ?? fmt(d.tPage ?? 'Page {n}', { n: page })}">${label}</button>`;
+
+  const writeUrl = () => {
+    const u = new URL(location.href);
+    const set = (k: string, v: string | number, def: string | number) => (v !== def && v !== '' ? u.searchParams.set(k, String(v)) : u.searchParams.delete(k));
+    set('g', st.g, ''); set('c', st.c, ''); set('q', st.q, ''); set('tri', st.sort, ''); set('n', st.per, perDefault); set('page', st.page, 1);
+    history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+  };
+
+  const render = (scroll = false) => {
+    const r = filtered();
+    const pages = Math.max(1, Math.ceil(r.length / st.per));
+    st.page = Math.min(Math.max(1, st.page), pages);
+    const from = (st.page - 1) * st.per;
+    const shown = r.slice(from, from + st.per);
+    cards.forEach((c) => { c.hidden = true; c.classList.remove('is-enter'); });
+    r.forEach((c) => list.appendChild(c));
+    shown.forEach((c, i) => {
+      c.hidden = false;
+      if (!reduced && root.classList.contains('is-ready')) { c.style.setProperty('--i', String(i)); void c.offsetWidth; c.classList.add('is-enter'); }
+    });
+    const range = r.length === 0 ? (d.tNone ?? '0') : r.length === 1 ? (d.tOne ?? '1') : fmt(d.tRange ?? '{a}–{b} / {n}', { a: from + 1, b: from + shown.length, n: r.length });
+    $$('[data-cat-range]', root).forEach((n) => (n.textContent = range));
+    if (none) none.hidden = r.length > 0;
+    if (pag) {
+      pag.hidden = pages < 2;
+      const btns = $('[data-cat-pages]', pag);
+      if (btns) {
+        const p = st.page;
+        btns.innerHTML = pageBtn(arrowL + `<span>${d.tPrev}</span>`, p - 1, 'pcx-pag__nav', { dis: p === 1, aria: d.tPrev })
+          + seq(p, pages).map((x) => (x === 0 ? '<span class="pcx-pag__gap" aria-hidden="true">…</span>' : pageBtn(String(x), x, 'pcx-pag__n', { cur: x === p }))).join('')
+          + pageBtn(`<span>${d.tNext}</span>` + arrowR, p + 1, 'pcx-pag__nav', { dis: p === pages, aria: d.tNext });
+      }
+    }
+    // États des filtres
+    $$<HTMLButtonElement>('[data-cat-g]', root).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.catG === st.g)));
+    $$<HTMLButtonElement>('[data-cat-c]', root).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.catC === st.c && (!st.c || b.dataset.catCg === st.g))));
+    $$('[data-cats-of]', root).forEach((u) => { u.hidden = !!st.g && u.dataset.catsOf !== st.g; });
+    root.classList.toggle('is-group', !!st.g);
+    writeUrl();
+    if (scroll && top) {
+      const y = top.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hdr')) || 84) - 16;
+      if (window.scrollY > y) window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+    }
+  };
+
+  root.addEventListener('click', (e) => {
+    const b = (e.target as Element).closest('button');
+    if (!b || !root.contains(b)) return;
+    if (b.dataset.catGo) { st.page = Number(b.dataset.catGo); render(true); return; }
+    if (b.hasAttribute('data-cat-g')) { st.g = b.dataset.catG ?? ''; st.c = ''; st.page = 1; render(); return; }
+    if (b.hasAttribute('data-cat-c')) {
+      const c = b.dataset.catC ?? '';
+      if (c) { st.g = b.dataset.catCg ?? st.g; st.c = st.c === c ? '' : c; } else { st.c = ''; }
+      st.page = 1; render(); return;
+    }
+    if (b.hasAttribute('data-cat-reset')) {
+      st.g = st.c = st.q = ''; st.page = 1;
+      if (q) q.value = '';
+      render(); q?.focus(); return;
+    }
+    if (b === toggle && panel) {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.classList.toggle('is-open', open);
+    }
   });
-  // Recherche partageable : ?q=…&g=…
+  let qTimer = 0;
+  q?.addEventListener('input', () => {
+    window.clearTimeout(qTimer);
+    qTimer = window.setTimeout(() => { st.q = q.value.trim(); st.page = 1; render(); }, 120);
+  });
+  sortSel?.addEventListener('change', () => { st.sort = sortSel.value; st.page = 1; render(); });
+  perSel?.addEventListener('change', () => { st.per = Number(perSel.value) || perDefault; st.page = 1; render(); });
+
+  // État initial depuis l'adresse (recherche partageable ; l'ancien format ?q=&g= reste valable)
   const params = new URLSearchParams(location.search);
-  if (params.get('q') && q) q.value = params.get('q')!;
-  const g0 = params.get('g');
-  if (g0 && chips.some((x) => x.dataset.catG === g0)) {
-    group = g0;
-    chips.forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.catG === group)));
+  const groups = $$<HTMLButtonElement>('[data-cat-g]', root).map((b) => b.dataset.catG ?? '');
+  const g0 = params.get('g') ?? '';
+  if (groups.includes(g0)) st.g = g0;
+  const c0 = params.get('c') ?? '';
+  const cBtn = $$<HTMLButtonElement>('[data-cat-c]', root).find((b) => b.dataset.catC === c0 && c0 !== '');
+  if (cBtn) { st.c = c0; st.g = cBtn.dataset.catCg ?? st.g; }
+  st.q = params.get('q') ?? '';
+  if (q) q.value = st.q;
+  if (params.get('tri') === 'az' || params.get('tri') === 'za') st.sort = params.get('tri')!;
+  if (sortSel) sortSel.value = st.sort;
+  const n0 = Number(params.get('n'));
+  if (perSel && [...perSel.options].some((o) => Number(o.value) === n0)) st.per = n0;
+  if (perSel) perSel.value = String(st.per);
+  st.page = Number(params.get('page')) || 1;
+  render();
+  root.classList.add('is-ready');
+  // Mobile : les vignettes défilent ; montrer celle de la gamme choisie (adresse partagée)
+  const tilesRow = $('.pcx-tiles', root);
+  const activeTile = $('[data-cat-g][aria-pressed="true"]', root);
+  if (tilesRow && activeTile && st.g && tilesRow.scrollWidth > tilesRow.clientWidth) {
+    const r = tilesRow.getBoundingClientRect();
+    if (r.top >= 0 && r.bottom <= window.innerHeight) activeTile.scrollIntoView({ block: 'nearest', inline: 'center' });
   }
-  if (params.get('q') || g0) apply();
+
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') { e.preventDefault(); q?.focus(); }
   });

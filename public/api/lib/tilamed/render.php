@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Tlm;
 
 require_once __DIR__ . '/products.php';
+require_once __DIR__ . '/packshot.php';
 
 /** Lit la page générée par Astro (gabarit) pour une langue et un slug. */
 function template(string $lang, string $slug): ?string
@@ -38,39 +39,46 @@ function results_label(string $lang, int $n): string
     return $n === 1 ? $ui['results1'] : str_replace('999', (string) $n, $ui['resultsMany']);
 }
 
-/** Carte produit (même balisage que l'ancienne ProductCard.astro) + lien vers la fiche. */
-function card(array $p, string $lang, bool $withSearch = false): string
+/**
+ * Carte produit (catalogue, pages des gammes, produits similaires d'une fiche) : carte entière cliquable vers la fiche.
+ * Visuel : photo du produit (back office) > visuel « étiquette » généré (packshot.php) > illustration de la catégorie.
+ * $catalog : ajoute les données de recherche / tri et le nom de la gamme (page Catalogue).
+ */
+function card(array $p, string $lang, bool $catalog = false): string
 {
     $t = t($lang);
     [$name, $nl] = ptext($p, $lang, 'name');
     [$use, $ul] = ptext($p, $lang, 'use');
     $st = $t['status'][$p['kind']] ?? ['badge' => '', 'note' => ''];
-    $out = '<li class="pcard pcard--' . h($p['kind']) . '" data-g="' . h($p['grp']) . '"';
-    if ($withSearch) {
-        $search = norm(implode(' ', [$name, $use, $p['texts']['fr']['name'] ?? '', $p['texts']['en']['name'] ?? '', cat_label($p['cat'], $lang), $p['keywords']]));
-        $out .= ' data-s="' . h($search) . '"';
+    $catLabel = cat_label($p['cat'], $lang);
+    $groupLabel = $t['groups'][$p['grp']]['label'] ?? '';
+    $out = '<li class="pcard pcard--' . h($p['kind']) . '" data-g="' . h($p['grp']) . '" data-c="' . h($p['cat']) . '"';
+    if ($catalog) {
+        $search = norm(implode(' ', [$name, $use, $p['texts']['fr']['name'] ?? '', $p['texts']['en']['name'] ?? '', $catLabel, $groupLabel, $p['keywords']]));
+        $out .= ' data-s="' . h($search) . '" data-n="' . h($name) . '"';
     }
+    $out .= '><a class="pcard__in" href="' . h(product_url($p, $lang)) . '">';
     $vis = visual($p);
-    $out .= '>';
-    if ($vis['url'] !== '') {
-        $out .= '<span class="pcard__img' . ($vis['photo'] ? ' pcard__img--photo' : '') . '"><img src="' . h($vis['url']) . '" alt="" width="480" height="360" loading="lazy" decoding="async"></span>';
+    $pk = $vis['photo'] ? '' : packshot($p, $lang);
+    // Statut en pastille sur le visuel
+    $status = '<span class="pcard__st pcard__st--' . h($p['kind']) . '" title="' . h($st['note']) . '">' . h($st['badge']) . '</span>';
+    if ($vis['photo']) {
+        $out .= '<span class="pcard__vis pcard__vis--photo"><img src="' . h($vis['url']) . '" alt="" width="480" height="360" loading="lazy" decoding="async">' . $status . '</span>';
+    } elseif ($pk !== '') {
+        $out .= '<span class="pcard__vis">' . $pk . $status . '</span>';
+    } else {
+        $out .= '<span class="pcard__vis pcard__vis--illu">' . ($vis['url'] !== '' ? '<img src="' . h($vis['url']) . '" alt="" width="480" height="360" loading="lazy" decoding="async">' : '') . $status . '</span>';
     }
-    $out .= '<div class="pcard__top"><span class="pcard__badge" title="' . h($st['note']) . '">' . h($st['badge']) . '</span>';
-    if ($p['phase']) { $out .= '<span class="pcard__phase">P' . (int) $p['phase'] . '</span>'; }
-    $out .= '</div><h3 class="pcard__name"' . lang_attr($nl, $lang) . '><a class="pcard__link" href="' . h(product_url($p, $lang)) . '">' . h($name) . '</a></h3>';
-    if ($use !== '') { $out .= '<p class="pcard__use"' . lang_attr($ul, $lang) . '>' . h($use) . '</p>'; }
+    $out .= '<span class="pcard__body"><span class="pcard__k">' . h($catalog ? $groupLabel . ' · ' . $catLabel : $catLabel) . '</span>';
+    $out .= '<h3 class="pcard__name"' . lang_attr($nl, $lang) . '>' . h($name) . '</h3>';
+    if ($use !== '') { $out .= '<span class="pcard__use"' . lang_attr($ul, $lang) . '>' . h($use) . '</span>'; }
     if ($p['formats']) {
-        $out .= '<ul class="pcard__formats" aria-label="' . h($t['ui']['formats']) . '">';
-        foreach ($p['formats'] as $f) { $out .= '<li dir="ltr">' . h(format_label($lang, (string) $f)) . '</li>'; }
-        $out .= '</ul>';
+        $out .= '<span class="pcard__f" aria-label="' . h($t['ui']['formats']) . '">';
+        foreach ($p['formats'] as $f) { $out .= '<span dir="ltr">' . h(format_label($lang, (string) $f)) . '</span>'; }
+        $out .= '</span>';
     }
-    $meta = '';
-    if ($p['route'] !== '') { $meta .= '<dt>' . h($t['ui']['route']) . '</dt><dd dir="auto">' . h(route_label($lang, $p['route'])) . '</dd>'; }
-    if ($p['line'] !== '' && isset($t['lines'][$p['line']])) { $meta .= '<dt>' . h($t['ui']['line']) . '</dt><dd>' . h($t['lines'][$p['line']]) . '</dd>'; }
-    if ($p['pack'] !== '' && isset($t['packs'][$p['pack']])) { $meta .= '<dt>' . h($t['ui']['pack']) . '</dt><dd>' . h($t['packs'][$p['pack']]) . '</dd>'; }
-    if ($meta !== '') { $out .= '<dl class="pcard__meta">' . $meta . '</dl>'; }
-    $out .= '<span class="pcard__more" aria-hidden="true">' . h($t['fiche']['seeSheet']) . icon('arrow', 14, 'flip-rtl') . '</span>';
-    return $out . '</li>';
+    $out .= '<span class="pcard__foot"><span class="pcard__go">' . h($t['fiche']['seeSheet']) . icon('arrow', 15, 'flip-rtl') . '</span></span>';
+    return $out . '</span></a></li>';
 }
 
 /* ---------- Page « Catalogue » ---------- */
@@ -79,12 +87,25 @@ function render_catalog(string $html, string $lang): string
 {
     $items = products(['published']);
     $slots = ['n:all' => (string) count($items), 'results' => h(results_label($lang, count($items)))];
+    // Catégories de la colonne de gauche, par gamme, dans l'ordre du catalogue (seules celles qui ont des produits).
+    $cats = [];
+    foreach ($items as $p) { $cats[$p['grp']][$p['cat']] = ($cats[$p['grp']][$p['cat']] ?? 0) + 1; }
+    $side = '';
     foreach (GROUPS as $g) {
         $list = array_values(array_filter($items, fn ($p) => $p['grp'] === $g));
         $slots['count:' . $g] = (string) count($list);
         $slots['n:' . $g] = (string) count($list);
-        $slots['cards:' . $g] = implode('', array_map(fn ($p) => card($p, $lang, true), $list));
+        if (empty($cats[$g])) { continue; }
+        $side .= '<div class="pcx-cats" data-cats-of="' . h($g) . '"><p class="pcx-cats__h">' . h(t($lang)['groups'][$g]['label'] ?? $g) . '</p><ul>';
+        foreach ($cats[$g] as $cat => $n) {
+            $side .= '<li><button type="button" class="pcx-c" data-cat-c="' . h((string) $cat) . '" data-cat-cg="' . h($g) . '" aria-pressed="false">'
+                . h(cat_label((string) $cat, $lang)) . '<span>' . $n . '</span></button></li>';
+        }
+        $side .= '</ul></div>';
     }
+    $slots['cats'] = $side;
+    $slots['n:cats'] = (string) array_sum(array_map('count', $cats));
+    $slots['cards'] = implode('', array_map(fn ($p) => card($p, $lang, true), $items));
     return fill($html, $slots);
 }
 
@@ -226,8 +247,11 @@ function render_product(string $html, array $p, string $lang, bool $preview): st
     $isDevices = $p['grp'] === 'devices';
     $o .= '<a class="btn btn--outline-light" href="' . h(lang_path($lang, $isDevices || $p['grp'] === 'vet' ? 'contact' : 'documentation')) . '">' . h($isDevices || $p['grp'] === 'vet' ? $t['produits']['contactCta'] : $t['produits']['docCta']) . '</a>';
     $vis = visual($p);
-    $o .= '</div></div><div class="pfhero__media' . ($vis['photo'] ? ' pfhero__media--photo' : '') . '">';
-    if ($vis['url'] !== '') {
+    $pk = $vis['photo'] ? '' : packshot($p, $lang);
+    $o .= '</div></div><div class="pfhero__media' . ($vis['photo'] ? ' pfhero__media--photo' : '') . ($pk !== '' ? ' pfhero__media--pk' : '') . '">';
+    if ($pk !== '') {
+        $o .= $pk; // visuel « étiquette » (décoratif : le nom est dans le titre)
+    } elseif ($vis['url'] !== '') {
         // Illustration de catégorie : décorative (alt vide) ; photo du produit : alt = nom.
         $o .= '<img src="' . h($vis['url']) . '" alt="' . ($vis['photo'] ? h($name) : '') . '" width="480" height="360" loading="eager" decoding="async">';    } else {
         $o .= '<span class="pfhero__ic" aria-hidden="true">' . icon($fam['icon'] ?? 'vial', 72) . '</span><span class="pfhero__brand" aria-hidden="true">TILAMED <b>Pharma</b></span>';

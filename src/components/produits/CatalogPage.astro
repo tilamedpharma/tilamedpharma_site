@@ -1,5 +1,8 @@
 ---
-// Page « Catalogue » : les 5 gammes + catalogue complet filtrable (recherche et gammes, sans rechargement).
+// Page « Catalogue » (validée le 28/11/2026 : proposition A + vignettes photo des gammes de la proposition C).
+// Les 5 gammes en grandes photos servent de filtres ; colonne de gauche : recherche et catégories ; grille de cartes
+// avec visuels « étiquette » ; tri, nombre par page et pagination numérotée (script : src/scripts/site.ts, [data-catalog]).
+// Tous les produits sont dans la page (référencement, sans JavaScript) ; le script n'en montre qu'une page à la fois.
 // Les produits viennent de la base du back office : les emplacements <Live> sont remplis par public/api/catalogue.php.
 import { Picture } from 'astro:assets';
 import Icon from '../Icon.astro';
@@ -9,87 +12,115 @@ import { useDict } from '../../i18n';
 import { useCatalog } from '../../i18n/catalog';
 import { useProduits } from '../../i18n/pages/produits';
 import { localizePath, type Locale } from '../../i18n/config';
-import type { Group } from '../../data/catalog';
 import { productFamilies, catalogueImage } from '../../data/products';
 
 interface Props { lang: Locale }
 const { lang } = Astro.props;
 const t = useDict(lang);
 const c = useCatalog(lang);
+const b = c.browse;
 const p = useProduits(lang);
 const L = (s: string) => localizePath(lang, s);
 const pages = t.nav.pages as Record<string, string>;
-
-const groups: Group[] = productFamilies.map((f) => f.group);
+const perPage = [12, 24, 48];
+const fmt = (s: string, n: number) => s.replace('{n}', String(n));
+// Nombre de catégories : rempli par PHP (emplacement « n:cats ») au milieu du libellé traduit
+const [catsBefore, catsAfter] = b.catsCount.split('{n}');
 ---
-<PageHero lang={lang} section="produits" slug="produits" title={pages['produits']} lead={p.catalogue.lead} image={catalogueImage}>
-  <a class="btn" href="#catalogue">{p.catalogue.searchTitle}<Icon name="arrow" size={18} class="flip-rtl" /></a>
-  <a class="btn btn--outline-light" href={L('documentation')}>{p.ui.docCta}</a>
-</PageHero>
+<PageHero lang={lang} section="produits" slug="produits" title={pages['produits']} lead={p.catalogue.lead} image={catalogueImage} />
 
-<section class="section pfam" aria-labelledby="pfam-title">
+<section
+  class="pcx"
+  id="catalogue"
+  aria-labelledby="pcx-title"
+  data-catalog
+  data-per={perPage[0]}
+  data-t-range={b.range}
+  data-t-one={b.rangeOne}
+  data-t-none={c.ui.results(0)}
+  data-t-prev={b.prev}
+  data-t-next={b.next}
+  data-t-page={b.page}
+>
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2" id="pfam-title" data-reveal>{p.catalogue.familiesTitle}</h2>
-      <span class="title-rule" aria-hidden="true"></span>
+    <h2 class="sr-only" id="pcx-title">{p.catalogue.searchTitle}</h2>
+
+    <!-- Gammes : « Toutes les gammes » fixe, puis un rail qui défile (flèches) dès qu'il y a plus de gammes que de place. -->
+    <div class="pcx-ranges" role="group" aria-label={b.ranges}>
+      <button type="button" class="pcx-tile pcx-tile--all" data-cat-g="" aria-pressed="true">
+        <span class="pcx-all__n"><Live k="n:all" /></span>
+        <span class="pcx-all__l">{c.ui.refs}</span>
+        <span class="pcx-tile__t">{b.allRanges}</span>
+        <span class="pcx-all__meta">{fmt(b.rangesCount, productFamilies.length)} · {catsBefore}<Live k="n:cats" />{catsAfter}</span>
+      </button>
+      <div class="pcx-rail" data-rail>
+        <button type="button" class="pcx-rail__arrow pcx-rail__arrow--prev" data-rail-prev aria-label={b.prev} hidden><Icon name="arrow" size={20} class="flip-rtl pcx-rail__back" /></button>
+        <div class="pcx-tiles" data-rail-track>
+          {productFamilies.map((f) => (
+            <button type="button" class="pcx-tile" data-cat-g={f.group} aria-pressed="false">
+              <Picture src={f.card} formats={['avif', 'webp']} widths={[320, 480, 640]} sizes="(max-width: 900px) 180px, 16vw" alt="" loading="eager" />
+              <span class="pcx-tile__t">{c.groups[f.group].label}</span>
+              <span class="pcx-tile__n"><Live k={`count:${f.group}`} /> {c.ui.refs}</span>
+            </button>
+          ))}
+        </div>
+        <button type="button" class="pcx-rail__arrow pcx-rail__arrow--next" data-rail-next aria-label={b.next} hidden><Icon name="arrow" size={20} class="flip-rtl" /></button>
+      </div>
     </div>
-    <ul class="pfam__grid">
-      {productFamilies.map((f, i) => (
-        <li data-reveal style={`--d:${i}`}>
-          <a class="pfam__card" href={L(f.slug)}>
-            <span class="pfam__img"><Picture src={f.card} formats={['avif', 'webp']} widths={[360, 560, 800]} sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 20vw" alt="" loading="lazy" /></span>
-            <span class="pfam__body">
-              <span class="pfam__ic"><Icon name={f.icon} size={20} /></span>
-              <span class="pfam__t">{c.groups[f.group].label}</span>
-              <span class="pfam__d">{c.groups[f.group].blurb}</span>
-              <span class="pfam__n"><Live k={`count:${f.group}`} /> {c.ui.refs}</span>
-            </span>
-          </a>
-        </li>
-      ))}
-    </ul>
+
+    <div class="pcx-layout" data-cat-top>
+      <aside class="pcx-side">
+        <label class="pcx-search">
+          <Icon name="search" size={18} />
+          <span class="sr-only">{c.ui.searchLabel}</span>
+          <input type="search" placeholder={c.ui.search} autocomplete="off" data-cat-q />
+        </label>
+        <button type="button" class="pcx-side__toggle" aria-expanded="false" aria-controls="pcx-panel" data-cat-toggle><Icon name="filter" size={18} />{b.filters}<Icon name="chevron" size={16} class="pcx-side__chev" /></button>
+        <div class="pcx-side__panel" id="pcx-panel" data-cat-panel>
+          <p class="pcx-side__h">{b.categories}</p>
+          <button type="button" class="pcx-c pcx-c--all" data-cat-c="" aria-pressed="true">{b.allCats}</button>
+          <Live k="cats" />
+        </div>
+        <div class="pcx-help">
+          <p class="pcx-help__t">{b.helpTitle}</p>
+          <p>{b.helpText}</p>
+          <a class="btn btn--sm" href={L('documentation')}>{p.ui.docCta}</a>
+        </div>
+      </aside>
+
+      <div class="pcx-main">
+        <div class="pcx-tool">
+          <p class="pcx-tool__r" aria-live="polite" data-cat-range><Live k="results" /></p>
+          <div class="pcx-tool__opts">
+            <label>{b.sort}
+              <select data-cat-sort>
+                <option value="">{b.sortCatalog}</option>
+                <option value="az">{b.sortAz}</option>
+                <option value="za">{b.sortZa}</option>
+              </select>
+            </label>
+            <label>{b.perPage}
+              <select data-cat-per>{perPage.map((n) => <option value={n}>{n}</option>)}</select>
+            </label>
+          </div>
+        </div>
+
+        <ul class="pcards pcards--cx" data-cat-list><Live k="cards" /></ul>
+
+        <div class="pcat__none" hidden data-cat-none>
+          <p class="pcat__none-t">{c.ui.none}</p>
+          <p>{c.ui.noneHint}</p>
+          <button type="button" class="btn btn--ghost btn--sm" data-cat-reset>{c.ui.reset}</button>
+        </div>
+
+        <nav class="pcx-pag" aria-label={b.pagination} data-cat-pag>
+          <p class="pcx-pag__r" data-cat-range></p>
+          <div class="pcx-pag__btns" data-cat-pages></div>
+        </nav>
+
+        <ul class="pcat__legal">{c.ui.legal.map((x) => <li>{x}</li>)}</ul>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="section pcat" id="catalogue" aria-labelledby="pcat-title" data-catalog>
-  <div class="wrap">
-    <div class="sec-head sec-head--split">
-      <div>
-        <h2 class="h2" id="pcat-title" data-reveal>{p.catalogue.searchTitle}</h2>
-        <span class="title-rule" aria-hidden="true"></span>
-      </div>
-      <p class="lead" data-reveal>{p.catalogue.searchIntro}</p>
-    </div>
-
-    <div class="pcat__bar">
-      <label class="pcat__search">
-        <Icon name="search" size={20} />
-        <span class="sr-only">{c.ui.searchLabel}</span>
-        <input type="search" placeholder={c.ui.search} autocomplete="off" data-cat-q />
-      </label>
-      <div class="pcat__chips" role="group" aria-label={c.ui.searchLabel}>
-        <button type="button" class="pcat__chip" aria-pressed="true" data-cat-g="">{c.ui.all} <span><Live k="n:all" /></span></button>
-        {groups.map((g) => <button type="button" class="pcat__chip" aria-pressed="false" data-cat-g={g}>{c.groups[g].label} <span><Live k={`n:${g}`} /></span></button>)}
-      </div>
-      <p class="pcat__count" aria-live="polite" data-cat-count data-one={c.ui.results(1)} data-many={c.ui.results(999)}><Live k="results" /></p>
-    </div>
-
-    {groups.map((g) => (
-      <div class="pcat__group" data-cat-group={g}>
-        <h3 class="pcat__gh"><a href={L(productFamilies.find((f) => f.group === g)!.slug)}>{c.groups[g].label}<Icon name="arrow" size={16} class="flip-rtl" /></a></h3>
-        <ul class="pcards">
-          <Live k={`cards:${g}`} />
-        </ul>
-      </div>
-    ))}
-
-    <div class="pcat__none" hidden data-cat-none>
-      <p class="pcat__none-t">{c.ui.none}</p>
-      <p>{c.ui.noneHint}</p>
-      <button type="button" class="btn btn--ghost btn--sm" data-cat-reset>{c.ui.reset}</button>
-    </div>
-
-    <ul class="pcat__legal">{c.ui.legal.map((x) => <li>{x}</li>)}</ul>
-  </div>
-</section>
-
+<noscript><style>.pcards--cx > li { display: flex !important; } .pcx-pag, .pcx-tool__opts, .pcx-ranges, .pcx-side__panel { display: none !important; }</style></noscript>
